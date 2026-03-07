@@ -78,7 +78,7 @@ export default function Home() {
                         </p>
 
                         <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-                            Friendly, secure remote tech help without the stress.
+                            Friendly, secure, and remote tech help without the stress.
                         </h1>
 
                         <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-slate-700">
