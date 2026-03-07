@@ -87,20 +87,20 @@ export default function Home() {
                             I focus on fixing real problems, not selling unnecessary software.
                         </p>
 
-                        <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
-                            Get help with slow computers, Viruses, software issues, printer problems,
-                            email setup, and general troubleshooting. You stay in control of
-                            the session the whole time and can disconnect whenever you want.
-                        </p>
-
                         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                             <Link
                                 to="/remote-support"
                                 className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                             >
-                                Click to See Remote Support Services →
+                                Remote Support Services →
                             </Link>
                         </div>
+
+                        <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
+                            Get help with slow computers, viruses, software issues, printer problems,
+                            email setup, and general troubleshooting. You stay in control of
+                            the session the whole time and can disconnect whenever you want.
+                        </p>
 
                         <div className="mt-8 grid gap-3 sm:grid-cols-3">
                             <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">
@@ -165,12 +165,6 @@ export default function Home() {
                     Help with slow PCs, printer problems, software installs, email setup,
                     updates, and general troubleshooting.
                 </Card>
-
-                <Card to="/security" title="Security Promise" icon={ShieldCheck}>
-                    Built around trust: no cold calls, no banking passwords, and
-                    session-based remote access only.
-                </Card>
-
                 <Card to="/book" title="Book a Session" icon={CalendarCheck2}>
                     Send a support request through the website and it goes directly to me
                     for review and follow-up.
