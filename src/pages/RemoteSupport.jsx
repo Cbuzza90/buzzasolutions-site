@@ -11,8 +11,10 @@ import {
     Wrench,
 } from "lucide-react";
 
-function ServiceCard({ title, children, icon }) {
+function ServiceCard(props) {
+    const { title, children, icon } = props;
     const Icon = icon;
+
     return (
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="flex items-start gap-4">
@@ -25,50 +27,6 @@ function ServiceCard({ title, children, icon }) {
                     <p className="mt-2 text-sm leading-6 text-slate-600">{children}</p>
                 </div>
             </div>
-        </div>
-    );
-}
-
-function PricingCard({ title, price, description, featured = false }) {
-    return (
-        <div
-            className={`rounded-3xl border p-6 shadow-sm ${featured
-                ? "border-slate-900 bg-slate-900 text-white"
-                : "border-slate-200 bg-white text-slate-900"
-                }`}
-        >
-            <div className="flex items-start justify-between gap-4">
-                <div>
-                    <h3
-                        className={`text-base font-semibold ${featured ? "text-white" : "text-slate-900"
-                            }`}
-                    >
-                        {title}
-                    </h3>
-
-                    {price && (
-                        <p
-                            className={`mt-3 text-3xl font-bold tracking-tight ${featured ? "text-white" : "text-slate-900"
-                                }`}
-                        >
-                            {price}
-                        </p>
-                    )}
-                </div>
-
-                {featured && (
-                    <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white">
-                        Most Popular
-                    </span>
-                )}
-            </div>
-
-            <p
-                className={`mt-4 text-sm leading-6 ${featured ? "text-slate-200" : "text-slate-600"
-                    }`}
-            >
-                {description}
-            </p>
         </div>
     );
 }
@@ -90,7 +48,7 @@ export default function RemoteSupport() {
                     <div>
                         <div className="flex flex-wrap gap-2">
                             <span className="rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-700 backdrop-blur">
-                                Windows & Mac & Androids & Apple
+                                Windows, Mac, Android & Apple
                             </span>
                             <span className="rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-700 backdrop-blur">
                                 Session-based support
@@ -198,9 +156,9 @@ export default function RemoteSupport() {
 
                 <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-sm leading-6 text-slate-600">
-                        <span className="font-semibold text-slate-900">Note:</span> iPhone and
-                        iPad help is usually more guided, since Apple limits full remote control,
-                        but I can still walk you through steps clearly.
+                        <span className="font-semibold text-slate-900">Note:</span> iPhone
+                        and iPad help is usually more guided, since Apple limits full remote
+                        control, but I can still walk you through steps clearly.
                     </p>
                 </div>
             </section>
@@ -212,7 +170,7 @@ export default function RemoteSupport() {
                             Pricing
                         </p>
                         <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
-                            Simple, transparent session pricing
+                            Start with a simple diagnostic
                         </h2>
                     </div>
 
@@ -225,24 +183,57 @@ export default function RemoteSupport() {
                 </div>
 
                 <div className="mt-8 grid gap-4 lg:grid-cols-3">
-                    <PricingCard
-                        title="Quick Fix"
-                        price="$39"
-                        description="30 minutes. Best for quick issues like printer problems, basic email setup, or simple troubleshooting."
-                    />
+                    <div className="rounded-3xl border border-slate-900 bg-slate-900 p-6 text-white shadow-sm">
+                        <div className="flex items-start justify-between gap-4">
+                            <div>
+                                <h3 className="text-base font-semibold text-white">
+                                    Remote Diagnostic
+                                </h3>
+                                <p className="mt-3 text-3xl font-bold tracking-tight">$30</p>
+                            </div>
 
-                    <PricingCard
-                        title="Standard Session"
-                        price="$69"
-                        description="60 minutes. Best for deeper troubleshooting, multiple issues, or more hands-on setup help."
-                        featured
-                    />
+                            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white">
+                                Best place to start
+                            </span>
+                        </div>
 
-                    <PricingCard
-                        title="Not sure what you need?"
-                        price={null}
-                        description="Book a request, describe the issue, and I’ll keep the process simple and transparent."
-                    />
+                        <p className="mt-4 text-sm leading-6 text-slate-200">
+                            A remote diagnostic session to identify the issue, perform basic
+                            troubleshooting, and explain the best next step clearly.
+                        </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 className="text-base font-semibold text-slate-900">
+                            Clear Estimate Before More Work
+                        </h3>
+
+                        <p className="mt-4 text-sm leading-6 text-slate-600">
+                            If the issue needs additional time or deeper troubleshooting, I’ll
+                            provide a clear quote before continuing so you know exactly what
+                            to expect.
+                        </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 className="text-base font-semibold text-slate-900">
+                            No Pressure, No Surprises
+                        </h3>
+
+                        <p className="mt-4 text-sm leading-6 text-slate-600">
+                            If the problem is solved during the diagnostic, there is no extra
+                            charge. If it turns out to be outside scope, I’ll tell you
+                            directly and recommend the best next option where possible.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-sm leading-6 text-slate-600">
+                        <span className="font-semibold text-slate-900">Please note:</span>{" "}
+                        If the issue requires extended troubleshooting, I will always
+                        confirm pricing before continuing.
+                    </p>
                 </div>
             </section>
 
@@ -313,14 +304,14 @@ export default function RemoteSupport() {
                         <div className="flex gap-3">
                             <Wrench className="mt-0.5 h-5 w-5 shrink-0 text-slate-500" />
                             <p className="text-sm leading-6 text-slate-700">
-                                Large Business servers or complex managed IT environments.
+                                Large business servers or complex managed IT environments.
                             </p>
                         </div>
                     </div>
 
                     <p className="mt-6 text-sm leading-6 text-slate-500">
-                        If something is high-risk or outside scope, I’ll tell you directly and
-                        suggest the next best option where possible.
+                        If something is high-risk or outside scope, I’ll tell you directly
+                        and suggest the next best option where possible.
                     </p>
                 </div>
             </section>

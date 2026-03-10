@@ -8,6 +8,7 @@ import {
     Lock,
     Laptop,
     Wrench,
+    PlayCircle,
 } from "lucide-react";
 
 function Card({ title, children, to, icon }) {
@@ -58,6 +59,127 @@ function Feature({ icon, title, text }) {
 export default function Home() {
     return (
         <div className="space-y-8">
+            <section className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                <div className="grid gap-8 p-8 md:grid-cols-[1.05fr_0.95fr] md:p-10">
+                    <div className="flex flex-col justify-center">
+                        <div className="flex flex-wrap gap-2">
+                            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+                                Featured Video
+                            </span>
+                            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+                                Remote Support Walkthrough
+                            </span>
+                        </div>
+
+                        <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                            Watch
+                        </p>
+
+                        <h2 className="mt-2 max-w-2xl text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            Introduction from Chris
+                        </h2>
+
+                        <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600">
+                            Watch a quick introduction by Chris about Buzza Solutions, Instead of unknown people, he puts his face on his company so you know who is fixing your tech issues.
+                        </p>
+
+                        <div className="mt-8 space-y-5">
+                            <div className="flex gap-4">
+                                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-700">
+                                    <ShieldCheck className="h-5 w-5" />
+                                </div>
+                                <div>
+                                    <h3 className="text-sm font-semibold text-slate-900">
+                                        Session-based access only
+                                    </h3>
+                                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                                        Remote support starts only when you request it and
+                                        approve the connection.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-700">
+                                    <MonitorSmartphone className="h-5 w-5" />
+                                </div>
+                                <div>
+                                    <h3 className="text-sm font-semibold text-slate-900">
+                                        You have the control, you chose to the access level.
+                                    </h3>
+                                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                                        The process is transparent, straightforward, and
+                                        designed to help you feel comfortable during the session.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-700">
+                                    <Lock className="h-5 w-5" />
+                                </div>
+                                <div>
+                                    <h3 className="text-sm font-semibold text-slate-900">
+                                        No pressure and no upsells
+                                    </h3>
+                                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                                        The focus is on solving the issue clearly and safely,
+                                        not selling software you do not need.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                            <Link
+                                to="/remote-support"
+                                className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                            >
+                                Remote Support Services →
+                            </Link>
+
+                            <Link
+                                to="/book"
+                                className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+                            >
+                                Book a Session
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col justify-center">
+                        <div className="rounded-[1.75rem] border border-slate-200 bg-slate-950 p-3 shadow-xl">
+                            <div className="overflow-hidden rounded-[1.25rem] border border-white/10 bg-black">
+                                <div className="aspect-video w-full">
+                                    <iframe
+                                        className="h-full w-full"
+                                        src="https://www.youtube.com/embed/ZRnPCLSjf7U"
+                                        title="Buzza Solutions intro video"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="flex items-start justify-between gap-4 px-2 pt-4">
+                                <div>
+                                    <div className="flex items-center gap-2">
+                                        <PlayCircle className="h-4 w-4 text-white" />
+                                        <p className="text-sm font-semibold text-white">
+                                            Buzza Solutions Intro
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                                    Intro Video
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section className="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-slate-100 shadow-sm">
                 <div className="grid gap-10 p-8 md:grid-cols-[1.3fr_0.7fr] md:p-10">
                     <div>
@@ -82,9 +204,10 @@ export default function Home() {
                         </h1>
 
                         <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-slate-700">
-                            Quick tip: most people don’t need to pay for expensive antivirus software.
-                            Modern Windows and Mac devices already include strong built-in security.
-                            I focus on fixing real problems, not selling unnecessary software.
+                            Quick tip: most people do not need to pay for expensive antivirus
+                            software. Modern Windows and Mac devices already include strong
+                            built-in security. I focus on fixing real problems, not selling
+                            unnecessary software.
                         </p>
 
                         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -97,9 +220,10 @@ export default function Home() {
                         </div>
 
                         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
-                            Get help with slow computers, viruses, software issues, printer problems,
-                            email setup, and general troubleshooting. You stay in control of
-                            the session the whole time and can disconnect whenever you want.
+                            Get help with slow computers, viruses, software issues, printer
+                            problems, email setup, and general troubleshooting. You stay in
+                            control of the session the whole time and can disconnect whenever
+                            you want.
                         </p>
 
                         <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -165,6 +289,7 @@ export default function Home() {
                     Help with slow PCs, printer problems, software installs, email setup,
                     updates, and general troubleshooting.
                 </Card>
+
                 <Card to="/book" title="Book a Session" icon={CalendarCheck2}>
                     Send a support request through the website and it goes directly to me
                     for review and follow-up.

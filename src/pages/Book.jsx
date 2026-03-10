@@ -2,10 +2,9 @@ export default function Book() {
     return (
         <div className="space-y-10">
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h1 className="text-3xl font-bold tracking-tight">Book Remote Support</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Book Remote Support or Ask any tech question!</h1>
                 <p className="mt-3 max-w-2xl text-slate-600">
-                    Fill this out and I’ll get back to you ASAP. You stay in control the entire time —
-                    you can see everything I do and disconnect anytime.
+                    Fill this out and I’ll get back to you ASAP. For Remote Support, you stay in control the entire time, you can see everything I do and disconnect anytime.
                 </p>
             </section>
 
