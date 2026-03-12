@@ -2,7 +2,7 @@ export default function Book() {
     return (
         <div className="space-y-10">
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h1 className="text-3xl font-bold tracking-tight">Book Remote Support or Ask any tech question!</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Contact or book with me today!</h1>
                 <p className="mt-3 max-w-2xl text-slate-600">
                     Fill this out and I’ll get back to you ASAP. For Remote Support, you stay in control the entire time, you can see everything I do and disconnect anytime.
                 </p>
@@ -83,18 +83,6 @@ export default function Book() {
                             placeholder="e.g., Weeknights after 7pm, or Saturday afternoon"
                         />
                     </div>
-
-                    <label className="flex items-start gap-3 text-sm text-slate-700">
-                        <input
-                            name="agree"
-                            type="checkbox"
-                            required
-                            className="mt-1 h-4 w-4 rounded border-slate-300"
-                        />
-                        <span>
-                            I agree to the Remote Support Terms and understand remote access is session-based and I can end the session at any time.
-                        </span>
-                    </label>
 
                     {/* Nice email subject */}
                     <input type="hidden" name="_subject" value="New Remote Support Request — Buzza Solutions" />
