@@ -9,6 +9,10 @@ import {
     Laptop,
     Wrench,
     PlayCircle,
+    Smartphone,
+    Wifi,
+    Printer,
+    Mail,
 } from "lucide-react";
 
 function Card({ title, children, to, icon }) {
@@ -56,6 +60,30 @@ function Feature({ icon, title, text }) {
     );
 }
 
+function HelpCategory({ icon, title, items }) {
+    const Icon = icon;
+
+    return (
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-slate-700">
+                    <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+            </div>
+
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
+                {items.map((item) => (
+                    <li key={item} className="flex gap-3">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
+                        <span>{item}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
 export default function Home() {
     return (
         <div className="space-y-8">
@@ -80,7 +108,9 @@ export default function Home() {
                         </h2>
 
                         <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600">
-                            Watch a quick introduction by Chris about Buzza Solutions, Instead of unknown people, he puts his face on his company so you know who is fixing your tech issues.
+                            Watch a quick introduction from Chris about Buzza Solutions. Instead of
+                            dealing with a faceless company, you can see exactly who is helping with
+                            your tech issues.
                         </p>
 
                         <div className="mt-8 space-y-5">
@@ -93,8 +123,8 @@ export default function Home() {
                                         Session-based access only
                                     </h3>
                                     <p className="mt-1 text-sm leading-6 text-slate-600">
-                                        Remote support starts only when you request it and
-                                        approve the connection.
+                                        Remote support starts only when you request it and approve
+                                        the connection.
                                     </p>
                                 </div>
                             </div>
@@ -105,11 +135,11 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <h3 className="text-sm font-semibold text-slate-900">
-                                        You have the control, you chose to the access level.
+                                        You stay in control of the access level
                                     </h3>
                                     <p className="mt-1 text-sm leading-6 text-slate-600">
-                                        The process is transparent, straightforward, and
-                                        designed to help you feel comfortable during the session.
+                                        The process is transparent, straightforward, and designed to
+                                        help you feel comfortable during the session.
                                     </p>
                                 </div>
                             </div>
@@ -123,8 +153,8 @@ export default function Home() {
                                         No pressure and no upsells
                                     </h3>
                                     <p className="mt-1 text-sm leading-6 text-slate-600">
-                                        The focus is on solving the issue clearly and safely,
-                                        not selling software you do not need.
+                                        The focus is on solving the issue clearly and safely, not
+                                        selling software you do not need.
                                     </p>
                                 </div>
                             </div>
@@ -180,6 +210,69 @@ export default function Home() {
                 </div>
             </section>
 
+            <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+                <div className="max-w-3xl">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        What I can help with
+                    </p>
+                    <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                        Clear help for everyday tech problems
+                    </h2>
+                    <p className="mt-4 text-sm leading-6 text-slate-600">
+                        I help with common issues on computers, phones, tablets, printers,
+                        email, WiFi, and other everyday devices. Whether you have a Windows PC,
+                        Mac, iPhone, Samsung phone, or something else, I keep the support clear
+                        and easy to understand.
+                    </p>
+                </div>
+
+                <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                    <HelpCategory
+                        icon={Laptop}
+                        title="Computers"
+                        items={[
+                            "Slow laptops and desktops",
+                            "Software installs and updates",
+                            "Startup issues and general troubleshooting",
+                            "File help and basic computer setup",
+                        ]}
+                    />
+
+                    <HelpCategory
+                        icon={Smartphone}
+                        title="Phones & tablets"
+                        items={[
+                            "iPhone and Android phone help",
+                            "App issues and basic settings help",
+                            "Email setup on phones and tablets",
+                            "Photo, file, and account help",
+                        ]}
+                    />
+
+                    <HelpCategory
+                        icon={Wifi}
+                        title="Internet & home tech"
+                        items={[
+                            "WiFi and connection problems",
+                            "Smart TV and streaming setup",
+                            "Connecting devices around the home",
+                            "General home tech troubleshooting",
+                        ]}
+                    />
+
+                    <HelpCategory
+                        icon={Printer}
+                        title="Printers, email & more"
+                        items={[
+                            "Printer setup and troubleshooting",
+                            "Email account setup and fixes",
+                            "Password and login help",
+                            "Guidance for using your devices with confidence",
+                        ]}
+                    />
+                </div>
+            </section>
+
             <section className="overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-slate-100 shadow-sm">
                 <div className="grid gap-10 p-8 md:grid-cols-[1.3fr_0.7fr] md:p-10">
                     <div>
@@ -228,21 +321,27 @@ export default function Home() {
 
                         <div className="mt-8 grid gap-3 sm:grid-cols-3">
                             <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">
-                                <div className="text-sm font-semibold text-slate-900">Secure sessions</div>
+                                <div className="text-sm font-semibold text-slate-900">
+                                    Secure sessions
+                                </div>
                                 <div className="mt-1 text-sm text-slate-600">
                                     Remote access only with your permission.
                                 </div>
                             </div>
 
                             <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">
-                                <div className="text-sm font-semibold text-slate-900">No-pressure help</div>
+                                <div className="text-sm font-semibold text-slate-900">
+                                    No-pressure help
+                                </div>
                                 <div className="mt-1 text-sm text-slate-600">
                                     Clear support without scare tactics or upsells.
                                 </div>
                             </div>
 
                             <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">
-                                <div className="text-sm font-semibold text-slate-900">You stay in control</div>
+                                <div className="text-sm font-semibold text-slate-900">
+                                    You stay in control
+                                </div>
                                 <div className="mt-1 text-sm text-slate-600">
                                     Watch everything live and disconnect anytime.
                                 </div>
@@ -251,7 +350,9 @@ export default function Home() {
                     </div>
 
                     <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-                        <h2 className="text-lg font-semibold text-slate-900">Why people feel safer here</h2>
+                        <h2 className="text-lg font-semibold text-slate-900">
+                            Why people feel safer here
+                        </h2>
 
                         <div className="mt-6 space-y-5">
                             <Feature
@@ -293,6 +394,11 @@ export default function Home() {
                 <Card to="/book" title="Book a Session" icon={CalendarCheck2}>
                     Send a support request through the website and it goes directly to me
                     for review and follow-up.
+                </Card>
+
+                <Card to="/remote-support" title="Email & Device Help" icon={Mail}>
+                    Help with email issues, phone setup, tablets, passwords, and other
+                    everyday tech problems.
                 </Card>
             </section>
 
@@ -336,8 +442,8 @@ export default function Home() {
                             2. Connect securely
                         </h3>
                         <p className="mt-2 text-sm leading-6 text-slate-600">
-                            We start a remote session only with your permission and while
-                            you are present.
+                            We start a remote session only with your permission and while you
+                            are present.
                         </p>
                     </div>
 
@@ -349,8 +455,8 @@ export default function Home() {
                             3. Troubleshoot the issue
                         </h3>
                         <p className="mt-2 text-sm leading-6 text-slate-600">
-                            I work through the problem with you, explain what’s happening,
-                            and keep the process straightforward.
+                            I work through the problem with you, explain what’s happening, and
+                            keep the process straightforward.
                         </p>
                     </div>
                 </div>
