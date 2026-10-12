@@ -1,0 +1,458 @@
+[
+  {
+    "id": 1,
+    "prompt": "Which of the following is the best general shop practice?",
+    "options": [
+      "Leave tools out so they are always accessible",
+      "Maintain good housekeeping and clean as you work",
+      "Clean only when an inspection is scheduled",
+      "Store frequently used equipment in walkways"
+    ],
+    "correctIndex": 1,
+    "explanation": "Good housekeeping; clean as you work."
+  },
+  {
+    "id": 2,
+    "prompt": "What should you do with equipment after you have finished using it?",
+    "options": [
+      "Leave it where the next person might need it",
+      "Place it beside the nearest emergency exit",
+      "Leave cleaning and storage to the next user",
+      "Clean it and return it to its designated storage location"
+    ],
+    "correctIndex": 3,
+    "explanation": "Clean equipment and return it to its designated storage."
+  },
+  {
+    "id": 3,
+    "prompt": "Who is responsible for maintaining safety in the shop or hangar?",
+    "options": [
+      "Everyone in the workplace",
+      "Only supervisors and instructors",
+      "Only the health and safety representative",
+      "Only the person operating equipment"
+    ],
+    "correctIndex": 0,
+    "explanation": "Everyone is responsible for safety."
+  },
+  {
+    "id": 4,
+    "prompt": "What are the yellow painted walkways in the hangar intended for?",
+    "options": [
+      "Temporary storage of aircraft components",
+      "Parking ground support equipment",
+      "Designated pedestrian travel routes",
+      "Areas where PPE is unnecessary"
+    ],
+    "correctIndex": 2,
+    "explanation": "Designated pedestrian walkways."
+  },
+  {
+    "id": 5,
+    "prompt": "How should a compressed gas cylinder normally be stored?",
+    "options": [
+      "Horizontally on the floor beside a workbench",
+      "Upright and secured, with its valve closed and protective cap fitted where applicable",
+      "Upright without restraints so it can be moved quickly",
+      "Near a heat source to maintain its pressure"
+    ],
+    "correctIndex": 1,
+    "explanation": "Upright, secured, valve closed, protective cap fitted where applicable."
+  },
+  {
+    "id": 6,
+    "prompt": "Where is personal protective equipment worn or fitted when it is used?",
+    "options": [
+      "On the machine producing the hazard",
+      "Around the outside of the work area",
+      "On the tool being used",
+      "On the person, protecting the relevant body parts"
+    ],
+    "correctIndex": 3,
+    "explanation": "On the person, protecting the relevant body parts."
+  },
+  {
+    "id": 7,
+    "prompt": "What is an important requirement for emergency exits in a hangar?",
+    "options": [
+      "Their locations must be known, and access must remain unobstructed",
+      "They may be used for storage outside normal working hours",
+      "They should be locked whenever maintenance is underway",
+      "Only supervisors need to know their locations"
+    ],
+    "correctIndex": 0,
+    "explanation": "Know exit locations and keep access clear."
+  },
+  {
+    "id": 8,
+    "prompt": "Where should flammable liquids be stored when not in use?",
+    "options": [
+      "In open containers near the work area",
+      "In any cupboard that has available space",
+      "In approved containers within designated flammable-liquid storage",
+      "Beside electrical equipment to keep them warm"
+    ],
+    "correctIndex": 2,
+    "explanation": "Approved containers in designated flammable-liquid storage."
+  },
+  {
+    "id": 9,
+    "prompt": "Why should loose clothing and jewelry not be worn while working in the shop?",
+    "options": [
+      "They make maintenance records harder to complete",
+      "They can become caught in machinery or create electrical hazards",
+      "They prevent tools from being calibrated accurately",
+      "They increase the pressure inside hydraulic systems"
+    ],
+    "correctIndex": 1,
+    "explanation": "Entanglement and electrical hazards."
+  },
+  {
+    "id": 10,
+    "prompt": "Before opening or servicing a hydraulic system, what should be done?",
+    "options": [
+      "Increase the pressure to identify weak components",
+      "Loosen a fitting while the pump is operating",
+      "Switch off the pump and assume all pressure is gone",
+      "Isolate the system and safely release stored pressure according to the procedure"
+    ],
+    "correctIndex": 3,
+    "explanation": "Isolate the system and safely release stored pressure."
+  },
+  {
+    "id": 11,
+    "prompt": "Which three elements make up the fire triangle?",
+    "options": [
+      "Fuel, heat, and oxygen",
+      "Fuel, electricity, and smoke",
+      "Heat, nitrogen, and pressure",
+      "Oxygen, water, and friction"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fuel, heat, and oxygen."
+  },
+  {
+    "id": 12,
+    "prompt": "A fire involving wood, paper, or cloth is classified as:",
+    "options": [
+      "Class D",
+      "Class B",
+      "Class A",
+      "Class C"
+    ],
+    "correctIndex": 2,
+    "explanation": "Class A."
+  },
+  {
+    "id": 13,
+    "prompt": "A fire involving gasoline or another flammable liquid is classified as:",
+    "options": [
+      "Class C",
+      "Class B",
+      "Class D",
+      "Class A"
+    ],
+    "correctIndex": 1,
+    "explanation": "Class B."
+  },
+  {
+    "id": 14,
+    "prompt": "A fire involving energized electrical equipment is classified as:",
+    "options": [
+      "Class A",
+      "Class D",
+      "Class B",
+      "Class C"
+    ],
+    "correctIndex": 3,
+    "explanation": "Class C."
+  },
+  {
+    "id": 15,
+    "prompt": "A fire involving burning magnesium is classified as:",
+    "options": [
+      "Class D",
+      "Class C",
+      "Class A",
+      "Class B"
+    ],
+    "correctIndex": 0,
+    "explanation": "Class D."
+  },
+  {
+    "id": 16,
+    "prompt": "After raising the alarm, what should be done about the electrical supply to burning equipment, if it is safe to do so?",
+    "options": [
+      "Increase the current to trip the equipment",
+      "Move the equipment while it remains energized",
+      "Disconnect or isolate the electrical power",
+      "Apply water before disconnecting the power"
+    ],
+    "correctIndex": 2,
+    "explanation": "Disconnect or isolate electrical power, if safe."
+  },
+  {
+    "id": 17,
+    "prompt": "Which extinguisher must NOT be used on a Class D combustible-metal fire?",
+    "options": [
+      "A Class D extinguisher approved for the burning metal",
+      "A water-type extinguisher",
+      "A compatible metal-fire dry-powder extinguisher",
+      "An extinguisher specifically rated for that metal"
+    ],
+    "correctIndex": 1,
+    "explanation": "Water-type extinguisher."
+  },
+  {
+    "id": 18,
+    "prompt": "Why is using a CO₂ extinguisher dangerous in an enclosed space?",
+    "options": [
+      "It increases the oxygen concentration",
+      "It makes nearby metal electrically energized",
+      "It produces large amounts of flammable residue",
+      "It can displace oxygen and create an asphyxiation hazard"
+    ],
+    "correctIndex": 3,
+    "explanation": "CO₂ can displace oxygen and cause asphyxiation."
+  },
+  {
+    "id": 19,
+    "prompt": "What colour and shape identify Class B on the traditional fire-extinguisher classification symbol?",
+    "options": [
+      "A red square",
+      "A green triangle",
+      "A blue circle",
+      "A yellow star"
+    ],
+    "correctIndex": 0,
+    "explanation": "Red square."
+  },
+  {
+    "id": 20,
+    "prompt": "Why is an extinguisher weighed during an inspection when required, particularly a CO₂ extinguisher?",
+    "options": [
+      "To determine which class of fire it can extinguish",
+      "To check the temperature of the contents",
+      "To check whether it has lost extinguishing agent",
+      "To determine the pressure rating of its hose"
+    ],
+    "correctIndex": 2,
+    "explanation": "Check for loss of extinguishing agent."
+  },
+  {
+    "id": 21,
+    "prompt": "According to your Human Factors introduction slides, what percentage of maintenance errors involve human factors?",
+    "options": [
+      "20%",
+      "80%",
+      "40%",
+      "60%"
+    ],
+    "correctIndex": 1,
+    "explanation": "80%, according to your slides."
+  },
+  {
+    "id": 22,
+    "prompt": "Which human factors discipline studies the dimensions and physical abilities of the human body?",
+    "options": [
+      "Cognitive science",
+      "Organizational psychology",
+      "Educational psychology",
+      "Anthropometry"
+    ],
+    "correctIndex": 3,
+    "explanation": "Anthropometry."
+  },
+  {
+    "id": 23,
+    "prompt": "According to your slides, human-computer interaction is analyzed within which discipline?",
+    "options": [
+      "Computer science",
+      "Medical science",
+      "Clinical psychology",
+      "Safety engineering"
+    ],
+    "correctIndex": 0,
+    "explanation": "Computer science."
+  },
+  {
+    "id": 24,
+    "prompt": "Human factors improves safety by helping people work effectively while minimizing:",
+    "options": [
+      "The number of maintenance records",
+      "The use of technical instructions",
+      "Risk arising from human performance and error",
+      "The need for communication between workers"
+    ],
+    "correctIndex": 2,
+    "explanation": "Risk arising from human performance and error."
+  },
+  {
+    "id": 25,
+    "prompt": "Which discipline studies the human mind as an information processor?",
+    "options": [
+      "Anthropometry",
+      "Cognitive science",
+      "Industrial engineering",
+      "Medical science"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cognitive science."
+  },
+  {
+    "id": 26,
+    "prompt": "Which discipline examines how stress affects mental processing and troubleshooting, helping AMTs solve problems under pressure?",
+    "options": [
+      "Educational psychology",
+      "Anthropometry",
+      "Computer science",
+      "Cognitive science"
+    ],
+    "correctIndex": 3,
+    "explanation": "Cognitive science."
+  },
+  {
+    "id": 27,
+    "prompt": "What is an expected outcome of improved human factors awareness in aircraft maintenance?",
+    "options": [
+      "Improved quality, fewer errors, and greater worker and aircraft safety",
+      "Elimination of the need for maintenance inspections",
+      "Permission to replace written procedures with experience",
+      "A guarantee that no technician will ever make a mistake"
+    ],
+    "correctIndex": 0,
+    "explanation": "Improved quality, fewer errors, and greater safety."
+  },
+  {
+    "id": 28,
+    "prompt": "What does safety engineering focus on?",
+    "options": [
+      "Selecting employees based on their personalities",
+      "Recording how quickly technicians complete paperwork",
+      "Identifying hazards and designing systems to remain safe when failures occur",
+      "Studying how students remember new information"
+    ],
+    "correctIndex": 2,
+    "explanation": "Identify hazards and design systems to remain safe when failures occur."
+  },
+  {
+    "id": 29,
+    "prompt": "Which human factors discipline studies relationships between people and their work, including organizational structure and job satisfaction?",
+    "options": [
+      "Medical science",
+      "Organizational psychology",
+      "Anthropometry",
+      "Computer science"
+    ],
+    "correctIndex": 1,
+    "explanation": "Organizational psychology."
+  },
+  {
+    "id": 30,
+    "prompt": "Which Dirty Dozen factor can reduce cognitive ability, coordination, and reaction time?",
+    "options": [
+      "Lack of resources",
+      "Norms",
+      "Lack of assertiveness",
+      "Fatigue"
+    ],
+    "correctIndex": 3,
+    "explanation": "Fatigue."
+  },
+  {
+    "id": 31,
+    "prompt": "Which Dirty Dozen factor describes failing to recognize all the consequences of an action?",
+    "options": [
+      "Lack of awareness",
+      "Lack of teamwork",
+      "Lack of communication",
+      "Lack of knowledge"
+    ],
+    "correctIndex": 0,
+    "explanation": "Lack of awareness."
+  },
+  {
+    "id": 32,
+    "prompt": "Which Dirty Dozen factor involves self-satisfaction accompanied by a loss of awareness of potential dangers?",
+    "options": [
+      "Distraction",
+      "Pressure",
+      "Complacency",
+      "Stress"
+    ],
+    "correctIndex": 2,
+    "explanation": "Complacency."
+  },
+  {
+    "id": 33,
+    "prompt": "In the Dirty Dozen, stress can result from:",
+    "options": [
+      "Only physical exertion while lifting heavy equipment",
+      "Physical, psychological, or physiological demands that create strain",
+      "Only disagreements between technicians and supervisors",
+      "Only urgent deadlines during aircraft maintenance"
+    ],
+    "correctIndex": 1,
+    "explanation": "Physical, psychological, or physiological demands creating strain."
+  },
+  {
+    "id": 34,
+    "prompt": "Which situation is an example of an active error?",
+    "options": [
+      "An inadequate training policy remains unchanged for years",
+      "A company’s staffing process creates recurring shortages",
+      "A poorly designed procedure remains unnoticed for months",
+      "A technician incorrectly tightens a fitting during maintenance"
+    ],
+    "correctIndex": 3,
+    "explanation": "A technician incorrectly tightening a fitting."
+  },
+  {
+    "id": 35,
+    "prompt": "What does the P in the PEAR model stand for?",
+    "options": [
+      "People",
+      "Procedures",
+      "Performance",
+      "Prevention"
+    ],
+    "correctIndex": 0,
+    "explanation": "People."
+  },
+  {
+    "id": 36,
+    "prompt": "What best describes latent failures in the Swiss Cheese model?",
+    "options": [
+      "Unsafe actions that always produce immediate injuries",
+      "Defects that can only occur in electrical components",
+      "Hidden weaknesses that can remain dormant until they contribute to an event",
+      "Mistakes that cannot be influenced by organizational decisions"
+    ],
+    "correctIndex": 2,
+    "explanation": "Hidden weaknesses that remain dormant until contributing to an event."
+  },
+  {
+    "id": 37,
+    "prompt": "The Fishbone Diagram is also known as the:",
+    "options": [
+      "Event-sequence or Domino diagram",
+      "Cause-and-effect or Ishikawa diagram",
+      "Barrier-alignment or Swiss Cheese diagram",
+      "Top-event or Fault Tree diagram"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cause-and-effect or Ishikawa diagram."
+  },
+  {
+    "id": 38,
+    "prompt": "According to your slides, what did Heinrich compare to the first domino in his original Domino Theory?",
+    "options": [
+      "The injury resulting from the accident",
+      "The absence of management safety controls",
+      "The unsafe act immediately before the accident",
+      "A person’s social environment"
+    ],
+    "correctIndex": 3,
+    "explanation": "A person’s social environment."
+  }
+]
