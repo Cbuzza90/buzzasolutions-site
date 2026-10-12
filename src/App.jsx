@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 import StudyHub from "./pages/StudyHub";
-import Home from "./pages/Home";
 import RemoteSupport from "./pages/RemoteSupport";
 import Security from "./pages/Security";
 import Book from "./pages/Book";
@@ -221,7 +220,7 @@ function SiteLayout() {
           <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
             <div className="flex items-center justify-between gap-3">
               <Link
-                to="/tech-support"
+                to="/"
                 className="rounded-2xl px-2 py-1 transition hover:bg-slate-100"
                 onClick={closeMenus}
               >
@@ -384,7 +383,6 @@ function SiteLayout() {
 
         <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
           <Routes>
-            <Route path="/tech-support" element={<Home />} />
             <Route path="/remote-support" element={<RemoteSupport />} />
             <Route path="/class-services" element={<ClassServices />} />
             <Route path="/in-person-services" element={<InPersonServices />} />
@@ -396,7 +394,7 @@ function SiteLayout() {
               element={<BusinessConsultation />}
             />
             <Route path="/remote-help" element={<RemoteHelp />} />
-            <Route path="*" element={<Navigate to="/tech-support" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
 
