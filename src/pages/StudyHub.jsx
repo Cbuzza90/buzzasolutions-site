@@ -4,6 +4,7 @@ import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileTex
 import "./StudyHub.css";
 import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import StudyWelcome from "./StudyWelcome";
+import SafetyRecall from "./SafetyRecall";
 import { formatTestDate, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 const courses = [
@@ -107,6 +108,7 @@ export default function StudyHub() {
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
         <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
+        <Route path="/study/safety/module-1/recall" element={<SafetyRecall />} />
         <Route path="/study/safety/module-1/test-1/multiple-choice/practice-1" element={<Navigate to="/study/safety/module-1/practice-1" replace />} />
         <Route path="/study/safety/module-1/test-1/*" element={<Navigate to="/study/safety/module-1" replace />} />
         <Route path="/study/:slug" element={<CourseDetail />} />
@@ -115,7 +117,7 @@ export default function StudyHub() {
     </main>
     <nav className="study-tab-bar" aria-label="Study navigation">
       <NavLink to="/"><BookOpen size={22} /><span>Courses</span></NavLink>
-      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2"].includes(pathname) && <Link className="study-tests-nav" to="/study/safety/module-1"><BookOpen size={22} /><span>Tests</span></Link>}
+      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2", "/study/safety/module-1/recall"].includes(pathname) && <Link className="study-tests-nav" to="/study/safety/module-1"><BookOpen size={22} /><span>Tests</span></Link>}
     </nav>
   </div>;
 }

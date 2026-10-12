@@ -374,3 +374,14 @@
 .study-app[data-theme="dark"] .study-answer.correct > svg { color: #6ee7a0; }
 .study-app[data-theme="dark"] .study-feedback-choice.wrong > p,
 .study-app[data-theme="dark"] .study-answer.wrong > svg { color: #fda4af; }
+
+.study-recall-form { margin-top: 20px; }
+.study-recall-form label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+.study-recall-form textarea { width: 100%; min-height: 100px; resize: vertical; background: white; color: var(--ink); border: 1px solid var(--line); padding: 14px; border-radius: 14px; font: inherit; font-size: 16px; line-height: 1.6; }
+.study-recall-form textarea:focus-visible { outline: 2px solid #3B82F6; outline-offset: 3px; }
+.study-recall-form textarea::placeholder { color: var(--muted); }
+.study-recall-form > p { color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: 12px; }
+.study-recall-form > button { width: 100%; margin-top: 20px; }
+.study-app[data-theme="dark"] .study-recall-form textarea { background: #141414; }
+.study-recall-screen .study-question { white-space: pre-line; }
+@media (max-height: 700px) { .study-recall-form { margin-top: 14px; } .study-recall-form textarea { min-height: 82px; } }
