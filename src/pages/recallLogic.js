@@ -83,18 +83,22 @@ const concepts = {
   34: { minimum: 1, groups: [["incorrectly tightening a fitting", "incorrectly tightened fitting", "wrong torque", "over tightening", "overtightening", "under tightening", "loose fitting"], ["crossing electrical connections", "crossed wires", "crossing wires", "wrong terminals", "wrong electrical connections", "incorrect wiring"], ["installing the wrong part", "install wrong part", "wrong part installed"], ["forgetting to secure an access panel", "unsecured access panel", "forget to secure a panel", "forgot to secure an access panel"]] },
 };
 
-export function gradeRecall(questionId, response) {
-  let input = normalizeAnswer(response);
-  if (questionId === 16) input = input.replace(/\s+if (it is )?safe( to do so)?$/, "");
+export function gradeTextResponse(response, rule) {
+  const input = normalizeAnswer(response);
   if (!input || input.length > 500) return { correct: false, close: false };
-  const alternatives = aliases[questionId];
+  const alternatives = rule?.aliases;
   if (alternatives) {
     const matches = alternatives.map(phrase => matchPhrase(input, phrase)).filter(Boolean);
     return { correct: matches.length > 0, close: matches.length > 0 && matches.every(match => match.close) };
   }
-  const rule = concepts[questionId];
   if (!rule || rule.reject?.some(phrase => ` ${input} `.includes(` ${normalizeAnswer(phrase)} `))) return { correct: false, close: false };
   const matches = rule.groups.map(group => group.map(phrase => matchPhrase(input, phrase, true)).filter(Boolean)).filter(group => group.length);
   const correct = matches.length >= (rule.minimum ?? rule.groups.length);
   return { correct, close: correct && matches.some(group => group.every(match => match.close)) };
+}
+
+export function gradeRecall(questionId, response) {
+  let input = response;
+  if (questionId === 16) input = normalizeAnswer(response).replace(/\s+if (it is )?safe( to do so)?$/, "");
+  return gradeTextResponse(input, aliases[questionId] ? { aliases: aliases[questionId] } : concepts[questionId]);
 }

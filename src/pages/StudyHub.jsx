@@ -5,6 +5,7 @@ import "./StudyHub.css";
 import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import StudyWelcome from "./StudyWelcome";
 import SafetyRecall from "./SafetyRecall";
+import StructuresPractice, { StructuresTestList } from "./StructuresPractice";
 import { formatTestDate, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 const courses = [
@@ -12,7 +13,7 @@ const courses = [
   { slug: "aerodynamics", title: "Aircraft Eng & Aerodynamics", code: "AMEM-10002", category: "Foundations", icon: Wind, color: "sky", description: "Make sense of the principles behind flight and aircraft engineering." },
   { slug: "engines", title: "Aircraft Engines (Intro)", code: "AMEM-10057", category: "Aircraft", icon: Settings2, color: "violet", description: "Get familiar with aircraft engines and how their components work together." },
   { slug: "safety", title: "Aviation Health and Safety", code: "SAFE-10094", category: "Foundations", icon: ShieldCheck, color: "green", hasTests: true, description: "Review the health and safety concepts covered in your aviation course." },
-  { slug: "structures", title: "Basic Aircraft Structures 1", code: "AMEM-10003", category: "Aircraft", icon: Layers, color: "rose", description: "Explore aircraft construction, structures, and the parts that hold it all together." },
+  { slug: "structures", title: "Basic Aircraft Structures 1", code: "AMEM-10003", category: "Aircraft", icon: Layers, color: "rose", hasTests: true, description: "Explore aircraft construction, structures, and the parts that hold it all together." },
   { slug: "systems", title: "Basic Aircraft Systems", code: "AMEM-10004", category: "Aircraft", icon: Plane, color: "sky", description: "Connect the concepts behind the systems that keep an aircraft operating." },
   { slug: "math", title: "Math (Aviation Technician)", code: "MATH-10079", category: "Tools & math", icon: Calculator, color: "amber", description: "Practice the mathematical skills used in your aviation technician studies." },
   { slug: "publications", title: "Technical Publications/Documents", code: "AMEM-10033", category: "Tools & math", icon: FileText, color: "violet", description: "Find your way around the technical publications and documents used in class." },
@@ -78,7 +79,7 @@ function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find(item => item.slug === slug);
   if (!course) return <section className="study-empty"><h1>Course not found</h1><p>Choose one of your eight courses to get started.</p><Link className="study-primary" to="/">View courses</Link></section>;
-  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
+  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small></span><ChevronRight size={22} /></Link> : slug === "structures" ? <Link className="study-option-link" to="/study/structures/module-1"><span><strong>Module 1</strong><small>Hydraulics · Mixed-format practice</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
 }
 
 
@@ -109,6 +110,8 @@ export default function StudyHub() {
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
         <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
         <Route path="/study/safety/module-1/recall" element={<SafetyRecall />} />
+        <Route path="/study/structures/module-1" element={<StructuresTestList />} />
+        <Route path="/study/structures/module-1/practice-1" element={<StructuresPractice />} />
         <Route path="/study/safety/module-1/test-1/multiple-choice/practice-1" element={<Navigate to="/study/safety/module-1/practice-1" replace />} />
         <Route path="/study/safety/module-1/test-1/*" element={<Navigate to="/study/safety/module-1" replace />} />
         <Route path="/study/:slug" element={<CourseDetail />} />
@@ -117,7 +120,7 @@ export default function StudyHub() {
     </main>
     <nav className="study-tab-bar" aria-label="Study navigation">
       <NavLink to="/"><BookOpen size={22} /><span>Courses</span></NavLink>
-      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2", "/study/safety/module-1/recall"].includes(pathname) && <Link className="study-tests-nav" to="/study/safety/module-1"><BookOpen size={22} /><span>Tests</span></Link>}
+      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2", "/study/safety/module-1/recall", "/study/structures/module-1/practice-1"].includes(pathname) && <Link className="study-tests-nav" to={pathname.startsWith("/study/structures/") ? "/study/structures/module-1" : "/study/safety/module-1"}><BookOpen size={22} /><span>Tests</span></Link>}
     </nav>
   </div>;
 }
