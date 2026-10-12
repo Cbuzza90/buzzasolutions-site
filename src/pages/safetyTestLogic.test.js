@@ -4,6 +4,23 @@ import { readFileSync } from "node:fs";
 import { shuffleQuestions, scoreAnswers } from "./safetyTestLogic.js";
 
 const questions = JSON.parse(readFileSync(new URL("../data/safety-module1-test1.json", import.meta.url), "utf8"));
+const questions2 = JSON.parse(readFileSync(new URL("../data/safety-module1-test2.json", import.meta.url), "utf8"));
+
+test("Practice Test 2 contains all 38 new questions with the supplied key", () => {
+  const key = "C,A,D,B,C,A,D,B,A,C,D,B,C,A,D,B,C,A,D,B,C,A,D,B,C,A,D,B,C,A,D,B,C,A,D,B,C,A".split(",");
+  assert.equal(questions2.length, 38);
+  assert.equal(new Set(questions2.map(question => question.id)).size, 38);
+  questions2.forEach((question, index) => {
+    assert.equal(question.id, index + 1);
+    assert.equal(question.options.length, 4);
+    assert.ok(question.options.every(Boolean));
+    assert.ok(question.explanation);
+    assert.notEqual(question.prompt, questions[index].prompt);
+    assert.equal(question.correctIndex, key[index].charCodeAt(0) - 65);
+  });
+  const answers = Object.fromEntries(questions2.map(question => [question.id, question.correctIndex]));
+  assert.equal(scoreAnswers(shuffleQuestions(questions2), answers), 38);
+});
 
 test("all 38 questions have four choices and match the supplied answer key", () => {
   assert.equal(questions.length, 38);
