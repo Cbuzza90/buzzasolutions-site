@@ -215,13 +215,13 @@ function SiteLayout() {
   return (
     <>
       <ScrollToTop />
-      {pathname === "/study" || pathname.startsWith("/study/") ? <StudyHub /> : (
+      {pathname === "/" || pathname === "/study" || pathname.startsWith("/study/") ? <StudyHub /> : (
       <div className="min-h-screen bg-slate-50 pb-28">
         <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
           <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
             <div className="flex items-center justify-between gap-3">
               <Link
-                to="/"
+                to="/tech-support"
                 className="rounded-2xl px-2 py-1 transition hover:bg-slate-100"
                 onClick={closeMenus}
               >
@@ -384,7 +384,7 @@ function SiteLayout() {
 
         <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/tech-support" element={<Home />} />
             <Route path="/remote-support" element={<RemoteSupport />} />
             <Route path="/class-services" element={<ClassServices />} />
             <Route path="/in-person-services" element={<InPersonServices />} />
@@ -396,7 +396,7 @@ function SiteLayout() {
               element={<BusinessConsultation />}
             />
             <Route path="/remote-help" element={<RemoteHelp />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/tech-support" replace />} />
           </Routes>
         </main>
 

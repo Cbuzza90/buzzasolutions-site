@@ -76,7 +76,7 @@ function CourseList() {
 function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find(item => item.slug === slug);
-  if (!course) return <section className="study-empty"><h1>Course not found</h1><p>Choose one of your eight courses to get started.</p><Link className="study-primary" to="/study">View courses</Link></section>;
+  if (!course) return <section className="study-empty"><h1>Course not found</h1><p>Choose one of your eight courses to get started.</p><Link className="study-primary" to="/">View courses</Link></section>;
   return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
 }
 
@@ -97,12 +97,13 @@ export default function StudyHub() {
   return <div className="study-app" data-theme={darkMode ? "dark" : "light"}>
     <StudyWelcome />
     <a className="study-skip" href="#study-main">Skip to content</a>
-    <header className="study-header"><Link to="/study" className="study-brand"><span className="study-brand-mark"><Plane size={23} /></span><span><span className="study-brand-title">Study<span className="study-group">{studyGroup}</span></span><small>AVIATION TECHNICIAN</small></span></Link><div className="study-header-controls"><span className="study-term">FALL '26</span><button type="button" className="study-theme-toggle" aria-label="Dark mode" aria-pressed={darkMode} title={darkMode ? "Turn dark mode off" : "Turn dark mode on"} onClick={toggleTheme}>{darkMode ? <Moon size={19} /> : <Sun size={19} />}</button></div></header>
+    <header className="study-header"><Link to="/" className="study-brand"><span className="study-brand-mark"><Plane size={23} /></span><span><span className="study-brand-title">Study<span className="study-group">{studyGroup}</span></span><small>AVIATION TECHNICIAN</small></span></Link><div className="study-header-controls"><span className="study-term">FALL '26</span><button type="button" className="study-theme-toggle" aria-label="Dark mode" aria-pressed={darkMode} title={darkMode ? "Turn dark mode off" : "Turn dark mode on"} onClick={toggleTheme}>{darkMode ? <Moon size={19} /> : <Sun size={19} />}</button></div></header>
     <main id="study-main" className="study-main" tabIndex={-1}>
       <Routes>
-        <Route path="/study" element={<CourseList />} />
-        <Route path="/study/saved" element={<Navigate to="/study" replace />} />
-        <Route path="/study/about" element={<Navigate to="/study" replace />} />
+        <Route path="/" element={<CourseList />} />
+        <Route path="/study" element={<Navigate to="/" replace />} />
+        <Route path="/study/saved" element={<Navigate to="/" replace />} />
+        <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice />} />
         <Route path="/study/safety/module-1/test-1/multiple-choice/practice-1" element={<Navigate to="/study/safety/module-1/practice-1" replace />} />
@@ -112,7 +113,7 @@ export default function StudyHub() {
       </Routes>
     </main>
     <nav className="study-tab-bar" aria-label="Study navigation">
-      <NavLink to="/study"><BookOpen size={22} /><span>Courses</span></NavLink>
+      <NavLink to="/"><BookOpen size={22} /><span>Courses</span></NavLink>
       {pathname === "/study/safety/module-1/practice-1" && <Link className="study-tests-nav" to="/study/safety/module-1"><BookOpen size={22} /><span>Tests</span></Link>}
     </nav>
   </div>;
