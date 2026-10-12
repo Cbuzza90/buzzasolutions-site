@@ -1,17 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, ChevronRight, RotateCcw, XCircle } from "lucide-react";
-import questions from "../data/safety-module1-test1.json";
+import questions1 from "../data/safety-module1-test1.json";
+import questions2 from "../data/safety-module1-test2.json";
 import { scoreAnswers, shuffleQuestions } from "./safetyTestLogic";
 
 const basePath = "/study/safety/module-1";
 const letters = ["A", "B", "C", "D"];
 
-export function SafetyTestList() {
-  return <section className="study-detail"><p className="study-eyebrow">AVIATION HEALTH AND SAFETY</p><h1>Module 1</h1><p className="study-detail-description">Choose a practice test.</p><Link className="study-option-link study-test-link" to={`${basePath}/practice-1`}><span className="study-test-link-heading"><strong>Practice Test #1</strong><span className="study-format-badge">Multiple Choice</span></span><span className="study-test-link-description">{questions.length} questions · Random order · Learn as you go <ChevronRight size={19} /></span></Link><div className="study-flow-actions"><Link to="/study/safety"><ArrowLeft size={18} /> Safety</Link></div></section>;
-}
+const practiceTests = [{ number: 1, questions: questions1 }, { number: 2, questions: questions2 }];
 
-export default function SafetyPractice() {
+export function SafetyTestList() {
+  return <section className="study-detail"><p className="study-eyebrow">AVIATION HEALTH AND SAFETY</p><h1>Module 1</h1><p className="study-detail-description">Choose a practice test.</p>{practiceTests.map(test => <Link key={test.number} className="study-option-link study-test-link" to={`${basePath}/practice-${test.number}`}><span className="study-test-link-heading"><strong>Practice Test #{test.number}</strong><span className="study-format-badge">Multiple Choice</span></span><span className="study-test-link-description">{test.questions.length} questions · Random order · Learn as you go <ChevronRight size={19} /></span></Link>)}<div className="study-flow-actions"><Link to="/study/safety"><ArrowLeft size={18} /> Safety</Link></div></section>;
+}
+export default function SafetyPractice({ testNumber = 1 }) {
+  const questions = testNumber === 2 ? questions2 : questions1;
   const [order, setOrder] = useState(() => shuffleQuestions(questions));
   const [position, setPosition] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -54,10 +57,10 @@ export default function SafetyPractice() {
 
   if (complete) {
     const missed = order.filter(item => answers[item.id] !== item.correctIndex);
-    return <section className="study-detail study-test"><p className="study-eyebrow">PRACTICE TEST #1 · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1><div className="study-result"><strong>{score}<span> / {order.length}</span></strong><p>{Math.round(score / order.length * 100)}% correct</p><p>{missed.length === 0 ? "You answered every question correctly." : `${missed.length} question${missed.length === 1 ? "" : "s"} to review below.`}</p></div>{missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(item => <article key={item.id}><h3>{item.prompt}</h3><p className="study-missed-answer">Your answer: {letters[answers[item.id]]}. {item.options[answers[item.id]]}</p><p><strong>Correct: {letters[item.correctIndex]}. {item.options[item.correctIndex]}</strong></p><p>{item.explanation}</p></article>)}</section>}<div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div></section>;
+    return <section className="study-detail study-test"><p className="study-eyebrow">PRACTICE TEST #{testNumber} · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1><div className="study-result"><strong>{score}<span> / {order.length}</span></strong><p>{Math.round(score / order.length * 100)}% correct</p><p>{missed.length === 0 ? "You answered every question correctly." : `${missed.length} question${missed.length === 1 ? "" : "s"} to review below.`}</p></div>{missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(item => <article key={item.id}><h3>{item.prompt}</h3><p className="study-missed-answer">Your answer: {letters[answers[item.id]]}. {item.options[answers[item.id]]}</p><p><strong>Correct: {letters[item.correctIndex]}. {item.options[item.correctIndex]}</strong></p><p>{item.explanation}</p></article>)}</section>}<div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div></section>;
   }
 
-  return <section className="study-detail study-test study-question-screen"><p className="study-eyebrow">SAFETY · MODULE 1 · PRACTICE TEST #1</p><div className="study-test-progress"><span>Question {position + 1} of {order.length}</span><span>{score} correct</span></div><progress max={order.length} value={position + (answered ? 1 : 0)} aria-label="Questions answered" /><h1 className="study-question" ref={headingRef} tabIndex={-1}>{question.prompt}</h1><div className="study-answer-options" aria-label="Answer choices">{question.options.map((option, index) => {
+  return <section className="study-detail study-test study-question-screen"><p className="study-eyebrow">SAFETY · MODULE 1 · PRACTICE TEST #{testNumber}</p><div className="study-test-progress"><span>Question {position + 1} of {order.length}</span><span>{score} correct</span></div><progress max={order.length} value={position + (answered ? 1 : 0)} aria-label="Questions answered" /><h1 className="study-question" ref={headingRef} tabIndex={-1}>{question.prompt}</h1><div className="study-answer-options" aria-label="Answer choices">{question.options.map((option, index) => {
     const state = answered ? index === question.correctIndex ? "correct" : index === selected ? "wrong" : "" : "";
     return <button type="button" key={index} className={`study-answer ${state}`} disabled={answered} aria-pressed={selected === index} onClick={() => chooseAnswer(index)}><span className="study-answer-letter">{letters[index]}</span><span>{option}</span>{state === "correct" && <CheckCircle2 size={20} aria-label="Correct answer" />}{state === "wrong" && <XCircle size={20} aria-label="Incorrect answer" />}</button>;
   })}</div>

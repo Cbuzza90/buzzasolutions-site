@@ -105,7 +105,8 @@ export default function StudyHub() {
         <Route path="/study/saved" element={<Navigate to="/" replace />} />
         <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
-        <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice />} />
+        <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
+        <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
         <Route path="/study/safety/module-1/test-1/multiple-choice/practice-1" element={<Navigate to="/study/safety/module-1/practice-1" replace />} />
         <Route path="/study/safety/module-1/test-1/*" element={<Navigate to="/study/safety/module-1" replace />} />
         <Route path="/study/:slug" element={<CourseDetail />} />
@@ -114,7 +115,7 @@ export default function StudyHub() {
     </main>
     <nav className="study-tab-bar" aria-label="Study navigation">
       <NavLink to="/"><BookOpen size={22} /><span>Courses</span></NavLink>
-      {pathname === "/study/safety/module-1/practice-1" && <Link className="study-tests-nav" to="/study/safety/module-1"><BookOpen size={22} /><span>Tests</span></Link>}
+      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2"].includes(pathname) && <Link className="study-tests-nav" to="/study/safety/module-1"><BookOpen size={22} /><span>Tests</span></Link>}
     </nav>
   </div>;
 }
