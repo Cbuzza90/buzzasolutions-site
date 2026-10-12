@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
+import StudyHub from "./pages/StudyHub";
 import Home from "./pages/Home";
 import RemoteSupport from "./pages/RemoteSupport";
 import Security from "./pages/Security";
@@ -198,6 +199,11 @@ function BottomPromoBar() {
 }
 
 export default function App() {
+  return <BrowserRouter><SiteLayout /></BrowserRouter>;
+}
+
+function SiteLayout() {
+  const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
@@ -207,8 +213,9 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
+      {pathname === "/study" || pathname.startsWith("/study/") ? <StudyHub /> : (
       <div className="min-h-screen bg-slate-50 pb-28">
         <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
           <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
@@ -227,6 +234,7 @@ export default function App() {
 
               <div className="flex items-center gap-2">
                 <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+                  <Link to="/study" onClick={closeMenus}>Student Study Hub</Link>
                   <ServicesDropdown onNavigate={closeMenus} />
 
                   <Link
@@ -295,6 +303,7 @@ export default function App() {
 
             {mobileMenuOpen && (
               <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm md:hidden">
+                <MobileMenuLink to="/study" onClick={closeMenus}>Student Study Hub</MobileMenuLink>
                 <button
                   type="button"
                   onClick={() => setMobileServicesOpen((prev) => !prev)}
@@ -393,6 +402,7 @@ export default function App() {
 
         <BottomPromoBar />
       </div>
-    </BrowserRouter>
+      )}
+    </>
   );
 }
