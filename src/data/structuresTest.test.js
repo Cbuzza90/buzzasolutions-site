@@ -4,10 +4,11 @@ import { diagramQuestions, gradeStructures, structuresQuestions, structuresReady
 
 const getQuestion = id => structuresQuestions.find(question => question.id === id);
 
-test("31 usable questions, with four missing diagram questions explicitly excluded", () => {
-  assert.equal(structuresQuestions.length, 31);
+test("all 35 questions are usable, including the four supplied diagrams", () => {
+  assert.equal(structuresQuestions.length, 35);
   assert.deepEqual(diagramQuestions.map(question => question.id), [17, 25, 26, 27]);
-  assert.equal(new Set(structuresQuestions.map(question => question.id)).size, 31);
+  assert.equal(new Set(structuresQuestions.map(question => question.id)).size, 35);
+  assert.ok([17, 25, 26, 27].every(id => getQuestion(id).diagram && !getQuestion(id).needsDiagram));
 });
 
 test("every usable question has a working correct response", () => {
