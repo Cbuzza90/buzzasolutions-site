@@ -445,3 +445,4 @@
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency]{background:hsl(var(--test-hue) 65% 10%);border-color:hsl(var(--test-hue) 65% 42%);box-shadow:none}
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency]:hover{border-color:hsl(var(--test-hue) 75% 58%)}
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency] .study-icon{background:hsl(var(--test-hue) 60% 18%);color:hsl(var(--test-hue) 90% 80%)}
+.study-course-card .study-card-bottom > span.study-test-possible{display:block;border:0;padding-top:6px;font-size:10px;font-weight:600;color:var(--muted)}
