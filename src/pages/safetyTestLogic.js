@@ -13,7 +13,7 @@ export function scoreAnswers(questions, answers) {
 
 export function shufflePractice(questions, random = Math.random) {
   return shuffleQuestions(questions, random).map(question => {
-    const options = shuffleQuestions(question.options.map((text, index) => ({ text, correct: index === question.correctIndex })), random);
-    return { ...question, options: options.map(option => option.text), correctIndex: options.findIndex(option => option.correct) };
+    const options = shuffleQuestions(question.options.map((text, index) => ({ text, image: question.optionImages?.[index], correct: index === question.correctIndex })), random);
+    return { ...question, options: options.map(option => option.text), ...(question.optionImages ? { optionImages: options.map(option => option.image) } : {}), correctIndex: options.findIndex(option => option.correct) };
   });
 }

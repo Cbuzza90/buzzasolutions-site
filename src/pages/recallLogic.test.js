@@ -3,11 +3,11 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { gradeRecall } from "./recallLogic.js";
 
-test("all 38 supplied recall prompts are present", () => {
+test("Safety Practice Test 3 contains 24 multiple-choice questions", () => {
   const questions = JSON.parse(readFileSync(new URL("../data/safety-module1-recall.json", import.meta.url), "utf8"));
-  assert.equal(questions.length, 38);
-  assert.equal(new Set(questions.map(question => question.id)).size, 38);
-  assert.ok(questions.every(question => question.prompt && question.answer));
+  assert.equal(questions.length, 24);
+  assert.equal(new Set(questions.map(question => question.id)).size, 24);
+  assert.ok(questions.every(question => question.prompt && question.options.length === 4));
 });
 
 test("every question accepts an expected response", () => {

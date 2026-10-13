@@ -8,7 +8,7 @@ const banks = ["safety-module1-test1.json", "safety-module1-test2.json", "safety
 banks.push(systemsMixedQuestions, torqueQuestions);
 
 test("every playable bank uses four unique choices and a valid answer key", () => {
-  assert.deepEqual(banks.map(bank => bank.length), [38, 38, 38, 40, 58, 50]);
+  assert.deepEqual(banks.map(bank => bank.length), [24, 24, 24, 40, 58, 50]);
   for (const bank of banks) for (const q of bank) {
     assert.ok(q.prompt && q.explanation, String(q.id));
     assert.equal(q.options.length, 4, String(q.id));
@@ -28,6 +28,7 @@ test("choice shuffling preserves the correct answer, diagrams, and source data",
       assert.equal(q.options[q.correctIndex], source.options[source.correctIndex]);
       assert.deepEqual([...q.options].sort(), [...source.options].sort());
       assert.equal(q.diagram, source.diagram);
+      if (source.optionImages) q.options.forEach((option, i) => assert.equal(q.optionImages[i], source.optionImages[source.options.indexOf(option)]));
     }
     assert.equal(JSON.stringify(bank), original);
     const answers = Object.fromEntries(shuffled.map(q => [q.id, q.correctIndex]));

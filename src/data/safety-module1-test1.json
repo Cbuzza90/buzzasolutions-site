@@ -9,34 +9,11 @@
       "Inspect the area before work, then leave cleanup until the next inspection"
     ],
     "correctIndex": 1,
-    "explanation": "Good housekeeping; clean as you work."
+    "explanation": "Good housekeeping; clean as you work.",
+    "learningTarget": "housekeeping-routine"
   },
   {
     "id": 2,
-    "prompt": "What should you do with equipment after you have finished using it?",
-    "options": [
-      "Clean it and leave it at the workstation for the next scheduled task",
-      "Return it to storage and leave cleaning to the next operator",
-      "Disconnect it and place it in a shared staging area until shift end",
-      "Clean it and return it to its designated storage location"
-    ],
-    "correctIndex": 3,
-    "explanation": "Clean equipment and return it to its designated storage."
-  },
-  {
-    "id": 3,
-    "prompt": "Who is responsible for maintaining safety in the shop or hangar?",
-    "options": [
-      "Everyone in the workplace",
-      "Only supervisors and instructors",
-      "Only the health and safety representative",
-      "Only the person operating equipment"
-    ],
-    "correctIndex": 0,
-    "explanation": "Everyone is responsible for safety."
-  },
-  {
-    "id": 4,
     "prompt": "What are the yellow painted walkways in the hangar intended for?",
     "options": [
       "Aircraft movement routes with temporary pedestrian access",
@@ -45,34 +22,11 @@
       "Storage boundaries that become walkways when cleared"
     ],
     "correctIndex": 2,
-    "explanation": "Designated pedestrian walkways."
+    "explanation": "Designated pedestrian walkways.",
+    "learningTarget": "yellow-walkway-purpose"
   },
   {
-    "id": 5,
-    "prompt": "How should a compressed gas cylinder normally be stored?",
-    "options": [
-      "Secure it upright with its valve closed, leaving the protective cap off for access",
-      "Upright and secured, with its valve closed and protective cap fitted where applicable",
-      "Close the valve and fit the cap, leaving the upright cylinder unrestrained",
-      "Secure it upright with its protective cap fitted, leaving the valve open"
-    ],
-    "correctIndex": 1,
-    "explanation": "Upright, secured, valve closed, protective cap fitted where applicable."
-  },
-  {
-    "id": 6,
-    "prompt": "Where is personal protective equipment worn or fitted when it is used?",
-    "options": [
-      "At the source through machine guards and interlocks",
-      "Along the hazard path through screens and barriers",
-      "Through safe-work procedures and warning signs",
-      "On the person, protecting the relevant body parts"
-    ],
-    "correctIndex": 3,
-    "explanation": "On the person, protecting the relevant body parts."
-  },
-  {
-    "id": 7,
+    "id": 3,
     "prompt": "What is an important requirement for emergency exits in a hangar?",
     "options": [
       "Their locations must be known, and access must remain unobstructed",
@@ -81,34 +35,11 @@
       "Their signs must be visible, with access checked only at shift changes"
     ],
     "correctIndex": 0,
-    "explanation": "Know exit locations and keep access clear."
+    "explanation": "Know exit locations and keep access clear.",
+    "learningTarget": "emergency-exit-access"
   },
   {
-    "id": 8,
-    "prompt": "Where should flammable liquids be stored when not in use?",
-    "options": [
-      "Use a sealed, labelled container on the general chemical shelf",
-      "Keep it in its original container at the workstation between jobs",
-      "In approved containers within designated flammable-liquid storage",
-      "Use a covered shop container in a ventilated general-purpose cupboard"
-    ],
-    "correctIndex": 2,
-    "explanation": "Approved containers in designated flammable-liquid storage."
-  },
-  {
-    "id": 9,
-    "prompt": "Why should loose clothing and jewelry not be worn while working in the shop?",
-    "options": [
-      "Jewelry can bridge electrical contacts, but loose sleeves mainly affect comfort",
-      "They can become caught in machinery or create electrical hazards",
-      "Loose sleeves can snag rotating parts, but metal jewelry poses no additional hazard",
-      "Gloves prevent both entanglement and electrical-contact hazards from jewelry"
-    ],
-    "correctIndex": 1,
-    "explanation": "Entanglement and electrical hazards."
-  },
-  {
-    "id": 10,
+    "id": 4,
     "prompt": "Before opening or servicing a hydraulic system, what should be done?",
     "options": [
       "Switch off the pump and rely on the pressure gauge alone",
@@ -117,70 +48,28 @@
       "Isolate the system and safely release stored pressure according to the procedure"
     ],
     "correctIndex": 3,
-    "explanation": "Isolate the system and safely release stored pressure."
+    "explanation": "Isolate the system and safely release stored pressure.",
+    "learningTarget": "hydraulic-energy-isolation"
   },
   {
-    "id": 11,
-    "prompt": "Which three elements make up the fire triangle?",
+    "id": 5,
+    "prompt": "Red square marked B: which fire category does this symbol mark?",
     "options": [
-      "Fuel, heat, and oxygen",
-      "Fuel, oxygen, and a sustained chemical chain reaction",
-      "Fuel, heat, and a sustained chemical chain reaction",
-      "Heat, oxygen, and a sustained chemical chain reaction"
+      "Flammable liquids such as gasoline and solvent",
+      "Ordinary combustibles such as wood and paper",
+      "Energized electrical equipment",
+      "Combustible metals such as magnesium"
     ],
     "correctIndex": 0,
-    "explanation": "Fuel, heat, and oxygen."
+    "explanation": "Class B: flammable liquids such as gasoline and solvent.",
+    "learningTarget": "fire-b-materials",
+    "visual": {
+      "src": "/safety/fire-class-b.svg",
+      "alt": "Red square marked B"
+    }
   },
   {
-    "id": 12,
-    "prompt": "A fire involving wood, paper, or cloth is classified as:",
-    "options": [
-      "Class D",
-      "Class B",
-      "Class A",
-      "Class C"
-    ],
-    "correctIndex": 2,
-    "explanation": "Class A."
-  },
-  {
-    "id": 13,
-    "prompt": "A fire involving gasoline or another flammable liquid is classified as:",
-    "options": [
-      "Class C",
-      "Class B",
-      "Class D",
-      "Class A"
-    ],
-    "correctIndex": 1,
-    "explanation": "Class B."
-  },
-  {
-    "id": 14,
-    "prompt": "A fire involving energized electrical equipment is classified as:",
-    "options": [
-      "Class A",
-      "Class D",
-      "Class B",
-      "Class C"
-    ],
-    "correctIndex": 3,
-    "explanation": "Class C."
-  },
-  {
-    "id": 15,
-    "prompt": "A fire involving burning magnesium is classified as:",
-    "options": [
-      "Class D",
-      "Class C",
-      "Class A",
-      "Class B"
-    ],
-    "correctIndex": 0,
-    "explanation": "Class D."
-  },
-  {
-    "id": 16,
+    "id": 6,
     "prompt": "After raising the alarm, what should be done about the electrical supply to burning equipment, if it is safe to do so?",
     "options": [
       "Keep power connected until the extinguisher discharge is complete",
@@ -189,70 +78,34 @@
       "Open the cabinet to find the fire before isolating the electrical supply"
     ],
     "correctIndex": 2,
-    "explanation": "Disconnect or isolate electrical power, if safe."
+    "explanation": "Disconnect or isolate electrical power, if safe.",
+    "learningTarget": "electrical-power-isolation"
   },
   {
-    "id": 17,
-    "prompt": "A combustible-metal fire requires an extinguisher. Which selection follows the correct Class D principle?",
+    "id": 7,
+    "prompt": "Which traditional colour-and-shape symbol marks Class B fires?",
     "options": [
-      "Standard ABC dry chemical, selected without checking the burning metal",
-      "Class D dry powder specifically approved for the burning metal",
-      "CO₂, selected because it leaves no residue",
-      "Water mist, selected because it cools the metal"
+      "Green triangle",
+      "Red square",
+      "Blue circle",
+      "Yellow five-pointed star"
     ],
     "correctIndex": 1,
-    "explanation": "Use an agent approved for the particular combustible metal. Ordinary powder is not automatically Class D rated, and water must not be used on the metal fire."
-  },
-  {
-    "id": 18,
-    "prompt": "Why is using a CO₂ extinguisher dangerous in an enclosed space?",
-    "options": [
-      "A charged CO₂ cylinder can make its surroundings oxygen-rich",
-      "CO₂ discharge eliminates the need to evacuate once the flame is out",
-      "CO₂ discharge makes the atmosphere safe as soon as smoke clears",
-      "It can displace oxygen and create an asphyxiation hazard"
+    "explanation": "Red square.",
+    "learningTarget": "symbol-b-colour",
+    "optionImages": [
+      "/safety/fire-class-a-shape.svg",
+      "/safety/fire-class-b-shape.svg",
+      "/safety/fire-class-c-shape.svg",
+      "/safety/fire-class-d-shape.svg"
     ],
-    "correctIndex": 3,
-    "explanation": "CO₂ can displace oxygen and cause asphyxiation."
+    "feedbackVisual": {
+      "src": "/safety/fire-class-b.svg",
+      "alt": "Class B: red square marked B"
+    }
   },
   {
-    "id": 19,
-    "prompt": "What colour and shape identify Class B on the traditional fire-extinguisher classification symbol?",
-    "options": [
-      "A red square",
-      "A green triangle",
-      "A blue circle",
-      "A yellow star"
-    ],
-    "correctIndex": 0,
-    "explanation": "Red square."
-  },
-  {
-    "id": 20,
-    "prompt": "Why is an extinguisher weighed during an inspection when required, particularly a CO₂ extinguisher?",
-    "options": [
-      "To establish the extinguisher pressure from its total weight",
-      "To confirm that the cylinder has the required proof-test strength",
-      "To check whether it has lost extinguishing agent",
-      "To verify that the discharge horn delivers the specified flow"
-    ],
-    "correctIndex": 2,
-    "explanation": "Check for loss of extinguishing agent."
-  },
-  {
-    "id": 21,
-    "prompt": "According to your Human Factors introduction slides, what percentage of maintenance errors involve human factors?",
-    "options": [
-      "20%",
-      "80%",
-      "40%",
-      "60%"
-    ],
-    "correctIndex": 1,
-    "explanation": "80%, according to your slides."
-  },
-  {
-    "id": 22,
+    "id": 8,
     "prompt": "Which human factors discipline studies the dimensions and physical abilities of the human body?",
     "options": [
       "Cognitive science",
@@ -261,34 +114,11 @@
       "Anthropometry"
     ],
     "correctIndex": 3,
-    "explanation": "Anthropometry."
+    "explanation": "Anthropometry.",
+    "learningTarget": "anthropometry"
   },
   {
-    "id": 23,
-    "prompt": "According to your slides, human-computer interaction is analyzed within which discipline?",
-    "options": [
-      "Computer science",
-      "Cognitive science",
-      "Anthropometry",
-      "Organizational psychology"
-    ],
-    "correctIndex": 0,
-    "explanation": "Computer science."
-  },
-  {
-    "id": 24,
-    "prompt": "Human factors improves safety by helping people work effectively while minimizing:",
-    "options": [
-      "Reducing physical hazards while treating technician performance as a separate issue",
-      "Reducing task time while leaving error-management procedures unchanged",
-      "Risk arising from human performance and error",
-      "Reducing equipment failures while relying on experience to control human error"
-    ],
-    "correctIndex": 2,
-    "explanation": "Risk arising from human performance and error."
-  },
-  {
-    "id": 25,
+    "id": 9,
     "prompt": "Which discipline studies the human mind as an information processor?",
     "options": [
       "Anthropometry",
@@ -297,46 +127,11 @@
       "Medical science"
     ],
     "correctIndex": 1,
-    "explanation": "Cognitive science."
+    "explanation": "Cognitive science.",
+    "learningTarget": "cognitive-science"
   },
   {
-    "id": 26,
-    "prompt": "Which discipline examines how stress affects mental processing and troubleshooting, helping AMTs solve problems under pressure?",
-    "options": [
-      "Educational psychology",
-      "Anthropometry",
-      "Computer science",
-      "Cognitive science"
-    ],
-    "correctIndex": 3,
-    "explanation": "Cognitive science."
-  },
-  {
-    "id": 27,
-    "prompt": "What is an expected outcome of improved human factors awareness in aircraft maintenance?",
-    "options": [
-      "Improved quality, fewer errors, and greater worker and aircraft safety",
-      "Higher task throughput, even if rework remains unchanged",
-      "Greater technician confidence, even if error rates remain unchanged",
-      "Fewer error reports, even if staff have become reluctant to report"
-    ],
-    "correctIndex": 0,
-    "explanation": "Improved quality, fewer errors, and greater safety."
-  },
-  {
-    "id": 28,
-    "prompt": "What does safety engineering focus on?",
-    "options": [
-      "Studying how technicians perceive and process information",
-      "Studying relationships between workers and their organization",
-      "Identifying hazards and designing systems to remain safe when failures occur",
-      "Studying body dimensions to improve reach and access"
-    ],
-    "correctIndex": 2,
-    "explanation": "Identify hazards and design systems to remain safe when failures occur."
-  },
-  {
-    "id": 29,
+    "id": 10,
     "prompt": "Which human factors discipline studies relationships between people and their work, including organizational structure and job satisfaction?",
     "options": [
       "Cognitive science",
@@ -345,34 +140,11 @@
       "Educational psychology"
     ],
     "correctIndex": 1,
-    "explanation": "Organizational psychology."
+    "explanation": "Organizational psychology.",
+    "learningTarget": "organizational-psychology"
   },
   {
-    "id": 30,
-    "prompt": "Which Dirty Dozen factor can reduce cognitive ability, coordination, and reaction time?",
-    "options": [
-      "Stress",
-      "Distraction",
-      "Pressure",
-      "Fatigue"
-    ],
-    "correctIndex": 3,
-    "explanation": "Fatigue."
-  },
-  {
-    "id": 31,
-    "prompt": "Which Dirty Dozen factor describes failing to recognize all the consequences of an action?",
-    "options": [
-      "Lack of awareness",
-      "Lack of knowledge",
-      "Distraction",
-      "Complacency"
-    ],
-    "correctIndex": 0,
-    "explanation": "Lack of awareness."
-  },
-  {
-    "id": 32,
+    "id": 11,
     "prompt": "Which Dirty Dozen factor involves self-satisfaction accompanied by a loss of awareness of potential dangers?",
     "options": [
       "Lack of awareness",
@@ -381,34 +153,11 @@
       "Distraction"
     ],
     "correctIndex": 2,
-    "explanation": "Complacency."
+    "explanation": "Complacency.",
+    "learningTarget": "complacency-identification"
   },
   {
-    "id": 33,
-    "prompt": "In the Dirty Dozen, stress can result from:",
-    "options": [
-      "Pressure from a deadline, but excluding personal and physical strain",
-      "Physical, psychological, or physiological demands that create strain",
-      "Physical tiredness from insufficient rest, rather than wider demands",
-      "Distraction from interruptions, rather than mental or physiological strain"
-    ],
-    "correctIndex": 1,
-    "explanation": "Physical, psychological, or physiological demands creating strain."
-  },
-  {
-    "id": 34,
-    "prompt": "Which situation is an example of an active error?",
-    "options": [
-      "An inadequate training policy remains unchanged for years",
-      "A company’s staffing process creates recurring shortages",
-      "A poorly designed procedure remains unnoticed for months",
-      "A technician incorrectly tightens a fitting during maintenance"
-    ],
-    "correctIndex": 3,
-    "explanation": "A technician incorrectly tightening a fitting."
-  },
-  {
-    "id": 35,
+    "id": 12,
     "prompt": "What does the P in the PEAR model stand for?",
     "options": [
       "People",
@@ -417,34 +166,11 @@
       "Prevention"
     ],
     "correctIndex": 0,
-    "explanation": "People."
+    "explanation": "People.",
+    "learningTarget": "pear-people"
   },
   {
-    "id": 36,
-    "prompt": "What best describes latent failures in the Swiss Cheese model?",
-    "options": [
-      "An unsafe action performed by a technician during the current task",
-      "An immediate equipment failure that visibly interrupts the current job",
-      "Hidden weaknesses that can remain dormant until they contribute to an event",
-      "An accident outcome after the final protective barrier has failed"
-    ],
-    "correctIndex": 2,
-    "explanation": "Hidden weaknesses that remain dormant until contributing to an event."
-  },
-  {
-    "id": 37,
-    "prompt": "The Fishbone Diagram is also known as the:",
-    "options": [
-      "Event-sequence or Domino diagram",
-      "Cause-and-effect or Ishikawa diagram",
-      "Barrier-alignment or Swiss Cheese diagram",
-      "Top-event or Fault Tree diagram"
-    ],
-    "correctIndex": 1,
-    "explanation": "Cause-and-effect or Ishikawa diagram."
-  },
-  {
-    "id": 38,
+    "id": 13,
     "prompt": "According to your slides, what did Heinrich compare to the first domino in his original Domino Theory?",
     "options": [
       "The injury resulting from the accident",
@@ -453,6 +179,160 @@
       "A person’s social environment"
     ],
     "correctIndex": 3,
-    "explanation": "A person’s social environment."
+    "explanation": "A person’s social environment.",
+    "learningTarget": "heinrich-first-domino"
+  },
+  {
+    "learningTarget": "symbol-d-colour",
+    "prompt": "Which traditional colour-and-shape symbol marks Class D fires?",
+    "options": [
+      "Green triangle",
+      "Red square",
+      "Blue circle",
+      "Yellow five-pointed star"
+    ],
+    "correctIndex": 3,
+    "optionImages": [
+      "/safety/fire-class-a-shape.svg",
+      "/safety/fire-class-b-shape.svg",
+      "/safety/fire-class-c-shape.svg",
+      "/safety/fire-class-d-shape.svg"
+    ],
+    "explanation": "Class D uses a yellow five-pointed star.",
+    "feedbackVisual": {
+      "src": "/safety/fire-class-d.svg",
+      "alt": "Class D: yellow five-pointed star"
+    },
+    "id": 14
+  },
+  {
+    "learningTarget": "abc-versus-d",
+    "prompt": "What is the key limitation of an extinguisher marked ABC when combustible metal is burning?",
+    "options": [
+      "The C marking means it is also approved for every metal",
+      "The A marking covers any solid, including burning metals",
+      "The ABC marking does not approve it for Class D",
+      "The B marking makes the powder suitable for magnesium"
+    ],
+    "correctIndex": 2,
+    "explanation": "ABC approval does not include combustible-metal fires.",
+    "id": 15
+  },
+  {
+    "learningTarget": "dry-chemical-residue",
+    "prompt": "Which agent characteristic matters when considering contamination of electrical equipment after discharge?",
+    "options": [
+      "CO₂ deposits the same persistent powder coating as dry chemical",
+      "Dry chemical can leave residue on the equipment",
+      "Dry chemical vaporizes completely without leaving a coating",
+      "Residue depends only on the fire-class letter rather than the agent"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dry chemical leaves residue; agent selection must also match the fire rating.",
+    "id": 16
+  },
+  {
+    "learningTarget": "pass-sequence",
+    "prompt": "Which sequence correctly expands PASS for using an extinguisher?",
+    "options": [
+      "Pull, Aim, Squeeze, Sweep",
+      "Pull, Squeeze, Aim, Sweep",
+      "Point, Activate, Stop, Spray",
+      "Pressurize, Aim, Seal, Sweep"
+    ],
+    "correctIndex": 0,
+    "explanation": "PASS describes releasing the pin, aiming, operating the handle, and sweeping the discharge.",
+    "id": 17
+  },
+  {
+    "learningTarget": "liquid-water-spread",
+    "prompt": "Why can a stream of water make a flammable-liquid fire worse?",
+    "options": [
+      "It changes the fire into Class C without electricity",
+      "It turns the liquid into combustible metal",
+      "It removes the fuel label from the container",
+      "It can spread the burning liquid"
+    ],
+    "correctIndex": 3,
+    "explanation": "Water can spread a burning liquid rather than control the fire.",
+    "id": 18
+  },
+  {
+    "learningTarget": "distraction-identification",
+    "prompt": "A phone interruption draws a technician away from the current checklist step. Which factor is most direct?",
+    "options": [
+      "Norms",
+      "Lack of teamwork",
+      "Distraction",
+      "Lack of resources"
+    ],
+    "correctIndex": 2,
+    "explanation": "An interruption diverts attention from the work.",
+    "id": 19
+  },
+  {
+    "learningTarget": "pressure-identification",
+    "prompt": "A technician is urged to hurry because an aircraft departure deadline is approaching. Which factor is most direct?",
+    "options": [
+      "Norms",
+      "Pressure",
+      "Distraction",
+      "Lack of knowledge"
+    ],
+    "correctIndex": 1,
+    "explanation": "The deadline creates urgency to complete the task.",
+    "id": 20
+  },
+  {
+    "learningTarget": "pear-environment",
+    "prompt": "In PEAR, which category includes lighting, temperature, and the work surroundings?",
+    "options": [
+      "Environment",
+      "Actions",
+      "Resources",
+      "People"
+    ],
+    "correctIndex": 0,
+    "explanation": "Environment covers conditions around the work.",
+    "id": 21
+  },
+  {
+    "learningTarget": "damaged-ppe",
+    "prompt": "Protective eyewear is cracked before a task that requires eye protection. What should happen?",
+    "options": [
+      "Wear it carefully because it still has a frame",
+      "Use it for a shorter version of the task",
+      "Start the task and replace it at the next break",
+      "Replace it with suitable serviceable protection before starting"
+    ],
+    "correctIndex": 3,
+    "explanation": "Required protection needs to be serviceable before exposure.",
+    "id": 22
+  },
+  {
+    "learningTarget": "tool-accountability",
+    "prompt": "A tool is missing from the final inventory after work near an aircraft. What is the best action?",
+    "options": [
+      "Assume another technician borrowed it",
+      "Release the work if the aircraft looks normal",
+      "Resolve the missing-tool situation through the required procedure before releasing the work",
+      "Wait for the next shift to notice where it is"
+    ],
+    "correctIndex": 2,
+    "explanation": "Tool accountability needs to be resolved rather than assumed.",
+    "id": 23
+  },
+  {
+    "learningTarget": "fishbone-evidence",
+    "prompt": "A possible cause is written on a Fishbone Diagram. What does that establish?",
+    "options": [
+      "It is automatically the confirmed root cause",
+      "It is a hypothesis to investigate, not proof of the cause",
+      "It identifies the person who must be blamed",
+      "It eliminates the need to collect evidence"
+    ],
+    "correctIndex": 1,
+    "explanation": "A diagram organizes possible causes; evidence is still needed to confirm them.",
+    "id": 24
   }
 ]

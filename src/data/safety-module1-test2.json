@@ -1,458 +1,328 @@
 [
   {
     "id": 1,
-    "prompt": "A technician notices packaging, unused tools, and small spills accumulating around their workstation. What is the best practice?",
+    "prompt": "What should you do with equipment after you have finished using it?",
     "options": [
-      "Clear the work surface now, then remove floor debris when the job ends",
-      "Keep tools grouped beside the job and clean spills during shift handover",
-      "Maintain good housekeeping throughout the job",
-      "Inspect the area before work, then leave cleanup until the next inspection"
+      "Clean it and leave it at the workstation for the next scheduled task",
+      "Return it to storage and leave cleaning to the next operator",
+      "Disconnect it and place it in a shared staging area until shift end",
+      "Clean it and return it to its designated storage location"
     ],
-    "correctIndex": 2,
-    "explanation": "Maintain good housekeeping throughout the job."
+    "correctIndex": 3,
+    "explanation": "Clean equipment and return it to its designated storage.",
+    "learningTarget": "equipment-return"
   },
   {
     "id": 2,
-    "prompt": "You finish using a portable piece of shop equipment. What should you do next?",
+    "prompt": "How should a compressed gas cylinder normally be stored?",
     "options": [
-      "Clean it and return it to its designated location",
-      "Clean it and leave it at the workstation for the next scheduled task",
-      "Return it to storage and leave cleaning to the next operator",
-      "Disconnect it and place it in a shared staging area until shift end"
+      "Secure it upright with its valve closed, leaving the protective cap off for access",
+      "Upright and secured, with its valve closed and protective cap fitted where applicable",
+      "Close the valve and fit the cap, leaving the upright cylinder unrestrained",
+      "Secure it upright with its protective cap fitted, leaving the valve open"
     ],
-    "correctIndex": 0,
-    "explanation": "Clean equipment and return it to its designated location."
+    "correctIndex": 1,
+    "explanation": "Upright, secured, valve closed, protective cap fitted where applicable.",
+    "learningTarget": "gas-cylinder-storage"
   },
   {
     "id": 3,
-    "prompt": "A student sees an unsafe condition but says, “Safety is the instructor’s job.” Which response is correct?",
+    "prompt": "Where should flammable liquids be stored when not in use?",
     "options": [
-      "Only trained safety representatives are responsible",
-      "Students are responsible only when working alone",
-      "Instructors are responsible for every safety action",
-      "Everyone has a responsibility for safety"
+      "Use a sealed, labelled container on the general chemical shelf",
+      "Keep it in its original container at the workstation between jobs",
+      "In approved containers within designated flammable-liquid storage",
+      "Use a covered shop container in a ventilated general-purpose cupboard"
     ],
-    "correctIndex": 3,
-    "explanation": "Everyone is responsible for safety."
+    "correctIndex": 2,
+    "explanation": "Approved containers in designated flammable-liquid storage.",
+    "learningTarget": "flammable-storage"
   },
   {
     "id": 4,
-    "prompt": "Yellow lines mark a route beside a busy workstation. How should that route be used?",
+    "prompt": "Which three elements make up the fire triangle?",
     "options": [
-      "Use it for aircraft movement with pedestrians entering only between movements",
-      "Keep it clear for pedestrian travel",
-      "Use it for pedestrian travel and temporary unattended tool staging",
-      "Use it as a storage boundary that becomes a walkway when cleared"
+      "Fuel, heat, and oxygen",
+      "Fuel, oxygen, and a sustained chemical chain reaction",
+      "Fuel, heat, and a sustained chemical chain reaction",
+      "Heat, oxygen, and a sustained chemical chain reaction"
     ],
-    "correctIndex": 1,
-    "explanation": "Yellow walkways provide designated pedestrian routes."
+    "correctIndex": 0,
+    "explanation": "Fuel, heat, and oxygen.",
+    "learningTarget": "fire-triangle"
   },
   {
     "id": 5,
-    "prompt": "Which compressed gas cylinder is stored correctly?",
+    "prompt": "Blue circle marked C: which fire category does this symbol mark?",
     "options": [
-      "Secure it upright with its valve closed, leaving the protective cap off for access",
-      "Close the valve and fit the cap, leaving the upright cylinder unrestrained",
-      "A cylinder secured upright with its valve closed and protective cap fitted where applicable",
-      "Secure it upright with its protective cap fitted, leaving the valve open"
+      "Energized electrical equipment",
+      "Flammable liquids in approved storage",
+      "Ordinary combustibles after electrical isolation",
+      "Combustible metal shavings"
     ],
-    "correctIndex": 2,
-    "explanation": "Store cylinders upright, secured, and appropriately protected."
+    "correctIndex": 0,
+    "explanation": "Class C: energized electrical equipment.",
+    "learningTarget": "fire-c-materials",
+    "visual": {
+      "src": "/safety/fire-class-c.svg",
+      "alt": "Blue circle marked C"
+    }
   },
   {
     "id": 6,
-    "prompt": "Safety glasses, hearing protection, and protective footwear are examples of protection applied:",
+    "prompt": "A combustible-metal fire requires an extinguisher. Which selection follows the correct Class D principle?",
     "options": [
-      "Directly to the person exposed to the hazard",
-      "At the source through machine guards and interlocks",
-      "Along the hazard path through screens and barriers",
-      "Through safe-work procedures and warning signs"
+      "Standard ABC dry chemical, selected without checking the burning metal",
+      "Class D dry powder specifically approved for the burning metal",
+      "CO₂, selected because it leaves no residue",
+      "Water mist, selected because it cools the metal"
     ],
-    "correctIndex": 0,
-    "explanation": "PPE is worn on the person."
+    "correctIndex": 1,
+    "explanation": "Use an agent approved for the particular combustible metal. Ordinary powder is not automatically Class D rated, and water must not be used on the metal fire.",
+    "learningTarget": "metal-specific-agent"
   },
   {
     "id": 7,
-    "prompt": "Which requirement correctly combines emergency-exit awareness and access?",
+    "prompt": "Why is an extinguisher weighed during an inspection when required, particularly a CO₂ extinguisher?",
     "options": [
-      "Personnel know the exits, but may obstruct access during short jobs",
-      "Access stays clear, but locations need explaining only during an emergency",
-      "Exit signs stay visible, but access needs checking only at shift changes",
-      "Personnel know the exit locations and keep access unobstructed"
+      "To establish the extinguisher pressure from its total weight",
+      "To confirm that the cylinder has the required proof-test strength",
+      "To check whether it has lost extinguishing agent",
+      "To verify that the discharge horn delivers the specified flow"
     ],
-    "correctIndex": 3,
-    "explanation": "Emergency exits must remain unobstructed."
+    "correctIndex": 2,
+    "explanation": "Check for loss of extinguishing agent.",
+    "learningTarget": "extinguisher-weighing"
   },
   {
     "id": 8,
-    "prompt": "Where should a container of flammable solvent normally be kept when not being used?",
+    "prompt": "According to your slides, human-computer interaction is analyzed within which discipline?",
     "options": [
-      "Use a sealed, labelled container on the general chemical shelf",
-      "In approved, designated flammable-material storage",
-      "Keep it in its original container at the workstation between jobs",
-      "Use a covered shop container in a ventilated general-purpose cupboard"
-    ],
-    "correctIndex": 1,
-    "explanation": "Use approved, designated flammable-material storage."
-  },
-  {
-    "id": 9,
-    "prompt": "Why is wearing a dangling bracelet near rotating machinery unsafe?",
-    "options": [
-      "It can become caught and pull the wearer into the machinery",
-      "It can snag clothing without transmitting force to the wearer",
-      "It can be caught safely if the bracelet clasp is loose",
-      "It presents an electrical-contact hazard but no pulling-in hazard"
-    ],
-    "correctIndex": 0,
-    "explanation": "Jewelry can become caught in moving machinery."
-  },
-  {
-    "id": 10,
-    "prompt": "A hydraulic pump has been switched off. What must be considered before disconnecting a hydraulic line?",
-    "options": [
-      "Switch off the pump and rely on the pressure gauge alone",
-      "Close a selector valve and assume the isolated line is depressurized",
-      "Stored pressure may remain and must be safely released following the procedure",
-      "Disconnect electrical power without checking accumulators or trapped pressure"
-    ],
-    "correctIndex": 2,
-    "explanation": "Safely release stored hydraulic pressure according to the procedure."
-  },
-  {
-    "id": 11,
-    "prompt": "A fire cannot continue if one of its three essential elements is removed. Which list contains those elements?",
-    "options": [
-      "Fuel, oxygen, and a sustained chemical chain reaction",
-      "Fuel, heat, and a sustained chemical chain reaction",
-      "Heat, oxygen, and a sustained chemical chain reaction",
-      "Heat, fuel, and oxygen"
-    ],
-    "correctIndex": 3,
-    "explanation": "Heat, fuel, and oxygen."
-  },
-  {
-    "id": 12,
-    "prompt": "A wastebasket containing paper and cloth catches fire. What class of fire is this?",
-    "options": [
-      "Class B",
-      "Class A",
-      "Class D",
-      "Class C"
-    ],
-    "correctIndex": 1,
-    "explanation": "Class A: ordinary combustibles."
-  },
-  {
-    "id": 13,
-    "prompt": "A pool of spilled gasoline ignites. What class of fire is this?",
-    "options": [
-      "Class D",
-      "Class C",
-      "Class B",
-      "Class A"
-    ],
-    "correctIndex": 2,
-    "explanation": "Class B: flammable liquids."
-  },
-  {
-    "id": 14,
-    "prompt": "An electrical cabinet catches fire while its circuits remain energized. What class of fire is this?",
-    "options": [
-      "Class C",
-      "Class A",
-      "Class B",
-      "Class D"
-    ],
-    "correctIndex": 0,
-    "explanation": "Class C: energized electrical equipment."
-  },
-  {
-    "id": 15,
-    "prompt": "Magnesium shavings ignite during shop work. What class of fire is this?",
-    "options": [
-      "Class A",
-      "Class B",
-      "Class C",
-      "Class D"
-    ],
-    "correctIndex": 3,
-    "explanation": "Class D: combustible metals."
-  },
-  {
-    "id": 16,
-    "prompt": "You discover an electrical fire. After raising the alarm, what should be done about the electrical supply if it can be done safely?",
-    "options": [
-      "Keep power connected until the extinguisher discharge is complete",
-      "Shut off or isolate the electrical power",
-      "Operate the equipment stop switch and assume every circuit is isolated",
-      "Open the cabinet to find the fire before isolating the electrical supply"
-    ],
-    "correctIndex": 1,
-    "explanation": "Isolate the electrical supply if safe to do so."
-  },
-  {
-    "id": 17,
-    "prompt": "For a fire involving a combustible metal, which extinguisher selection is appropriate?",
-    "options": [
-      "Standard ABC dry chemical, selected without checking the burning metal",
-      "CO₂, selected because it leaves no residue",
-      "Class D dry powder specifically approved for the burning metal",
-      "Water mist, selected because it cools the metal"
-    ],
-    "correctIndex": 2,
-    "explanation": "Use an agent approved for the particular combustible metal. Ordinary powder is not automatically Class D rated, and water must not be used on the metal fire."
-  },
-  {
-    "id": 18,
-    "prompt": "What is a major hazard of discharging a CO₂ extinguisher in a small enclosed room?",
-    "options": [
-      "Oxygen displacement can make the atmosphere unsafe to breathe",
-      "A charged CO₂ cylinder can make its surroundings oxygen-rich",
-      "CO₂ discharge eliminates the need to evacuate once the flame is out",
-      "CO₂ discharge makes the atmosphere safe as soon as smoke clears"
-    ],
-    "correctIndex": 0,
-    "explanation": "CO₂ can displace oxygen and create an asphyxiation hazard."
-  },
-  {
-    "id": 19,
-    "prompt": "Which traditional extinguisher symbol identifies suitability for Class B fires?",
-    "options": [
-      "A blue circle",
-      "A yellow star",
-      "A green triangle",
-      "A red square"
-    ],
-    "correctIndex": 3,
-    "explanation": "Red square."
-  },
-  {
-    "id": 20,
-    "prompt": "A CO₂ extinguisher weighs less than its specified charged weight. What might this indicate?",
-    "options": [
-      "To establish the extinguisher pressure from its total weight",
-      "Some of its extinguishing agent has been lost",
-      "To confirm that the cylinder has the required proof-test strength",
-      "To verify that the discharge horn delivers the specified flow"
-    ],
-    "correctIndex": 1,
-    "explanation": "Reduced weight can indicate lost extinguishing agent."
-  },
-  {
-    "id": 21,
-    "prompt": "Your introduction slides state that human factors are involved in approximately what percentage of maintenance errors?",
-    "options": [
-      "30%",
-      "50%",
-      "80%",
-      "100%"
-    ],
-    "correctIndex": 2,
-    "explanation": "80%, according to your slides."
-  },
-  {
-    "id": 22,
-    "prompt": "An aircraft access opening is evaluated to determine whether technicians of different sizes can reach through it. Which discipline is most directly involved?",
-    "options": [
+      "Computer science",
+      "Cognitive science",
       "Anthropometry",
-      "Educational psychology",
-      "Clinical psychology",
       "Organizational psychology"
     ],
     "correctIndex": 0,
-    "explanation": "Anthropometry."
+    "explanation": "Computer science.",
+    "learningTarget": "human-computer-discipline"
   },
   {
-    "id": 23,
-    "prompt": "A maintenance software screen is redesigned to make its controls easier to understand. According to your slides, which discipline examines this human-computer interaction?",
+    "id": 9,
+    "prompt": "What is an expected outcome of improved human factors awareness in aircraft maintenance?",
     "options": [
-      "Cognitive science",
-      "Anthropometry",
-      "Organizational psychology",
-      "Computer science"
-    ],
-    "correctIndex": 3,
-    "explanation": "Computer science."
-  },
-  {
-    "id": 24,
-    "prompt": "Human factors aims to improve safe and effective performance by minimizing:",
-    "options": [
-      "Reducing physical hazards while treating technician performance as a separate issue",
-      "Risk, including the risk associated with human error",
-      "Reducing task time while leaving error-management procedures unchanged",
-      "Reducing equipment failures while relying on experience to control human error"
-    ],
-    "correctIndex": 1,
-    "explanation": "Minimize risk associated with human performance and error."
-  },
-  {
-    "id": 25,
-    "prompt": "Which discipline studies perception, decision-making, planning, and the mind’s processing of information?",
-    "options": [
-      "Safety engineering",
-      "Medical science",
-      "Cognitive science",
-      "Anthropometry"
-    ],
-    "correctIndex": 2,
-    "explanation": "Cognitive science."
-  },
-  {
-    "id": 26,
-    "prompt": "Researchers examine why a technician struggles to troubleshoot a fault while under intense pressure. Which discipline most directly examines the effects on mental processing?",
-    "options": [
-      "Cognitive science",
-      "Computer science",
-      "Anthropometry",
-      "Educational psychology"
-    ],
-    "correctIndex": 0,
-    "explanation": "Cognitive science."
-  },
-  {
-    "id": 27,
-    "prompt": "What would indicate that improved human factors awareness is benefiting a maintenance organization?",
-    "options": [
+      "Improved quality, fewer errors, and greater worker and aircraft safety",
       "Higher task throughput, even if rework remains unchanged",
       "Greater technician confidence, even if error rates remain unchanged",
-      "Fewer error reports, even if staff have become reluctant to report",
-      "Work quality improves and maintenance-related errors decrease"
+      "Fewer error reports, even if staff have become reluctant to report"
     ],
-    "correctIndex": 3,
-    "explanation": "Improved quality and fewer errors."
+    "correctIndex": 0,
+    "explanation": "Improved quality, fewer errors, and greater safety.",
+    "learningTarget": "human-factors-benefits"
   },
   {
-    "id": 28,
-    "prompt": "Engineers redesign a lifting device so a component failure is less likely to injure someone. Which discipline does this demonstrate?",
+    "id": 10,
+    "prompt": "Which Dirty Dozen factor can reduce cognitive ability, coordination, and reaction time?",
     "options": [
-      "Cognitive science",
-      "Safety engineering",
-      "Organizational psychology",
-      "Anthropometry"
-    ],
-    "correctIndex": 1,
-    "explanation": "Safety engineering."
-  },
-  {
-    "id": 29,
-    "prompt": "A company studies how supervision, team relationships, and job satisfaction affect its technicians. Which discipline is involved?",
-    "options": [
-      "Cognitive science",
-      "Safety engineering",
-      "Organizational psychology",
-      "Educational psychology"
-    ],
-    "correctIndex": 2,
-    "explanation": "Organizational psychology."
-  },
-  {
-    "id": 30,
-    "prompt": "After insufficient rest, a technician reacts slowly, has trouble concentrating, and becomes less coordinated. Which Dirty Dozen factor is most directly involved?",
-    "options": [
-      "Fatigue",
       "Stress",
       "Distraction",
-      "Pressure"
-    ],
-    "correctIndex": 0,
-    "explanation": "Fatigue."
-  },
-  {
-    "id": 31,
-    "prompt": "A technician performs an action without considering how it could affect another aircraft system. Which Dirty Dozen factor best fits?",
-    "options": [
-      "Lack of knowledge",
-      "Distraction",
-      "Complacency",
-      "Lack of awareness"
+      "Pressure",
+      "Fatigue"
     ],
     "correctIndex": 3,
-    "explanation": "Lack of awareness."
+    "explanation": "Fatigue.",
+    "learningTarget": "fatigue-identification"
   },
   {
-    "id": 32,
-    "prompt": "A technician thinks, “I have checked this component hundreds of times; nothing is ever wrong with it,” and becomes less vigilant. This demonstrates:",
+    "id": 11,
+    "prompt": "In the Dirty Dozen, stress can result from:",
     "options": [
-      "Lack of awareness",
-      "Complacency",
-      "Pressure",
-      "Distraction"
+      "Pressure from a deadline, but excluding personal and physical strain",
+      "Physical, psychological, or physiological demands that create strain",
+      "Physical tiredness from insufficient rest, rather than wider demands",
+      "Distraction from interruptions, rather than mental or physiological strain"
     ],
     "correctIndex": 1,
-    "explanation": "Complacency."
+    "explanation": "Physical, psychological, or physiological demands creating strain.",
+    "learningTarget": "stress-definition"
   },
   {
-    "id": 33,
-    "prompt": "Which description most fully captures the sources of stress in the Dirty Dozen material?",
-    "options": [
-      "Deadline pressure alone, excluding personal and physical demands",
-      "Physical tiredness from lack of rest, excluding wider demands",
-      "Physical, psychological, or physiological demands that create strain",
-      "Interruptions alone, excluding mental and physiological demands"
-    ],
-    "correctIndex": 2,
-    "explanation": "Stress can arise from psychological, physical, and work-related demands."
-  },
-  {
-    "id": 34,
-    "prompt": "Which is an active error rather than a latent organizational weakness?",
-    "options": [
-      "A technician accidentally connects two wires to the wrong terminals",
-      "A company maintains an inadequate training program",
-      "Management allows a confusing procedure to remain in use",
-      "A staffing policy repeatedly leaves shifts short-handed"
-    ],
-    "correctIndex": 0,
-    "explanation": "Incorrectly connecting wires is an active error."
-  },
-  {
-    "id": 35,
-    "prompt": "In PEAR, the category that considers a technician’s capabilities and mental state is:",
-    "options": [
-      "Procedures",
-      "Performance",
-      "Prevention",
-      "People"
-    ],
-    "correctIndex": 3,
-    "explanation": "People."
-  },
-  {
-    "id": 36,
-    "prompt": "An inadequate maintenance policy exists for months before contributing to an incident. In the Swiss Cheese model, this is an example of:",
+    "id": 12,
+    "prompt": "What best describes latent failures in the Swiss Cheese model?",
     "options": [
       "An unsafe action performed by a technician during the current task",
-      "A latent failure",
       "An immediate equipment failure that visibly interrupts the current job",
+      "Hidden weaknesses that can remain dormant until they contribute to an event",
       "An accident outcome after the final protective barrier has failed"
     ],
-    "correctIndex": 1,
-    "explanation": "A latent failure can remain hidden or dormant before contributing to an incident."
-  },
-  {
-    "id": 37,
-    "prompt": "An investigator organizes possible causes of an incident into branches on a Fishbone Diagram. What is another name for this diagram?",
-    "options": [
-      "Sequence-of-events diagram",
-      "Fault Tree diagram",
-      "Cause-and-effect or Ishikawa diagram",
-      "Swiss Cheese diagram"
-    ],
     "correctIndex": 2,
-    "explanation": "Cause-and-effect or Ishikawa diagram."
+    "explanation": "Hidden weaknesses that remain dormant until contributing to an event.",
+    "learningTarget": "latent-failure"
   },
   {
-    "id": 38,
-    "prompt": "In Heinrich’s original Domino Theory, as described in your slides, the first domino represented:",
+    "learningTarget": "symbol-a-colour",
+    "prompt": "Which traditional colour-and-shape symbol marks Class A fires?",
     "options": [
-      "A person’s social environment",
-      "The resulting injury",
-      "The final unsafe act",
-      "The absence of management safety controls"
+      "Green triangle",
+      "Red square",
+      "Blue circle",
+      "Yellow five-pointed star"
     ],
     "correctIndex": 0,
-    "explanation": "Social environment. Absence of management safety controls belongs to Bird’s later version."
+    "optionImages": [
+      "/safety/fire-class-a-shape.svg",
+      "/safety/fire-class-b-shape.svg",
+      "/safety/fire-class-c-shape.svg",
+      "/safety/fire-class-d-shape.svg"
+    ],
+    "explanation": "Class A uses a green triangle.",
+    "feedbackVisual": {
+      "src": "/safety/fire-class-a.svg",
+      "alt": "Class A: green triangle"
+    },
+    "id": 13
+  },
+  {
+    "learningTarget": "water-cooling",
+    "prompt": "How does an ordinary water extinguisher primarily suppress a Class A fire?",
+    "options": [
+      "By cooling the burning material and removing heat",
+      "By blanketing the fuel with a nonconductive gas",
+      "By interrupting combustion with a dry powder coating",
+      "By covering a liquid fuel with a foam layer"
+    ],
+    "correctIndex": 0,
+    "explanation": "Water removes heat from ordinary combustible material.",
+    "id": 14
+  },
+  {
+    "learningTarget": "foam-rated-classes",
+    "prompt": "Which fire-class pairing is commonly listed for a suitably rated chemical-foam extinguisher?",
+    "options": [
+      "B and C",
+      "C and D",
+      "A and D",
+      "A and B"
+    ],
+    "correctIndex": 3,
+    "explanation": "Suitable chemical foam is listed for Class A and Class B fires; check the actual rating.",
+    "id": 15
+  },
+  {
+    "learningTarget": "body-colour-versus-rating",
+    "prompt": "Two extinguisher cylinders are painted the same colour. What should determine which fire classes each can handle?",
+    "options": [
+      "The matching cylinder colour",
+      "Which cylinder is heavier",
+      "The class rating and instructions on each label",
+      "The colour of the carrying handle"
+    ],
+    "correctIndex": 2,
+    "explanation": "Class markings identify suitability; cylinder colour alone is not a class rating.",
+    "id": 16
+  },
+  {
+    "learningTarget": "escape-route-position",
+    "prompt": "When conditions permit extinguisher use by a trained person, where should the escape route be relative to that person?",
+    "options": [
+      "Beyond the fire, so retreat passes the flames",
+      "Behind them, with the fire in front",
+      "On the opposite side of the burning material",
+      "It is irrelevant once an extinguisher has been selected"
+    ],
+    "correctIndex": 1,
+    "explanation": "Keep a safe retreat route available while facing the fire.",
+    "id": 17
+  },
+  {
+    "learningTarget": "communication-identification",
+    "prompt": "An outgoing shift fails to tell the incoming shift that a component is still disconnected. Which Dirty Dozen factor is most direct?",
+    "options": [
+      "Lack of communication",
+      "Lack of resources",
+      "Fatigue",
+      "Complacency"
+    ],
+    "correctIndex": 0,
+    "explanation": "The missing handover information is a communication failure.",
+    "id": 18
+  },
+  {
+    "learningTarget": "teamwork-identification",
+    "prompt": "Two workers have the information and equipment they need but refuse to coordinate a shared task. Which factor is most direct?",
+    "options": [
+      "Lack of knowledge",
+      "Lack of resources",
+      "Fatigue",
+      "Lack of teamwork"
+    ],
+    "correctIndex": 3,
+    "explanation": "The failure is in working together toward the shared task.",
+    "id": 19
+  },
+  {
+    "learningTarget": "assertiveness-identification",
+    "prompt": "A technician recognizes an unsafe instruction but remains silent because they do not want to challenge the supervisor. Which factor is most direct?",
+    "options": [
+      "Lack of knowledge",
+      "Lack of resources",
+      "Lack of assertiveness",
+      "Complacency"
+    ],
+    "correctIndex": 2,
+    "explanation": "The technician needs to express the recognized safety concern.",
+    "id": 20
+  },
+  {
+    "learningTarget": "pear-actions",
+    "prompt": "In PEAR, which category addresses the tasks and steps the technician must perform?",
+    "options": [
+      "Resources",
+      "Actions",
+      "Environment",
+      "People"
+    ],
+    "correctIndex": 1,
+    "explanation": "Actions covers what must be done in the task.",
+    "id": 21
+  },
+  {
+    "learningTarget": "defective-equipment",
+    "prompt": "A shared item of shop equipment is found defective. What is the best response?",
+    "options": [
+      "Remove it from use and report or identify the defect through the shop procedure",
+      "Put it away without telling anyone",
+      "Leave it available with a verbal warning to one classmate",
+      "Keep using it until the next scheduled inspection"
+    ],
+    "correctIndex": 0,
+    "explanation": "The defect must be communicated so another user does not unknowingly use the equipment.",
+    "id": 22
+  },
+  {
+    "learningTarget": "guard-versus-ppe",
+    "prompt": "A fixed machine guard prevents access to moving parts. How does it differ from PPE?",
+    "options": [
+      "It is PPE because every protective measure is worn",
+      "It replaces every safe-work procedure automatically",
+      "It is only an administrative reminder",
+      "It controls access to the hazard at the equipment rather than being worn by the worker"
+    ],
+    "correctIndex": 3,
+    "explanation": "A physical guard controls the equipment hazard; PPE is worn by the worker.",
+    "id": 23
+  },
+  {
+    "learningTarget": "distraction-recovery",
+    "prompt": "After an interruption, what is the best way to resume a maintenance task?",
+    "options": [
+      "Continue at whichever step seems familiar",
+      "Skip the interrupted step to avoid doing it twice",
+      "Confirm the last completed step and use the procedure or checklist to re-establish the work status",
+      "Rely entirely on the interrupting person’s memory"
+    ],
+    "correctIndex": 2,
+    "explanation": "Re-establishing the work status helps prevent missed or repeated steps.",
+    "id": 24
   }
 ]
