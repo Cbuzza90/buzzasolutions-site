@@ -7,7 +7,7 @@ import StudyWelcome from "./StudyWelcome";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
-import { formatTestDate, nextCourseTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
+import { formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 const courses = [
   { slug: "electricity", title: "Aircraft Electricity 1", code: "AMEM-10001", category: "Foundations", icon: Zap, color: "amber", description: "Build your understanding of aircraft electricity, one topic at a time." },
@@ -71,7 +71,7 @@ function CourseList() {
   const [today, refreshDate] = useStudyDate();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All courses");
-  const filtered = courses.filter(course => (category === "All courses" || category === course.category) && `${course.title} ${course.code}`.toLowerCase().includes(query.trim().toLowerCase())).sort((a, b) => Number(Boolean(b.hasTests)) - Number(Boolean(a.hasTests)));
+  const filtered = sortCoursesByNextTest(courses.filter(course => (category === "All courses" || category === course.category) && `${course.title} ${course.code}`.toLowerCase().includes(query.trim().toLowerCase())), upcomingTests, today);
   return <>
     <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your courses</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div><p>What are we studying today?</p></section>
     <section id="courses" className="study-courses">

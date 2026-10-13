@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { nextCourseTest, torontoDate, upcomingTests, visibleTests } from "./studySchedule.js";
+import { nextCourseTest, sortCoursesByNextTest, torontoDate, upcomingTests, visibleTests } from "./studySchedule.js";
 
 test("test dates stay visible on the test day and expire the following day", () => {
   assert.equal(visibleTests(upcomingTests, "2026-10-14").length, 3);
@@ -42,4 +42,18 @@ test("each course uses its earliest upcoming test, ignoring expired and other-co
 test("calendar-day countdowns remain correct across Toronto daylight-saving changes", () => {
   assert.equal(nextCourseTest("safety", [{courseSlug:"safety",date:"2026-11-02"}], "2026-10-31").days, 2);
   assert.equal(nextCourseTest("safety", [{courseSlug:"safety",date:"2026-03-09"}], "2026-03-07").days, 2);
+});
+
+test("courses sort by nearest scheduled test even when practice questions are unavailable", () => {
+  const courses = [{slug:"structures",hasTests:true},{slug:"electricity"},{slug:"systems",hasTests:true},{slug:"safety",hasTests:true},{slug:"math"}];
+  const original = [...courses];
+  assert.deepEqual(sortCoursesByNextTest(courses, upcomingTests, "2026-10-13").map(course => course.slug), ["safety","systems","electricity","structures","math"]);
+  assert.deepEqual(sortCoursesByNextTest(courses, upcomingTests, "2026-10-15").map(course => course.slug), ["systems","electricity","structures","safety","math"]);
+  assert.deepEqual(courses, original);
+});
+
+test("ties preserve practice availability and original order", () => {
+  const courses = [{slug:"one"},{slug:"two",hasTests:true},{slug:"three",hasTests:true},{slug:"four"}];
+  const tests = courses.map(course => ({courseSlug:course.slug,date:"2026-10-14"}));
+  assert.deepEqual(sortCoursesByNextTest(courses, tests, "2026-10-13").map(course => course.slug), ["two","three","one","four"]);
 });

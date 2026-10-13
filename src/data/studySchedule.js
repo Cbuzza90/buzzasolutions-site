@@ -26,6 +26,11 @@ export function nextCourseTest(courseSlug, tests = upcomingTests, today = toront
   return { ...test, days, urgency, hue };
 }
 
+export function sortCoursesByNextTest(courses, tests = upcomingTests, today = torontoDate()) {
+  const dates = new Map(courses.map(course => [course.slug, nextCourseTest(course.slug, tests, today)?.days ?? Infinity]));
+  return [...courses].sort((a, b) => dates.get(a.slug) - dates.get(b.slug) || Number(Boolean(b.hasTests)) - Number(Boolean(a.hasTests)));
+}
+
 export function formatTestDate(date, short = false) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto", weekday: short ? "short" : "long", month: short ? "short" : "long", day: "numeric" }).format(new Date(`${date}T12:00:00-04:00`));
 }
