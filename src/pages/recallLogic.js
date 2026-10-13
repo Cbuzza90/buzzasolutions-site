@@ -86,6 +86,7 @@ const concepts = {
 export function gradeTextResponse(response, rule) {
   const input = normalizeAnswer(response);
   if (!input || input.length > 500) return { correct: false, close: false };
+  if (rule?.reject?.some(phrase => ` ${input} `.includes(` ${normalizeAnswer(phrase)} `))) return { correct: false, close: false };
   const alternatives = rule?.aliases;
   if (alternatives) {
     const matches = alternatives.map(phrase => matchPhrase(input, phrase)).filter(Boolean);

@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "prompt": "The Greek word behind \"hydraulics\" means __________.",
+    "answer": "Water"
+  },
+  {
+    "id": 2,
+    "prompt": "Which law states that pressure applied to a confined fluid is transmitted equally and undiminished in all directions?",
+    "answer": "Pascal's law"
+  },
+  {
+    "id": 3,
+    "prompt": "For a given liquid, static fluid pressure depends on the vertical __________ of its column.",
+    "answer": "Height"
+  },
+  {
+    "id": 4,
+    "prompt": "To increase output force, the output piston must have a __________ area than the input piston.",
+    "answer": "Larger"
+  },
+  {
+    "id": 5,
+    "prompt": "A liquid's internal resistance to flow is called __________.",
+    "answer": "Viscosity"
+  },
+  {
+    "id": 6,
+    "prompt": "As a hydraulic liquid's temperature decreases, its viscosity __________.",
+    "answer": "Increases"
+  },
+  {
+    "id": 7,
+    "prompt": "The named instrument in the slides is the __________ universal viscosimeter.",
+    "answer": "Saybolt"
+  },
+  {
+    "id": 8,
+    "prompt": "The ability of a liquid to resist oxidation and deterioration is called __________.",
+    "answer": "Chemical stability"
+  },
+  {
+    "id": 9,
+    "prompt": "The temperature at which vapour ignites momentarily when a flame is applied is the __________.",
+    "answer": "Flash point"
+  },
+  {
+    "id": 10,
+    "prompt": "The temperature at which enough vapour is released to ignite and sustain burning is the __________.",
+    "answer": "Fire point"
+  },
+  {
+    "id": 11,
+    "prompt": "What colour is vegetable-base MIL-H-7644 hydraulic fluid?",
+    "answer": "Blue"
+  },
+  {
+    "id": 12,
+    "prompt": "Vegetable-base hydraulic fluid uses seals made from __________.",
+    "answer": "Natural rubber"
+  },
+  {
+    "id": 13,
+    "prompt": "What colour is mineral-base MIL-H-5606 hydraulic fluid?",
+    "answer": "Red"
+  },
+  {
+    "id": 14,
+    "prompt": "Name the synthetic rubber listed as a seal material for MIL-H-5606 in the presentation.",
+    "answer": "Neoprene"
+  },
+  {
+    "id": 15,
+    "prompt": "What is the typical colour of phosphate-ester BMS 3-11 hydraulic fluid?",
+    "answer": "Light purple"
+  },
+  {
+    "id": 16,
+    "prompt": "Which synthetic hydraulic-fluid brand does the presentation identify as most commonly used?",
+    "answer": "Skydrol"
+  },
+  {
+    "id": 17,
+    "prompt": "Skydrol-compatible seals include ethylene-propylene elastomers and __________ rubber.",
+    "answer": "Butyl"
+  },
+  {
+    "id": 18,
+    "prompt": "MIL-H-83282 is backward compatible with MIL-H-__________.",
+    "answer": "5606"
+  },
+  {
+    "id": 19,
+    "prompt": "Which system type circulates fluid through neutral selector valves and back to the reservoir without maintaining stored operating pressure?",
+    "answer": "Open centre"
+  },
+  {
+    "id": 20,
+    "prompt": "In an open-centre system, selector valves are arranged in __________.",
+    "answer": "Series"
+  },
+  {
+    "id": 21,
+    "prompt": "Which system type builds and stores hydraulic energy and supplies fluid to actuators when required?",
+    "answer": "Closed centre"
+  },
+  {
+    "id": 22,
+    "prompt": "In a closed-centre system, selector valves are arranged in __________.",
+    "answer": "Parallel"
+  },
+  {
+    "id": 23,
+    "prompt": "Which component stores hydraulic energy for later use?",
+    "answer": "Accumulator"
+  },
+  {
+    "id": 24,
+    "prompt": "A self-contained hydraulic unit combining an electric pump, valves and a reservoir is called a __________.",
+    "answer": "Power pack"
+  },
+  {
+    "id": 25,
+    "prompt": "A reservoir built into a power pack is described as __________.",
+    "answer": "Integral"
+  },
+  {
+    "id": 26,
+    "prompt": "A separate reservoir connected to other components by tubing or hose is described as __________.",
+    "answer": "In-line"
+  },
+  {
+    "id": 27,
+    "prompt": "Which component removes contaminants from circulating hydraulic fluid?",
+    "answer": "Filter"
+  },
+  {
+    "id": 28,
+    "prompt": "Pressurized reservoirs ensure a positive fluid supply at the inlet of which component?",
+    "answer": "Pump"
+  },
+  {
+    "id": 29,
+    "prompt": "Which engine or APU air source can pressurize a hydraulic reservoir?",
+    "answer": "Bleed air"
+  },
+  {
+    "id": 30,
+    "prompt": "What is the name of the reservoir-pressurizing system that uses the hydraulic system's own pressure?",
+    "answer": "Bootstrap"
+  },
+  {
+    "id": 31,
+    "prompt": "Which component controls normal hydraulic-system pressure within a preset range?",
+    "answer": "Pressure regulator"
+  },
+  {
+    "id": 32,
+    "prompt": "If the regulator fails and system pressure rises excessively, which valve provides overpressure protection?",
+    "answer": "System relief valve"
+  },
+  {
+    "id": 33,
+    "prompt": "Which valve protects trapped fluid from excess pressure caused by heating?",
+    "answer": "Thermal relief valve"
+  },
+  {
+    "id": 34,
+    "prompt": "Which component maintains a lower pressure for a unit such as an autopilot servo?",
+    "answer": "Pressure reducer"
+  },
+  {
+    "id": 35,
+    "prompt": "Which valve returns excess pump flow to the reservoir when the required system pressure is reached?",
+    "answer": "Unloading valve"
+  },
+  {
+    "id": 36,
+    "prompt": "Which brake-system component reduces pressure while increasing the fluid volume delivered to the brake actuators?",
+    "answer": "Debooster"
+  },
+  {
+    "id": 37,
+    "prompt": "According to the presentation's 150% example, what is the relief setting for a 1,000 psi system?",
+    "answer": "1,500 psi"
+  },
+  {
+    "id": 38,
+    "prompt": "Early rubber expander-tube brakes were an example of a __________ hydraulic system.",
+    "answer": "Closed"
+  },
+  {
+    "id": 39,
+    "prompt": "The modern aircraft brake type named in the presentation is floating __________ brakes.",
+    "answer": "Disc"
+  },
+  {
+    "id": 40,
+    "prompt": "An actuator with hydraulic fluid on one side and spring or nitrogen pressure providing the opposing action is __________.",
+    "answer": "Single-acting"
+  },
+  {
+    "id": 41,
+    "prompt": "An actuator with hydraulic fluid acting on both sides of the piston is __________.",
+    "answer": "Double-acting"
+  },
+  {
+    "id": 42,
+    "prompt": "A force of 4,800 lb acts on a piston with an area of 6 in². What is the hydraulic pressure in psi?",
+    "answer": "800 psi"
+  },
+  {
+    "id": 43,
+    "prompt": "A pressure of 1,200 psi acts on a piston with an area of 3 in². What force is produced in lb?",
+    "answer": "3,600 lb"
+  },
+  {
+    "id": 44,
+    "prompt": "A piston with an area of 6 in² travels 12 inches. What volume of fluid is displaced in in³?",
+    "answer": "72 in³"
+  },
+  {
+    "id": 45,
+    "prompt": "A towing force does 84,000 ft-lb of work over 28 feet along its direction. What is the force in lb?",
+    "answer": "3,000 lb"
+  },
+  {
+    "id": 46,
+    "prompt": "In an ideal system, a 60 lb input force acts on a piston of radius 2 inches. The output piston radius is 8 inches. What is the output force in lb?",
+    "answer": "960 lb"
+  },
+  {
+    "id": 47,
+    "prompt": "In an ideal system without leakage, an input piston of diameter 2 inches travels 16 inches. The output piston diameter is 8 inches. What is the output travel in inches?",
+    "answer": "1 inch"
+  },
+  {
+    "id": 48,
+    "prompt": "A force of 1,650 lb moves an object 400 feet. How much work is done in ft-lb?",
+    "answer": "660,000 ft-lb"
+  },
+  {
+    "id": 49,
+    "prompt": "A force of 1,650 lb moves an object 400 feet in 2 minutes. What is the power in ft-lb/min?",
+    "answer": "330,000 ft-lb/min"
+  },
+  {
+    "id": 50,
+    "prompt": "A force of 1,650 lb moves an object 400 feet in 2 minutes. What horsepower is required?",
+    "answer": "10 hp"
+  }
+]
