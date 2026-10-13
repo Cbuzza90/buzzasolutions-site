@@ -1,0 +1,834 @@
+[
+  {
+    "id": 1,
+    "learningTarget": "atomic-structure",
+    "prompt": "Which description correctly places the three main particles in an atom?",
+    "options": [
+      "Protons and neutrons in the nucleus; electrons outside it",
+      "Protons and electrons in the nucleus; neutrons outside it",
+      "Electrons and neutrons in the nucleus; protons outside it",
+      "Only protons in the nucleus; electrons and neutrons outside it"
+    ],
+    "correctIndex": 0,
+    "explanation": "The nucleus contains positively charged protons and neutral neutrons. Negatively charged electrons occupy the region around it."
+  },
+  {
+    "id": 2,
+    "learningTarget": "electron-charge",
+    "prompt": "Which particle carries the negative charge transferred during ordinary static charging?",
+    "options": [
+      "Proton",
+      "Neutron",
+      "Positive ion",
+      "Electron"
+    ],
+    "correctIndex": 3,
+    "explanation": "Electrons carry negative charge and can transfer between materials; protons remain bound within nuclei during ordinary static charging."
+  },
+  {
+    "id": 3,
+    "learningTarget": "positive-ion",
+    "prompt": "A neutral atom loses an electron. What does it become?",
+    "options": [
+      "A neutral atom with a smaller nucleus",
+      "A negative ion, also called a cation",
+      "A positive ion, also called a cation",
+      "A negative ion, also called an anion"
+    ],
+    "correctIndex": 2,
+    "explanation": "Losing a negative electron leaves more protons than electrons, producing a positive ion or cation."
+  },
+  {
+    "id": 4,
+    "learningTarget": "negative-ion",
+    "prompt": "A neutral atom gains an electron. What does it become?",
+    "options": [
+      "A neutral atom with an extra neutron",
+      "A negative ion, also called an anion",
+      "A positive ion, also called a cation",
+      "A positive ion, also called an anion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Gaining an electron gives the atom a net negative charge: a negative ion or anion."
+  },
+  {
+    "id": 5,
+    "learningTarget": "ionization",
+    "prompt": "What name describes the process that turns a neutral atom into an ion by gaining or losing electrons?",
+    "options": [
+      "Ionization",
+      "Electromagnetic induction",
+      "Polarization",
+      "Thermoelectric generation"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ionization produces a charged atom by changing its number of electrons."
+  },
+  {
+    "id": 6,
+    "learningTarget": "valence",
+    "prompt": "Which electrons are called valence electrons?",
+    "options": [
+      "Electrons closest to the nucleus",
+      "Electrons with a positive charge",
+      "Electrons located inside the nucleus",
+      "Electrons in the outermost occupied shell"
+    ],
+    "correctIndex": 3,
+    "explanation": "Valence electrons occupy the outermost shell and strongly influence bonding and electrical behaviour."
+  },
+  {
+    "id": 7,
+    "learningTarget": "free-electrons",
+    "prompt": "Why can a metal with many mobile free electrons conduct current readily?",
+    "options": [
+      "Its neutrons supply the moving electrical charge",
+      "Each electron must leave the metal permanently",
+      "An applied electric field can produce a net movement of these electrons",
+      "Its protons can move freely along the wire"
+    ],
+    "correctIndex": 2,
+    "explanation": "Free electrons can move through the material under an electric field, allowing current to flow."
+  },
+  {
+    "id": 8,
+    "learningTarget": "conductor",
+    "prompt": "Which material is normally chosen as an electrical conductor rather than an insulator?",
+    "options": [
+      "Plastic",
+      "Copper",
+      "Rubber",
+      "Glass"
+    ],
+    "correctIndex": 1,
+    "explanation": "Copper has mobile charge carriers and low resistivity; rubber, glass and most ordinary plastics are used as insulators."
+  },
+  {
+    "id": 9,
+    "learningTarget": "resistivity",
+    "prompt": "For wires of equal length and cross-sectional area at the same temperature, which material has the greatest resistance?",
+    "options": [
+      "Nichrome",
+      "Copper",
+      "Silver",
+      "Aluminum"
+    ],
+    "correctIndex": 0,
+    "explanation": "For identical geometry and temperature, resistance depends on material resistivity. Nichrome has substantially higher resistivity than these conducting metals."
+  },
+  {
+    "id": 10,
+    "learningTarget": "static",
+    "prompt": "Which description best distinguishes static electricity from current electricity?",
+    "options": [
+      "A continuous flow of charge around a closed circuit",
+      "A voltage that must reverse direction periodically",
+      "A current that can flow only through a battery",
+      "An accumulated imbalance of charge rather than a sustained flow"
+    ],
+    "correctIndex": 3,
+    "explanation": "Static electricity is an accumulation of charge; current electricity describes charge flowing."
+  },
+  {
+    "id": 11,
+    "learningTarget": "aircraft-static",
+    "prompt": "What can cause an aircraft to accumulate precipitation static in flight?",
+    "options": [
+      "Current through its generator field winding",
+      "Induction inside its radio antenna transformer",
+      "Charge transfer as rain, snow or particles interact with its surface",
+      "Chemical conversion inside its storage battery"
+    ],
+    "correctIndex": 2,
+    "explanation": "Contact with precipitation and particles can transfer charge to the aircraft surface and create static buildup."
+  },
+  {
+    "id": 12,
+    "learningTarget": "static-wicks",
+    "prompt": "What is the principal electrical purpose of aircraft static discharge wicks?",
+    "options": [
+      "Provide the main return path for normal radio supply current",
+      "Release accumulated static charge to reduce radio interference",
+      "Carry the aircraft's full lightning-strike current safely",
+      "Increase the output voltage of the aircraft generator"
+    ],
+    "correctIndex": 1,
+    "explanation": "Static wicks dissipate accumulated charge and help reduce precipitation-static radio interference. They are not the aircraft's primary lightning protection."
+  },
+  {
+    "id": 13,
+    "learningTarget": "six-sources",
+    "prompt": "Which set lists the six basic methods of producing electricity covered in elementary aviation electricity?",
+    "options": [
+      "Friction, pressure, heat, light, chemical action and magnetism",
+      "Friction, pressure, heat, resistance, chemical action and magnetism",
+      "Friction, pressure, current, light, chemical action and magnetism",
+      "Friction, voltage, heat, light, capacitance and magnetism"
+    ],
+    "correctIndex": 0,
+    "explanation": "The six basic methods are friction, pressure, heat, light, chemical action and magnetism with relative motion or changing flux."
+  },
+  {
+    "id": 14,
+    "learningTarget": "friction-source",
+    "prompt": "Two different insulating materials are rubbed together and separate with opposite charges. What explains this?",
+    "options": [
+      "Protons transfer between their nuclei",
+      "Neutrons move through a magnetic field",
+      "Both materials acquire the same excess of electrons",
+      "Electrons transfer between their surfaces"
+    ],
+    "correctIndex": 3,
+    "explanation": "Contact and separation can transfer electrons, leaving one material with excess negative charge and the other with a deficit."
+  },
+  {
+    "id": 15,
+    "learningTarget": "pressure-source",
+    "prompt": "A piezoelectric crystal produces a voltage when it is mechanically deformed. Which source of electricity is involved?",
+    "options": [
+      "Light",
+      "Chemical action",
+      "Pressure",
+      "Heat"
+    ],
+    "correctIndex": 2,
+    "explanation": "Mechanical stress or deformation of a piezoelectric material separates charge and produces a voltage."
+  },
+  {
+    "id": 16,
+    "learningTarget": "heat-source",
+    "prompt": "A thermocouple produces an EMF when its dissimilar-metal junctions are at different temperatures. Which source is involved?",
+    "options": [
+      "Light",
+      "Heat",
+      "Pressure",
+      "Friction"
+    ],
+    "correctIndex": 1,
+    "explanation": "The thermoelectric effect converts a temperature difference across dissimilar materials into an EMF."
+  },
+  {
+    "id": 17,
+    "learningTarget": "light-source",
+    "prompt": "Which device directly converts incident light into electrical energy?",
+    "options": [
+      "Photovoltaic cell",
+      "Thermocouple",
+      "Piezoelectric element",
+      "Electrochemical cell"
+    ],
+    "correctIndex": 0,
+    "explanation": "A photovoltaic cell converts light energy into electrical energy; the other devices use heat, pressure or chemical action."
+  },
+  {
+    "id": 18,
+    "learningTarget": "chemical-source",
+    "prompt": "Which statement explains how a battery supplies electrical energy?",
+    "options": [
+      "Friction between the terminals creates free electrons continuously",
+      "Light passing through its electrolyte creates magnetic flux",
+      "Mechanical deformation of its case creates the supply voltage",
+      "Chemical reactions maintain a potential difference between its terminals"
+    ],
+    "correctIndex": 3,
+    "explanation": "Electrochemical reactions convert stored chemical energy into electrical energy."
+  },
+  {
+    "id": 19,
+    "learningTarget": "magnetic-source",
+    "prompt": "Which condition can induce an EMF in a conductor by magnetism?",
+    "options": [
+      "The conductor is insulated but has no changing linked flux",
+      "A nearby magnet is present without any change in linked flux",
+      "The magnetic flux linking the conductor changes",
+      "A stationary conductor remains in an unchanging magnetic field"
+    ],
+    "correctIndex": 2,
+    "explanation": "Electromagnetic induction requires changing magnetic flux linkage, such as relative motion between a conductor and a field."
+  },
+  {
+    "id": 20,
+    "learningTarget": "current",
+    "prompt": "Electrical current describes which quantity?",
+    "options": [
+      "The energy stored per unit mass",
+      "The rate at which charge flows",
+      "The electrical energy supplied per unit charge",
+      "The opposition offered to charge flow"
+    ],
+    "correctIndex": 1,
+    "explanation": "Current is charge flow per unit time. Voltage is energy per unit charge, and resistance opposes current."
+  },
+  {
+    "id": 21,
+    "learningTarget": "current-unit",
+    "prompt": "Which unit is used for electric current?",
+    "options": [
+      "Ampere",
+      "Volt",
+      "Ohm",
+      "Watt"
+    ],
+    "correctIndex": 0,
+    "explanation": "Current is measured in amperes; volts measure potential difference, ohms resistance and watts power."
+  },
+  {
+    "id": 22,
+    "learningTarget": "voltage",
+    "prompt": "What does voltage, also called EMF in the context of a source, represent?",
+    "options": [
+      "The rate of charge flowing through a conductor",
+      "The resistance of the return conductor",
+      "The quantity of power used by the load",
+      "Electrical potential difference that can drive current"
+    ],
+    "correctIndex": 3,
+    "explanation": "Voltage is electrical potential difference. A source's EMF supplies energy per unit charge that can drive current through a circuit."
+  },
+  {
+    "id": 23,
+    "learningTarget": "resistance-unit",
+    "prompt": "Which pairing correctly identifies resistance and its unit?",
+    "options": [
+      "Electrical potential difference — ampere",
+      "Energy conversion rate — volt",
+      "Opposition to current flow — ohm",
+      "Rate of charge flow — ohm"
+    ],
+    "correctIndex": 2,
+    "explanation": "Resistance is opposition to current flow and is measured in ohms."
+  },
+  {
+    "id": 24,
+    "learningTarget": "resistance-factors",
+    "prompt": "Which set gives the four main factors affecting a conductor's resistance?",
+    "options": [
+      "Length, terminal shape, source brand and voltage polarity",
+      "Material, length, cross-sectional area and temperature",
+      "Material, length, insulation colour and voltage polarity",
+      "Cross-sectional area, current direction, colour and frequency label"
+    ],
+    "correctIndex": 1,
+    "explanation": "Conductor resistance depends on material resistivity, length, cross-sectional area and temperature."
+  },
+  {
+    "id": 25,
+    "learningTarget": "wire-length",
+    "prompt": "A wire is replaced by a longer wire of the same material and cross-sectional area at the same temperature. What happens to resistance?",
+    "options": [
+      "It increases",
+      "It decreases",
+      "It stays the same",
+      "It becomes independent of material"
+    ],
+    "correctIndex": 0,
+    "explanation": "A longer path offers more resistance when material, area and temperature remain unchanged."
+  },
+  {
+    "id": 26,
+    "learningTarget": "wire-area",
+    "prompt": "A wire is replaced by a thicker wire of the same material and length at the same temperature. What happens to resistance?",
+    "options": [
+      "It increases",
+      "It stays the same",
+      "It depends only on insulation thickness",
+      "It decreases"
+    ],
+    "correctIndex": 3,
+    "explanation": "Increasing the conducting cross-sectional area lowers resistance; insulation thickness is not the conducting area."
+  },
+  {
+    "id": 27,
+    "learningTarget": "wire-temperature",
+    "prompt": "For an ordinary copper conductor, what normally happens to resistance as temperature rises?",
+    "options": [
+      "It remains unchanged",
+      "It changes sign",
+      "It increases",
+      "It decreases"
+    ],
+    "correctIndex": 2,
+    "explanation": "Copper has a positive temperature coefficient: its resistance normally increases with temperature."
+  },
+  {
+    "id": 28,
+    "learningTarget": "watt",
+    "prompt": "What is a watt a unit of?",
+    "options": [
+      "Resistance: opposition to current flow",
+      "Power: the rate of energy transfer or conversion",
+      "Energy: the total amount transferred",
+      "Charge: the amount of electricity stored"
+    ],
+    "correctIndex": 1,
+    "explanation": "A watt is a unit of power, equal to one joule per second. It is a rate, not a total amount of energy."
+  },
+  {
+    "id": 29,
+    "learningTarget": "horsepower-history",
+    "prompt": "Who is credited with developing and popularizing horsepower as a practical power rating for steam engines?",
+    "options": [
+      "James Watt",
+      "Georg Simon Ohm",
+      "Gustav Kirchhoff",
+      "Michael Faraday"
+    ],
+    "correctIndex": 0,
+    "explanation": "James Watt developed and popularized horsepower to compare engine output with the work rate of horses."
+  },
+  {
+    "id": 30,
+    "learningTarget": "horsepower-meaning",
+    "prompt": "What does horsepower describe?",
+    "options": [
+      "A total quantity of mechanical work",
+      "A force acting on a conductor",
+      "An electrical potential difference",
+      "A rate of doing mechanical work"
+    ],
+    "correctIndex": 3,
+    "explanation": "Horsepower is a unit of power: a rate of doing work, rather than force or total energy."
+  },
+  {
+    "id": 31,
+    "learningTarget": "series-current",
+    "prompt": "In a simple DC series circuit, which quantity is the same through every component?",
+    "options": [
+      "Resistance",
+      "Power dissipation",
+      "Current",
+      "Voltage drop"
+    ],
+    "correctIndex": 2,
+    "explanation": "A series circuit has one current path, so the same current passes through every component."
+  },
+  {
+    "id": 32,
+    "learningTarget": "parallel-voltage",
+    "prompt": "In a DC parallel circuit, what is the same across branches connected to the same two supply nodes?",
+    "options": [
+      "Branch power",
+      "Voltage",
+      "Branch current",
+      "Branch resistance"
+    ],
+    "correctIndex": 1,
+    "explanation": "Each branch is connected across the same two nodes and therefore has the same potential difference."
+  },
+  {
+    "id": 33,
+    "learningTarget": "voltage-drop",
+    "prompt": "What name is given to the decrease in electrical potential across a resistor carrying current?",
+    "options": [
+      "Voltage drop",
+      "Current gain",
+      "Resistance loss",
+      "Charge multiplication"
+    ],
+    "correctIndex": 0,
+    "explanation": "A voltage drop is the potential difference across a component as energy is transferred from the charges passing through it."
+  },
+  {
+    "id": 34,
+    "learningTarget": "series-resistance",
+    "prompt": "Which statement correctly describes the total resistance of positive resistors connected in series?",
+    "options": [
+      "It is smaller than the smallest resistor",
+      "It equals only the largest resistor",
+      "It is the average of the resistor values",
+      "It is the sum of the individual resistances"
+    ],
+    "correctIndex": 3,
+    "explanation": "Series resistances add together. This question asks for the relationship, not a calculation."
+  },
+  {
+    "id": 35,
+    "learningTarget": "parallel-addition",
+    "prompt": "Another positive resistor branch is added across an unchanged ideal voltage supply. What happens to the network's total resistance?",
+    "options": [
+      "It stays unchanged",
+      "It equals the new branch resistance",
+      "It decreases",
+      "It increases"
+    ],
+    "correctIndex": 2,
+    "explanation": "An additional parallel path increases total conductance and lowers equivalent resistance."
+  },
+  {
+    "id": 36,
+    "learningTarget": "parallel-minimum",
+    "prompt": "How does the equivalent resistance of two or more finite positive resistors in parallel compare with the smallest branch resistor?",
+    "options": [
+      "It lies between the smallest and largest branch resistances",
+      "It is less than the smallest branch resistance",
+      "It equals the smallest branch resistance",
+      "It is greater than the largest branch resistance"
+    ],
+    "correctIndex": 1,
+    "explanation": "Multiple parallel paths give an equivalent resistance below even the smallest individual branch resistance."
+  },
+  {
+    "id": 37,
+    "learningTarget": "kvl",
+    "prompt": "Which statement expresses Kirchhoff's Voltage Law?",
+    "options": [
+      "The algebraic sum of voltages around a closed loop is zero",
+      "The sum of currents entering a node is the total loop voltage",
+      "The resistance of each parallel branch must be equal",
+      "The current through a resistor equals its voltage drop"
+    ],
+    "correctIndex": 0,
+    "explanation": "With consistent signs, voltage rises and drops around a complete loop sum to zero."
+  },
+  {
+    "id": 38,
+    "learningTarget": "kcl",
+    "prompt": "Which statement expresses Kirchhoff's Current Law?",
+    "options": [
+      "Voltage drops across all parallel branches add to supply voltage",
+      "Resistance entering a node equals resistance leaving it",
+      "Every branch connected to a node must carry equal current",
+      "Total current entering a node equals total current leaving it"
+    ],
+    "correctIndex": 3,
+    "explanation": "Charge does not continuously accumulate at an ordinary circuit node, so incoming and outgoing currents balance."
+  },
+  {
+    "id": 39,
+    "learningTarget": "ohm-law",
+    "prompt": "Which equation expresses Ohm's law using V for voltage, I for current and R for resistance?",
+    "options": [
+      "R = V × I",
+      "I = V × R",
+      "V = I × R",
+      "V = I ÷ R"
+    ],
+    "correctIndex": 2,
+    "explanation": "Ohm's law is V = IR; equivalently I = V/R and R = V/I."
+  },
+  {
+    "id": 40,
+    "learningTarget": "ohm-relationship",
+    "prompt": "For an ohmic resistor at unchanged temperature, what happens to current when voltage increases while resistance stays constant?",
+    "options": [
+      "Current reverses direction automatically",
+      "Current increases",
+      "Current decreases",
+      "Current remains constant"
+    ],
+    "correctIndex": 1,
+    "explanation": "From I = V/R, increasing voltage at constant resistance increases current. No numerical calculation is needed."
+  },
+  {
+    "id": 41,
+    "learningTarget": "power-formula",
+    "prompt": "Which expression gives DC electrical power directly in terms of voltage V and current I?",
+    "options": [
+      "P = V × I",
+      "P = V ÷ I",
+      "P = I ÷ V",
+      "P = V + I"
+    ],
+    "correctIndex": 0,
+    "explanation": "Power is P = VI. For an ohmic resistor, P = I²R and P = V²/R are also valid, so they are not used as wrong choices here."
+  },
+  {
+    "id": 42,
+    "learningTarget": "band-roles",
+    "prompt": "For a standard four-band resistor, what do the bands indicate in reading order?",
+    "options": [
+      "First digit, multiplier, second digit, tolerance",
+      "Tolerance, first digit, second digit, multiplier",
+      "First digit, second digit, tolerance, multiplier",
+      "First digit, second digit, multiplier, tolerance"
+    ],
+    "correctIndex": 3,
+    "explanation": "In the four-band code, the first two bands are significant digits, the third is the multiplier and the fourth is tolerance."
+  },
+  {
+    "id": 43,
+    "learningTarget": "missing-tolerance",
+    "prompt": "A standard resistor has two digit bands and a multiplier band, but no tolerance band. What tolerance is indicated?",
+    "options": [
+      "±5%",
+      "±1%",
+      "±20%",
+      "±10%"
+    ],
+    "correctIndex": 2,
+    "explanation": "Under the standard resistor colour code, an absent tolerance band indicates ±20%."
+  },
+  {
+    "id": 44,
+    "learningTarget": "tolerance-colour",
+    "prompt": "In the tolerance position of a four-band resistor, what does a gold band indicate?",
+    "options": [
+      "±1%",
+      "±5%",
+      "±10%",
+      "±20%"
+    ],
+    "correctIndex": 1,
+    "explanation": "Gold in the tolerance position means ±5%; silver means ±10% and no band means ±20%."
+  },
+  {
+    "id": 45,
+    "learningTarget": "potentiometer",
+    "prompt": "What distinguishes a potentiometer used as a voltage divider from a rheostat used in series with a load?",
+    "options": [
+      "The divider uses three terminals; the rheostat uses a wiper and one end terminal",
+      "The divider uses two terminals; the rheostat always uses all three",
+      "The divider changes current without resistance; the rheostat changes voltage without resistance",
+      "The divider uses a fixed resistor; the rheostat uses a capacitor"
+    ],
+    "correctIndex": 0,
+    "explanation": "A potentiometer divider uses both ends and a wiper to select a voltage. A rheostat uses two terminals to vary series resistance and therefore load current."
+  },
+  {
+    "id": 46,
+    "learningTarget": "galvanometer",
+    "prompt": "What causes pointer deflection in a permanent-magnet moving-coil galvanometer?",
+    "options": [
+      "Heating of the pointer by the measured voltage",
+      "Mechanical expansion of the coil insulation",
+      "Chemical action between the pointer and the scale",
+      "Magnetic interaction between the current-carrying coil and the permanent magnet"
+    ],
+    "correctIndex": 3,
+    "explanation": "Current through the coil creates a magnetic field that interacts with the permanent magnet, producing torque against a restoring spring."
+  },
+  {
+    "id": 47,
+    "learningTarget": "sensitivity",
+    "prompt": "For a moving-coil movement, greater current sensitivity means what?",
+    "options": [
+      "Its full-scale resistance must be zero",
+      "Its pointer must move without any current",
+      "Less current is needed for full-scale deflection",
+      "More current is needed for full-scale deflection"
+    ],
+    "correctIndex": 2,
+    "explanation": "A more current-sensitive movement reaches full scale with less current."
+  },
+  {
+    "id": 48,
+    "learningTarget": "damping",
+    "prompt": "What is the purpose of damping in an analog meter movement?",
+    "options": [
+      "Remove the need for a restoring spring",
+      "Reduce pointer oscillation so it settles promptly",
+      "Increase pointer overshoot to extend the scale",
+      "Keep the pointer at full scale after current stops"
+    ],
+    "correctIndex": 1,
+    "explanation": "Damping opposes motion and reduces oscillation, helping the pointer settle at its reading."
+  },
+  {
+    "id": 49,
+    "learningTarget": "mechanical-zero",
+    "prompt": "With no input connected, an analog meter pointer rests away from the mechanical zero mark. Which adjustment addresses this?",
+    "options": [
+      "Mechanical pointer zero adjustment",
+      "Ohms zero adjustment with probes shorted",
+      "Selection of a larger current shunt",
+      "Reversal of the battery terminals"
+    ],
+    "correctIndex": 0,
+    "explanation": "Mechanical zero sets the resting pointer position. The separate ohms adjustment calibrates the resistance scale with shorted probes."
+  },
+  {
+    "id": 50,
+    "learningTarget": "ammeter-connection",
+    "prompt": "How should a conventional ammeter be connected to measure current through a load?",
+    "options": [
+      "In parallel across the load",
+      "Across the supply with the load disconnected",
+      "Across an open switch without changing the circuit",
+      "In series with the load"
+    ],
+    "correctIndex": 3,
+    "explanation": "An ammeter must be part of the current path. Connecting its low resistance directly across a supply can cause excessive current."
+  },
+  {
+    "id": 51,
+    "learningTarget": "ammeter-precautions",
+    "prompt": "Before inserting an ammeter into a DC circuit, which preparation is appropriate?",
+    "options": [
+      "Select the resistance range and insert the probes in parallel",
+      "Use the lowest current range first regardless of the expected current",
+      "De-energize it, select the correct fused current input and a suitable range, then connect in series with correct polarity",
+      "Leave it powered, select the voltage input and connect across the source"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use the correct current terminals, ratings and range, make the series connection with power removed, and observe polarity for a DC analog movement."
+  },
+  {
+    "id": 52,
+    "learningTarget": "ammeter-shunt",
+    "prompt": "How does a shunt extend the current range of an analog ammeter?",
+    "options": [
+      "A high-resistance parallel path forces all current through the movement",
+      "A low-resistance parallel path carries most of the current around the movement",
+      "A high-resistance series path carries all the current through the movement",
+      "A low-resistance series path increases the movement's full-scale current"
+    ],
+    "correctIndex": 1,
+    "explanation": "An ammeter shunt is low resistance and is connected in parallel with the sensitive movement to divert most of the current."
+  },
+  {
+    "id": 53,
+    "learningTarget": "voltmeter-connection",
+    "prompt": "How should a voltmeter be connected to measure the voltage across a load?",
+    "options": [
+      "In parallel across the load",
+      "In series with the load",
+      "In series with the supply return only",
+      "Across an isolated wire with both ends at the same node"
+    ],
+    "correctIndex": 0,
+    "explanation": "Voltage is a difference between two points, so the meter is connected across the component or points being measured."
+  },
+  {
+    "id": 54,
+    "learningTarget": "voltmeter-multiplier",
+    "prompt": "What is the arrangement and purpose of a multiplier resistor in an analog voltmeter?",
+    "options": [
+      "A low resistance in parallel with the movement diverts load current",
+      "A high resistance in parallel with the load measures its current",
+      "A low resistance in series with the movement increases its current",
+      "A high resistance in series with the movement limits its current"
+    ],
+    "correctIndex": 3,
+    "explanation": "A voltmeter multiplier resistor is connected in series with the movement to limit current at the selected voltage range."
+  },
+  {
+    "id": 55,
+    "learningTarget": "ohmmeter-power",
+    "prompt": "What should be done before using the resistance function on a circuit?",
+    "options": [
+      "Leave power applied and reverse the probes",
+      "Switch to the current input while retaining the ohms setting",
+      "Remove external power and safely discharge stored energy",
+      "Leave power applied and select the highest ohms range"
+    ],
+    "correctIndex": 2,
+    "explanation": "Resistance measurement uses the meter's own test source. External voltage can cause incorrect readings or damage; stored charge must also be removed safely."
+  },
+  {
+    "id": 56,
+    "learningTarget": "ohmmeter-battery",
+    "prompt": "Why does a conventional analog series ohmmeter contain a battery?",
+    "options": [
+      "To create an alternating waveform for frequency measurement",
+      "To drive a test current through the resistance being measured",
+      "To provide external power to the circuit during voltage testing",
+      "To replace the need for resistance-scale calibration"
+    ],
+    "correctIndex": 1,
+    "explanation": "Its internal battery drives a test current through the movement and unknown resistance, allowing the meter to indicate resistance."
+  },
+  {
+    "id": 57,
+    "learningTarget": "megohmmeter",
+    "prompt": "Which instrument is designed to test very high insulation resistance?",
+    "options": [
+      "Megohmmeter or insulation resistance tester",
+      "Ordinary current shunt",
+      "Moving-coil galvanometer without a test source",
+      "Wheatstone bridge set for low-resistance components"
+    ],
+    "correctIndex": 0,
+    "explanation": "A megohmmeter applies a specified test voltage and determines high insulation resistance from the resulting small current."
+  },
+  {
+    "id": 58,
+    "learningTarget": "insulation-test",
+    "prompt": "What distinguishes an insulation resistance test from an ordinary low-voltage resistance check?",
+    "options": [
+      "It applies normal aircraft power and measures load current",
+      "It measures only voltage drop in an energized wire",
+      "It requires the tested circuit to remain connected to all sensitive electronics",
+      "It applies a specified elevated DC test voltage to assess insulation leakage"
+    ],
+    "correctIndex": 3,
+    "explanation": "An insulation tester uses a specified DC test voltage. The circuit must be isolated and equipment suitability checked because this voltage can damage connected electronics."
+  },
+  {
+    "id": 59,
+    "learningTarget": "dmm-battery",
+    "prompt": "Which indication most directly shows that a digital multimeter's internal battery needs attention?",
+    "options": [
+      "Its voltage reading has a minus sign",
+      "Its continuity buzzer remains silent on an open circuit",
+      "Its low-battery indicator appears",
+      "Its resistance range displays an open circuit"
+    ],
+    "correctIndex": 2,
+    "explanation": "A low-battery symbol or warning is the direct indication. Open-circuit, negative-polarity and continuity indications can be normal."
+  },
+  {
+    "id": 60,
+    "learningTarget": "dmm-resolution",
+    "prompt": "What does a digital multimeter's resolution describe?",
+    "options": [
+      "The maximum current allowed through its fuse",
+      "The smallest change it can display on a selected range",
+      "How close every reading is to the true value",
+      "The highest voltage it can safely withstand"
+    ],
+    "correctIndex": 1,
+    "explanation": "Resolution is the smallest displayed increment on a range. Accuracy describes agreement with the true value, and is a separate property."
+  },
+  {
+    "id": 61,
+    "learningTarget": "diode-test",
+    "prompt": "Which DMM function is intended to check a diode's forward voltage drop and reverse blocking behaviour?",
+    "options": [
+      "Diode-test mode",
+      "DC current mode",
+      "AC voltage mode",
+      "Frequency mode"
+    ],
+    "correctIndex": 0,
+    "explanation": "Diode-test mode applies a small test current and displays forward voltage; reversing the probes normally shows blocking for a good isolated diode."
+  },
+  {
+    "id": 62,
+    "learningTarget": "wheatstone",
+    "prompt": "What is the main purpose of a Wheatstone bridge?",
+    "options": [
+      "Measure an AC waveform's frequency directly",
+      "Extend an ammeter's current range with a shunt",
+      "Produce an EMF from changing magnetic flux",
+      "Determine an unknown resistance by comparison with known resistances"
+    ],
+    "correctIndex": 3,
+    "explanation": "A Wheatstone bridge compares resistances. At balance, the detector indicates no current and the resistance ratios establish the unknown resistance."
+  },
+  {
+    "id": 63,
+    "learningTarget": "oscilloscope",
+    "prompt": "Which instrument displays how signal voltage changes with time and can compare waveforms on multiple channels?",
+    "options": [
+      "Wheatstone bridge",
+      "Analog series ohmmeter",
+      "Oscilloscope",
+      "Megohmmeter"
+    ],
+    "correctIndex": 2,
+    "explanation": "An oscilloscope plots voltage against time; multiple channels allow comparison of signals. It can display AC, DC levels and transients."
+  },
+  {
+    "id": 64,
+    "learningTarget": "scope-frequency",
+    "prompt": "To determine a repeating waveform's frequency on an oscilloscope, which feature of its trace is relevant?",
+    "options": [
+      "The thickness of the trace alone",
+      "The time taken for one complete cycle",
+      "Its maximum vertical voltage alone",
+      "Its average DC offset alone"
+    ],
+    "correctIndex": 1,
+    "explanation": "Frequency is related to the time for a full cycle, using the horizontal time scale. Amplitude and offset alone do not establish frequency."
+  }
+]
