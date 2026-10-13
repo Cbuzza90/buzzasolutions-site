@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "diameter": "5/16",
+    "bolt": "AN5",
+    "nut": "AN320"
+  },
+  {
+    "id": 2,
+    "diameter": "1/4",
+    "bolt": "AN4",
+    "nut": "AN365"
+  },
+  {
+    "id": 3,
+    "diameter": "3/8",
+    "bolt": "NAS",
+    "nut": "AN365"
+  },
+  {
+    "id": 4,
+    "diameter": "3/16",
+    "bolt": "AN3DD",
+    "nut": "AN365D"
+  },
+  {
+    "id": 5,
+    "diameter": "1/2",
+    "bolt": "AN8",
+    "nut": "AN310"
+  },
+  {
+    "id": 6,
+    "diameter": "5/16",
+    "bolt": "NAS",
+    "nut": "AN320"
+  },
+  {
+    "id": 7,
+    "diameter": "3/8",
+    "bolt": "AN6DD",
+    "nut": "AN320D"
+  },
+  {
+    "id": 8,
+    "diameter": "3/16",
+    "bolt": "AN3",
+    "nut": "AN364"
+  },
+  {
+    "id": 9,
+    "diameter": "1/4",
+    "bolt": "NAS",
+    "nut": "AN310"
+  },
+  {
+    "id": 10,
+    "diameter": "5/16",
+    "bolt": "AN5DD",
+    "nut": "AN310D"
+  },
+  {
+    "id": 11,
+    "diameter": "7/16",
+    "bolt": "AN7",
+    "nut": "AN320"
+  },
+  {
+    "id": 12,
+    "diameter": "1/2",
+    "bolt": "NAS",
+    "nut": "AN364"
+  },
+  {
+    "id": 13,
+    "diameter": "1/4",
+    "bolt": "AN4DD",
+    "nut": "AN364D"
+  },
+  {
+    "id": 14,
+    "diameter": "9/16",
+    "bolt": "NAS",
+    "nut": "AN365"
+  },
+  {
+    "id": 15,
+    "diameter": "1/2",
+    "bolt": "AN8DD",
+    "nut": "AN365D"
+  },
+  {
+    "id": 16,
+    "diameter": "3/8",
+    "bolt": "AN6",
+    "nut": "AN365"
+  },
+  {
+    "id": 17,
+    "diameter": "1/4",
+    "bolt": "AN4",
+    "nut": "AN320"
+  },
+  {
+    "id": 18,
+    "diameter": "3/16",
+    "bolt": "NAS",
+    "nut": "AN365"
+  },
+  {
+    "id": 19,
+    "diameter": "5/16",
+    "bolt": "AN5",
+    "nut": "AN310"
+  },
+  {
+    "id": 20,
+    "diameter": "1/2",
+    "bolt": "AN8DD",
+    "nut": "AN320D"
+  },
+  {
+    "id": 21,
+    "diameter": "3/8",
+    "bolt": "NAS",
+    "nut": "AN320"
+  },
+  {
+    "id": 22,
+    "diameter": "7/16",
+    "bolt": "AN7DD",
+    "nut": "AN365D"
+  },
+  {
+    "id": 23,
+    "diameter": "3/16",
+    "bolt": "AN3",
+    "nut": "AN365"
+  },
+  {
+    "id": 24,
+    "diameter": "1/4",
+    "bolt": "NAS",
+    "nut": "AN364"
+  },
+  {
+    "id": 25,
+    "diameter": "5/16",
+    "bolt": "AN5DD",
+    "nut": "AN320D"
+  },
+  {
+    "id": 26,
+    "diameter": "7/16",
+    "bolt": "NAS",
+    "nut": "AN365"
+  },
+  {
+    "id": 27,
+    "diameter": "1/2",
+    "bolt": "AN8",
+    "nut": "AN364"
+  },
+  {
+    "id": 28,
+    "diameter": "3/8",
+    "bolt": "AN6DD",
+    "nut": "AN310D"
+  },
+  {
+    "id": 29,
+    "diameter": "5/16",
+    "bolt": "NAS",
+    "nut": "AN310"
+  },
+  {
+    "id": 30,
+    "diameter": "9/16",
+    "bolt": "AN9",
+    "nut": "AN365"
+  },
+  {
+    "id": 31,
+    "diameter": "3/16",
+    "bolt": "AN3DD",
+    "nut": "AN320D"
+  },
+  {
+    "id": 32,
+    "diameter": "7/16",
+    "bolt": "NAS",
+    "nut": "AN320"
+  },
+  {
+    "id": 33,
+    "diameter": "1/4",
+    "bolt": "AN4DD",
+    "nut": "AN365D"
+  },
+  {
+    "id": 34,
+    "diameter": "3/8",
+    "bolt": "AN6",
+    "nut": "AN320"
+  },
+  {
+    "id": 35,
+    "diameter": "1/2",
+    "bolt": "NAS",
+    "nut": "AN365"
+  },
+  {
+    "id": 36,
+    "diameter": "9/16",
+    "bolt": "AN9DD",
+    "nut": "AN365D"
+  },
+  {
+    "id": 37,
+    "diameter": "5/8",
+    "bolt": "AN10",
+    "nut": "AN365"
+  },
+  {
+    "id": 38,
+    "diameter": "3/16",
+    "bolt": "NAS",
+    "nut": "AN320"
+  },
+  {
+    "id": 39,
+    "diameter": "7/16",
+    "bolt": "AN7",
+    "nut": "AN365"
+  },
+  {
+    "id": 40,
+    "diameter": "9/16",
+    "bolt": "NAS",
+    "nut": "AN364"
+  },
+  {
+    "id": 41,
+    "diameter": "5/8",
+    "bolt": "AN10",
+    "nut": "AN320"
+  },
+  {
+    "id": 42,
+    "diameter": "1/4",
+    "bolt": "AN4",
+    "nut": "AN310"
+  },
+  {
+    "id": 43,
+    "diameter": "7/16",
+    "bolt": "AN7DD",
+    "nut": "AN320D"
+  },
+  {
+    "id": 44,
+    "diameter": "9/16",
+    "bolt": "AN9",
+    "nut": "AN320"
+  },
+  {
+    "id": 45,
+    "diameter": "5/8",
+    "bolt": "NAS",
+    "nut": "AN365"
+  },
+  {
+    "id": 46,
+    "diameter": "5/16",
+    "bolt": "AN5",
+    "nut": "AN364"
+  },
+  {
+    "id": 47,
+    "diameter": "9/16",
+    "bolt": "AN9DD",
+    "nut": "AN320D"
+  },
+  {
+    "id": 48,
+    "diameter": "5/8",
+    "bolt": "NAS",
+    "nut": "AN320"
+  },
+  {
+    "id": 49,
+    "diameter": "3/4",
+    "bolt": "AN12",
+    "nut": "AN365"
+  },
+  {
+    "id": 50,
+    "diameter": "3/4",
+    "bolt": "AN12",
+    "nut": "AN320"
+  }
+]
