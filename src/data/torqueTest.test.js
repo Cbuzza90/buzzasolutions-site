@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { lookupTorque, torqueQuestions, formatTorqueRange } from "./torqueTest.js";
+import chart from "./torque-chart.json" with { type: "json" };
 
 // Independently checked against the supplied fine-thread chart, in the user's order.
 const key = [[60,85],[50,70],[200,250],[10,15],[480,690],[70,90],[45,70],[12,15],[80,100],[40,65],
@@ -30,6 +31,21 @@ test("thin shear nuts and aluminum D suffixes choose the proper columns", () => 
   assert.throws(() => lookupTorque({diameter:"1/4", bolt:"NAS", nut:"AN364D"}));
 });
 
-test("original course chart photo is shipped with the test", () => {
-  assert.ok(existsSync(new URL("../../public/structures/torque-chart.jpg", import.meta.url)));
+test("the recreated full chart is shipped with the test", () => {
+  assert.ok(existsSync(new URL("../../public/structures/torque-chart.svg", import.meta.url)));
+});
+
+test("the full chart preserves all groups, thread sections, and unavailable cells", () => {
+  assert.equal(chart.boltGroups.length, 3);
+  assert.equal(chart.nutGroups.length, 6);
+  assert.equal(chart.fineRows.length, 14);
+  assert.equal(chart.coarseRows.length, 14);
+  assert.ok(chart.boltGroups[1].series.includes("NAS583 THRU NAS590"));
+  assert.deepEqual(chart.fineRows[0].ranges.slice(2, 4), [null, null]);
+  assert.ok(chart.coarseRows.every(row => row.ranges.slice(2).every(range => range === null)));
+  assert.deepEqual(chart.coarseRows.find(row => row.thread === "5/16-18").ranges.slice(0, 2), [[80,90],[48,55]]);
+  for (const row of [...chart.fineRows, ...chart.coarseRows]) {
+    assert.equal(row.ranges.length, 6);
+    assert.ok(row.ranges.every(range => range === null || range.length === 2 && range[0] <= range[1]));
+  }
 });

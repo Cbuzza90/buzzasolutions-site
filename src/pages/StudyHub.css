@@ -418,15 +418,9 @@
 .study-app[data-theme="dark"] .study-diagram-dialog { background: #141414; }
 
 .study-torque-chart-button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:44px;margin:12px 0;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
-.study-torque-groups{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;flex-shrink:0}
-.study-torque-groups button{flex:1;min-height:44px;padding:8px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);font:inherit;font-size:12px;cursor:pointer}
-.study-torque-groups button[aria-pressed=true]{background:#2563eb;border-color:#2563eb;color:#f5f5f5}
-.study-torque-table{width:100%;min-width:310px;border-collapse:collapse;color:#141414;font-size:13px;line-height:1.5;font-variant-numeric:tabular-nums}
-.study-torque-table caption{text-align:left;padding:12px;font-weight:700}
-.study-torque-table th,.study-torque-table td{padding:10px;border:1px solid #d5d5d5;text-align:left;white-space:nowrap}
-.study-torque-table thead th{background:#e9e9e9;white-space:normal;font-size:12px}
-.study-torque-table tbody th{position:sticky;left:0;background:#f5f5f5}
-.study-torque-table small{display:block;font-size:11px;font-weight:400;color:#555}
-.study-torque-source{padding:14px;color:#141414;font-size:13px}
-.study-torque-source summary{cursor:pointer;min-height:44px}
-.study-torque-source img{width:1050px;max-width:none;height:auto}
+ .study-torque-zoom{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-shrink:0}
+.study-torque-zoom button{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
+.study-torque-zoom button:disabled{opacity:.4;cursor:default}
+.study-torque-zoom output{min-width:44px;text-align:center;color:var(--ink);font-size:12px;font-variant-numeric:tabular-nums}
+.study-torque-full-image{display:block;max-width:none;height:auto}
+.study-torque-full-scroll{touch-action:pan-x pan-y;scrollbar-width:thin}
