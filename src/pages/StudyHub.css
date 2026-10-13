@@ -422,5 +422,5 @@
 .study-torque-zoom button{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
 .study-torque-zoom button:disabled{opacity:.4;cursor:default}
 .study-torque-zoom output{min-width:44px;text-align:center;color:var(--ink);font-size:12px;font-variant-numeric:tabular-nums}
-.study-torque-full-image{display:block;max-width:none;height:auto}
-.study-torque-full-scroll{touch-action:pan-x pan-y;scrollbar-width:thin}
+.study-torque-full-image{display:block;max-width:none;height:auto;user-select:none;-webkit-user-select:none}
+.study-torque-full-scroll{touch-action:none;scrollbar-width:thin}
