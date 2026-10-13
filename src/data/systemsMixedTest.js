@@ -1,9 +1,8 @@
-import source from "./structures-practice1.json" with { type: "json" };
+import source from "./systems-mixed-practice2.json" with { type: "json" };
 import { gradeTextResponse } from "../pages/recallLogic.js";
 
 const select = (label, correct, options) => ({ label, type: "select", correct, options });
 const text = (label, rule, example) => ({ label, type: "text", rule, example });
-const number = (label, correct, unit) => ({ label, type: "number", correct, unit });
 const choices = labels => labels.map((label, index) => ({ value: String.fromCharCode(65 + index), label }));
 const tf = [{ value: "T", label: "True" }, { value: "F", label: "False" }];
 const fluidTypes = [{ value: "V", label: "Vegetable-base" }, { value: "M", label: "Mineral-base MIL-H-5606" }, { value: "P", label: "Phosphate ester (Skydrol/HyJet)" }];
@@ -26,17 +25,13 @@ const configuration = {
   19: [text("Why use a pressurized reservoir?", { groups: [["positive fluid supply", "positive supply", "pump inlet", "pump supply"], ["prevent foaming", "prevents foaming", "prevention of foaming", "reduce foaming", "prevent foam", "avoid foaming"]] }, "Positive fluid supply at the pump inlet and prevention of foaming."), text("Name the three pressurizing methods", { groups: [["aspirator"], ["bleed air"], ["hydraulic system pressure", "hydraulic pressure", "bootstrap"]] }, "Aspirator, bleed air, and hydraulic system pressure/bootstrap.")],
   22: [select("Single-acting actuator", "B", choices(["Fluid acts on both sides of the piston", "Fluid acts on one side; spring and/or nitrogen opposes it"])), select("Double-acting actuator", "A", choices(["Fluid acts on both sides of the piston", "Fluid acts on one side; spring and/or nitrogen opposes it"]))],
   23: ["Pressure regulator", "System pressure relief valve", "Thermal relief valve", "Pressure reducer", "Debooster", "Unloading valve"].map((label, i) => select(label, ["D", "E", "A", "C", "B", "F"][i], pressureFunctions)),
-  24: [text("Which component provides overpressure protection?", { aliases: ["system pressure relief valve", "system relief valve", "pressure relief valve", "relief valve"] }, "System pressure relief valve"), number("150% of 1,000 psi", 1500, "psi")],
+  24: [text("Which component provides overpressure protection?", { aliases: ["system pressure relief valve", "system relief valve", "pressure relief valve", "relief valve"] }, "System pressure relief valve")],
   25: ["1", "2", "3", "4", "5"].map((label, i) => select(`Component ${label}`, ["T", "F", "S", "A", "R"][i], [{ value: "A", label: "Accumulator" }, { value: "R", label: "Reservoir" }, { value: "T", label: "Thermal relief valve" }, { value: "F", label: "Filter" }, { value: "S", label: "System relief valve" }])),
   26: [select("System type", "O", [{ value: "O", label: "Open-centre system" }, { value: "C", label: "Closed-centre system" }]), select("Selector-valve arrangement", "S", [{ value: "S", label: "Series" }, { value: "P", label: "Parallel" }]), text("Describe fluid flow when the selectors are neutral", { groups: [["reservoir"], ["pump"], ["neutral selector valves", "neutral selectors", "selector valves"], ["returns to reservoir", "returns to the reservoir", "back to reservoir", "back to the reservoir"]] }, "Fluid goes from the reservoir through the pump and neutral selector valves, then returns to the reservoir.")],
   27: [select("Left red sample: fluid family", "M", fluidTypes), select("Right purple sample: fluid family", "P", fluidTypes), select("Which sample represents BMS 3-11, Skydrol/HyJet?", "R", [{ value: "L", label: "Left red sample" }, { value: "R", label: "Right purple sample" }]), select("Which sample represents fire-resistant fluid in this comparison?", "R", [{ value: "L", label: "Left red sample" }, { value: "R", label: "Right purple sample" }])],
   28: ["Hydraulic pressure", "Hydraulic force", "Piston area from force and pressure", "Circular piston area from radius", "Fluid volume displaced", "Work", "Power", "Horsepower"].map((label, i) => select(label, ["C", "D", "H", "F", "B", "A", "G", "E"][i], formulas)),
-  29: [number("Hydraulic pressure", 800, "psi")], 30: [number("Piston force", 3600, "lb")], 31: [number("Fluid volume displaced", 72, "in³")],
-  32: [number("Towing force", 3000, "lb")], 33: [number("Output force", 960, "lb")], 34: [number("Output piston travel", 1, "in")],
-  35: [number("Work", 660000, "ft-lb"), number("Power", 330000, "ft-lb/min"), number("Horsepower", 10, "hp")],
 };
 
-export const unitOptions = ["psi", "lb", "in³", "in", "ft-lb", "ft-lb/min", "hp"];
 const diagrams = {
   17: { src: "/structures/reservoirs.png", alt: "Two hydraulic reservoir diagrams: a combined unit on the left and a separate reservoir connected by lines on the right.", crop: { imageWidth: 1441, x: 400, y: 148, width: 725, height: 345 } },
   25: { src: "/structures/components.png", alt: "Hydraulic system diagram with components numbered 1 to 5.", crop: { imageWidth: 1313, x: 56, y: 106, width: 623, height: 414 } },
@@ -44,35 +39,34 @@ const diagrams = {
   27: { src: "/structures/fluid-samples.png", alt: "Two hydraulic-fluid samples: red on the left and purple on the right.", crop: { imageWidth: 1304, x: 404, y: 108, width: 531, height: 475 } },
 };
 export const diagramQuestions = source.filter(question => diagrams[question.id]);
-export const structuresQuestions = source.map(question => {
+export const systemsMixedQuestions = source.map(question => {
   question = { ...question, needsDiagram: false, diagram: diagrams[question.id] };
   if (question.diagram) question.prompt = {17: "Use the reservoir image below to identify the left and right reservoir types.", 25: "Identify components 1–5 in the numbered diagram below.", 26: "Identify the system type, valve arrangement, and neutral flow path in this diagram.", 27: "Identify the red and purple fluid samples below."}[question.id];
   const options = [...question.prompt.matchAll(/^- ([A-F])\. (.+)$/gm)].map(match => ({ value: match[1], label: match[2].trim() }));
   if (question.title.startsWith("Multiple choice")) return { ...question, kind: "choice", prompt: question.prompt.split("\n- A.")[0].trim(), options, correct: question.answer[0] };
   if (question.id === 10) return { ...question, kind: "multiple", prompt: "Select all desirable hydraulic-fluid properties.", options, correct: ["A", "B", "C", "D"] };
-  return { ...question, kind: "fields", fields: configuration[question.id], prompt: question.title.startsWith("Calculation") ? question.prompt : question.prompt.split("\n")[0] };
+  return { ...question, kind: "fields", fields: configuration[question.id], prompt: question.prompt.split("\n")[0] };
 });
 
-export function gradeStructures(question, response) {
+export function gradeSystemsMixed(question, response) {
   if (question.kind === "choice") return { correct: response === question.correct, close: false };
   if (question.kind === "multiple") return { correct: response.length === question.correct.length && question.correct.every(value => response.includes(value)), close: false };
   const parts = question.fields.map((field, index) => {
     const value = response[index];
     if (field.type === "text") return gradeTextResponse(value?.text || "", field.rule);
     if (field.type === "select") return { correct: value?.text === field.correct, close: false };
-    const clean = (value?.text || "").replace(/,/g, "").trim();
-    return { correct: /^\d+(\.\d+)?$/.test(clean) && Math.abs(Number(clean) - field.correct) <= 0.01 && value?.unit === field.unit, close: false };
+    return { correct: false, close: false };
   });
   return { correct: parts.every(part => part.correct), close: parts.some(part => part.close), parts };
 }
 
-export function structuresReady(question, response) {
+export function systemsMixedReady(question, response) {
   if (question.kind === "multiple") return response.length > 0;
   if (question.kind === "choice") return Boolean(response);
-  return question.fields.every((field, i) => response[i]?.text?.trim() && (field.type !== "number" || response[i]?.unit));
+  return question.fields.every((field, i) => response[i]?.text?.trim());
 }
 
-export function describeStructuresResponse(question, response) {
+export function describeSystemsMixedResponse(question, response) {
   if (question.kind === "choice" || question.kind === "multiple") return (question.kind === "choice" ? [response] : response).map(value => `${value}. ${question.options.find(option => option.value === value)?.label || ""}`).join("; ");
   return question.fields.map((field, i) => `${field.label}: ${field.type === "select" ? field.options.find(option => option.value === response[i]?.text)?.label : `${response[i]?.text || ""}${response[i]?.unit ? ` ${response[i].unit}` : ""}`}`).join("\n");
 }

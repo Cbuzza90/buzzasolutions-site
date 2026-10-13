@@ -163,8 +163,8 @@
   {
     "id": 24,
     "title": "Short answer — Regulator failure",
-    "prompt": "- a. If the pressure regulator fails and pressure rises excessively, which component provides overpressure protection?\n- b. According to the presentation’s examples, a relief setting of 150% of a 1,000 psi system pressure equals what pressure?",
-    "answer": "a. System pressure relief valve. b. 1,500 psi. The 150% setting is the presentation’s example, rather than a universal aircraft setting.",
+    "prompt": "If the pressure regulator fails and pressure rises excessively, which component provides overpressure protection?",
+    "answer": "System pressure relief valve.",
     "needsDiagram": false
   },
   {
@@ -193,55 +193,6 @@
     "title": "Matching — Formulas",
     "prompt": "Match each quantity to its formula. Here, P means pressure, and t means time.\nQuantity\tFormula choices\n1. Hydraulic pressure\tA. \\(W=F\\times D\\)\n2. Hydraulic force\tB. \\(V=A\\times D\\)\n3. Piston area from force and pressure\tC. \\(P=F/A\\)\n4. Circular piston area from radius\tD. \\(F=P\\times A\\)\n5. Fluid volume displaced\tE. \\(\\mathrm{hp}=(F\\times D)/(33{,}000\\times t)\\), using feet and minutes\n6. Work\tF. \\(A=\\pi r^2\\)\n7. Power\tG. \\(\\mathrm{Power}=(F\\times D)/t\\)\n8. Horsepower\tH. \\(A=F/P\\)",
     "answer": "1-C; 2-D; 3-H; 4-F; 5-B; 6-A; 7-G; 8-E.",
-    "needsDiagram": false
-  },
-  {
-    "id": 29,
-    "title": "Calculation — Pressure",
-    "prompt": "A piston has an area of 6 in². A force of 4,800 lb acts on it. Find the hydraulic pressure.",
-    "answer": "800 psi. P = F / A = 4,800 / 6.",
-    "needsDiagram": false
-  },
-  {
-    "id": 30,
-    "title": "Calculation — Force",
-    "prompt": "A system supplies 1,200 psi to a piston with an area of 3 in². Find the piston force.",
-    "answer": "3,600 lb. F = P × A = 1,200 × 3.",
-    "needsDiagram": false
-  },
-  {
-    "id": 31,
-    "title": "Calculation — Fluid displacement",
-    "prompt": "A piston with an area of 6 in² travels 12 inches. How many cubic inches of fluid are displaced?",
-    "answer": "72 in³. V = A × D = 6 × 12.",
-    "needsDiagram": false
-  },
-  {
-    "id": 32,
-    "title": "Calculation — Force from work",
-    "prompt": "A towing force does 84,000 ft-lb of work while moving an aircraft 28 feet along the direction of the force. Find the towing force.",
-    "answer": "3,000 lb. F = W / D = 84,000 / 28. This is towing force, not aircraft weight.",
-    "needsDiagram": false
-  },
-  {
-    "id": 33,
-    "title": "Calculation — Mechanical advantage",
-    "prompt": "In an ideal hydraulic system:\n- Input force: 60 lb.\n- Input piston radius: 2 inches.\n- Output piston radius: 8 inches.\nFind the output force.",
-    "answer": "960 lb. Input area = 12.56 in²; output area = 200.96 in². Output force = 60 × (200.96 / 12.56).",
-    "needsDiagram": false
-  },
-  {
-    "id": 34,
-    "title": "Calculation — Piston travel",
-    "prompt": "In an ideal system with no leakage:\n- Input piston diameter: 2 inches.\n- Input piston travel: 16 inches.\n- Output piston diameter: 8 inches.\nHow far does the output piston move?",
-    "answer": "1 inch. Input area = 3.14 in²; volume = 50.24 in³; output area = 50.24 in². Travel = 50.24 / 50.24.",
-    "needsDiagram": false
-  },
-  {
-    "id": 35,
-    "title": "Calculation — Power and horsepower",
-    "prompt": "A force of 1,650 lb moves an object 400 feet in 2 minutes.\nFind:\n- a. Work in ft-lb.\n- b. Power in ft-lb/min.\n- c. Horsepower.",
-    "answer": "Work: 660,000 ft-lb. Power: 330,000 ft-lb/min. Horsepower: 10 hp. W = 1,650 × 400; power = W / 2; hp = power / 33,000.",
     "needsDiagram": false
   }
 ]

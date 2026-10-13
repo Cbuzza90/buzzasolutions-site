@@ -180,11 +180,6 @@
     "answer": "Debooster"
   },
   {
-    "id": 37,
-    "prompt": "According to the presentation's 150% example, what is the relief setting for a 1,000 psi system?",
-    "answer": "1,500 psi"
-  },
-  {
     "id": 38,
     "prompt": "Early rubber expander-tube brakes were an example of a __________ hydraulic system.",
     "answer": "Closed"
@@ -203,50 +198,5 @@
     "id": 41,
     "prompt": "An actuator with hydraulic fluid acting on both sides of the piston is __________.",
     "answer": "Double-acting"
-  },
-  {
-    "id": 42,
-    "prompt": "A force of 4,800 lb acts on a piston with an area of 6 in². What is the hydraulic pressure in psi?",
-    "answer": "800 psi"
-  },
-  {
-    "id": 43,
-    "prompt": "A pressure of 1,200 psi acts on a piston with an area of 3 in². What force is produced in lb?",
-    "answer": "3,600 lb"
-  },
-  {
-    "id": 44,
-    "prompt": "A piston with an area of 6 in² travels 12 inches. What volume of fluid is displaced in in³?",
-    "answer": "72 in³"
-  },
-  {
-    "id": 45,
-    "prompt": "A towing force does 84,000 ft-lb of work over 28 feet along its direction. What is the force in lb?",
-    "answer": "3,000 lb"
-  },
-  {
-    "id": 46,
-    "prompt": "In an ideal system, a 60 lb input force acts on a piston of radius 2 inches. The output piston radius is 8 inches. What is the output force in lb?",
-    "answer": "960 lb"
-  },
-  {
-    "id": 47,
-    "prompt": "In an ideal system without leakage, an input piston of diameter 2 inches travels 16 inches. The output piston diameter is 8 inches. What is the output travel in inches?",
-    "answer": "1 inch"
-  },
-  {
-    "id": 48,
-    "prompt": "A force of 1,650 lb moves an object 400 feet. How much work is done in ft-lb?",
-    "answer": "660,000 ft-lb"
-  },
-  {
-    "id": 49,
-    "prompt": "A force of 1,650 lb moves an object 400 feet in 2 minutes. What is the power in ft-lb/min?",
-    "answer": "330,000 ft-lb/min"
-  },
-  {
-    "id": 50,
-    "prompt": "A force of 1,650 lb moves an object 400 feet in 2 minutes. What horsepower is required?",
-    "answer": "10 hp"
   }
 ]
