@@ -4,7 +4,6 @@ import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileTex
 import "./StudyHub.css";
 import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import StudyWelcome from "./StudyWelcome";
-import SafetyRecall from "./SafetyRecall";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
 import { formatTestDate, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
@@ -80,7 +79,7 @@ function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find(item => item.slug === slug);
   if (!course) return <section className="study-empty"><h1>Course not found</h1><p>Choose one of your eight courses to get started.</p><Link className="study-primary" to="/">View courses</Link></section>;
-  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small></span><ChevronRight size={22} /></Link> : slug === "systems" ? <Link className="study-option-link" to="/study/systems/module-1"><span><strong>Module 1</strong><small>Hydraulics · Recall, matching & diagrams</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
+  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small></span><ChevronRight size={22} /></Link> : slug === "systems" ? <Link className="study-option-link" to="/study/systems/module-1"><span><strong>Module 1</strong><small>Hydraulics · Multiple choice & diagrams</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
 }
 
 
@@ -110,7 +109,8 @@ export default function StudyHub() {
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
         <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
-        <Route path="/study/safety/module-1/recall" element={<SafetyRecall />} />
+        <Route path="/study/safety/module-1/practice-3" element={<SafetyPractice key="practice-3" testNumber={3} />} />
+        <Route path="/study/safety/module-1/recall" element={<Navigate to="/study/safety/module-1/practice-3" replace />} />
         <Route path="/study/structures/module-1" element={<Navigate to="/study/systems/module-1" replace />} />
         <Route path="/study/structures/module-1/practice-1" element={<Navigate to="/study/systems/module-1/practice-2" replace />} />
         <Route path="/study/systems/module-1" element={<SystemsTestList />} />
@@ -124,7 +124,7 @@ export default function StudyHub() {
     </main>
     <nav className="study-tab-bar" aria-label="Study navigation">
       <NavLink to="/"><BookOpen size={22} /><span>Courses</span></NavLink>
-      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2", "/study/safety/module-1/recall", "/study/systems/module-1/practice-2", "/study/systems/module-1/practice-1"].includes(pathname) && <Link className="study-tests-nav" to={pathname.startsWith("/study/systems/") ? "/study/systems/module-1" : "/study/safety/module-1"}><BookOpen size={22} /><span>Tests</span></Link>}
+      {["/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2", "/study/safety/module-1/practice-3", "/study/systems/module-1/practice-2", "/study/systems/module-1/practice-1"].includes(pathname) && <Link className="study-tests-nav" to={pathname.startsWith("/study/systems/") ? "/study/systems/module-1" : "/study/safety/module-1"}><BookOpen size={22} /><span>Tests</span></Link>}
     </nav>
   </div>;
 }

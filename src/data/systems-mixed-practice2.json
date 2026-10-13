@@ -1,198 +1,756 @@
 [
   {
     "id": 1,
-    "title": "Multiple choice — Hydraulic terminology",
-    "prompt": "The word hydraulics comes from the Greek word for:\n- A. Force\n- B. Water\n- C. Oil\n- D. Motion",
-    "answer": "B — Water.",
-    "needsDiagram": false
+    "sourceId": 1,
+    "prompt": "The word hydraulics comes from the Greek word for:",
+    "options": [
+      "Force",
+      "Water",
+      "Pressure",
+      "Motion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Water."
   },
   {
     "id": 2,
-    "title": "Short answer — Pascal’s law",
-    "prompt": "What happens to an applied pressure change in a confined fluid at rest?",
-    "answer": "The pressure change is transmitted equally and undiminished throughout the fluid and to the container walls.",
-    "needsDiagram": false
+    "prompt": "How is a pressure change transmitted in a confined fluid at rest?",
+    "options": [
+      "Equally throughout the fluid, but reduced at the container walls",
+      "Only in the direction of the applied force",
+      "With a pressure loss proportional to the container width",
+      "Equally and undiminished throughout the fluid and to its container walls"
+    ],
+    "correctIndex": 3,
+    "explanation": "The pressure change is transmitted equally and undiminished throughout the fluid and to the container walls.",
+    "sourceId": 2
   },
   {
     "id": 3,
-    "title": "Multiple choice — Static fluid pressure",
-    "prompt": "Four open containers hold the same liquid to the same vertical depth. Their shapes and volumes differ. How does the pressure at the bottom compare?\n- A. The largest volume produces the highest pressure.\n- B. The widest container produces the highest pressure.\n- C. All four have the same bottom pressure.\n- D. The narrowest container has no bottom pressure.",
-    "answer": "C — All four have the same bottom pressure. For the same liquid, pressure depends on vertical depth rather than container shape or volume.",
-    "needsDiagram": false
+    "sourceId": 3,
+    "prompt": "Four open containers hold the same liquid to the same vertical depth. Their shapes and volumes differ. How does the pressure at the bottom compare?",
+    "options": [
+      "The largest volume produces the highest pressure.",
+      "The widest container produces the highest pressure.",
+      "All four have the same bottom pressure.",
+      "The narrowest container produces the highest pressure."
+    ],
+    "correctIndex": 2,
+    "explanation": "All four have the same bottom pressure. For the same liquid, pressure depends on vertical depth rather than container shape or volume."
   },
   {
     "id": 4,
-    "title": "Multiple choice — Mechanical advantage",
-    "prompt": "Which arrangement increases output force in an ideal hydraulic system?\n- A. Output piston area larger than input piston area.\n- B. Output piston area smaller than input piston area.\n- C. Equal input and output piston areas.\n- D. Changing the fluid colour.",
-    "answer": "A — Larger output piston area. It produces greater force at the same pressure, with less output travel for a given input stroke.",
-    "needsDiagram": false
+    "sourceId": 4,
+    "prompt": "Which arrangement increases output force in an ideal hydraulic system?",
+    "options": [
+      "Use an output piston with a larger area than the input piston",
+      "Use an output piston with a smaller area than the input piston",
+      "Use equal input and output piston areas",
+      "Increase output travel while keeping input and output piston areas equal"
+    ],
+    "correctIndex": 0,
+    "explanation": "Larger output piston area. It produces greater force at the same pressure, with less output travel for a given input stroke."
   },
   {
-    "id": 5,
-    "title": "True or false — Viscosity",
-    "prompt": "Mark each statement true or false.\n- a. Viscosity is a liquid’s internal resistance to flow.\n- b. A liquid that flows slowly generally has high viscosity.\n- c. Liquid viscosity increases as temperature decreases.\n- d. Every fluid has the same viscosity at 30°F.\n- e. Viscosity is another name for pressure.\n- f. A Saybolt universal viscosimeter measures viscosity.",
-    "answer": "a True; b True; c True; d False; e False; f True.",
-    "needsDiagram": false
+    "id": "5-1",
+    "prompt": "Which property is a liquid’s internal resistance to flow?",
+    "options": [
+      "Viscosity",
+      "Density",
+      "Compressibility",
+      "Chemical stability"
+    ],
+    "correctIndex": 0,
+    "explanation": "Viscosity.",
+    "sourceId": 5
+  },
+  {
+    "id": "5-2",
+    "prompt": "A liquid flows slowly under the same conditions as a faster-flowing liquid. Which description generally fits the slower liquid?",
+    "options": [
+      "Higher viscosity",
+      "Lower viscosity",
+      "Lower flash point",
+      "Higher chemical stability"
+    ],
+    "correctIndex": 0,
+    "explanation": "Higher viscosity.",
+    "sourceId": 5
+  },
+  {
+    "id": "5-3",
+    "prompt": "What generally happens to hydraulic-liquid viscosity as temperature decreases?",
+    "options": [
+      "It increases",
+      "It decreases",
+      "It remains constant",
+      "It changes only if fluid volume changes"
+    ],
+    "correctIndex": 0,
+    "explanation": "It increases.",
+    "sourceId": 5
+  },
+  {
+    "id": "5-4",
+    "prompt": "Two different hydraulic fluids are at 30°F. What can be concluded about their viscosity?",
+    "options": [
+      "Equal temperature does not guarantee equal viscosity",
+      "Their viscosities must be equal",
+      "The larger fluid volume must have higher viscosity",
+      "Their viscosities depend only on container shape"
+    ],
+    "correctIndex": 0,
+    "explanation": "Equal temperature does not guarantee equal viscosity.",
+    "sourceId": 5
+  },
+  {
+    "id": "5-5",
+    "prompt": "Which distinction between viscosity and pressure is correct?",
+    "options": [
+      "Viscosity is resistance to flow; pressure is force per unit area",
+      "Viscosity is force per unit area; pressure is resistance to flow",
+      "Viscosity measures density; pressure measures the amount of stored fluid",
+      "Viscosity and pressure describe the same fluid property"
+    ],
+    "correctIndex": 0,
+    "explanation": "Viscosity is resistance to flow; pressure is force per unit area.",
+    "sourceId": 5
+  },
+  {
+    "id": "5-6",
+    "prompt": "Which instrument is used to measure viscosity in the supplied slides?",
+    "options": [
+      "Saybolt universal viscosimeter",
+      "Bourdon pressure gauge",
+      "Hydrometer for density",
+      "Thermometer for flash-point testing"
+    ],
+    "correctIndex": 0,
+    "explanation": "Saybolt universal viscosimeter.",
+    "sourceId": 5
   },
   {
     "id": 6,
-    "title": "Matching — Fluid properties",
-    "prompt": "Match each term to its definition.\nTerm\tDefinition choices\n1. Fire point\tA. Ability to resist oxidation and deterioration over time.\n2. Chemical stability\tB. Temperature at which enough vapour is released to ignite momentarily when a flame is applied.\n3. Flash point\tC. Temperature at which enough vapour is released to ignite and sustain burning.",
-    "answer": "1-C; 2-A; 3-B. Flash point means momentary ignition; fire point means sustained burning.",
-    "needsDiagram": false
+    "prompt": "Which pairing correctly distinguishes flash point, fire point, and chemical stability?",
+    "options": [
+      "Flash: sustained burning; fire: momentary ignition; stability: resistance to deterioration",
+      "Flash: momentary ignition; fire: resistance to deterioration; stability: sustained burning",
+      "Flash: resistance to deterioration; fire: sustained burning; stability: momentary ignition",
+      "Flash: momentary ignition; fire: sustained burning; stability: resistance to deterioration"
+    ],
+    "correctIndex": 3,
+    "explanation": "Flash: momentary ignition; fire: sustained burning; stability: resistance to deterioration.",
+    "sourceId": 6
   },
   {
-    "id": 7,
-    "title": "Categorization — Hydraulic fluid types",
-    "prompt": "Sort each characteristic into vegetable-base, mineral-base MIL-H-5606, or phosphate-ester fluid such as Skydrol/HyJet.\n- a. Blue colour.\n- b. Red colour.\n- c. Typically light purple.\n- d. Castor oil and alcohol base.\n- e. Kerosene/petroleum base.\n- f. Skydrol is a common example.\n- g. Natural rubber seals.\n- h. Neoprene seals.\n- i. Butyl rubber or ethylene-propylene seals.\n- j. Fire-resistant fluid for high-performance aircraft.\n- k. Additives help prevent foaming and corrosion.\n- l. MIL-H-7644.",
-    "answer": "Vegetable: a, d, g, l. Mineral MIL-H-5606: b, e, h, k. Phosphate ester: c, f, i, j.",
-    "needsDiagram": false
+    "id": "7-1",
+    "prompt": "Which colour-to-fluid mapping matches the samples and specifications in this presentation?",
+    "options": [
+      "Vegetable: red; mineral MIL-H-5606: blue; phosphate ester: light purple",
+      "Vegetable: blue; mineral MIL-H-5606: light purple; phosphate ester: red",
+      "Vegetable MIL-H-7644: blue; mineral MIL-H-5606: red; phosphate ester: light purple",
+      "Vegetable: light purple; mineral MIL-H-5606: red; phosphate ester: blue"
+    ],
+    "correctIndex": 2,
+    "explanation": "Vegetable MIL-H-7644: blue; mineral MIL-H-5606: red; phosphate ester: light purple.",
+    "sourceId": 7
+  },
+  {
+    "id": "7-2",
+    "prompt": "Which base-fluid and brand pairing is correct?",
+    "options": [
+      "Vegetable: petroleum; mineral: castor oil/alcohol; phosphate ester: Skydrol",
+      "Vegetable: castor oil/alcohol; mineral: Skydrol; phosphate ester: petroleum",
+      "Vegetable: castor oil/alcohol; mineral: petroleum; phosphate ester: Skydrol",
+      "Vegetable: Skydrol; mineral: petroleum; phosphate ester: castor oil/alcohol"
+    ],
+    "correctIndex": 2,
+    "explanation": "Vegetable: castor oil/alcohol; mineral: petroleum; phosphate ester: Skydrol.",
+    "sourceId": 7
+  },
+  {
+    "id": "7-3",
+    "prompt": "Which seal-material mapping matches the three fluid families in the slides?",
+    "options": [
+      "Vegetable: neoprene; mineral: natural rubber; phosphate ester: butyl or ethylene-propylene",
+      "Vegetable: natural rubber; mineral: butyl; phosphate ester: neoprene",
+      "Vegetable: natural rubber; mineral: neoprene; phosphate ester: butyl or ethylene-propylene",
+      "Vegetable: butyl; mineral: neoprene; phosphate ester: natural rubber"
+    ],
+    "correctIndex": 2,
+    "explanation": "Vegetable: natural rubber; mineral: neoprene; phosphate ester: butyl or ethylene-propylene.",
+    "sourceId": 7
+  },
+  {
+    "id": "7-4",
+    "prompt": "Which statement correctly associates the listed fluid characteristics?",
+    "options": [
+      "MIL-H-7644 is mineral-base; MIL-H-5606 is phosphate ester; vegetable fluid is the listed fire-resistant fluid",
+      "MIL-H-7644 is phosphate ester; MIL-H-5606 is vegetable-base; mineral fluid is Skydrol",
+      "MIL-H-7644 is vegetable-base; MIL-H-5606 uses anti-foam/corrosion additives; phosphate ester is fire-resistant",
+      "MIL-H-7644 is vegetable-base; MIL-H-5606 is Skydrol; phosphate ester uses natural-rubber seals"
+    ],
+    "correctIndex": 2,
+    "explanation": "MIL-H-7644 is vegetable-base; MIL-H-5606 uses anti-foam/corrosion additives; phosphate ester is fire-resistant.",
+    "sourceId": 7
   },
   {
     "id": 8,
-    "title": "Fill in the blank — Compatibility",
-    "prompt": "MIL-H-83282 is a synthetic hydrocarbon fluid that is backward compatible with MIL-H-________.",
-    "answer": "5606.",
-    "needsDiagram": false
+    "prompt": "MIL-H-83282 is backward compatible with which listed fluid specification?",
+    "options": [
+      "MIL-H-7644",
+      "MIL-H-5606",
+      "BMS 3-11",
+      "A phosphate-ester Skydrol specification"
+    ],
+    "correctIndex": 1,
+    "explanation": "5606.",
+    "sourceId": 8
   },
   {
     "id": 9,
-    "title": "Multiple choice — Seal compatibility",
-    "prompt": "Which seal material is unsuitable for Skydrol according to the presentation?\n- A. Butyl rubber.\n- B. Ethylene-propylene elastomer.\n- C. Neoprene.\n- D. Both A and B.",
-    "answer": "C — Neoprene. The presentation also identifies Buna-N petroleum-fluid seals as incompatible with Skydrol.",
-    "needsDiagram": false
+    "sourceId": 9,
+    "prompt": "Which fluid-and-seal pairing is unsuitable according to the presentation?",
+    "options": [
+      "Phosphate ester with butyl rubber",
+      "Phosphate ester with ethylene-propylene elastomer",
+      "Phosphate ester with neoprene",
+      "Mineral MIL-H-5606 with neoprene"
+    ],
+    "correctIndex": 2,
+    "explanation": "Neoprene is unsuitable for phosphate ester such as Skydrol; it is listed for mineral MIL-H-5606 instead."
   },
   {
     "id": 10,
-    "title": "Multiple answer — Fluid requirements",
-    "prompt": "Select all desirable hydraulic-fluid properties.\n- A. Low resistance to flow.\n- B. Chemical stability.\n- C. Good lubrication and corrosion protection.\n- D. Compatibility with seals and lines.\n- E. Easy compression during normal operation.\n- F. A tendency to foam and retain air bubbles.",
-    "answer": "A, B, C and D. Hydraulic liquid should resist compression and should not foam or retain air bubbles.",
-    "needsDiagram": false
+    "prompt": "Which set contains only desirable hydraulic-fluid characteristics?",
+    "options": [
+      "Low flow resistance, chemical stability, lubrication, and seal compatibility",
+      "Low flow resistance, easy compression, lubrication, and seal compatibility",
+      "Chemical stability, corrosion protection, retained air bubbles, and seal compatibility",
+      "Chemical stability, lubrication, foaming tendency, and low flow resistance"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hydraulic fluid should lubricate, remain chemically stable, resist corrosion, and be compatible with the system. It should resist compression and avoid foaming or retaining air bubbles.",
+    "sourceId": 10
   },
   {
-    "id": 11,
-    "title": "Short answer — Fluid care",
-    "prompt": "Give two reasons to keep hydraulic systems and fluid containers sealed. What may happen if incompatible fluid types are mixed?",
-    "answer": "Sealing helps exclude contamination, air and moisture. Incompatible fluids can swell or damage seals, cause seal breakdown and block the system. Slide 47 specifically identifies 83282 as backward compatible with 5606.",
-    "needsDiagram": false
+    "id": "11-1",
+    "prompt": "Why should hydraulic systems and fluid containers be kept sealed?",
+    "options": [
+      "To prevent viscosity changes while allowing air to enter",
+      "To isolate pressure while allowing moisture to escape through open ports",
+      "To stop oxidation by replacing all reservoir air with hydraulic fluid",
+      "To exclude contamination, air, and moisture"
+    ],
+    "correctIndex": 3,
+    "explanation": "Sealing helps exclude contamination, air and moisture. Incompatible fluids can swell or damage seals, cause seal breakdown and block the system. Slide 47 specifically identifies 83282 as backward compatible with 5606.",
+    "sourceId": 11
+  },
+  {
+    "id": "11-2",
+    "prompt": "What is a possible consequence of mixing incompatible hydraulic fluids?",
+    "options": [
+      "Improved seal flexibility without a compatibility check",
+      "Lower viscosity with no effect on seals",
+      "Improved fire resistance with unchanged seal compatibility",
+      "Seal swelling or breakdown and system blockage"
+    ],
+    "correctIndex": 3,
+    "explanation": "Sealing helps exclude contamination, air and moisture. Incompatible fluids can swell or damage seals, cause seal breakdown and block the system. Slide 47 specifically identifies 83282 as backward compatible with 5606.",
+    "sourceId": 11
   },
   {
     "id": 12,
-    "title": "Multiple choice — Idle circulation",
-    "prompt": "Which system allows fluid to circulate from the reservoir, through the pump and neutral selector valves, and back to the reservoir without maintaining stored operating pressure?\n- A. Closed-centre system.\n- B. Open-centre system.\n- C. A sealed accumulator alone.\n- D. A brake deboost system alone.",
-    "answer": "B — Open-centre system.",
-    "needsDiagram": false
+    "sourceId": 12,
+    "prompt": "Which system allows fluid to circulate from the reservoir, through the pump and neutral selector valves, and back to the reservoir without maintaining stored operating pressure?",
+    "options": [
+      "Closed-centre system.",
+      "Open-centre system.",
+      "A sealed accumulator alone.",
+      "A brake deboost system alone."
+    ],
+    "correctIndex": 1,
+    "explanation": "Open-centre system."
   },
   {
-    "id": 13,
-    "title": "Categorization — Open and closed centre",
-    "prompt": "Assign each description to the open-centre or closed-centre system described in the slides.\n- a. Selector valves arranged in series.\n- b. Selector valves arranged in parallel.\n- c. Fewer components and simpler troubleshooting.\n- d. Can store hydraulic energy using an accumulator and check valves.\n- e. Neutral selector valves allow circulation back to the reservoir.\n- f. Can operate several systems or components at once.",
-    "answer": "Open centre: a, c, e. Closed centre: b, d, f.",
-    "needsDiagram": false
+    "id": "13-1",
+    "prompt": "Which selector-valve arrangement matches the systems described in the slides?",
+    "options": [
+      "Open centre: parallel; closed centre: series",
+      "Open centre: series; closed centre: parallel",
+      "Both systems: series",
+      "Both systems: parallel"
+    ],
+    "correctIndex": 1,
+    "explanation": "Open centre: series; closed centre: parallel.",
+    "sourceId": 13
+  },
+  {
+    "id": "13-2",
+    "prompt": "Which comparison of open- and closed-centre systems matches the presentation?",
+    "options": [
+      "Closed centre is generally simpler; open centre stores energy with an accumulator and check valves",
+      "Open centre is generally simpler; closed centre can store energy with an accumulator and check valves",
+      "Both systems store operating energy through neutral return flow",
+      "Both systems depend on thermal relief valves for energy storage"
+    ],
+    "correctIndex": 1,
+    "explanation": "Open centre is generally simpler; closed centre can store energy with an accumulator and check valves.",
+    "sourceId": 13
+  },
+  {
+    "id": "13-3",
+    "prompt": "Which comparison of neutral flow and simultaneous operation is correct?",
+    "options": [
+      "Closed centre circulates through neutral selectors; open centre supplies several components at once",
+      "Open centre circulates through neutral selectors; closed centre can supply several components at once",
+      "Open centre blocks all neutral flow; closed centre returns all pump flow through every selector",
+      "Both systems require all selectors in series for simultaneous operation"
+    ],
+    "correctIndex": 1,
+    "explanation": "Open centre circulates through neutral selectors; closed centre can supply several components at once.",
+    "sourceId": 13
   },
   {
     "id": 14,
-    "title": "Fill in the blanks — Closed-centre operation",
-    "prompt": "In a closed-centre system, hydraulic fluid flows to the actuators when ________. Hydraulic ________ remains available in the system.",
-    "answer": "Required / an actuator is commanded; pressure.",
-    "needsDiagram": false
+    "prompt": "In a closed-centre system, which statement correctly describes actuator supply?",
+    "options": [
+      "Pressure remains available; fluid flows to an actuator when it is commanded",
+      "Pressure disappears in neutral; fluid continuously flows through each actuator",
+      "Fluid continuously flows through neutral selectors while no pressure is stored",
+      "Pressure is created only by the reservoir when an actuator is commanded"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pressure remains available; fluid flows to an actuator when it is commanded.",
+    "sourceId": 14
   },
   {
     "id": 15,
-    "title": "Multiple choice — Stored hydraulic energy",
-    "prompt": "Which arrangement can store hydraulic energy for later use?\n- A. Open-centre system with a thermal relief valve only.\n- B. Closed-centre system with an accumulator and check valves.\n- C. Open reservoir with no pump.\n- D. Return filter alone.",
-    "answer": "B — Closed centre with an accumulator and check valves.",
-    "needsDiagram": false
+    "sourceId": 15,
+    "prompt": "Which arrangement can store hydraulic energy for later use?",
+    "options": [
+      "Open centre with neutral selectors providing a continuous return path",
+      "Closed centre with an accumulator and check valves",
+      "Open centre with a regulator but no energy-storage component",
+      "Closed centre with a reservoir and no energy-storage component"
+    ],
+    "correctIndex": 1,
+    "explanation": "Closed centre with an accumulator and check valves."
   },
   {
-    "id": 16,
-    "title": "Short answer — Power pack",
-    "prompt": "What is a hydraulic power pack? Name four components listed in the presentation.",
-    "answer": "A self-contained hydraulic power system. Components: electric pump, pressure control valves, selector valves and reservoir.",
-    "needsDiagram": false
+    "id": "16-1",
+    "prompt": "What is a hydraulic power pack?",
+    "options": [
+      "A self-contained hydraulic power system",
+      "A reservoir-and-accumulator assembly without a pump",
+      "A pressure-control valve installed in the return line",
+      "An actuator assembly supplied by a separate central power system"
+    ],
+    "correctIndex": 0,
+    "explanation": "A self-contained hydraulic power system.",
+    "sourceId": 16
+  },
+  {
+    "id": "16-2",
+    "prompt": "Which set contains the four power-pack components listed in the presentation?",
+    "options": [
+      "Electric pump, pressure-control valves, selector valves, reservoir",
+      "Electric pump, pressure-control valves, selector valves, accumulator instead of reservoir",
+      "Electric pump, pressure-control valves, actuator, reservoir instead of selector valves",
+      "Engine-driven pump, actuator, accumulator, reservoir"
+    ],
+    "correctIndex": 0,
+    "explanation": "Electric pump, pressure-control valves, selector valves, reservoir.",
+    "sourceId": 16
   },
   {
     "id": 17,
-    "title": "Diagram identification — Reservoirs",
-    "prompt": "Using the reservoir picture in the PDF:\n- Identify the reservoir type on the left.\n- Identify the reservoir type on the right.\n- Which reservoir is in-line?",
-    "answer": "Left: integral reservoir. Right: in-line reservoir. The right-hand reservoir is separate and connected by tubing or hose.",
-    "needsDiagram": true
+    "prompt": "Which reservoir identification matches the two diagrams?",
+    "options": [
+      "Left: in-line, connected by tubing; right: integral, built into the power pack",
+      "Both are integral reservoirs built into their power packs",
+      "Both are in-line reservoirs separate from their power packs",
+      "Left: integral, built into the power pack; right: in-line, connected by tubing"
+    ],
+    "correctIndex": 3,
+    "explanation": "Left: integral, built into the power pack; right: in-line, connected by tubing.",
+    "sourceId": 17
   },
   {
     "id": 18,
-    "title": "Short answer — Reservoir functions",
-    "prompt": "Besides storing hydraulic fluid, state two functions of a reservoir.",
-    "answer": "Any two: purging air, separating contamination, allowing thermal expansion, accommodating changes in system fluid-volume requirements.",
-    "needsDiagram": false
+    "prompt": "Which pair describes reservoir functions besides storing fluid?",
+    "options": [
+      "Purging air and allowing thermal expansion",
+      "Regulating normal system pressure and lowering brake pressure",
+      "Storing pressurized energy and controlling actuator direction",
+      "Reducing actuator pressure and unloading pump flow"
+    ],
+    "correctIndex": 0,
+    "explanation": "Any two: purging air, separating contamination, allowing thermal expansion, accommodating changes in system fluid-volume requirements.",
+    "sourceId": 18
   },
   {
-    "id": 19,
-    "title": "Short answer — Pressurized reservoirs",
-    "prompt": "Why are pressurized reservoirs useful on high-altitude aircraft? Name the three pressurizing methods listed in the slides.",
-    "answer": "Provides a positive fluid supply at the pump inlet and helps prevent foaming. Methods: aspirator, bleed air and hydraulic system pressure/bootstrap.",
-    "needsDiagram": false
+    "id": "19-1",
+    "prompt": "Why is a pressurized reservoir useful at high altitude?",
+    "options": [
+      "It increases actuator force by replacing the system pressure regulator",
+      "It removes contamination by forcing it through the accumulator",
+      "It eliminates the need to allow for thermal expansion",
+      "It maintains positive pump-inlet supply and helps prevent foaming"
+    ],
+    "correctIndex": 3,
+    "explanation": "Provides a positive fluid supply at the pump inlet and helps prevent foaming. Methods: aspirator, bleed air and hydraulic system pressure/bootstrap.",
+    "sourceId": 19
+  },
+  {
+    "id": "19-2",
+    "prompt": "Which three reservoir-pressurizing methods are listed in the slides?",
+    "options": [
+      "Aspirator, ambient ram air alone, and thermal relief",
+      "Bleed air, pressure reducer, and actuator return spring",
+      "Bootstrap, accumulator discharge alone, and reservoir filter",
+      "Aspirator, bleed air, and hydraulic system pressure/bootstrap"
+    ],
+    "correctIndex": 3,
+    "explanation": "Provides a positive fluid supply at the pump inlet and helps prevent foaming. Methods: aspirator, bleed air and hydraulic system pressure/bootstrap.",
+    "sourceId": 19
   },
   {
     "id": 20,
-    "title": "Multiple choice — Early aircraft brakes",
-    "prompt": "The early brake system using a rubber expander tube is described as:\n- A. An open-centre system.\n- B. A closed hydraulic system.\n- C. A pneumatic-only system.\n- D. An electrical-only system.",
-    "answer": "B — Closed hydraulic system.",
-    "needsDiagram": false
+    "sourceId": 20,
+    "prompt": "The early brake system using a rubber expander tube is described as:",
+    "options": [
+      "An open-centre hydraulic system",
+      "A closed hydraulic system",
+      "A continuous-circulation hydraulic system",
+      "A pneumatic brake system"
+    ],
+    "correctIndex": 1,
+    "explanation": "Closed hydraulic system."
   },
   {
     "id": 21,
-    "title": "Multiple choice — Modern aircraft brakes",
-    "prompt": "Which brake type does the presentation identify as the modern aircraft arrangement?\n- A. Expander-tube brakes.\n- B. Floating disc brakes.\n- C. Bicycle rim brakes.\n- D. Wooden friction blocks.",
-    "answer": "B — Floating disc brakes.",
-    "needsDiagram": false
+    "sourceId": 21,
+    "prompt": "Which brake type does the presentation identify as the modern aircraft arrangement?",
+    "options": [
+      "Expander-tube brakes",
+      "Floating disc brakes",
+      "Drum brakes",
+      "Band brakes"
+    ],
+    "correctIndex": 1,
+    "explanation": "Floating disc brakes."
   },
   {
     "id": 22,
-    "title": "Matching — Actuators",
-    "prompt": "Match each actuator to its description.\nActuator\tDescription choices\n1. Single-acting\tA. Hydraulic fluid acts on both sides of the piston.\n2. Double-acting\tB. Hydraulic fluid acts on one side, with spring and/or nitrogen pressure providing the opposing action.",
-    "answer": "1-B; 2-A.",
-    "needsDiagram": false
+    "prompt": "Which actuator comparison is correct?",
+    "options": [
+      "Single-acting: fluid on one side with spring/nitrogen opposition; double-acting: fluid on both sides",
+      "Single-acting: fluid on both sides; double-acting: fluid on one side with spring/nitrogen opposition",
+      "Both use fluid on one side, but only double-acting uses a return spring",
+      "Both use fluid on both sides, but only single-acting uses a selector valve"
+    ],
+    "correctIndex": 0,
+    "explanation": "Single-acting: fluid on one side with spring/nitrogen opposition; double-acting: fluid on both sides.",
+    "sourceId": 22
   },
   {
-    "id": 23,
-    "title": "Matching — Pressure-control components",
-    "prompt": "Match each component to one function.\nComponents:\n1. Pressure regulator.\n2. System pressure relief valve.\n3. Thermal relief valve.\n4. Pressure reducer.\n5. Debooster.\n6. Unloading valve.\nFunctions:\n- A. Protects an isolated fluid section from excess pressure caused by heating.\n- B. Reduces pressure and increases fluid volume delivered to brake actuators.\n- C. Maintains a lower pressure for a component that needs less than main-system pressure.\n- D. Controls system pressure within a preset operating range.\n- E. Protects against pressure exceeding a limit above normal operating pressure.\n- F. Returns excess pump flow to the reservoir once the required system pressure is reached.",
-    "answer": "1-D; 2-E; 3-A; 4-C; 5-B; 6-F.",
-    "needsDiagram": false
+    "id": "23-1",
+    "prompt": "Which function belongs to the pressure regulator?",
+    "options": [
+      "Protects against pressure exceeding the normal operating limit",
+      "Protects isolated fluid from pressure caused by heating",
+      "Maintains lower pressure for a component",
+      "Controls normal system pressure within a preset operating range"
+    ],
+    "correctIndex": 3,
+    "explanation": "Pressure regulator: Controls normal system pressure within a preset operating range.",
+    "sourceId": 23
+  },
+  {
+    "id": "23-2",
+    "prompt": "Which function belongs to the system pressure relief valve?",
+    "options": [
+      "Controls normal system pressure within a preset operating range",
+      "Protects isolated fluid from pressure caused by heating",
+      "Maintains lower pressure for a component",
+      "Protects against pressure exceeding the normal operating limit"
+    ],
+    "correctIndex": 3,
+    "explanation": "System pressure relief valve: Protects against pressure exceeding the normal operating limit.",
+    "sourceId": 23
+  },
+  {
+    "id": "23-3",
+    "prompt": "Which function belongs to the thermal relief valve?",
+    "options": [
+      "Controls normal system pressure within a preset operating range",
+      "Protects against pressure exceeding the normal operating limit",
+      "Maintains lower pressure for a component",
+      "Protects isolated fluid from pressure caused by heating"
+    ],
+    "correctIndex": 3,
+    "explanation": "Thermal relief valve: Protects isolated fluid from pressure caused by heating.",
+    "sourceId": 23
+  },
+  {
+    "id": "23-4",
+    "prompt": "Which function belongs to the pressure reducer?",
+    "options": [
+      "Controls normal system pressure within a preset operating range",
+      "Protects against pressure exceeding the normal operating limit",
+      "Protects isolated fluid from pressure caused by heating",
+      "Maintains lower pressure for a component"
+    ],
+    "correctIndex": 3,
+    "explanation": "Pressure reducer: Maintains lower pressure for a component.",
+    "sourceId": 23
+  },
+  {
+    "id": "23-5",
+    "prompt": "Which function belongs to the debooster?",
+    "options": [
+      "Controls normal system pressure within a preset operating range",
+      "Protects against pressure exceeding the normal operating limit",
+      "Protects isolated fluid from pressure caused by heating",
+      "Reduces pressure while increasing fluid volume delivered to brake actuators"
+    ],
+    "correctIndex": 3,
+    "explanation": "Debooster: Reduces pressure while increasing fluid volume delivered to brake actuators.",
+    "sourceId": 23
+  },
+  {
+    "id": "23-6",
+    "prompt": "Which function belongs to the unloading valve?",
+    "options": [
+      "Controls normal system pressure within a preset operating range",
+      "Protects against pressure exceeding the normal operating limit",
+      "Protects isolated fluid from pressure caused by heating",
+      "Returns excess pump flow when required pressure is reached"
+    ],
+    "correctIndex": 3,
+    "explanation": "Unloading valve: Returns excess pump flow when required pressure is reached.",
+    "sourceId": 23
   },
   {
     "id": 24,
-    "title": "Short answer — Regulator failure",
-    "prompt": "If the pressure regulator fails and pressure rises excessively, which component provides overpressure protection?",
-    "answer": "System pressure relief valve.",
-    "needsDiagram": false
+    "prompt": "If the regulator fails and pressure rises excessively, which component provides overpressure protection?",
+    "options": [
+      "Thermal relief valve",
+      "Pressure reducer",
+      "System pressure relief valve",
+      "Debooster"
+    ],
+    "correctIndex": 2,
+    "explanation": "System pressure relief valve.",
+    "sourceId": 24
   },
   {
-    "id": 25,
-    "title": "Diagram matching — Components",
-    "prompt": "Identify components 1–5 in the numbered diagram in the PDF.\nWord bank: accumulator, reservoir, thermal relief valve, filter, system relief valve.",
-    "answer": "1: Thermal relief valve(s). 2: Filter. 3: System relief valve. 4: Accumulator. 5: Reservoir.",
-    "needsDiagram": true
+    "id": "25-1",
+    "prompt": "Which component is labelled 1 in the diagram?",
+    "options": [
+      "System relief valve",
+      "Thermal relief valve",
+      "Pressure regulator",
+      "Unloading valve"
+    ],
+    "correctIndex": 1,
+    "explanation": "Component 1 is the thermal relief valve.",
+    "sourceId": 25
   },
   {
-    "id": 26,
-    "title": "Diagram identification — System type",
-    "prompt": "Using the system diagram in the PDF:\n- Identify the system type.\n- Are its selector valves in series or parallel?\n- Describe the flow path when the selectors are neutral.",
-    "answer": "Open-centre system; selector valves in series. Fluid travels from reservoir through pump and neutral selector valves, then returns to the reservoir.",
-    "needsDiagram": true
+    "id": "25-2",
+    "prompt": "Which component is labelled 2 in the diagram?",
+    "options": [
+      "Thermal relief valve",
+      "Filter",
+      "System relief valve",
+      "Accumulator"
+    ],
+    "correctIndex": 1,
+    "explanation": "Component 2 is the filter.",
+    "sourceId": 25
+  },
+  {
+    "id": "25-3",
+    "prompt": "Which component is labelled 3 in the diagram?",
+    "options": [
+      "Thermal relief valve",
+      "System relief valve",
+      "Filter",
+      "Accumulator"
+    ],
+    "correctIndex": 1,
+    "explanation": "Component 3 is the system relief valve.",
+    "sourceId": 25
+  },
+  {
+    "id": "25-4",
+    "prompt": "Which component is labelled 4 in the diagram?",
+    "options": [
+      "Thermal relief valve",
+      "Accumulator",
+      "Filter",
+      "System relief valve"
+    ],
+    "correctIndex": 1,
+    "explanation": "Component 4 is the accumulator.",
+    "sourceId": 25
+  },
+  {
+    "id": "25-5",
+    "prompt": "Which component is labelled 5 in the diagram?",
+    "options": [
+      "Accumulator",
+      "Reservoir",
+      "Filter",
+      "System relief valve"
+    ],
+    "correctIndex": 1,
+    "explanation": "Component 5 is the reservoir.",
+    "sourceId": 25
+  },
+  {
+    "id": "26-1",
+    "prompt": "Which system and selector arrangement are shown in the diagram?",
+    "options": [
+      "Closed centre with selectors in parallel",
+      "Open centre with selectors in parallel",
+      "Open centre with selectors in series",
+      "Closed centre with selectors in series"
+    ],
+    "correctIndex": 2,
+    "explanation": "Open centre with selectors in series.",
+    "sourceId": 26
+  },
+  {
+    "id": "26-2",
+    "prompt": "With the illustrated selectors neutral, which flow path applies?",
+    "options": [
+      "Reservoir → pump → accumulator, with neutral selector flow blocked",
+      "Pump → actuators on both sides, with no reservoir return",
+      "Reservoir → pump → neutral selectors → reservoir",
+      "Reservoir → selectors → pump, bypassing the neutral return path"
+    ],
+    "correctIndex": 2,
+    "explanation": "Reservoir → pump → neutral selectors → reservoir.",
+    "sourceId": 26
   },
   {
     "id": 27,
-    "title": "Visual identification — Fluid samples",
-    "prompt": "Using the red and purple samples pictured in the PDF:\n- Identify the fluid family represented by each sample.\n- Which represents BMS 3-11, Skydrol/HyJet?\n- Which represents the fire-resistant fluid used on high-performance aircraft?",
-    "answer": "Left red sample: mineral-base MIL-H-5606 in this comparison. Right purple sample: phosphate ester, such as Skydrol/HyJet. The right sample represents BMS 3-11 and the fire-resistant fluid. Colour alone cannot identify every specification; 83282 is also red.",
-    "needsDiagram": true
+    "prompt": "Which fluid identification matches this comparison, including the BMS 3-11 sample?",
+    "options": [
+      "Left red: phosphate ester/BMS 3-11; right purple: mineral MIL-H-5606",
+      "Left red: mineral MIL-H-5606; right purple: phosphate ester/BMS 3-11",
+      "Left red: vegetable MIL-H-7644; right purple: phosphate ester/BMS 3-11",
+      "Left red: mineral MIL-H-5606; right purple: vegetable MIL-H-7644"
+    ],
+    "correctIndex": 1,
+    "explanation": "In this comparison the red sample represents mineral MIL-H-5606, and the purple sample represents phosphate ester such as Skydrol/HyJet (BMS 3-11). Colour alone cannot identify every specification; MIL-H-83282 is also red.",
+    "sourceId": 27
   },
   {
-    "id": 28,
-    "title": "Matching — Formulas",
-    "prompt": "Match each quantity to its formula. Here, P means pressure, and t means time.\nQuantity\tFormula choices\n1. Hydraulic pressure\tA. \\(W=F\\times D\\)\n2. Hydraulic force\tB. \\(V=A\\times D\\)\n3. Piston area from force and pressure\tC. \\(P=F/A\\)\n4. Circular piston area from radius\tD. \\(F=P\\times A\\)\n5. Fluid volume displaced\tE. \\(\\mathrm{hp}=(F\\times D)/(33{,}000\\times t)\\), using feet and minutes\n6. Work\tF. \\(A=\\pi r^2\\)\n7. Power\tG. \\(\\mathrm{Power}=(F\\times D)/t\\)\n8. Horsepower\tH. \\(A=F/P\\)",
-    "answer": "1-C; 2-D; 3-H; 4-F; 5-B; 6-A; 7-G; 8-E.",
-    "needsDiagram": false
+    "id": "28-1",
+    "prompt": "Which formula represents hydraulic pressure? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "P = F / A",
+      "P = F × A",
+      "P = A / F",
+      "P = F × D"
+    ],
+    "correctIndex": 0,
+    "explanation": "P = F / A.",
+    "sourceId": 28
+  },
+  {
+    "id": "28-2",
+    "prompt": "Which formula represents hydraulic force? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "F = P × A",
+      "F = P / A",
+      "F = A / P",
+      "F = P × D"
+    ],
+    "correctIndex": 0,
+    "explanation": "F = P × A.",
+    "sourceId": 28
+  },
+  {
+    "id": "28-3",
+    "prompt": "Which formula represents piston area from force and pressure? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "A = F / P",
+      "A = F × P",
+      "A = P / F",
+      "A = F / D"
+    ],
+    "correctIndex": 0,
+    "explanation": "A = F / P.",
+    "sourceId": 28
+  },
+  {
+    "id": "28-4",
+    "prompt": "Which formula represents circular piston area from radius? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "A = π × r²",
+      "A = 2 × π × r",
+      "A = π × r",
+      "A = π × diameter²"
+    ],
+    "correctIndex": 0,
+    "explanation": "A = π × r².",
+    "sourceId": 28
+  },
+  {
+    "id": "28-5",
+    "prompt": "Which formula represents displaced fluid volume? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "V = A × D",
+      "V = A / D",
+      "V = D / A",
+      "V = F × D"
+    ],
+    "correctIndex": 0,
+    "explanation": "V = A × D.",
+    "sourceId": 28
+  },
+  {
+    "id": "28-6",
+    "prompt": "Which formula represents work? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "W = F × D",
+      "W = F / D",
+      "W = F × D / t",
+      "W = P × A"
+    ],
+    "correctIndex": 0,
+    "explanation": "W = F × D.",
+    "sourceId": 28
+  },
+  {
+    "id": "28-7",
+    "prompt": "Which formula represents power? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "Power = F × D / t",
+      "Power = F × D × t",
+      "Power = F × D",
+      "Power = F / (D × t)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Power = F × D / t.",
+    "sourceId": 28
+  },
+  {
+    "id": "28-8",
+    "prompt": "Which formula represents horsepower using feet and minutes? F = force, A = area, D = distance, P = pressure, r = radius, and t = time.",
+    "options": [
+      "hp = F × D / (33,000 × t)",
+      "hp = F × D × t / 33,000",
+      "hp = F × D / t",
+      "hp = 33,000 × F × D / t"
+    ],
+    "correctIndex": 0,
+    "explanation": "hp = F × D / (33,000 × t).",
+    "sourceId": 28
   }
 ]

@@ -2,201 +2,481 @@
   {
     "id": 1,
     "prompt": "The Greek word behind \"hydraulics\" means __________.",
-    "answer": "Water"
+    "options": [
+      "Pressure",
+      "Motion",
+      "Water",
+      "Force"
+    ],
+    "correctIndex": 2,
+    "explanation": "Water. This is the identification given in the supplied course answer key."
   },
   {
     "id": 2,
     "prompt": "Which law states that pressure applied to a confined fluid is transmitted equally and undiminished in all directions?",
-    "answer": "Pascal's law"
+    "options": [
+      "Bernoulli's principle",
+      "Boyle's law",
+      "Charles's law",
+      "Pascal's law"
+    ],
+    "correctIndex": 3,
+    "explanation": "Pascal's law. Pressure applied to confined fluid is transmitted equally and undiminished."
   },
   {
     "id": 3,
     "prompt": "For a given liquid, static fluid pressure depends on the vertical __________ of its column.",
-    "answer": "Height"
+    "options": [
+      "Height",
+      "Total volume",
+      "Container width",
+      "Container shape"
+    ],
+    "correctIndex": 0,
+    "explanation": "Height. For a given liquid, static pressure depends on vertical height, rather than container shape or total volume."
   },
   {
     "id": 4,
     "prompt": "To increase output force, the output piston must have a __________ area than the input piston.",
-    "answer": "Larger"
+    "options": [
+      "Smaller",
+      "Larger",
+      "Equal",
+      "Independent of piston area"
+    ],
+    "correctIndex": 1,
+    "explanation": "Larger. A larger output area produces greater force at the same pressure."
   },
   {
     "id": 5,
     "prompt": "A liquid's internal resistance to flow is called __________.",
-    "answer": "Viscosity"
+    "options": [
+      "Compressibility",
+      "Density",
+      "Viscosity",
+      "Lubricity"
+    ],
+    "correctIndex": 2,
+    "explanation": "Viscosity. This is the identification given in the supplied course answer key."
   },
   {
     "id": 6,
     "prompt": "As a hydraulic liquid's temperature decreases, its viscosity __________.",
-    "answer": "Increases"
+    "options": [
+      "Decreases",
+      "Remains unchanged",
+      "Changes only with pressure",
+      "Increases"
+    ],
+    "correctIndex": 3,
+    "explanation": "Increases. Cooling generally raises liquid viscosity."
   },
   {
     "id": 7,
     "prompt": "The named instrument in the slides is the __________ universal viscosimeter.",
-    "answer": "Saybolt"
+    "options": [
+      "Saybolt",
+      "Bourdon",
+      "Venturi",
+      "Pitot"
+    ],
+    "correctIndex": 0,
+    "explanation": "Saybolt. This is the identification given in the supplied course answer key."
   },
   {
     "id": 8,
     "prompt": "The ability of a liquid to resist oxidation and deterioration is called __________.",
-    "answer": "Chemical stability"
+    "options": [
+      "Thermal stability",
+      "Chemical stability",
+      "Viscosity index",
+      "Lubricating ability"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chemical stability. This is the identification given in the supplied course answer key."
   },
   {
     "id": 9,
     "prompt": "The temperature at which vapour ignites momentarily when a flame is applied is the __________.",
-    "answer": "Flash point"
+    "options": [
+      "Fire point",
+      "Boiling point",
+      "Flash point",
+      "Pour point"
+    ],
+    "correctIndex": 2,
+    "explanation": "Flash point. Flash point is momentary ignition; fire point involves sustained burning."
   },
   {
     "id": 10,
     "prompt": "The temperature at which enough vapour is released to ignite and sustain burning is the __________.",
-    "answer": "Fire point"
+    "options": [
+      "Fire point",
+      "Flash point",
+      "Boiling point",
+      "Cloud point"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fire point. Sustained burning distinguishes fire point from flash point."
   },
   {
     "id": 11,
     "prompt": "What colour is vegetable-base MIL-H-7644 hydraulic fluid?",
-    "answer": "Blue"
+    "options": [
+      "Red",
+      "Blue",
+      "Light purple",
+      "Amber"
+    ],
+    "correctIndex": 1,
+    "explanation": "Blue. This is the identification given in the supplied course answer key."
   },
   {
     "id": 12,
     "prompt": "Vegetable-base hydraulic fluid uses seals made from __________.",
-    "answer": "Natural rubber"
+    "options": [
+      "Neoprene",
+      "Butyl rubber",
+      "Natural rubber",
+      "Ethylene-propylene rubber"
+    ],
+    "correctIndex": 2,
+    "explanation": "Natural rubber. This is the identification given in the supplied course answer key."
   },
   {
     "id": 13,
     "prompt": "What colour is mineral-base MIL-H-5606 hydraulic fluid?",
-    "answer": "Red"
+    "options": [
+      "Blue",
+      "Light purple",
+      "Clear",
+      "Red"
+    ],
+    "correctIndex": 3,
+    "explanation": "Red. This is the identification given in the supplied course answer key."
   },
   {
     "id": 14,
-    "prompt": "Name the synthetic rubber listed as a seal material for MIL-H-5606 in the presentation.",
-    "answer": "Neoprene"
+    "prompt": "Which synthetic rubber listed as a seal material for MIL-H-5606 in the presentation.",
+    "options": [
+      "Neoprene",
+      "Natural rubber",
+      "Butyl rubber",
+      "Ethylene-propylene rubber"
+    ],
+    "correctIndex": 0,
+    "explanation": "Neoprene. This is the identification given in the supplied course answer key."
   },
   {
     "id": 15,
     "prompt": "What is the typical colour of phosphate-ester BMS 3-11 hydraulic fluid?",
-    "answer": "Light purple"
+    "options": [
+      "Red",
+      "Light purple",
+      "Blue",
+      "Amber"
+    ],
+    "correctIndex": 1,
+    "explanation": "Light purple. This is the identification given in the supplied course answer key."
   },
   {
     "id": 16,
     "prompt": "Which synthetic hydraulic-fluid brand does the presentation identify as most commonly used?",
-    "answer": "Skydrol"
+    "options": [
+      "MIL-H-5606",
+      "MIL-H-7644",
+      "Skydrol",
+      "MIL-H-83282"
+    ],
+    "correctIndex": 2,
+    "explanation": "Skydrol. This is the identification given in the supplied course answer key."
   },
   {
     "id": 17,
     "prompt": "Skydrol-compatible seals include ethylene-propylene elastomers and __________ rubber.",
-    "answer": "Butyl"
+    "options": [
+      "Neoprene",
+      "Natural",
+      "Buna-N",
+      "Butyl"
+    ],
+    "correctIndex": 3,
+    "explanation": "Butyl. This is the identification given in the supplied course answer key."
   },
   {
     "id": 18,
     "prompt": "MIL-H-83282 is backward compatible with MIL-H-__________.",
-    "answer": "5606"
+    "options": [
+      "5606",
+      "7644",
+      "83282",
+      "3-11"
+    ],
+    "correctIndex": 0,
+    "explanation": "5606. This is the identification given in the supplied course answer key."
   },
   {
     "id": 19,
     "prompt": "Which system type circulates fluid through neutral selector valves and back to the reservoir without maintaining stored operating pressure?",
-    "answer": "Open centre"
+    "options": [
+      "Closed-centre system",
+      "Open centre",
+      "Closed brake system",
+      "Accumulator charging circuit"
+    ],
+    "correctIndex": 1,
+    "explanation": "Open centre. Neutral open-centre selectors provide a return path to the reservoir."
   },
   {
     "id": 20,
     "prompt": "In an open-centre system, selector valves are arranged in __________.",
-    "answer": "Series"
+    "options": [
+      "Parallel",
+      "Across the accumulator charging line",
+      "Series",
+      "Independently of the return circuit"
+    ],
+    "correctIndex": 2,
+    "explanation": "Series. This is the identification given in the supplied course answer key."
   },
   {
     "id": 21,
     "prompt": "Which system type builds and stores hydraulic energy and supplies fluid to actuators when required?",
-    "answer": "Closed centre"
+    "options": [
+      "Open-centre system",
+      "Unpressurized reservoir",
+      "Thermal-relief circuit",
+      "Closed centre"
+    ],
+    "correctIndex": 3,
+    "explanation": "Closed centre. A closed-centre system maintains stored hydraulic energy for demand."
   },
   {
     "id": 22,
     "prompt": "In a closed-centre system, selector valves are arranged in __________.",
-    "answer": "Parallel"
+    "options": [
+      "Parallel",
+      "Series",
+      "Along a common neutral bypass path",
+      "Only in the reservoir supply line"
+    ],
+    "correctIndex": 0,
+    "explanation": "Parallel. This is the identification given in the supplied course answer key."
   },
   {
     "id": 23,
     "prompt": "Which component stores hydraulic energy for later use?",
-    "answer": "Accumulator"
+    "options": [
+      "Reservoir",
+      "Accumulator",
+      "Pressure regulator",
+      "Debooster"
+    ],
+    "correctIndex": 1,
+    "explanation": "Accumulator. The accumulator stores energy; the reservoir stores fluid."
   },
   {
     "id": 24,
     "prompt": "A self-contained hydraulic unit combining an electric pump, valves and a reservoir is called a __________.",
-    "answer": "Power pack"
+    "options": [
+      "Accumulator charging unit",
+      "Hydraulic reservoir assembly",
+      "Power pack",
+      "Pressure-regulating manifold"
+    ],
+    "correctIndex": 2,
+    "explanation": "Power pack. This is the identification given in the supplied course answer key."
   },
   {
     "id": 25,
     "prompt": "A reservoir built into a power pack is described as __________.",
-    "answer": "Integral"
+    "options": [
+      "In-line",
+      "Bootstrap",
+      "Aspirator",
+      "Integral"
+    ],
+    "correctIndex": 3,
+    "explanation": "Integral. This is the identification given in the supplied course answer key."
   },
   {
     "id": 26,
     "prompt": "A separate reservoir connected to other components by tubing or hose is described as __________.",
-    "answer": "In-line"
+    "options": [
+      "In-line",
+      "Integral",
+      "Bootstrap",
+      "Aspirator"
+    ],
+    "correctIndex": 0,
+    "explanation": "In-line. This is the identification given in the supplied course answer key."
   },
   {
     "id": 27,
     "prompt": "Which component removes contaminants from circulating hydraulic fluid?",
-    "answer": "Filter"
+    "options": [
+      "Accumulator",
+      "Filter",
+      "Debooster",
+      "Pressure reducer"
+    ],
+    "correctIndex": 1,
+    "explanation": "Filter. This is the identification given in the supplied course answer key."
   },
   {
     "id": 28,
     "prompt": "Pressurized reservoirs ensure a positive fluid supply at the inlet of which component?",
-    "answer": "Pump"
+    "options": [
+      "Selector valve",
+      "Actuator outlet",
+      "Pump",
+      "System relief valve"
+    ],
+    "correctIndex": 2,
+    "explanation": "Pump. This is the identification given in the supplied course answer key."
   },
   {
     "id": 29,
     "prompt": "Which engine or APU air source can pressurize a hydraulic reservoir?",
-    "answer": "Bleed air"
+    "options": [
+      "Cabin recirculation air",
+      "Engine exhaust gas",
+      "Ambient ram air alone",
+      "Bleed air"
+    ],
+    "correctIndex": 3,
+    "explanation": "Bleed air. This is the identification given in the supplied course answer key."
   },
   {
     "id": 30,
     "prompt": "What is the name of the reservoir-pressurizing system that uses the hydraulic system's own pressure?",
-    "answer": "Bootstrap"
+    "options": [
+      "Bootstrap",
+      "Aspirator",
+      "Bleed-air pressurization",
+      "Pressure reduction"
+    ],
+    "correctIndex": 0,
+    "explanation": "Bootstrap. This is the identification given in the supplied course answer key."
   },
   {
     "id": 31,
     "prompt": "Which component controls normal hydraulic-system pressure within a preset range?",
-    "answer": "Pressure regulator"
+    "options": [
+      "System pressure relief valve",
+      "Pressure regulator",
+      "Thermal relief valve",
+      "Pressure reducer"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pressure regulator. Normal pressure regulation is different from backup overpressure protection."
   },
   {
     "id": 32,
     "prompt": "If the regulator fails and system pressure rises excessively, which valve provides overpressure protection?",
-    "answer": "System relief valve"
+    "options": [
+      "Pressure regulator",
+      "Thermal relief valve",
+      "System relief valve",
+      "Pressure reducer"
+    ],
+    "correctIndex": 2,
+    "explanation": "System relief valve. The system relief valve protects against excessive system pressure when regulation fails."
   },
   {
     "id": 33,
     "prompt": "Which valve protects trapped fluid from excess pressure caused by heating?",
-    "answer": "Thermal relief valve"
+    "options": [
+      "System relief valve",
+      "Unloading valve",
+      "Pressure regulator",
+      "Thermal relief valve"
+    ],
+    "correctIndex": 3,
+    "explanation": "Thermal relief valve. Thermal relief protects isolated fluid against pressure caused by heating."
   },
   {
     "id": 34,
     "prompt": "Which component maintains a lower pressure for a unit such as an autopilot servo?",
-    "answer": "Pressure reducer"
+    "options": [
+      "Pressure reducer",
+      "Debooster",
+      "Pressure regulator",
+      "Thermal relief valve"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pressure reducer. A pressure reducer supplies a component that requires lower pressure."
   },
   {
     "id": 35,
     "prompt": "Which valve returns excess pump flow to the reservoir when the required system pressure is reached?",
-    "answer": "Unloading valve"
+    "options": [
+      "Pressure reducer",
+      "Unloading valve",
+      "Thermal relief valve",
+      "Debooster"
+    ],
+    "correctIndex": 1,
+    "explanation": "Unloading valve. An unloading valve returns excess pump flow once the required pressure is reached."
   },
   {
     "id": 36,
     "prompt": "Which brake-system component reduces pressure while increasing the fluid volume delivered to the brake actuators?",
-    "answer": "Debooster"
+    "options": [
+      "Pressure reducer",
+      "Unloading valve",
+      "Debooster",
+      "Pressure regulator"
+    ],
+    "correctIndex": 2,
+    "explanation": "Debooster. A debooster reduces pressure while increasing fluid volume for brake operation."
   },
   {
     "id": 38,
     "prompt": "Early rubber expander-tube brakes were an example of a __________ hydraulic system.",
-    "answer": "Closed"
+    "options": [
+      "Closed",
+      "Open-centre",
+      "Pneumatic",
+      "Continuous-return"
+    ],
+    "correctIndex": 0,
+    "explanation": "Closed. This is the identification given in the supplied course answer key."
   },
   {
     "id": 39,
     "prompt": "The modern aircraft brake type named in the presentation is floating __________ brakes.",
-    "answer": "Disc"
+    "options": [
+      "Expander-tube",
+      "Disc",
+      "Drum",
+      "Band"
+    ],
+    "correctIndex": 1,
+    "explanation": "Disc. This is the identification given in the supplied course answer key."
   },
   {
     "id": 40,
     "prompt": "An actuator with hydraulic fluid on one side and spring or nitrogen pressure providing the opposing action is __________.",
-    "answer": "Single-acting"
+    "options": [
+      "Double-acting",
+      "Rotary",
+      "Single-acting",
+      "Continuously circulating"
+    ],
+    "correctIndex": 2,
+    "explanation": "Single-acting. Only one piston side receives hydraulic pressure; a spring or nitrogen supplies the opposing action."
   },
   {
     "id": 41,
     "prompt": "An actuator with hydraulic fluid acting on both sides of the piston is __________.",
-    "answer": "Double-acting"
+    "options": [
+      "Single-acting",
+      "Spring-return",
+      "Nitrogen-return",
+      "Double-acting"
+    ],
+    "correctIndex": 3,
+    "explanation": "Double-acting. Hydraulic pressure can act on either side of the piston."
   }
 ]

@@ -10,3 +10,10 @@ export function shuffleQuestions(questions, random = Math.random) {
 export function scoreAnswers(questions, answers) {
   return questions.reduce((total, question) => total + (answers[question.id] === question.correctIndex ? 1 : 0), 0);
 }
+
+export function shufflePractice(questions, random = Math.random) {
+  return shuffleQuestions(questions, random).map(question => {
+    const options = shuffleQuestions(question.options.map((text, index) => ({ text, correct: index === question.correctIndex })), random);
+    return { ...question, options: options.map(option => option.text), correctIndex: options.findIndex(option => option.correct) };
+  });
+}

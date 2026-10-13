@@ -3,10 +3,10 @@
     "id": 1,
     "prompt": "Which of the following is the best general shop practice?",
     "options": [
-      "Leave tools out so they are always accessible",
+      "Clear the work surface now, then remove floor debris when the job ends",
       "Maintain good housekeeping and clean as you work",
-      "Clean only when an inspection is scheduled",
-      "Store frequently used equipment in walkways"
+      "Keep tools grouped beside the job and clean spills during shift handover",
+      "Inspect the area before work, then leave cleanup until the next inspection"
     ],
     "correctIndex": 1,
     "explanation": "Good housekeeping; clean as you work."
@@ -15,9 +15,9 @@
     "id": 2,
     "prompt": "What should you do with equipment after you have finished using it?",
     "options": [
-      "Leave it where the next person might need it",
-      "Place it beside the nearest emergency exit",
-      "Leave cleaning and storage to the next user",
+      "Clean it and leave it at the workstation for the next scheduled task",
+      "Return it to storage and leave cleaning to the next operator",
+      "Disconnect it and place it in a shared staging area until shift end",
       "Clean it and return it to its designated storage location"
     ],
     "correctIndex": 3,
@@ -39,10 +39,10 @@
     "id": 4,
     "prompt": "What are the yellow painted walkways in the hangar intended for?",
     "options": [
-      "Temporary storage of aircraft components",
-      "Parking ground support equipment",
+      "Aircraft movement routes with temporary pedestrian access",
+      "Shared routes for pedestrians and unattended tool carts",
       "Designated pedestrian travel routes",
-      "Areas where PPE is unnecessary"
+      "Storage boundaries that become walkways when cleared"
     ],
     "correctIndex": 2,
     "explanation": "Designated pedestrian walkways."
@@ -51,10 +51,10 @@
     "id": 5,
     "prompt": "How should a compressed gas cylinder normally be stored?",
     "options": [
-      "Horizontally on the floor beside a workbench",
+      "Secure it upright with its valve closed, leaving the protective cap off for access",
       "Upright and secured, with its valve closed and protective cap fitted where applicable",
-      "Upright without restraints so it can be moved quickly",
-      "Near a heat source to maintain its pressure"
+      "Close the valve and fit the cap, leaving the upright cylinder unrestrained",
+      "Secure it upright with its protective cap fitted, leaving the valve open"
     ],
     "correctIndex": 1,
     "explanation": "Upright, secured, valve closed, protective cap fitted where applicable."
@@ -63,9 +63,9 @@
     "id": 6,
     "prompt": "Where is personal protective equipment worn or fitted when it is used?",
     "options": [
-      "On the machine producing the hazard",
-      "Around the outside of the work area",
-      "On the tool being used",
+      "At the source through machine guards and interlocks",
+      "Along the hazard path through screens and barriers",
+      "Through safe-work procedures and warning signs",
       "On the person, protecting the relevant body parts"
     ],
     "correctIndex": 3,
@@ -76,9 +76,9 @@
     "prompt": "What is an important requirement for emergency exits in a hangar?",
     "options": [
       "Their locations must be known, and access must remain unobstructed",
-      "They may be used for storage outside normal working hours",
-      "They should be locked whenever maintenance is underway",
-      "Only supervisors need to know their locations"
+      "Their locations must be known, with temporary obstructions permitted during short jobs",
+      "Their access must be clear, with exit locations explained only during emergencies",
+      "Their signs must be visible, with access checked only at shift changes"
     ],
     "correctIndex": 0,
     "explanation": "Know exit locations and keep access clear."
@@ -87,10 +87,10 @@
     "id": 8,
     "prompt": "Where should flammable liquids be stored when not in use?",
     "options": [
-      "In open containers near the work area",
-      "In any cupboard that has available space",
+      "Use a sealed, labelled container on the general chemical shelf",
+      "Keep it in its original container at the workstation between jobs",
       "In approved containers within designated flammable-liquid storage",
-      "Beside electrical equipment to keep them warm"
+      "Use a covered shop container in a ventilated general-purpose cupboard"
     ],
     "correctIndex": 2,
     "explanation": "Approved containers in designated flammable-liquid storage."
@@ -99,10 +99,10 @@
     "id": 9,
     "prompt": "Why should loose clothing and jewelry not be worn while working in the shop?",
     "options": [
-      "They make maintenance records harder to complete",
+      "Jewelry can bridge electrical contacts, but loose sleeves mainly affect comfort",
       "They can become caught in machinery or create electrical hazards",
-      "They prevent tools from being calibrated accurately",
-      "They increase the pressure inside hydraulic systems"
+      "Loose sleeves can snag rotating parts, but metal jewelry poses no additional hazard",
+      "Gloves prevent both entanglement and electrical-contact hazards from jewelry"
     ],
     "correctIndex": 1,
     "explanation": "Entanglement and electrical hazards."
@@ -111,9 +111,9 @@
     "id": 10,
     "prompt": "Before opening or servicing a hydraulic system, what should be done?",
     "options": [
-      "Increase the pressure to identify weak components",
-      "Loosen a fitting while the pump is operating",
-      "Switch off the pump and assume all pressure is gone",
+      "Switch off the pump and rely on the pressure gauge alone",
+      "Close a selector valve and assume the isolated line is depressurized",
+      "Disconnect electrical power without checking accumulators or trapped pressure",
       "Isolate the system and safely release stored pressure according to the procedure"
     ],
     "correctIndex": 3,
@@ -124,9 +124,9 @@
     "prompt": "Which three elements make up the fire triangle?",
     "options": [
       "Fuel, heat, and oxygen",
-      "Fuel, electricity, and smoke",
-      "Heat, nitrogen, and pressure",
-      "Oxygen, water, and friction"
+      "Fuel, oxygen, and a sustained chemical chain reaction",
+      "Fuel, heat, and a sustained chemical chain reaction",
+      "Heat, oxygen, and a sustained chemical chain reaction"
     ],
     "correctIndex": 0,
     "explanation": "Fuel, heat, and oxygen."
@@ -183,33 +183,33 @@
     "id": 16,
     "prompt": "After raising the alarm, what should be done about the electrical supply to burning equipment, if it is safe to do so?",
     "options": [
-      "Increase the current to trip the equipment",
-      "Move the equipment while it remains energized",
+      "Keep power connected until the extinguisher discharge is complete",
+      "Operate the equipment stop switch and assume every circuit is isolated",
       "Disconnect or isolate the electrical power",
-      "Apply water before disconnecting the power"
+      "Open the cabinet to find the fire before isolating the electrical supply"
     ],
     "correctIndex": 2,
     "explanation": "Disconnect or isolate electrical power, if safe."
   },
   {
     "id": 17,
-    "prompt": "Which extinguisher must NOT be used on a Class D combustible-metal fire?",
+    "prompt": "A combustible-metal fire requires an extinguisher. Which selection follows the correct Class D principle?",
     "options": [
-      "A Class D extinguisher approved for the burning metal",
-      "A water-type extinguisher",
-      "A compatible metal-fire dry-powder extinguisher",
-      "An extinguisher specifically rated for that metal"
+      "Standard ABC dry chemical, selected without checking the burning metal",
+      "Class D dry powder specifically approved for the burning metal",
+      "CO₂, selected because it leaves no residue",
+      "Water mist, selected because it cools the metal"
     ],
     "correctIndex": 1,
-    "explanation": "Water-type extinguisher."
+    "explanation": "Use an agent approved for the particular combustible metal. Ordinary powder is not automatically Class D rated, and water must not be used on the metal fire."
   },
   {
     "id": 18,
     "prompt": "Why is using a CO₂ extinguisher dangerous in an enclosed space?",
     "options": [
-      "It increases the oxygen concentration",
-      "It makes nearby metal electrically energized",
-      "It produces large amounts of flammable residue",
+      "A charged CO₂ cylinder can make its surroundings oxygen-rich",
+      "CO₂ discharge eliminates the need to evacuate once the flame is out",
+      "CO₂ discharge makes the atmosphere safe as soon as smoke clears",
       "It can displace oxygen and create an asphyxiation hazard"
     ],
     "correctIndex": 3,
@@ -231,10 +231,10 @@
     "id": 20,
     "prompt": "Why is an extinguisher weighed during an inspection when required, particularly a CO₂ extinguisher?",
     "options": [
-      "To determine which class of fire it can extinguish",
-      "To check the temperature of the contents",
+      "To establish the extinguisher pressure from its total weight",
+      "To confirm that the cylinder has the required proof-test strength",
       "To check whether it has lost extinguishing agent",
-      "To determine the pressure rating of its hose"
+      "To verify that the discharge horn delivers the specified flow"
     ],
     "correctIndex": 2,
     "explanation": "Check for loss of extinguishing agent."
@@ -268,9 +268,9 @@
     "prompt": "According to your slides, human-computer interaction is analyzed within which discipline?",
     "options": [
       "Computer science",
-      "Medical science",
-      "Clinical psychology",
-      "Safety engineering"
+      "Cognitive science",
+      "Anthropometry",
+      "Organizational psychology"
     ],
     "correctIndex": 0,
     "explanation": "Computer science."
@@ -279,10 +279,10 @@
     "id": 24,
     "prompt": "Human factors improves safety by helping people work effectively while minimizing:",
     "options": [
-      "The number of maintenance records",
-      "The use of technical instructions",
+      "Reducing physical hazards while treating technician performance as a separate issue",
+      "Reducing task time while leaving error-management procedures unchanged",
       "Risk arising from human performance and error",
-      "The need for communication between workers"
+      "Reducing equipment failures while relying on experience to control human error"
     ],
     "correctIndex": 2,
     "explanation": "Risk arising from human performance and error."
@@ -316,9 +316,9 @@
     "prompt": "What is an expected outcome of improved human factors awareness in aircraft maintenance?",
     "options": [
       "Improved quality, fewer errors, and greater worker and aircraft safety",
-      "Elimination of the need for maintenance inspections",
-      "Permission to replace written procedures with experience",
-      "A guarantee that no technician will ever make a mistake"
+      "Higher task throughput, even if rework remains unchanged",
+      "Greater technician confidence, even if error rates remain unchanged",
+      "Fewer error reports, even if staff have become reluctant to report"
     ],
     "correctIndex": 0,
     "explanation": "Improved quality, fewer errors, and greater safety."
@@ -327,10 +327,10 @@
     "id": 28,
     "prompt": "What does safety engineering focus on?",
     "options": [
-      "Selecting employees based on their personalities",
-      "Recording how quickly technicians complete paperwork",
+      "Studying how technicians perceive and process information",
+      "Studying relationships between workers and their organization",
       "Identifying hazards and designing systems to remain safe when failures occur",
-      "Studying how students remember new information"
+      "Studying body dimensions to improve reach and access"
     ],
     "correctIndex": 2,
     "explanation": "Identify hazards and design systems to remain safe when failures occur."
@@ -339,10 +339,10 @@
     "id": 29,
     "prompt": "Which human factors discipline studies relationships between people and their work, including organizational structure and job satisfaction?",
     "options": [
-      "Medical science",
+      "Cognitive science",
       "Organizational psychology",
-      "Anthropometry",
-      "Computer science"
+      "Safety engineering",
+      "Educational psychology"
     ],
     "correctIndex": 1,
     "explanation": "Organizational psychology."
@@ -351,9 +351,9 @@
     "id": 30,
     "prompt": "Which Dirty Dozen factor can reduce cognitive ability, coordination, and reaction time?",
     "options": [
-      "Lack of resources",
-      "Norms",
-      "Lack of assertiveness",
+      "Stress",
+      "Distraction",
+      "Pressure",
       "Fatigue"
     ],
     "correctIndex": 3,
@@ -364,9 +364,9 @@
     "prompt": "Which Dirty Dozen factor describes failing to recognize all the consequences of an action?",
     "options": [
       "Lack of awareness",
-      "Lack of teamwork",
-      "Lack of communication",
-      "Lack of knowledge"
+      "Lack of knowledge",
+      "Distraction",
+      "Complacency"
     ],
     "correctIndex": 0,
     "explanation": "Lack of awareness."
@@ -375,10 +375,10 @@
     "id": 32,
     "prompt": "Which Dirty Dozen factor involves self-satisfaction accompanied by a loss of awareness of potential dangers?",
     "options": [
-      "Distraction",
+      "Lack of awareness",
       "Pressure",
       "Complacency",
-      "Stress"
+      "Distraction"
     ],
     "correctIndex": 2,
     "explanation": "Complacency."
@@ -387,10 +387,10 @@
     "id": 33,
     "prompt": "In the Dirty Dozen, stress can result from:",
     "options": [
-      "Only physical exertion while lifting heavy equipment",
+      "Pressure from a deadline, but excluding personal and physical strain",
       "Physical, psychological, or physiological demands that create strain",
-      "Only disagreements between technicians and supervisors",
-      "Only urgent deadlines during aircraft maintenance"
+      "Physical tiredness from insufficient rest, rather than wider demands",
+      "Distraction from interruptions, rather than mental or physiological strain"
     ],
     "correctIndex": 1,
     "explanation": "Physical, psychological, or physiological demands creating strain."
@@ -423,10 +423,10 @@
     "id": 36,
     "prompt": "What best describes latent failures in the Swiss Cheese model?",
     "options": [
-      "Unsafe actions that always produce immediate injuries",
-      "Defects that can only occur in electrical components",
+      "An unsafe action performed by a technician during the current task",
+      "An immediate equipment failure that visibly interrupts the current job",
       "Hidden weaknesses that can remain dormant until they contribute to an event",
-      "Mistakes that cannot be influenced by organizational decisions"
+      "An accident outcome after the final protective barrier has failed"
     ],
     "correctIndex": 2,
     "explanation": "Hidden weaknesses that remain dormant until contributing to an event."

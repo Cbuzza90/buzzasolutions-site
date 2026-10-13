@@ -1,36 +1,4 @@
 import source from "./systems-mixed-practice2.json" with { type: "json" };
-import { gradeTextResponse } from "../pages/recallLogic.js";
-
-const select = (label, correct, options) => ({ label, type: "select", correct, options });
-const text = (label, rule, example) => ({ label, type: "text", rule, example });
-const choices = labels => labels.map((label, index) => ({ value: String.fromCharCode(65 + index), label }));
-const tf = [{ value: "T", label: "True" }, { value: "F", label: "False" }];
-const fluidTypes = [{ value: "V", label: "Vegetable-base" }, { value: "M", label: "Mineral-base MIL-H-5606" }, { value: "P", label: "Phosphate ester (Skydrol/HyJet)" }];
-const centreTypes = [{ value: "O", label: "Open centre" }, { value: "C", label: "Closed centre" }];
-const pressureFunctions = choices(["Protects isolated fluid against pressure from heating", "Reduces pressure and increases brake-fluid volume", "Maintains a lower pressure for a component", "Controls system pressure within a preset range", "Protects against pressure above the normal limit", "Returns excess pump flow when required pressure is reached"]);
-const formulas = choices(["W = F × D", "V = A × D", "P = F / A", "F = P × A", "hp = (F × D) / (33,000 × t), with feet and minutes", "A = π × r²", "Power = (F × D) / t", "A = F / P"]);
-
-const configuration = {
-  2: [text("Explain the pressure change", { groups: [["equally", "equal", "all directions"], ["undiminished", "without loss", "unchanged", "same pressure"], ["throughout the fluid", "throughout fluid", "all the fluid", "entire fluid", "container walls"]] }, "Transmitted equally and undiminished throughout the fluid and to its container walls.")],
-  5: ["Viscosity is internal resistance to flow.", "Slow-flowing liquids generally have high viscosity.", "Liquid viscosity increases as temperature decreases.", "Every fluid has the same viscosity at 30°F.", "Viscosity is another name for pressure.", "A Saybolt universal viscosimeter measures viscosity."].map((label, i) => select(label, ["T", "T", "T", "F", "F", "T"][i], tf)),
-  6: ["Fire point", "Chemical stability", "Flash point"].map((label, i) => select(label, ["C", "A", "B"][i], choices(["Resistance to oxidation and deterioration", "Momentary ignition of released vapour", "Ignition with sustained burning"]))),
-  7: ["Blue colour", "Red colour", "Typically light purple", "Castor oil and alcohol base", "Kerosene/petroleum base", "Skydrol", "Natural rubber seals", "Neoprene seals", "Butyl or ethylene-propylene seals", "Fire-resistant for high-performance aircraft", "Additives prevent foaming and corrosion", "MIL-H-7644"].map((label, i) => select(label, ["V", "M", "P", "V", "M", "P", "V", "M", "P", "P", "M", "V"][i], fluidTypes)),
-  8: [text("Missing specification number", { aliases: ["5606", "MIL H 5606", "MIL-H-5606"] }, "5606")],
-  11: [text("Give two reasons to keep systems and containers sealed", { minimum: 2, groups: [["contamination", "contaminants", "dirt"], ["air"], ["moisture", "water"]] }, "Exclude contamination and moisture."), text("What can happen when incompatible fluids are mixed?", { minimum: 1, groups: [["swell seals", "seals swell", "seal swelling", "damage seals", "seal damage", "seal breakdown", "damaged seals"], ["block the system", "blockage", "blocked system"]] }, "Seal damage and system blockage.")],
-  13: ["Selector valves in series", "Selector valves in parallel", "Fewer components and simpler troubleshooting", "Stores energy with an accumulator and check valves", "Neutral selectors circulate fluid to the reservoir", "Several systems can operate at once"].map((label, i) => select(label, ["O", "C", "O", "C", "O", "C"][i], centreTypes)),
-  14: [text("Fluid flows to actuators when…", { aliases: ["required", "needed", "an actuator is commanded", "commanded", "the actuator is commanded", "actuator commanded"] }, "Required"), text("Hydraulic ___ remains available", { aliases: ["pressure", "hydraulic pressure"] }, "Pressure")],
-  16: [text("What is a hydraulic power pack?", { groups: [["self contained", "selfcontained"], ["hydraulic", "power system"]] }, "A self-contained hydraulic power system."), text("Name all four listed components", { groups: [["electric pump", "electrical pump"], ["pressure control valves", "pressure control valve"], ["selector valves", "selector valve"], ["reservoir"]] }, "Electric pump, pressure control valves, selector valves, reservoir.")],
-  17: [select("Left reservoir type", "I", [{ value: "I", label: "Integral reservoir" }, { value: "L", label: "In-line reservoir" }]), select("Right reservoir type", "L", [{ value: "I", label: "Integral reservoir" }, { value: "L", label: "In-line reservoir" }]), select("Which reservoir is in-line?", "R", [{ value: "L", label: "Left" }, { value: "R", label: "Right" }])],
-  18: [text("Name two reservoir functions besides storage", { minimum: 2, groups: [["purging air", "purge air", "removing air", "remove air", "air removal"], ["separating contamination", "separate contamination", "remove contamination", "contamination separation"], ["thermal expansion", "expansion"], ["volume changes", "changes in fluid volume", "fluid volume requirements", "volume requirements"]] }, "Purging air and allowing thermal expansion.")],
-  19: [text("Why use a pressurized reservoir?", { groups: [["positive fluid supply", "positive supply", "pump inlet", "pump supply"], ["prevent foaming", "prevents foaming", "prevention of foaming", "reduce foaming", "prevent foam", "avoid foaming"]] }, "Positive fluid supply at the pump inlet and prevention of foaming."), text("Name the three pressurizing methods", { groups: [["aspirator"], ["bleed air"], ["hydraulic system pressure", "hydraulic pressure", "bootstrap"]] }, "Aspirator, bleed air, and hydraulic system pressure/bootstrap.")],
-  22: [select("Single-acting actuator", "B", choices(["Fluid acts on both sides of the piston", "Fluid acts on one side; spring and/or nitrogen opposes it"])), select("Double-acting actuator", "A", choices(["Fluid acts on both sides of the piston", "Fluid acts on one side; spring and/or nitrogen opposes it"]))],
-  23: ["Pressure regulator", "System pressure relief valve", "Thermal relief valve", "Pressure reducer", "Debooster", "Unloading valve"].map((label, i) => select(label, ["D", "E", "A", "C", "B", "F"][i], pressureFunctions)),
-  24: [text("Which component provides overpressure protection?", { aliases: ["system pressure relief valve", "system relief valve", "pressure relief valve", "relief valve"] }, "System pressure relief valve")],
-  25: ["1", "2", "3", "4", "5"].map((label, i) => select(`Component ${label}`, ["T", "F", "S", "A", "R"][i], [{ value: "A", label: "Accumulator" }, { value: "R", label: "Reservoir" }, { value: "T", label: "Thermal relief valve" }, { value: "F", label: "Filter" }, { value: "S", label: "System relief valve" }])),
-  26: [select("System type", "O", [{ value: "O", label: "Open-centre system" }, { value: "C", label: "Closed-centre system" }]), select("Selector-valve arrangement", "S", [{ value: "S", label: "Series" }, { value: "P", label: "Parallel" }]), text("Describe fluid flow when the selectors are neutral", { groups: [["reservoir"], ["pump"], ["neutral selector valves", "neutral selectors", "selector valves"], ["returns to reservoir", "returns to the reservoir", "back to reservoir", "back to the reservoir"]] }, "Fluid goes from the reservoir through the pump and neutral selector valves, then returns to the reservoir.")],
-  27: [select("Left red sample: fluid family", "M", fluidTypes), select("Right purple sample: fluid family", "P", fluidTypes), select("Which sample represents BMS 3-11, Skydrol/HyJet?", "R", [{ value: "L", label: "Left red sample" }, { value: "R", label: "Right purple sample" }]), select("Which sample represents fire-resistant fluid in this comparison?", "R", [{ value: "L", label: "Left red sample" }, { value: "R", label: "Right purple sample" }])],
-  28: ["Hydraulic pressure", "Hydraulic force", "Piston area from force and pressure", "Circular piston area from radius", "Fluid volume displaced", "Work", "Power", "Horsepower"].map((label, i) => select(label, ["C", "D", "H", "F", "B", "A", "G", "E"][i], formulas)),
-};
 
 const diagrams = {
   17: { src: "/structures/reservoirs.png", alt: "Two hydraulic reservoir diagrams: a combined unit on the left and a separate reservoir connected by lines on the right.", crop: { imageWidth: 1441, x: 400, y: 148, width: 725, height: 345 } },
@@ -38,35 +6,5 @@ const diagrams = {
   26: { src: "/structures/system.png", alt: "Hydraulic system diagram showing reservoir, pumps, and two selector valves in their neutral positions.", crop: { imageWidth: 375, x: 30, y: 59, width: 258, height: 224 } },
   27: { src: "/structures/fluid-samples.png", alt: "Two hydraulic-fluid samples: red on the left and purple on the right.", crop: { imageWidth: 1304, x: 404, y: 108, width: 531, height: 475 } },
 };
-export const diagramQuestions = source.filter(question => diagrams[question.id]);
-export const systemsMixedQuestions = source.map(question => {
-  question = { ...question, needsDiagram: false, diagram: diagrams[question.id] };
-  if (question.diagram) question.prompt = {17: "Use the reservoir image below to identify the left and right reservoir types.", 25: "Identify components 1–5 in the numbered diagram below.", 26: "Identify the system type, valve arrangement, and neutral flow path in this diagram.", 27: "Identify the red and purple fluid samples below."}[question.id];
-  const options = [...question.prompt.matchAll(/^- ([A-F])\. (.+)$/gm)].map(match => ({ value: match[1], label: match[2].trim() }));
-  if (question.title.startsWith("Multiple choice")) return { ...question, kind: "choice", prompt: question.prompt.split("\n- A.")[0].trim(), options, correct: question.answer[0] };
-  if (question.id === 10) return { ...question, kind: "multiple", prompt: "Select all desirable hydraulic-fluid properties.", options, correct: ["A", "B", "C", "D"] };
-  return { ...question, kind: "fields", fields: configuration[question.id], prompt: question.prompt.split("\n")[0] };
-});
-
-export function gradeSystemsMixed(question, response) {
-  if (question.kind === "choice") return { correct: response === question.correct, close: false };
-  if (question.kind === "multiple") return { correct: response.length === question.correct.length && question.correct.every(value => response.includes(value)), close: false };
-  const parts = question.fields.map((field, index) => {
-    const value = response[index];
-    if (field.type === "text") return gradeTextResponse(value?.text || "", field.rule);
-    if (field.type === "select") return { correct: value?.text === field.correct, close: false };
-    return { correct: false, close: false };
-  });
-  return { correct: parts.every(part => part.correct), close: parts.some(part => part.close), parts };
-}
-
-export function systemsMixedReady(question, response) {
-  if (question.kind === "multiple") return response.length > 0;
-  if (question.kind === "choice") return Boolean(response);
-  return question.fields.every((field, i) => response[i]?.text?.trim());
-}
-
-export function describeSystemsMixedResponse(question, response) {
-  if (question.kind === "choice" || question.kind === "multiple") return (question.kind === "choice" ? [response] : response).map(value => `${value}. ${question.options.find(option => option.value === value)?.label || ""}`).join("; ");
-  return question.fields.map((field, i) => `${field.label}: ${field.type === "select" ? field.options.find(option => option.value === response[i]?.text)?.label : `${response[i]?.text || ""}${response[i]?.unit ? ` ${response[i].unit}` : ""}`}`).join("\n");
-}
+export const systemsMixedQuestions = source.map(question => ({ ...question, diagram: diagrams[question.sourceId] }));
+export const diagramQuestions = systemsMixedQuestions.filter(question => question.diagram);
