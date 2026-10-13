@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { torontoDate, upcomingTests, visibleTests } from "./studySchedule.js";
+import { nextCourseTest, torontoDate, upcomingTests, visibleTests } from "./studySchedule.js";
 
 test("test dates stay visible on the test day and expire the following day", () => {
   assert.equal(visibleTests(upcomingTests, "2026-10-14").length, 3);
@@ -18,4 +18,28 @@ test("visible dates are sorted without changing the saved schedule", () => {
   const reverse = [...upcomingTests].reverse();
   assert.deepEqual(visibleTests(reverse, "2026-10-12"), upcomingTests);
   assert.equal(reverse[0].course, "Electricity");
+});
+
+test("course colours change at the requested day boundaries", () => {
+  const test = [{ courseSlug: "safety", date: "2026-10-20" }];
+  const expected = [["2026-10-20",0,"urgent"],["2026-10-19",1,"urgent"],["2026-10-18",2,"urgent"],["2026-10-17",3,"warning"],["2026-10-16",4,"warning"],["2026-10-15",5,"warning"],["2026-10-14",6,"warning"],["2026-10-13",7,"ready"]];
+  expected.forEach(([today,days,urgency]) => {
+    const result = nextCourseTest("safety", test, today);
+    assert.equal(result.days, days);
+    assert.equal(result.urgency, urgency);
+  });
+  assert.deepEqual([3,4,5,6].map(days => nextCourseTest("safety", test, `2026-10-${20-days}`).hue), [12,28,44,60]);
+});
+
+test("each course uses its earliest upcoming test, ignoring expired and other-course dates", () => {
+  const tests = [{courseSlug:"safety",date:"2026-10-20"},{courseSlug:"systems",date:"2026-10-14"},{courseSlug:"safety",date:"2026-10-12"},{courseSlug:"safety",date:"2026-10-16"}];
+  assert.equal(nextCourseTest("safety", tests, "2026-10-13").days, 3);
+  assert.equal(nextCourseTest("systems", tests, "2026-10-13").days, 1);
+  assert.equal(nextCourseTest("structures", tests, "2026-10-13"), null);
+  assert.equal(nextCourseTest("safety", tests, "2026-10-21"), null);
+});
+
+test("calendar-day countdowns remain correct across Toronto daylight-saving changes", () => {
+  assert.equal(nextCourseTest("safety", [{courseSlug:"safety",date:"2026-11-02"}], "2026-10-31").days, 2);
+  assert.equal(nextCourseTest("safety", [{courseSlug:"safety",date:"2026-03-09"}], "2026-03-07").days, 2);
 });

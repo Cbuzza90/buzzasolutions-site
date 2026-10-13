@@ -7,7 +7,7 @@ import StudyWelcome from "./StudyWelcome";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
-import { formatTestDate, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
+import { formatTestDate, nextCourseTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 const courses = [
   { slug: "electricity", title: "Aircraft Electricity 1", code: "AMEM-10001", category: "Foundations", icon: Zap, color: "amber", description: "Build your understanding of aircraft electricity, one topic at a time." },
@@ -20,12 +20,8 @@ const courses = [
   { slug: "publications", title: "Technical Publications/Documents", code: "AMEM-10033", category: "Tools & math", icon: FileText, color: "violet", description: "Find your way around the technical publications and documents used in class." },
 ];
 
-function TestDateBanner() {
-  const [paused, setPaused] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+function useStudyDate() {
   const [today, setToday] = useState(() => torontoDate());
-  const dialogRef = useRef(null);
-  const tests = visibleTests(upcomingTests, today);
   useEffect(() => {
     const refresh = () => setToday(torontoDate());
     const timer = setInterval(refresh, 60_000);
@@ -33,13 +29,21 @@ function TestDateBanner() {
     document.addEventListener("visibilitychange", refresh);
     return () => { clearInterval(timer); window.removeEventListener("focus", refresh); document.removeEventListener("visibilitychange", refresh); };
   }, []);
+  return [today, () => setToday(torontoDate())];
+}
+
+function TestDateBanner({ today, refreshDate }) {
+  const [paused, setPaused] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const dialogRef = useRef(null);
+  const tests = visibleTests(upcomingTests, today);
   useEffect(() => {
     if (!expanded) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = previous; };
   }, [expanded]);
-  function openDates() { setToday(torontoDate()); dialogRef.current?.showModal(); setExpanded(true); }
+  function openDates() { refreshDate(); dialogRef.current?.showModal(); setExpanded(true); }
   function closeDates() { dialogRef.current?.close(); }
   return <aside className={`study-calendar ${paused ? "paused" : ""}`} aria-label={`Upcoming tests for group ${studyGroup}`}>
     <button type="button" className="study-calendar-open" aria-label="Test dates" aria-haspopup="dialog" aria-expanded={expanded} onClick={openDates}>
@@ -55,22 +59,26 @@ function TestDateBanner() {
     </dialog>
   </aside>;
 }
-function CourseCard({ course }) {
-  const content = <><div className="study-card-top"><span className={`study-icon ${course.color}`}><course.icon size={24} strokeWidth={1.7} /></span>{course.hasTests && <ArrowUpRight size={19} className="study-card-arrow" />}</div><p className="study-course-code">{course.code}</p><h3>{course.title}</h3><div className="study-card-bottom"><span>{course.hasTests ? course.category : <span className="study-unavailable-badge">No tests made yet</span>}</span></div></>;
-  return course.hasTests ? <Link to={`/study/${course.slug}`} className="study-course-card">{content}</Link> : <article className="study-course-card unavailable" aria-disabled="true">{content}</article>;
+function CourseCard({ course, today }) {
+  const nextTest = nextCourseTest(course.slug, upcomingTests, today);
+  const countdown = nextTest ? nextTest.days === 0 ? "TODAY" : `${nextTest.days} day${nextTest.days === 1 ? "" : "s"}` : null;
+  const cardProps = { className: `study-course-card${course.hasTests ? "" : " unavailable"}`, "data-test-urgency": nextTest?.urgency, style: nextTest ? { "--test-hue": nextTest.hue } : undefined };
+  const content = <><div className="study-card-top"><span className={`study-icon ${course.color}${nextTest ? " study-course-countdown-icon" : ""}`} title={nextTest ? `Next test: ${formatTestDate(nextTest.date)} · ${countdown}` : undefined}><course.icon size={24} strokeWidth={1.7} />{nextTest && <span className="study-course-countdown">{countdown}</span>}</span>{course.hasTests && <ArrowUpRight size={19} className="study-card-arrow" />}</div>{nextTest?.urgency === "urgent" && <span className="study-test-soon">TEST SOON!</span>}<p className="study-course-code">{course.code}</p><h3>{course.title}</h3><div className="study-card-bottom"><span>{course.hasTests ? course.category : <span className="study-unavailable-badge">No tests made yet</span>}</span></div></>;
+  return course.hasTests ? <Link to={`/study/${course.slug}`} {...cardProps}>{content}</Link> : <article {...cardProps} aria-disabled="true">{content}</article>;
 }
 
 function CourseList() {
+  const [today, refreshDate] = useStudyDate();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All courses");
   const filtered = courses.filter(course => (category === "All courses" || category === course.category) && `${course.title} ${course.code}`.toLowerCase().includes(query.trim().toLowerCase())).sort((a, b) => Number(Boolean(b.hasTests)) - Number(Boolean(a.hasTests)));
   return <>
-    <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your courses</h1><TestDateBanner /></div><p>What are we studying today?</p></section>
+    <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your courses</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div><p>What are we studying today?</p></section>
     <section id="courses" className="study-courses">
       <label className="study-search"><Search size={20} /><span className="sr-only">Search courses by name or code</span><input type="search" placeholder="Search a course or course code" value={query} onChange={event => setQuery(event.target.value)} /></label>
       <div className="study-filters" aria-label="Filter courses">{["All courses", "Foundations", "Aircraft", "Tools & math"].map(item => <button key={item} className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>
       <p className="sr-only" role="status">{filtered.length} courses found</p>
-      <div className="study-grid">{filtered.map(course => <CourseCard key={course.slug} course={course} />)}</div>
+      <div className="study-grid">{filtered.map(course => <CourseCard key={course.slug} course={course} today={today} />)}</div>
       {filtered.length === 0 && <div className="study-empty"><Search size={28} /><h3>No courses found</h3><p>Try another name or course code.</p><button className="study-primary" onClick={() => { setQuery(""); setCategory("All courses"); }}>Clear filters</button></div>}
     </section>
   </>;
