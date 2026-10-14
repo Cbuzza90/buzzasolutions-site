@@ -4,14 +4,14 @@ import { existsSync } from "node:fs";
 import { diagramQuestions, systemsMixedQuestions } from "./systemsMixedTest.js";
 
 test("applied review retains the original groups and adds focused coverage", () => {
-  assert.equal(systemsMixedQuestions.length, 65);
-  assert.deepEqual([...new Set(systemsMixedQuestions.map(q => q.sourceId))], Array.from({length: 29}, (_, i) => i + 1));
-  assert.equal(new Set(systemsMixedQuestions.map(q => q.id)).size, 65);
-  assert.equal(new Set(systemsMixedQuestions.map(q => q.learningTarget)).size, 65);
+  assert.equal(systemsMixedQuestions.length, 83);
+  assert.deepEqual([...new Set(systemsMixedQuestions.map(q => q.sourceId))], Array.from({length: 30}, (_, i) => i + 1));
+  assert.equal(new Set(systemsMixedQuestions.map(q => q.id)).size, 83);
+  assert.equal(new Set(systemsMixedQuestions.map(q => q.learningTarget)).size, 83);
   assert.ok(systemsMixedQuestions.every(q => q.options.length === 4 && !q.fields && !q.kind));
 });
 test("diagram questions use shipped assets and retain every numbered component", () => {
-  assert.deepEqual([...new Set(diagramQuestions.map(q => q.sourceId))], [12, 17, 22, 25, 26, 27]);
+  assert.deepEqual([...new Set(diagramQuestions.map(q => q.sourceId))], [4, 12, 17, 22, 25, 26, 27, 30]);
   assert.equal(diagramQuestions.filter(q => q.sourceId === 25).length, 5);
   assert.ok(diagramQuestions.every(q => q.diagram.src && q.diagram.crop));
   diagramQuestions.forEach(q => assert.ok(existsSync(new URL(`../../public${q.diagram.src}`, import.meta.url))));
@@ -38,4 +38,15 @@ test("every pressure-control role and each seal family has a focused applied que
     const q = systemsMixedQuestions.find(q => q.id === `29-${index + 1}`);
     assert.equal(q.options[q.correctIndex], answer);
   });
+});
+
+test("the review's previously missing law names now have separate unambiguous questions", () => {
+  for (const [target, answer] of [["boyle", "Boyle's law"], ["charles", "Charles's law"], ["bernoulli", "Bernoulli's principle"], ["hydrostatic-paradox", "Hydrostatic paradox"]]) {
+    const q = systemsMixedQuestions.find(q => q.learningTarget === target);
+    assert.ok(q, target);
+    assert.equal(q.options[q.correctIndex], answer);
+  }
+  assert.match(systemsMixedQuestions.find(q => q.learningTarget === "boyle").prompt, /temperature stays constant/);
+  assert.match(systemsMixedQuestions.find(q => q.learningTarget === "charles").prompt, /pressure stays constant/);
+  assert.match(systemsMixedQuestions.find(q => q.learningTarget === "bernoulli").prompt, /ideal steady incompressible.*same elevation/);
 });

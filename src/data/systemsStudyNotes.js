@@ -1,12 +1,20 @@
 export const systemsNoteSections = [
+  { id: "laws", title: "All five laws & principles", items: [
+    ["Boyle’s law", "Fixed amount of gas, constant temperature: decreasing volume increases absolute pressure."],
+    ["Charles’s law", "Fixed amount of gas, constant pressure: volume increases with absolute temperature."],
+    ["Bernoulli’s principle", "For ideal steady incompressible flow along a streamline at the same elevation, greater speed corresponds to lower static pressure."],
+    ["Pascal’s law", "A pressure change in a confined liquid at rest is transmitted equally and undiminished, including to the container walls."],
+    ["Hydrostatic paradox", "Same liquid, depth and surface pressure means the same pressure at the bottom, even if container shapes and volumes differ."]
+  ] },
   { id: "fluids", title: "Fluid colours, families & seals", items: [
     ["Blue · MIL-H-7644", "Vegetable base (castor oil/alcohol); natural rubber seals. Historical fluid family included in the review."],
-    ["Red · MIL-H-5606", "Petroleum/mineral base; neoprene is the seal material named in the course key. Buna-N is another mineral-fluid seal material in FAA references."],
+    ["Red · MIL-H-5606", "Petroleum/mineral base; neoprene is the seal material named in the course key. Buna-N is another mineral-fluid seal material in FAA references. The review also lists lubrication, anti-foam additives and corrosion protection."],
     ["Purple · phosphate ester", "Skydrol / HyJet; the review refers to BMS 3-11. Butyl or ethylene-propylene seals. Fire-resistant does not mean fireproof."],
     ["Red · MIL-H-83282", "Synthetic hydrocarbon fluid; the review identifies compatibility with MIL-H-5606. This is not permission to substitute on every aircraft."],
     ["Identification trap", "Colour is a clue, not a unique specification. Confirm the approved fluid and seal specifications. Different incompatible fluid families can damage seals; approved phosphate-ester fluids can be mutually compatible, subject to aircraft approval."]
   ] },
-  { id: "principles", title: "Pressure, force & flow", items: [
+  { id: "principles", title: "Pressure, force & flow", diagramKey: "mechanical", items: [
+    ["Applications & efficiency", "Review applications: flight controls, landing gear and brakes. The almost-100% efficiency statement emphasizes low losses; actual system efficiency varies."],
     ["Pascal’s law", "A pressure change applied to a confined liquid at rest is transmitted equally and undiminished. Equal pressure does not mean equal piston force."],
     ["Pressure vs force", "Pressure is force per unit area. At the same pressure, a larger piston area produces more force."],
     ["Force vs travel", "An ideal system trades travel for force. A larger output piston moves less for the same displaced volume; it does not create energy."],
@@ -21,12 +29,13 @@ export const systemsNoteSections = [
     ["Fire point", "Enough vapour is released to sustain burning. Remember: flash = brief; fire = sustained."],
     ["Useful fluid qualities", "Suitable flow behaviour, stability, lubrication and material compatibility. Keep contamination, moisture and unwanted air out."]
   ] },
-  { id: "layouts", title: "Open centre vs closed centre", diagramKey: "open-centre", items: [
+  { id: "layouts", title: "Open centre vs closed centre", diagramKeys: ["open-centre", "open-states", "closed-labelled"], items: [
     ["Open centre", "In the basic review circuit, neutral selector passages are in series. Flow goes reservoir → pump → neutral selectors → reservoir."],
     ["Closed centre", "Neutral supply passages are blocked; operating pressure remains available. Selectors are supplied in parallel."],
     ["Stored energy", "An accumulator, when installed, stores hydraulic energy. A closed-centre label alone does not mean every system has an accumulator."],
     ["Multiple actuators", "Parallel supply allows several demands, but available pressure and pump flow must support them."],
     ["Terminology trap", "A closed hydraulic brake circuit is not automatically the same classification as a closed-centre selector circuit."]
+    , ["Read each legend", "In the A/B sketches: pink = suction, red = pressure, green = return. A shows neutral return flow; B shows an actuator command. Other review drawings use different colours." ]
   ] },
   { id: "valves", title: "All six pressure-control components", items: [
     ["Pressure regulator", "Controls normal system pressure within a preset range."],
@@ -39,6 +48,8 @@ export const systemsNoteSections = [
   ] },
   { id: "reservoirs", title: "Reservoirs & all three pressurizing methods", diagramKey: "reservoirs", items: [
     ["Reservoir", "Stores the fluid supply, receives return fluid, allows expansion and volume changes, and helps air separate."],
+    ["Reserve & quantity", "Extra fluid capacity can accommodate limited leakage and volume changes, but does not repair a leak. The review lists a dipstick or sight gauge for fluid quantity."],
+    ["Contamination", "A reservoir can help some contaminants separate; it does not replace the system filter."],
     ["Integral vs in-line", "Left diagram: integral reservoir built into the unit. Right diagram: separate in-line reservoir connected by tubing."],
     ["Why pressurize?", "Maintain a positive supply at the pump inlet, especially at altitude. Reservoir pressure is not the same as actuator operating pressure."],
     ["Bleed air", "Air from an engine or APU pressurizes the reservoir in designs using this method."],
@@ -51,6 +62,12 @@ export const systemsNoteSections = [
     ["Accumulator vs reservoir", "Accumulator stores energy; reservoir stores the fluid supply. A gas-charged accumulator stores energy by compressing separated gas."],
     ["Check valve", "Allows flow in one direction and prevents reverse flow, helping retain a charged portion of the circuit."],
     ["Filter", "Removes contaminants. It does not store energy or replace pressure-control valves."]
+  ] },
+  { id: "power-packs", title: "Reversible hydraulic power pack", diagramKey: "power-pack", items: [
+    ["Self-contained assembly", "The review combines a reservoir, electric pump and control components into a compact unit, commonly used on light aircraft."],
+    ["Reversing pump flow", "In this arrangement, reversing motor rotation reverses pump flow to move the actuators in the opposite direction. This is a power-pack feature, not an open-centre selector definition."],
+    ["Diagram legend", "Red = pressure; blue = return in this drawing. It also shows high/low pressure control, thermal relief, shuttle and gear-up check-valve components."],
+    ["Gear-state caution", "The screenshot’s extension wording and its Up arrows are inconsistent. Study the reversible-flow principle; do not infer gear extension or retraction from that sentence alone."]
   ] },
   { id: "actuators", title: "Actuators & brakes", diagramKey: "actuators", items: [
     ["A · single-acting", "Hydraulic pressure drives one direction; a spring, gas pressure or another opposing force provides return. The sketch uses a spring."],

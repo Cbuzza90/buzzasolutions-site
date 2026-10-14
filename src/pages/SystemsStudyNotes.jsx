@@ -17,11 +17,11 @@ function NotesContent() {
     {sections.map(section => <details className="study-notes-topic" key={`${section.id}-${Boolean(term)}`} open={term ? true : section.id === "fluids" ? true : undefined}>
       <summary>{section.title}</summary>
       <dl>{section.items.map(([label, text]) => <div key={label}><dt>{section.id === "fluids" && /^(Blue|Red|Purple) ·/.test(label) && <span className="study-fluid-swatch" aria-hidden="true" style={{ backgroundColor: label.startsWith("Blue") ? "#3b82f6" : label.startsWith("Red") ? "#ef4444" : "#a78bfa" }} />}{label}</dt><dd>{text}</dd></div>)}</dl>
-      {section.diagramKey && <QuestionDiagram diagram={systemsDiagrams[section.diagramKey]} />}
+      {(section.diagramKeys ?? (section.diagramKey ? [section.diagramKey] : [])).map(key => <QuestionDiagram key={key} diagram={systemsDiagrams[key]} />)}
     </details>)}
     {sections.length === 0 && <p>No matching topic. Try “pressure”, “seal” or “reservoir”.</p>}
-    <p className="study-feedback-explanation">Course basis: AMEM 10004 Hydraulics Practice Test & Answer Key and the supplied review diagrams. Fluid and valve descriptions are study summaries; approved aircraft specifications govern actual component and fluid selection.</p>
-    <div className="study-notes-sources"><a href="https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_65-15A.pdf" target="_blank" rel="noreferrer">FAA reference · hydraulic fundamentals</a><a href="https://www.eastman.com/content/dam/eastman/corporate/en/literature/e/eas11170.pdf" target="_blank" rel="noreferrer">Eastman · phosphate-ester compatibility</a></div>
+    <p className="study-feedback-explanation">Course basis: AMEM 10004 Review Test #1, the Hydraulics answer key and supplied quiz screenshots. Fluid and valve descriptions are study summaries; approved aircraft specifications govern actual component and fluid selection.</p>
+    <div className="study-notes-sources"><a href="https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_65-15A.pdf" target="_blank" rel="noreferrer">FAA reference · hydraulic fundamentals</a><a href="https://www.eastman.com/content/dam/eastman/corporate/en/literature/e/eas11170.pdf" target="_blank" rel="noreferrer">Eastman · phosphate-ester compatibility</a><a href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/equation-of-state/" target="_blank" rel="noreferrer">NASA · gas-law relationships</a></div>
   </div>;
 }
 

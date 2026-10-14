@@ -53,7 +53,8 @@
     ],
     "correctIndex": 3,
     "explanation": "The larger output area increases force at the same pressure. Conservation of displaced volume means the larger piston travels less.",
-    "learningTarget": "application-4"
+    "learningTarget": "application-4",
+    "diagramKey": "mechanical"
   },
   {
     "id": "5-1",
@@ -910,5 +911,260 @@
     ],
     "correctIndex": 2,
     "explanation": "Aspirator is the third method named in the review. It belongs with reservoir pressurization, rather than the pressure-control or filtration functions in the other choices."
+  },
+  {
+    "id": "30-1",
+    "sourceId": 30,
+    "learningTarget": "boyle",
+    "prompt": "A fixed amount of gas is compressed while temperature stays constant. Which law relates its rising pressure to its falling volume?",
+    "options": [
+      "Boyle's law",
+      "Charles's law",
+      "Pascal's law",
+      "Bernoulli's principle"
+    ],
+    "correctIndex": 0,
+    "explanation": "Boyle's law relates absolute pressure and gas volume inversely for a fixed amount of gas at constant temperature."
+  },
+  {
+    "id": "30-2",
+    "sourceId": 30,
+    "learningTarget": "charles",
+    "prompt": "A fixed amount of gas warms and expands while pressure stays constant. Which law describes this relationship?",
+    "options": [
+      "Boyle's law",
+      "Pascal's law",
+      "Hydrostatic paradox",
+      "Charles's law"
+    ],
+    "correctIndex": 3,
+    "explanation": "Charles's law relates gas volume to absolute temperature when pressure and the amount of gas remain constant."
+  },
+  {
+    "id": "30-3",
+    "sourceId": 30,
+    "learningTarget": "bernoulli",
+    "prompt": "In ideal steady incompressible flow at the same elevation, speed increases along a streamline. Which principle relates this to a decrease in static pressure?",
+    "options": [
+      "Charles's law",
+      "Hydrostatic paradox",
+      "Bernoulli's principle",
+      "Boyle's law"
+    ],
+    "correctIndex": 2,
+    "explanation": "Bernoulli's principle relates pressure, speed and elevation under its ideal-flow assumptions. This is not a claim that pressure falls whenever speed increases in every real circuit."
+  },
+  {
+    "id": "30-4",
+    "sourceId": 30,
+    "learningTarget": "hydrostatic-paradox",
+    "prompt": "Different-shaped containers hold the same liquid to the same depth, with equal surface pressure. Which named concept explains equal bottom pressures?",
+    "options": [
+      "Boyle's law",
+      "Hydrostatic paradox",
+      "Bernoulli's principle",
+      "Charles's law"
+    ],
+    "correctIndex": 1,
+    "explanation": "The hydrostatic paradox highlights that pressure at a given depth depends on liquid density and vertical depth, rather than container shape or total volume."
+  },
+  {
+    "id": "30-5",
+    "sourceId": 30,
+    "learningTarget": "reversible-power-pack",
+    "prompt": "In the illustrated arrangement, reversing electric-motor rotation reverses pump flow. Which system description matches this feature?",
+    "options": [
+      "Reversible hydraulic power pack",
+      "Open-centre neutral-flow selector circuit",
+      "Accumulator-only emergency supply",
+      "Pressure-reducing valve assembly"
+    ],
+    "correctIndex": 0,
+    "explanation": "The review identifies this self-contained pump/reservoir/valve arrangement as a power pack. The reversible pump changes flow direction; a particular gear state must be established from the aircraft's full schematic.",
+    "diagramKey": "power-pack"
+  },
+  {
+    "id": "30-6",
+    "sourceId": 30,
+    "learningTarget": "open-neutral-state",
+    "prompt": "In state A of these circuit sketches, which route explains the low-pressure neutral condition?",
+    "options": [
+      "Pump flow charges an accumulator through blocked neutral valves",
+      "Pressure is applied continuously to both sides of every actuator",
+      "All pump output must pass through the relief valve at its limit",
+      "Pump flow passes through the neutral valves and returns to the reservoir"
+    ],
+    "correctIndex": 3,
+    "explanation": "In A, the green route continues through the neutral valves to the reservoir. In B, an operated valve directs pressure to an actuator. Use this image's legend rather than assuming one universal colour code.",
+    "diagramKey": "open-states"
+  },
+  {
+    "id": "30-7",
+    "sourceId": 30,
+    "learningTarget": "closed-layout-image",
+    "prompt": "Which feature in the labelled circuit supports identifying the review's closed-centre arrangement?",
+    "options": [
+      "Only a reservoir connected directly to actuator returns",
+      "A pump driven solely by actuator return springs",
+      "Parallel pressure-fed selectors with an accumulator in the pressure circuit",
+      "All neutral selectors forming one continuous series return passage"
+    ],
+    "correctIndex": 2,
+    "explanation": "The pressure line feeds parallel selectors, and the accumulator stores energy. These are the features to compare with the open-centre circuit, rather than the drawing's background colour.",
+    "diagramKey": "closed-labelled"
+  },
+  {
+    "id": "30-8",
+    "sourceId": 30,
+    "learningTarget": "low-viscosity",
+    "prompt": "Two liquids move through identical passages under the same conditions. The one that flows more readily is generally described as having what?",
+    "options": [
+      "Higher flash point",
+      "Lower viscosity",
+      "Higher viscosity",
+      "Lower chemical stability"
+    ],
+    "correctIndex": 1,
+    "explanation": "Lower viscosity means less internal resistance to flow. Flow comparisons require otherwise comparable conditions."
+  },
+  {
+    "id": "30-9",
+    "sourceId": 30,
+    "learningTarget": "anti-foam",
+    "prompt": "The mineral-fluid review lists anti-foam additives. Which unwanted effect are they intended to limit?",
+    "options": [
+      "Persistent foam formation",
+      "Chemical conversion into phosphate ester",
+      "Normal thermal expansion of all liquid",
+      "Loss of hydraulic piston area"
+    ],
+    "correctIndex": 0,
+    "explanation": "Anti-foam additives help limit foam. They do not eliminate every consequence of air entry or replace correct fluid handling."
+  },
+  {
+    "id": "30-10",
+    "sourceId": 30,
+    "learningTarget": "corrosion-additives",
+    "prompt": "Which additive purpose matches the mineral-fluid review's corrosion protection?",
+    "options": [
+      "Make every seal material interchangeable",
+      "Increase static pressure by changing colour",
+      "Convert mineral oil into castor oil",
+      "Limit corrosion of system materials"
+    ],
+    "correctIndex": 3,
+    "explanation": "Corrosion-inhibiting additives protect materials; this is separate from lubrication and anti-foam functions."
+  },
+  {
+    "id": "30-11",
+    "sourceId": 30,
+    "learningTarget": "vegetable-history",
+    "prompt": "Which family does the review associate with older aircraft, blue fluid and natural-rubber seals?",
+    "options": [
+      "Synthetic hydrocarbon MIL-H-83282",
+      "Phosphate-ester BMS 3-11 fluid",
+      "Vegetable-base MIL-H-7644",
+      "Mineral-base MIL-H-5606"
+    ],
+    "correctIndex": 2,
+    "explanation": "The supplied review describes MIL-H-7644 as an older vegetable-base fluid, dyed blue and paired with natural rubber seals."
+  },
+  {
+    "id": "30-12",
+    "sourceId": 30,
+    "learningTarget": "vegetable-composition",
+    "prompt": "Which ingredients are named as the base of the vegetable hydraulic fluid in the review?",
+    "options": [
+      "Silicone and petroleum",
+      "Castor oil and alcohol",
+      "Petroleum and phosphate ester",
+      "Water and mineral oil"
+    ],
+    "correctIndex": 1,
+    "explanation": "The review names castor oil and alcohol. Its odour description is a study detail, not a safe or sufficient way to identify a fluid."
+  },
+  {
+    "id": "30-13",
+    "sourceId": 30,
+    "learningTarget": "reservoir-air-separation",
+    "prompt": "Return fluid contains entrained air. Which reservoir function helps address it before fluid is drawn back into the system?",
+    "options": [
+      "Allowing air to separate from the liquid",
+      "Compressing air indefinitely in the pressure line",
+      "Replacing the accumulator's separated gas charge",
+      "Directing both actuator ports to supply pressure"
+    ],
+    "correctIndex": 0,
+    "explanation": "A reservoir provides a place for unwanted air to separate from returned fluid. This differs from intentional gas storage in an accumulator."
+  },
+  {
+    "id": "30-14",
+    "sourceId": 30,
+    "learningTarget": "reservoir-vs-filter",
+    "prompt": "Why does a reservoir's contamination-separation function not eliminate the need for a filter?",
+    "options": [
+      "The reservoir regulates all normal operating pressure",
+      "Filters are installed only to increase pump pressure",
+      "Contamination separation makes all fluid families compatible",
+      "Some contaminants remain suspended and require filtration"
+    ],
+    "correctIndex": 3,
+    "explanation": "A reservoir can help some contamination separate, but the filter is the component designed to remove contaminants from circulating fluid."
+  },
+  {
+    "id": "30-15",
+    "sourceId": 30,
+    "learningTarget": "reservoir-reserve",
+    "prompt": "Why does the review mention extra reservoir fluid capacity for possible leakage?",
+    "options": [
+      "It replaces every pressure-control valve",
+      "It guarantees operating pressure with an empty reservoir",
+      "It provides a reserve supply, without making leakage acceptable or unlimited",
+      "It automatically repairs a leaking actuator seal"
+    ],
+    "correctIndex": 2,
+    "explanation": "Reserve fluid can accommodate limited changes in supply; it does not repair a leak or remove operating limits."
+  },
+  {
+    "id": "30-16",
+    "sourceId": 30,
+    "learningTarget": "reservoir-quantity",
+    "prompt": "Which pair does the review list for checking reservoir fluid quantity?",
+    "options": [
+      "Selector valve or debooster",
+      "Dipstick or sight gauge",
+      "Pressure regulator or thermal relief valve",
+      "Accumulator or unloading valve"
+    ],
+    "correctIndex": 1,
+    "explanation": "The reservoir review names a dipstick or sight gauge as quantity indications. Quantity and operating pressure are different measurements."
+  },
+  {
+    "id": "30-17",
+    "sourceId": 30,
+    "learningTarget": "efficiency-limits",
+    "prompt": "The review describes hydraulic operation as almost 100% efficient. Which interpretation is most accurate for studying that statement?",
+    "options": [
+      "It emphasizes high efficiency; real systems still have friction and other losses",
+      "Every installed system always achieves exactly 100% efficiency",
+      "Hydraulics produce more output energy than they receive",
+      "Fluid friction can never generate heat"
+    ],
+    "correctIndex": 0,
+    "explanation": "The review uses an almost-100% teaching description. Real efficiency varies with system design and condition; losses do not disappear."
+  },
+  {
+    "id": "30-18",
+    "sourceId": 30,
+    "learningTarget": "aircraft-applications",
+    "prompt": "Which aircraft functions are specifically listed as hydraulic applications in the review?",
+    "options": [
+      "Radio modulation, compass correction and ignition timing",
+      "Only fuel metering and cabin lighting",
+      "Only static discharge and battery charging",
+      "Flight controls, landing gear and brakes"
+    ],
+    "correctIndex": 3,
+    "explanation": "The introduction names flight controls, landing gear and brakes as applications of hydraulic power."
   }
 ]
