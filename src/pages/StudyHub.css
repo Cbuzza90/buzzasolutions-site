@@ -511,10 +511,6 @@
 .study-resistor-drawing figcaption{font-size:12px;line-height:1.6;color:var(--muted);margin-top:8px;text-align:center}
 .study-resistor-test h1{font-size:25px;margin:14px 0 0}
 .study-resistor-form fieldset{border:0;padding:0;margin:12px 0;min-width:0}
-.study-resistor-unit{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:13px}
-.study-resistor-unit select{min-height:44px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);padding:8px 12px}
-.study-resistor-unit option{background:#fff;color:#111}
-.study-resistor-unit small{flex-basis:100%;font-size:11px;color:var(--muted)}
 .study-resistor-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
 .study-resistor-inputs label{font-size:12px;font-weight:650;line-height:1.5;min-width:0}
 .study-resistor-input-wrap{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:0 10px;margin-top:6px;background:#fff}
@@ -525,8 +521,8 @@
 .study-resistor-error{color:#b91c1c;font-size:13px;line-height:1.6}
 .study-app[data-theme="dark"] .study-resistor-error{color:#fda4af}
 .study-resistor-chart-scroll{overflow:auto;max-width:100%;margin:14px 0;border:1px solid var(--line);border-radius:12px}
-.study-resistor-chart-table{border-collapse:collapse;min-width:520px;width:100%;font-size:12px;text-align:left}
-.study-resistor-chart-table th,.study-resistor-chart-table td{padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}
-.study-resistor-chart-table thead{background:#e8edf5;color:#18332d}
-.study-app[data-theme="dark"] .study-resistor-chart-table thead{background:#222;color:#f5f5f5}
 @media(max-width:350px){.study-resistor-inputs{grid-template-columns:1fr}}
+
+.study-resistor-chart-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.study-resistor-chart-scroll{max-height:55dvh;background:#fff}
+.study-resistor-original-chart{display:block;height:auto;max-width:none;margin:auto}

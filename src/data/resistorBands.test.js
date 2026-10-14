@@ -1,8 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { findNoteSections } from "./courseStudyNotes.js";
-import { decodeResistor, generateResistorQuestions, gradeResistor, resistorQuestion } from "./resistorBands.js";
-import { loadResistorAttempt, loadResistorBest, newResistorAttempt, recordResistorBest, resistorScore, restoreResistorAttempt, saveResistorAttempt } from "../pages/resistorPracticeLogic.js";
+import { decodeResistor, generateResistorQuestions, gradeResistor, resistanceText, resistorQuestion } from "./resistorBands.js";
+import { loadResistorAttempt, loadResistorBest, newResistorAttempt, normalizeOhmAnswer, recordResistorBest, resistorScore, restoreResistorAttempt, saveResistorAttempt } from "../pages/resistorPracticeLogic.js";
 
 test("the course chart's three printed examples decode correctly", () => {
   const four = decodeResistor(["Red", "Red", "Black", "Gold"]);
@@ -60,7 +60,7 @@ test("draft answers, order, completed results and highest scores survive reload 
   attempt.draft.resistance = "47"; attempt.draft.unit = "kΩ";
   saveResistorAttempt(attempt, storage);
   const restored = loadResistorAttempt(storage);
-  assert.deepEqual(restored, attempt);
+  assert.deepEqual(restored, { ...attempt, draft: { ...attempt.draft, unit: "Ω", resistance: "47000" } });
   attempt.answers = attempt.questions.map(answerFor); attempt.position = 19; attempt.complete = true;
   assert.equal(resistorScore(attempt), 20);
   saveResistorAttempt(attempt, storage); recordResistorBest(20, storage);
@@ -83,4 +83,23 @@ test("every generated resistor has a searchable worked reference in the active a
     assert.ok(entry);
     assert.equal(entry[1], q.explanation);
   }
+});
+
+
+test("all displayed resistance values use ohms and legacy saved answers retain their meaning", () => {
+  assert.equal(resistanceText(4700), "4,700 Ω");
+  assert.equal(resistanceText(1000000), "1,000,000 Ω");
+  const q = resistorQuestion(["Yellow", "Purple", "Red", "Gold"]);
+  for (const answer of [
+    { unit: "kΩ", resistance: "4.7", minimum: "4.465", maximum: "4.935", tolerance: "5", temperature: "" },
+    { unit: "MΩ", resistance: "0.0047", minimum: "0.004465", maximum: "0.004935", tolerance: "5", temperature: "" },
+  ]) {
+    const migrated = normalizeOhmAnswer(answer);
+    assert.equal(migrated.unit, "Ω");
+    assert.equal(Number(migrated.resistance), 4700);
+    assert.equal(gradeResistor(q, migrated).allCorrect, true);
+  }
+  assert.equal(normalizeOhmAnswer({ unit: "kΩ", resistance: "1,000", minimum: "", maximum: "abc" }).resistance, "1000000");
+  assert.equal(normalizeOhmAnswer({ unit: "kΩ", resistance: "", minimum: "", maximum: "" }).resistance, "");
+  assert.ok(!q.explanation.includes("kΩ") && !q.explanation.includes("MΩ"));
 });

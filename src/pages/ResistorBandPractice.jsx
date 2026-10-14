@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, ChevronRight, RotateCcw, XCircle } from "lucide-react";
-import { emptyResistorAnswer, gradeResistor, resistanceText, resistanceUnits, resistorColours, resistorFields } from "../data/resistorBands";
+import { emptyResistorAnswer, gradeResistor, resistanceText, resistorColours, resistorFields } from "../data/resistorBands";
 import { StudyNotesGuide } from "./CourseStudyNotes";
 import ResistorColourChart from "./ResistorColourChart";
 import PeerTutoringSupport from "./PeerTutoringSupport";
@@ -71,7 +71,7 @@ export default function ResistorBandPractice() {
     event.preventDefault();
     if (answered) return;
     const result = gradeResistor(question, attempt.draft);
-    if (!result.valid) { setInputError("Enter a number in every answer box, such as 4.7 or 4700. Use the unit selector for resistance values."); return; }
+    if (!result.valid) { setInputError("Enter a number in every answer box, such as 4.7 or 4700. Resistance, minimum and maximum are in ohms (Ω)."); return; }
     setInputError("");
     update({ ...attempt, answers: [...attempt.answers, { ...attempt.draft }] });
   }
@@ -97,7 +97,7 @@ export default function ResistorBandPractice() {
       <StudyNotesGuide basePath={basePath} questionReferences={references} /><ResistorColourChart />
       {missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(q => {
         const index = attempt.questions.indexOf(q), answer = attempt.answers[index], result = gradeResistor(q, answer);
-        return <article key={q.id}><h3>{q.prompt}</h3>{resistorFields(q).map(field => <p key={field}>{result.correct[field] ? "Correct" : "Review"} · {labels[field]}: your answer {answer[field]} {field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : answer.unit}; expected <strong>{expectedText(q, field)}</strong></p>)}<p>{q.explanation}</p></article>;
+        return <article key={q.id}><h3>{q.prompt}</h3>{resistorFields(q).map(field => <p key={field}>{result.correct[field] ? "Correct" : "Review"} · {labels[field]}: your answer {answer[field]} {field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : "Ω"}; expected <strong>{expectedText(q, field)}</strong></p>)}<p>{q.explanation}</p></article>;
       })}</section>}
       <div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div>
     </section>;
@@ -111,15 +111,15 @@ export default function ResistorBandPractice() {
     <form className="study-resistor-form" onSubmit={submit}>
       <p className="study-question-type">Enter all values below. One point per resistor when all fields are correct.</p>
       <fieldset disabled={answered}><legend className="sr-only">Resistor answers</legend>
-        <label className="study-resistor-unit">Resistance units <select value={attempt.draft.unit} onChange={event => update({ ...attempt, draft: { ...attempt.draft, unit: event.target.value } })}>{Object.keys(resistanceUnits).map(unit => <option key={unit}>{unit}</option>)}</select><small>Applies to resistance, minimum and maximum.</small></label>
-        <div className="study-resistor-inputs">{resistorFields(question).map(field => <label key={field} htmlFor={`resistor-${field}`}>{labels[field]}<span className="study-resistor-input-wrap"><input id={`resistor-${field}`} type="text" inputMode="decimal" autoComplete="off" required value={attempt.draft[field]} onChange={event => { setInputError(""); update({ ...attempt, draft: { ...attempt.draft, [field]: event.target.value } }); }} /><span>{field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : attempt.draft.unit}</span></span></label>)}</div>
+        <p className="study-feedback-explanation">Enter resistance, minimum and maximum in ohms (Ω).</p>
+        <div className="study-resistor-inputs">{resistorFields(question).map(field => <label key={field} htmlFor={`resistor-${field}`}>{labels[field]}<span className="study-resistor-input-wrap"><input id={`resistor-${field}`} type="text" inputMode="decimal" autoComplete="off" required value={attempt.draft[field]} onChange={event => { setInputError(""); update({ ...attempt, draft: { ...attempt.draft, [field]: event.target.value } }); }} /><span>{field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : "Ω"}</span></span></label>)}</div>
       </fieldset>
       {inputError && <p role="alert" className="study-resistor-error">{inputError}</p>}
       <button className="study-primary" type="submit" disabled={answered}>Check answers <ChevronRight size={18} /></button>
     </form>
     <dialog ref={feedbackRef} className="study-answer-dialog" aria-labelledby="resistor-feedback-title" onCancel={event => event.preventDefault()}>
       {grade && <><div className="study-answer-dialog-content"><h2 id="resistor-feedback-title">{grade.allCorrect ? "All correct!" : "Some answers need another look"}</h2><Drawing question={question} />
-        {resistorFields(question).map(field => <div className={`study-feedback-choice ${grade.correct[field] ? "correct" : "wrong"}`} key={field}><p>{labels[field]} · {grade.correct[field] ? "Correct" : "Incorrect"}</p><div>{grade.correct[field] ? <CheckCircle2 size={18} /> : <XCircle size={18} />}<strong>{expectedText(question, field)}</strong></div>{!grade.correct[field] && <p>Your answer: {submitted[field]} {field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : submitted.unit}</p>}</div>)}
+        {resistorFields(question).map(field => <div className={`study-feedback-choice ${grade.correct[field] ? "correct" : "wrong"}`} key={field}><p>{labels[field]} · {grade.correct[field] ? "Correct" : "Incorrect"}</p><div>{grade.correct[field] ? <CheckCircle2 size={18} /> : <XCircle size={18} />}<strong>{expectedText(question, field)}</strong></div>{!grade.correct[field] && <p>Your answer: {submitted[field]} {field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : "Ω"}</p>}</div>)}
         <p className="study-feedback-explanation">{question.explanation}</p>
       </div><div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={next}>{attempt.position === 19 ? "See Results" : "Next Question"}<ChevronRight size={18} /></button></div></>}
     </dialog>

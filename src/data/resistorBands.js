@@ -17,8 +17,7 @@ const byName = new Map(resistorColours.map(colour => [colour.name, colour]));
 export const resistanceUnits = { "Ω": 1, "kΩ": 1000, "MΩ": 1000000 };
 export const numberText = number => new Intl.NumberFormat("en-US", { maximumFractionDigits: 12 }).format(number);
 export function resistanceText(ohms) {
-  const unit = ohms >= 1e6 ? "MΩ" : ohms >= 1e3 ? "kΩ" : "Ω";
-  return `${numberText(ohms / resistanceUnits[unit])} ${unit}`;
+  return `${numberText(ohms)} Ω`;
 }
 
 export function decodeResistor(bands) {
@@ -107,7 +106,7 @@ export const resistorNoteSections = [
     ["Four bands", "Two significant digits, multiplier, tolerance. Read from left to right in the practice drawing."],
     ["Five bands", "Three significant digits, multiplier, tolerance."],
     ["Six bands", "Three significant digits, multiplier, tolerance, temperature coefficient in ppm/°C."],
-    ["Resistance", "Join the significant digits into one number, then multiply by the multiplier. Choose Ω, kΩ or MΩ for your answers: 1 kΩ = 1,000 Ω; 1 MΩ = 1,000,000 Ω."],
+    ["Resistance", "Join the significant digits into one number, then multiply by the multiplier. Enter resistance, minimum and maximum in ohms (Ω)."],
     ["Minimum and maximum", "Minimum = R × (1 − tolerance/100). Maximum = R × (1 + tolerance/100). Example: 22 Ω ±5% is 20.9–23.1 Ω."],
     ["Temperature coefficient", "Read the sixth band directly in ppm/°C. Do not multiply the resistance by this number."],
   ] },

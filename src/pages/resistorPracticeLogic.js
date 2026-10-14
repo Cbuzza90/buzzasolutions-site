@@ -1,10 +1,21 @@
-import { emptyResistorAnswer, generateResistorQuestions, gradeResistor, resistorQuestion } from "../data/resistorBands.js";
+import { emptyResistorAnswer, generateResistorQuestions, gradeResistor, resistanceUnits, resistorQuestion } from "../data/resistorBands.js";
 import { readPracticeRecord, writePracticeRecord } from "./practiceProgress.js";
 
 export const resistorTestId = "/study/electricity/module-1/resistor-band-calculations";
 const version = 1;
 export function newResistorAttempt(random = Math.random) {
   return { questions: generateResistorQuestions(random), position: 0, answers: [], draft: emptyResistorAnswer(), complete: false };
+}
+// Convert older saved unit selections while preserving their numerical meaning.
+export function normalizeOhmAnswer(answer) {
+  const result = { ...answer, unit: "Ω" };
+  const factor = resistanceUnits[answer.unit];
+  if (factor !== 1) for (const field of ["resistance", "minimum", "maximum"]) {
+    let text = answer[field].trim();
+    if (/^\d{1,3}(?:,\d{3})+(?:\.\d*)?$/.test(text)) text = text.replaceAll(",", "");
+    if (/^(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(text) && Number.isFinite(Number(text) * factor)) result[field] = String(Number(text) * factor);
+  }
+  return result;
 }
 export function restoreResistorAttempt(record) {
   try {
@@ -16,7 +27,7 @@ export function restoreResistorAttempt(record) {
     if (answers.some((answer, index) => !gradeResistor(questions[index], answer).valid)) return null;
     if (!draft || !["Ω", "kΩ", "MΩ"].includes(draft.unit) || Object.keys(emptyResistorAnswer()).some(key => typeof draft[key] !== "string")) return null;
     if (complete && (position !== 19 || answers.length !== 20)) return null;
-    return { questions, position, answers, draft, complete };
+    return { questions, position, answers: answers.map(normalizeOhmAnswer), draft: normalizeOhmAnswer(draft), complete };
   } catch { return null; }
 }
 export function loadResistorAttempt(storage) {
