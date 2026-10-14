@@ -469,3 +469,11 @@
 .study-saved-progress p:first-child{font-size:12px;font-weight:650;color:var(--ink)}
 .study-saved-progress p:last-child{font-size:10px;color:var(--muted);margin-top:3px}
 .study-record-badge{display:flex;flex-direction:column;gap:4px;margin-top:10px;font-size:11px;line-height:1.5;color:var(--muted)}
+
+.study-tutoring-dialog p{font-size:14px;line-height:1.65;margin-top:12px;color:var(--muted)}
+.study-tutoring-contact{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:18px}
+.study-tutoring-contact h3{font-size:18px;color:var(--ink)}
+.study-tutoring-contact a{display:inline-block;min-height:44px;padding:12px 0;color:var(--ink);text-decoration:underline;overflow-wrap:anywhere;font-size:14px;max-width:100%}
+.study-tutoring-dialog .study-tutoring-privacy{font-size:12px}
+.study-tutoring-actions{display:flex;flex-direction:column;gap:10px}
+.study-tutoring-actions .study-primary,.study-tutoring-actions .study-torque-chart-button{width:100%;margin:0;min-height:48px}
