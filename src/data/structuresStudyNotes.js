@@ -3,7 +3,8 @@ import chart from "./torque-chart.json" with { type: "json" };
 export const structuresNoteSections = [
   { id: "lookup", title: "Torque chart · lookup order", items: [
     ["1 · Thread section", "This practice test uses FINE THREAD SERIES. The full chart also has a coarse section; do not read the wrong section."],
-    ["2 · Diameter / thread row", "Find the row for the question's bolt diameter. The row also lists its thread designation."],
+    ["2 · Diameter / thread row", "The chart labels rows by thread designation, not always the nominal fraction in the question. Match the diameter to the thread row shown in the chart header."],
+    ["3/16 inch · 10-32 row", "The nominal 3/16-inch bolt size in this course exercise uses the row labelled 10-32 (#10, 32 threads per inch). For AN3DD with AN364D, use that fine-thread row and the aluminum shear-nut column: 5–10 in-lb."],
     ["3 · Bolt group", "Find the specific bolt in the chart headings: first steel group, second steel group, or aluminum group. A NAS or MS prefix alone does not identify its column."],
     ["4 · Nut category", "Within that bolt group, choose the tension- or shear-nut column using the nut designation."],
     ["5 · Both limits", "Read minimum and maximum from that row and column. Answers require the full range in inch-pounds (in-lb). No calculations are needed."]

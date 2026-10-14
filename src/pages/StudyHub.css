@@ -503,3 +503,5 @@
 .study-notes-open-label strong{font-size:15px;font-weight:750;line-height:1.3}
 .study-notes-open-label>span{font-size:12px;line-height:1.4;color:#dbeafe}
 .study-notes-open>svg{flex-shrink:0}
+
+.study-torque-thread-label{display:block;font-size:11px;line-height:1.5;font-weight:500;color:var(--muted);margin-top:4px}

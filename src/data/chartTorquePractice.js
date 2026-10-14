@@ -62,7 +62,7 @@ export const torquePracticeQuestions = torqueBoltSizes.flatMap(size => {
     const candidates = [row.ranges[group * 2 + Number(!shear)], ...row.ranges.filter((_, index) => index % 2 === Number(shear) && Math.floor(index / 2) !== group), ...chart.fineRows.filter(other => other !== row).map(other => other.ranges[column])].filter(Boolean);
     const wrong = [...new Set(candidates.map(rangeText))].filter(option => option !== right).slice(0, 3);
     if (wrong.length !== 3) return [];
-    return [{ ...size, nut, id: `${size.diameter}-${size.bolt}-${nut}`,
+    return [{ ...size, nut, chartThread: row.thread, id: `${size.diameter}-${size.bolt}-${nut}`,
       prompt: `Diameter: ${size.diameter}″ · Bolt: ${size.bolt} · Nut: ${nut}\nWhat is the minimum–maximum fine-thread torque in in-lb?`,
       options: [right, ...wrong], correctIndex: 0,
       explanation: `Use the ${row.thread} fine-thread row, ${pool.name}, and its ${shear ? "shear" : "tension"}-nut column for ${nut}. Minimum: ${range[0].toLocaleString("en-US")} in-lb; maximum: ${range[1].toLocaleString("en-US")} in-lb.`,
