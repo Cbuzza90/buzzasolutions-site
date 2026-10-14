@@ -1,5 +1,7 @@
 # Systems review coverage check
 
+For the current question-by-question verification, see [Systems source audit](systems-source-audit.md), checked 2026-10-14. It distinguishes literal source answers from added application/clarification and lists remaining review coverage gaps.
+
 Checked against the 15-page **AMEM 10004 Review Test #1-1**, the earlier 50-question answer key, and all 29 newly supplied screenshots. Duplicate screenshots are treated as one source concept. The quizzes remain four-choice multiple choice with no numerical calculations.
 
 ## Result
