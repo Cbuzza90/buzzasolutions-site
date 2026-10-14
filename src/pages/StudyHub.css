@@ -482,3 +482,7 @@
 .study-torque-question-reference dt{font-size:11px;color:var(--muted);margin-bottom:4px}
 .study-torque-question-reference dd{margin:0;font-size:14px;font-weight:700;color:var(--ink);overflow-wrap:anywhere}
 .study-torque-dialog>h2,.study-torque-dialog>p{flex-shrink:0}
+
+.study-completed-badge{display:inline-block;width:fit-content;padding:5px 9px;border-radius:8px;background:#e4f5e9;color:#166534;font-size:11px;font-weight:700;line-height:1.5;margin:0 0 10px}
+.study-option-link strong .study-completed-badge{margin:0 0 0 8px;vertical-align:middle}
+.study-app[data-theme="dark"] .study-completed-badge{background:#10251a;color:#6ee7a0}

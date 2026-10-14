@@ -1,11 +1,15 @@
 // Update these entries when the group's test dates change.
 export const studyGroup = "15886.202635";
 export const upcomingTests = [
-  { course: "Safety", courseSlug: "safety", date: "2026-10-14", label: "Safety Test: Wednesday October 14th!", tone: "urgent" },
+  { course: "Safety", courseSlug: "safety", date: "2026-10-14", label: "Safety Test: Wednesday October 14th!", tone: "urgent", completed: true, moduleSlug: "module-1" },
   { course: "Systems", courseSlug: "systems", date: "2026-10-16", label: "Systems Test: Friday October 16th!", tone: "warning" },
   { course: "Electricity", courseSlug: "electricity", date: "2026-10-19", label: "Electricity Test: Monday October 19th!", tone: "notice" },
   { course: "Structures", courseSlug: "structures", date: "2026-10-27", label: "Possible Structures Test: Tuesday October 27th", tone: "notice", possible: true },
 ];
+
+export function isModuleCompleted(courseSlug, moduleSlug) {
+  return upcomingTests.some(test => test.courseSlug === courseSlug && test.moduleSlug === moduleSlug && test.completed);
+}
 
 export function torontoDate(now = new Date()) {
   const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(now);
@@ -14,7 +18,7 @@ export function torontoDate(now = new Date()) {
 }
 
 export function visibleTests(tests, today = torontoDate()) {
-  return tests.filter(test => test.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+  return tests.filter(test => !test.completed && test.date >= today).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 export function nextCourseTest(courseSlug, tests = upcomingTests, today = torontoDate()) {
