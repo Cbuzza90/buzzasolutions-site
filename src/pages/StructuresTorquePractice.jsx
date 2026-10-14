@@ -13,5 +13,5 @@ export function StructuresTestList() {
 }
 
 export default function StructuresTorquePractice() {
-  return <MultipleChoicePractice questions={torqueQuestions} testNumber={1} testTitle={title} course="Structures" basePath={basePath} reference={<TorqueChart />} />;
+  return <MultipleChoicePractice questions={torqueQuestions} testNumber={1} testTitle={title} course="Structures" basePath={basePath} reference={question => <TorqueChart question={question} />} />;
 }

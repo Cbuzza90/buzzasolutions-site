@@ -5,7 +5,7 @@ import { findNoteSections, studyNotesByModule } from "../data/courseStudyNotes";
 import QuestionDiagram from "./QuestionDiagram";
 import TorqueChart from "./TorqueChart";
 
-function NotesContent({ notes }) {
+function NotesContent({ notes, question }) {
   const [query, setQuery] = useState("");
   const searchId = useId();
   const term = query.trim();
@@ -24,13 +24,13 @@ function NotesContent({ notes }) {
       {(section.diagramKeys ?? (section.diagramKey ? [section.diagramKey] : [])).map(key => <QuestionDiagram key={key} diagram={notes.diagrams[key]} />)}
     </details>)}
     {sections.length === 0 && <p>No matching topic. Try another word or clear the search.</p>}
-    {notes.torqueChart && <TorqueChart />}
+    {notes.torqueChart && <TorqueChart question={question} />}
     <p className="study-feedback-explanation">{notes.basis}</p>
     {notes.sources && <div className="study-notes-sources">{notes.sources.map(source => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title}</a>)}</div>}
   </div>;
 }
 
-export function StudyNotesGuide({ basePath }) {
+export function StudyNotesGuide({ basePath, question }) {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef(null);
   const titleId = useId();
@@ -47,7 +47,7 @@ export function StudyNotesGuide({ basePath }) {
   if (!notes) return null;
   return <><button className="study-torque-chart-button" type="button" aria-haspopup="dialog" onClick={() => setOpen(true)}><BookOpen size={18} /> {notes.course} study notes</button>
     <dialog ref={dialogRef} className="study-answer-dialog" aria-labelledby={titleId} onClose={event => { if (event.target === event.currentTarget) setOpen(false); }}>
-      <div className="study-answer-dialog-content"><h2 id={titleId}>{notes.course} study notes</h2>{open && <NotesContent notes={notes} />}</div>
+      <div className="study-answer-dialog-content"><h2 id={titleId}>{notes.course} study notes</h2>{open && <NotesContent notes={notes} question={question} />}</div>
       <div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={() => dialogRef.current?.close()}><X size={18} /> Close notes</button></div>
     </dialog></>;
 }

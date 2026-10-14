@@ -477,3 +477,8 @@
 .study-tutoring-dialog .study-tutoring-privacy{font-size:12px}
 .study-tutoring-actions{display:flex;flex-direction:column;gap:10px}
 .study-tutoring-actions .study-primary,.study-tutoring-actions .study-torque-chart-button{width:100%;margin:0;min-height:48px}
+
+.study-torque-question-reference{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;flex-shrink:0;margin:12px 0 0;padding:12px;border:1px solid var(--line);border-radius:12px}
+.study-torque-question-reference dt{font-size:11px;color:var(--muted);margin-bottom:4px}
+.study-torque-question-reference dd{margin:0;font-size:14px;font-weight:700;color:var(--ink);overflow-wrap:anywhere}
+.study-torque-dialog>h2,.study-torque-dialog>p{flex-shrink:0}

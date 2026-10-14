@@ -1,8 +1,9 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { BookOpen, Minus, Plus, X } from "lucide-react";
 import { CHART_WIDTH, MAX_CHART_ZOOM, startPinch, updatePinch } from "./chartZoom";
 
-export default function TorqueChart() {
+export default function TorqueChart({ question }) {
+  const titleId = useId();
   const [open, setOpen] = useState(false);
   const [zoom, setZoom] = useState(100);
   const dialogRef = useRef(null);
@@ -73,8 +74,13 @@ export default function TorqueChart() {
   }
   return <>
     <button type="button" className="study-torque-chart-button" aria-haspopup="dialog" onClick={() => setOpen(true)}><BookOpen size={18} /> View torque chart</button>
-    <dialog ref={dialogRef} className="study-diagram-dialog study-torque-dialog" aria-labelledby="torque-chart-title" onClose={() => setOpen(false)}>
-      <h2 id="torque-chart-title">Bolt & nut torque chart</h2>
+    <dialog ref={dialogRef} className="study-diagram-dialog study-torque-dialog" aria-labelledby={titleId} onClose={() => setOpen(false)}>
+      <h2 id={titleId}>Bolt & nut torque chart</h2>
+      {question?.diameter && <dl className="study-torque-question-reference" aria-label="Current question fasteners">
+        <div><dt>Diameter</dt><dd>{question.diameter}″</dd></div>
+        <div><dt>Bolt</dt><dd>{question.bolt === "NAS" ? "NAS583–NAS590" : question.bolt}</dd></div>
+        <div><dt>Nut</dt><dd>{question.nut}</dd></div>
+      </dl>}
       <p>Full reference chart · All values in in-lb. Use the fine-thread section. Pinch with two fingers to zoom; drag with one finger to move around.</p>
       <div className="study-torque-zoom" aria-label="Chart zoom controls"><button type="button" onClick={() => setZoom(null)}>Fit chart</button><button type="button" aria-label="Zoom out" disabled={zoom === null || zoom <= 50} onClick={() => changeZoom(-25)}><Minus size={18} /></button><output>{zoom === null ? "Fit" : `${Math.round(zoom)}%`}</output><button type="button" aria-label="Zoom in" disabled={zoom >= MAX_CHART_ZOOM} onClick={() => changeZoom(25)}><Plus size={18} /></button></div>
       <div ref={scrollRef} className="study-diagram-scroll study-torque-full-scroll" tabIndex={0} aria-label="Full torque chart; pinch to zoom and drag to pan" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}><img ref={imageRef} draggable={false} className="study-torque-full-image" src="/structures/torque-chart.svg" alt="Complete unmarked torque chart with bolt and nut classifications, twelve minimum/maximum columns, and fine- and coarse-thread sections. All torque values are in-lb." style={{ width: zoom === null ? "100%" : `${CHART_WIDTH * zoom / 100}px` }} /></div>
