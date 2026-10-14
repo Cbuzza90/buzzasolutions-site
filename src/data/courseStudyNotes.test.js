@@ -58,5 +58,5 @@ test("notes search accepts question wording, reordered terms and punctuation var
   assert.ok(greek.some(([label, text]) => /Greek/.test(label) && /water/i.test(text)));
   assert.ok(findNoteSections(systems, "mil h 5606").some(section => section.id === "fluids"));
   const references = findNoteSections(systems, "Greek").filter(section => section.questionReference);
-  assert.equal(references.flatMap(section => section.items).length, 1, "Show matching reference facts instead of an entire question bank");
+  assert.equal(references.flatMap(section => section.items).length, 2, "Show the matching choice and one-word references, not entire banks");
 });

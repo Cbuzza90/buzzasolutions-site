@@ -1,3 +1,4 @@
+import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Navigate, Routes, Route, useLocation, useParams } from "react-router-dom";
 import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileText, Layers, Moon, Pause, Plane, Play, RotateCcw, Search, Settings2, ShieldCheck, Sun, Wind, X, Zap } from "lucide-react";
@@ -94,13 +95,13 @@ function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find(item => item.slug === slug);
   if (!course) return <section className="study-empty"><h1>Course not found</h1><p>Choose one of your eight courses to get started.</p><Link className="study-primary" to="/">View courses</Link></section>;
-  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "electricity" ? <Link className="study-option-link" to="/study/electricity/module-1"><span><strong>Module 1</strong><small>Electrical fundamentals · Circuits & meters</small></span><ChevronRight size={22} /></Link> : slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small><CompletedTestStatus courseSlug={slug} moduleSlug="module-1" label="Module 1" /></span><ChevronRight size={22} /></Link> : slug === "structures" ? <Link className="study-option-link" to="/study/structures/module-2"><span><strong>Module 2</strong><small>Fasteners · Torque bolt/nut practice</small></span><ChevronRight size={22} /></Link> : slug === "systems" ? <Link className="study-option-link" to="/study/systems/module-1"><span><strong>Module 1</strong><small>Hydraulics · Typed answers & diagrams</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
+  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "electricity" ? <Link className="study-option-link" to="/study/electricity/module-1"><span><strong>Module 1</strong><small>Electrical fundamentals · Circuits & meters</small></span><ChevronRight size={22} /></Link> : slug === "safety" ? <Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small>Shop safety, fire safety & human factors</small><CompletedTestStatus courseSlug={slug} moduleSlug="module-1" label="Module 1" /></span><ChevronRight size={22} /></Link> : slug === "structures" ? <Link className="study-option-link" to="/study/structures/module-2"><span><strong>Module 2</strong><small>Fasteners · Torque bolt/nut practice</small></span><ChevronRight size={22} /></Link> : slug === "systems" ? <Link className="study-option-link" to="/study/systems/module-1"><span><strong>Module 1</strong><small>Hydraulics · Choice, recall & diagrams</small></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
 }
 
 
 export default function StudyHub() {
   const { pathname } = useLocation();
-  const onPractice = /^\/study\/[^/]+\/[^/]+\/(?:practice-\d+|torque-bolt-nut|resistor-band-calculations)$/.test(pathname);
+  const onPractice = /^\/study\/[^/]+\/[^/]+\/(?:practice-\d+|one-word-\d+|torque-bolt-nut|resistor-band-calculations)$/.test(pathname);
   const testsPath = pathname.slice(0, pathname.lastIndexOf("/"));
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem("study-theme") !== "light"; }
@@ -125,6 +126,7 @@ export default function StudyHub() {
         <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/electricity/module-1" element={<ElectricityTestList />} />
         <Route path="/study/electricity/module-1/practice-1" element={<ElectricityPractice />} />
+        <Route path="/study/electricity/module-1/one-word-1" element={<ElectricityWordPractice />} />
         <Route path="/study/electricity/module-1/resistor-band-calculations" element={<ResistorBandPractice />} />
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
@@ -141,6 +143,8 @@ export default function StudyHub() {
         <Route path="/study/:slug/:module/notes" element={<CourseStudyNotes />} />
         <Route path="/study/systems/module-1/practice-1" element={<SystemsPractice />} />
         <Route path="/study/systems/module-1/practice-2" element={<SystemsMixedPractice />} />
+        <Route path="/study/systems/module-1/one-word-1" element={<SystemsWordPractice />} />
+        <Route path="/study/systems/module-1/one-word-2" element={<SystemsAppliedWordPractice />} />
         <Route path="/study/safety/module-1/test-1/multiple-choice/practice-1" element={<Navigate to="/study/safety/module-1/practice-1" replace />} />
         <Route path="/study/safety/module-1/test-1/*" element={<Navigate to="/study/safety/module-1" replace />} />
         <Route path="/study/:slug" element={<CourseDetail />} />

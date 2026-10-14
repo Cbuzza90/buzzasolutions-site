@@ -1,6 +1,6 @@
 # Systems question source audit
 
-Format update: these audits describe the original multiple-choice banks. The active tests now use source-backed one-word recall prompts; see [Typed review practice](typed-review-practice.md).
+Format update: these audits describe the original multiple-choice banks. The original multiple-choice tests remain active, with additional source-backed one-word recall tests alongside them; see [Typed review practice](typed-review-practice.md).
 
 Checked 2026-10-14 against both active banks, the 15-page course review, the supplied five-page 50-question practice/answer-key PDF, the uploaded phone quiz screenshots, and shipped original quiz-image assets. All 123 current questions were inspected. No quiz answers or progress formats were changed.
 

@@ -1,3 +1,6 @@
+import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
+import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
+import { systemsMixedQuestions } from "./systemsMixedTest.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
 import safety2 from "./safety-module1-test2.json" with { type: "json" };
 import safety3 from "./safety-module1-recall.json" with { type: "json" };
@@ -8,8 +11,8 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
   "/study/safety/module-1": [safety1, safety2, safety3],
-  "/study/electricity/module-1": [electricityRecallQuestions],
-  "/study/systems/module-1": [systemsRecallQuestions, systemsAppliedRecallQuestions],
+  "/study/electricity/module-1": [electricitySource, electricityRecallQuestions],
+  "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions],
   "/study/structures/module-2": [torquePracticeQuestions],
 };
 
@@ -27,7 +30,7 @@ function referenceText(question) {
 export function practiceQuestionNotes(basePath) {
   return (practiceBanksByModule[basePath] ?? []).map((questions, index) => ({
     id: `practice-reference-${index + 1}`,
-    title: basePath.includes("structures") ? "Torque practice · Question reference" : `Practice Test #${index + 1} · Question reference`,
+    title: basePath.includes("structures") ? "Torque practice · Question reference" : questions[0]?.answer ? `One-Word Test #${index + 1 - (practiceBanksByModule[basePath].filter(bank => !bank[0]?.answer).length)} · Question reference` : `Practice Test #${index + 1} · Question reference`,
     questionReference: true,
     items: questions.map(question => [
       question.prompt,
