@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { lookupTorque, torqueQuestions, formatTorqueRange } from "./torqueTest.js";
+import { endlessTorqueQuestions, lookupTorque, torqueQuestions, formatTorqueRange } from "./torqueTest.js";
 import chart from "./torque-chart.json" with { type: "json" };
 
 // Independently checked against the supplied fine-thread chart, in the user's order.
@@ -47,5 +47,17 @@ test("the full chart preserves all groups, thread sections, and unavailable cell
   for (const row of [...chart.fineRows, ...chart.coarseRows]) {
     assert.equal(row.ranges.length, 6);
     assert.ok(row.ranges.every(range => range === null || range.length === 2 && range[0] <= range[1]));
+  }
+});
+
+test("every generated endless question has four unique choices and the chart-backed answer", () => {
+  assert.equal(endlessTorqueQuestions.length, 104);
+  assert.ok(!endlessTorqueQuestions.some(q => q.diameter === "3/4" && q.bolt === "NAS"));
+  assert.equal(new Set(endlessTorqueQuestions.map(q => q.id)).size, endlessTorqueQuestions.length);
+  for (const q of endlessTorqueQuestions) {
+    assert.equal(q.options.length, 4);
+    assert.equal(new Set(q.options).size, 4);
+    assert.equal(q.options[q.correctIndex], formatTorqueRange(lookupTorque(q).range));
+    assert.equal(q.bolt.endsWith("DD"), q.nut.endsWith("D"));
   }
 });

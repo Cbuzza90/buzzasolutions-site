@@ -23,15 +23,32 @@ export function lookupTorque({ diameter, bolt, nut }) {
 
 export const formatTorqueRange = range => `${range[0].toLocaleString("en-US")}–${range[1].toLocaleString("en-US")} in-lb`;
 
-export const torqueQuestions = source.map(question => {
+export function makeTorqueQuestion(question) {
   const { row, group, shear, column, range } = lookupTorque(question);
   const otherNutColumn = group * 2 + Number(!shear);
   const candidates = [row.ranges[otherNutColumn], ...row.ranges.filter((_, index) => Math.floor(index / 2) !== group && index % 2 === Number(shear)), ...fineThreadTorqueRows.filter(other => other !== row).map(other => other.ranges[column])];
   const right = formatTorqueRange(range);
   const wrong = [...new Set(candidates.map(formatTorqueRange))].filter(option => option !== right).slice(0, 3);
-  const correctIndex = (question.id - 1) % 4;
+  const correctIndex = typeof question.id === "number" ? (question.id - 1) % 4 : 0;
   const options = [...wrong];
   options.splice(correctIndex, 0, right);
   const boltLabel = question.bolt === "NAS" ? "NAS583–NAS590" : question.bolt;
   return { ...question, prompt: `Diameter: ${question.diameter}″ · Bolt: ${boltLabel} · Nut: ${question.nut}\nWhat is the minimum–maximum fine-thread torque in in-lb?`, options, correctIndex, explanation: `Use the ${row.thread} fine-thread row, the ${torqueGroups[group].name} bolt group, and the ${shear ? "shear" : "tension"}-nut column for ${question.nut}. Minimum: ${range[0].toLocaleString("en-US")} in-lb; maximum: ${range[1].toLocaleString("en-US")} in-lb.` };
+}
+
+export const torqueQuestions = source.map(makeTorqueQuestion);
+
+// Generate only the supported sizes and material pairings in the checked chart.
+const boltNumbers = { "3/16": 3, "1/4": 4, "5/16": 5, "3/8": 6, "7/16": 7, "1/2": 8, "9/16": 9, "5/8": 10, "3/4": 12 };
+export const endlessTorqueQuestions = fineThreadTorqueRows.flatMap(row => {
+  const number = boltNumbers[row.diameter];
+  const bolts = [`AN${number}`, `AN${number}DD`];
+  // Keep the named NAS series within the diameters supplied in the course test.
+  if (source.some(q => q.diameter === row.diameter && q.bolt === "NAS")) bolts.push("NAS");
+  return bolts.flatMap(bolt =>
+    ["AN310", "AN365", "AN320", "AN364"].map(nut => {
+      if (bolt.endsWith("DD")) nut += "D";
+      return makeTorqueQuestion({ id: `${row.diameter}-${bolt}-${nut}`, diameter: row.diameter, bolt, nut });
+    })
+  );
 });

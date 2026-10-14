@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { bankSignature, loadHighestScore, loadPracticeAttempt, newPracticeAttempt, practiceSummary, recordHighestScore, restorePracticeAttempt, savePracticeAttempt } from "./practiceProgress.js";
+import { bankSignature, loadHighestScore, loadPracticeAttempt, newPracticeAttempt, nextEndlessRound, practiceSummary, recordHighestScore, restorePracticeAttempt, savePracticeAttempt } from "./practiceProgress.js";
 import { scoreAnswers } from "./safetyTestLogic.js";
 
 const questions = [
@@ -93,4 +93,21 @@ test("storage failures do not break an attempt and are reported by saving helper
   assert.equal(attempt.order.length, questions.length);
   assert.equal(savePracticeAttempt(questions, testId, attempt, storage), false);
   assert.equal(recordHighestScore(questions, testId, 2, storage).saved, false);
+});
+
+test("endless rounds continue with cumulative scores, no immediate repeat, and resumable state", () => {
+  const storage = memoryStorage();
+  let attempt = newPracticeAttempt(questions, () => 0.5);
+  for (let round = 0; round < 4; round++) {
+    attempt.position = questions.length - 1;
+    attempt.answers = Object.fromEntries(attempt.order.map(q => [q.id, q.correctIndex]));
+    const last = attempt.order.at(-1).id;
+    attempt = nextEndlessRound(questions, attempt, () => 0.5);
+    assert.notEqual(attempt.order[0].id, last);
+    assert.equal(attempt.complete, false);
+    assert.equal(attempt.completedRounds, round + 1);
+    assert.equal(attempt.previousCorrect, (round + 1) * questions.length);
+    assert.equal(savePracticeAttempt(questions, "/endless", attempt, storage), true);
+    assert.deepEqual(loadPracticeAttempt(questions, "/endless", storage), attempt);
+  }
 });
