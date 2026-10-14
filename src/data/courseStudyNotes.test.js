@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
+import { practiceBanksByModule } from "./practiceQuestionNotes.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 
 test("every current playable module has source-based searchable notes and valid assets", () => {
@@ -31,4 +32,31 @@ test("search matches headings and explanations, ignores case and whitespace, and
   assert.equal(findNoteSections(safety, " ").length, safety.length);
   const electricity = studyNotesByModule["/study/electricity/module-1"].sections;
   assert.ok(findNoteSections(electricity, "multiplier").some(section => section.id === "meters"));
+});
+
+test("every practice question finds its verified answer and explanation in the exact module notes", () => {
+  let covered = 0;
+  for (const [basePath, banks] of Object.entries(practiceBanksByModule)) {
+    const notes = studyNotesByModule[basePath];
+    for (const questions of banks) for (const question of questions) {
+      const found = findNoteSections(notes.sections, question.prompt);
+      const entry = found.flatMap(section => section.items).find(item => item[0] === question.prompt);
+      assert.ok(entry, `${basePath}: ${question.prompt}`);
+      assert.ok(entry[1].includes(question.options[question.correctIndex]));
+      assert.ok(entry[1].includes(question.explanation));
+      if (question.diagram) assert.equal(entry[3], question.diagram);
+      covered++;
+    }
+  }
+  assert.equal(covered, 363);
+});
+
+test("notes search accepts question wording, reordered terms and punctuation variants", () => {
+  const systems = studyNotesByModule["/study/systems/module-1"].sections;
+  assert.ok(findNoteSections(systems, "Greek meaning hydraulics").some(section => section.id === "principles"));
+  const greek = findNoteSections(systems, 'GREEK "hydraulics"').flatMap(section => section.items);
+  assert.ok(greek.some(([label, text]) => /Greek/.test(label) && /water/i.test(text)));
+  assert.ok(findNoteSections(systems, "mil h 5606").some(section => section.id === "fluids"));
+  const references = findNoteSections(systems, "Greek").filter(section => section.questionReference);
+  assert.equal(references.flatMap(section => section.items).length, 1, "Show matching reference facts instead of an entire question bank");
 });

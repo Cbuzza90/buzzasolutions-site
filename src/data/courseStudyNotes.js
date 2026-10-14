@@ -1,3 +1,4 @@
+import { practiceQuestionNotes } from "./practiceQuestionNotes.js";
 import { safetyNoteSections } from "./safetyStudyNotes.js";
 import { electricityNoteSections } from "./electricityStudyNotes.js";
 import { structuresNoteSections } from "./structuresStudyNotes.js";
@@ -13,7 +14,26 @@ export const studyNotesByModule = {
   "/study/systems/module-1": { course: "Systems", sections: systemsNoteSections, diagrams: systemsDiagrams, defaultOpenId: "fluids", intro: "Condensed from your Hydraulics practice review. Tap diagrams to enlarge them.", basis: "Course basis: AMEM 10004 Review Test #1, the Hydraulics answer key and supplied quiz screenshots. Approved aircraft specifications govern actual component and fluid selection.", sources: [{ title: "FAA · hydraulic fundamentals", url: "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_65-15A.pdf" }, { title: "Eastman · phosphate-ester compatibility", url: "https://www.eastman.com/content/dam/eastman/corporate/en/literature/e/eas11170.pdf" }, { title: "NASA · gas-law relationships", url: "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/equation-of-state/" }] }
 };
 
+for (const [basePath, notes] of Object.entries(studyNotesByModule)) {
+  notes.sections = [...notes.sections, ...practiceQuestionNotes(basePath)];
+}
+
+function searchWords(text) {
+  return text.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim().split(/\s+/).filter(Boolean);
+}
+
 export function findNoteSections(sections, query) {
-  const term = query.trim().toLowerCase();
-  return sections.filter(section => `${section.title} ${section.items.map(item => item.slice(0, 2).join(" ")).join(" ")}`.toLowerCase().includes(term));
+  const words = searchWords(query);
+  if (!words.length) return sections;
+  const matches = text => {
+    const normalized = searchWords(text).join(" ");
+    return words.every(word => normalized.includes(word));
+  };
+  return sections.flatMap(section => {
+    if (section.questionReference) {
+      const items = matches(section.title) ? section.items : section.items.filter(item => matches(item.slice(0, 2).join(" ")));
+      return items.length ? [{ ...section, items }] : [];
+    }
+    return matches(`${section.title} ${section.items.map(item => item.slice(0, 2).join(" ")).join(" ")}`) ? [section] : [];
+  });
 }

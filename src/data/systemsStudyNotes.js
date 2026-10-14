@@ -14,6 +14,7 @@ export const systemsNoteSections = [
     ["Identification trap", "Colour is a clue, not a unique specification. Confirm the approved fluid and seal specifications. Different incompatible fluid families can damage seals; approved phosphate-ester fluids can be mutually compatible, subject to aircraft approval."]
   ] },
   { id: "principles", title: "Pressure, force & flow", diagramKey: "mechanical", items: [
+    ["Hydraulics · Greek meaning", "The word hydraulics comes from the Greek word for water. Hydraulics studies forces and motion in liquids, including water and oil."],
     ["Applications & efficiency", "Review applications: flight controls, landing gear and brakes. The almost-100% efficiency statement emphasizes low losses; actual system efficiency varies."],
     ["Pascal’s law", "A pressure change applied to a confined liquid at rest is transmitted equally and undiminished. Equal pressure does not mean equal piston force."],
     ["Pressure vs force", "Pressure is force per unit area. At the same pressure, a larger piston area produces more force."],

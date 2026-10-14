@@ -1,7 +1,7 @@
 import PracticeRecordBadge from "./PracticeRecordBadge";
 import { Link } from "react-router-dom";
 import { ArrowLeft, BookOpen, ChevronRight } from "lucide-react";
-import questions from "../data/electricity-module1-test1.json";
+import questions from "../data/electricity-module1-test1.json" with { type: "json" };
 import MultipleChoicePractice from "./MultipleChoicePractice";
 
 export function ElectricityTestList() {

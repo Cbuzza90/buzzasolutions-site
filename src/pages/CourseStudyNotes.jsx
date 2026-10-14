@@ -11,15 +11,17 @@ function NotesContent({ notes, question }) {
   const term = query.trim();
   const sections = findNoteSections(notes.sections, query);
   return <div className="study-course-notes">
-    <p className="study-feedback-explanation">{notes.intro} Expand a topic or search for a term.</p>
+    <p className="study-feedback-explanation">{notes.intro} Expand a topic or search by term or question wording. Question references cover every practice test.</p>
+    {question && <button type="button" className="study-torque-chart-button" onClick={() => setQuery(question.prompt)}><Search size={18} /> Find notes for this question</button>}
     <label className="study-search" htmlFor={searchId}><Search size={18} /><span className="sr-only">Search {notes.course} study notes</span><input id={searchId} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a topic, term or component…" /></label>
     <p className="study-notes-count" role="status">{sections.length} {sections.length === 1 ? "topic" : "topics"}</p>
     {sections.map(section => <details className="study-notes-topic" key={`${section.id}-${Boolean(term)}`} open={term ? true : section.id === notes.defaultOpenId ? true : undefined}>
       <summary>{section.title}</summary>
-      <dl>{section.items.map(([label, text, image]) => <div key={label}>
+      <dl>{section.items.map(([label, text, image, diagram]) => <div key={label}>
         <dt>{section.id === "fluids" && /^(Blue|Red|Purple) ·/.test(label) && <span className="study-fluid-swatch" aria-hidden="true" style={{ backgroundColor: label.startsWith("Blue") ? "#3b82f6" : label.startsWith("Red") ? "#ef4444" : "#a78bfa" }} />}{label}</dt>
         {image && <img className="study-note-symbol" src={image} alt={label} />}
         <dd>{text}</dd>
+        {diagram && <QuestionDiagram diagram={diagram} />}
       </div>)}</dl>
       {(section.diagramKeys ?? (section.diagramKey ? [section.diagramKey] : [])).map(key => <QuestionDiagram key={key} diagram={notes.diagrams[key]} />)}
     </details>)}

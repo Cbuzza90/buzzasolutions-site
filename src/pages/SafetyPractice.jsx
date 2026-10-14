@@ -1,9 +1,9 @@
 import PracticeRecordBadge from "./PracticeRecordBadge";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ChevronRight } from "lucide-react";
-import questions1 from "../data/safety-module1-test1.json";
-import questions2 from "../data/safety-module1-test2.json";
-import questions3 from "../data/safety-module1-recall.json";
+import questions1 from "../data/safety-module1-test1.json" with { type: "json" };
+import questions2 from "../data/safety-module1-test2.json" with { type: "json" };
+import questions3 from "../data/safety-module1-recall.json" with { type: "json" };
 import { isModuleCompleted } from "../data/studySchedule";
 import FireClassGuide from "./FireClassGuide";
 import MultipleChoicePractice from "./MultipleChoicePractice";
