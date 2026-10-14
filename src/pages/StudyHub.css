@@ -446,8 +446,8 @@
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency]:hover{border-color:hsl(var(--test-hue) 75% 58%)}
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency] .study-icon{background:hsl(var(--test-hue) 60% 18%);color:hsl(var(--test-hue) 90% 80%)}
 .study-course-card .study-card-bottom > span.study-test-possible{display:block;border:0;padding-top:6px;font-size:10px;font-weight:600;color:var(--muted)}
-.study-systems-notes{min-width:0;margin-top:14px}
-.study-systems-notes .study-search{margin:18px 0 8px}
+.study-course-notes{min-width:0;margin-top:14px}
+.study-course-notes .study-search{margin:18px 0 8px}
 .study-notes-count{font-size:12px;color:var(--muted);margin-bottom:12px}
 .study-notes-topic{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
 .study-notes-topic summary{padding:16px;cursor:pointer;min-height:48px;font-size:15px;font-weight:650;line-height:1.5;color:var(--ink)}
@@ -460,3 +460,5 @@
 .study-notes-sources{display:flex;flex-direction:column;gap:4px;margin-top:12px}
 .study-notes-sources a{font-size:12px;color:var(--ink);min-height:44px;padding:10px 0;text-decoration:underline}
 .study-fluid-swatch{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px;border:1px solid #ffffff50}
+
+.study-note-symbol{display:block;width:52px;height:52px;object-fit:contain;padding:5px;margin:8px 0;background:white;border-radius:10px}
