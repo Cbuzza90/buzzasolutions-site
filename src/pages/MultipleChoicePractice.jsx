@@ -10,11 +10,11 @@ import { loadHighestScore, loadPracticeAttempt, newPracticeAttempt, nextEndlessR
 
 const letters = ["A", "B", "C", "D"];
 
-export default function MultipleChoicePractice({ questions, testNumber, course, basePath, testTitle = `Practice Test #${testNumber}`, reference, endless = false }) {
+export default function MultipleChoicePractice({ questions, testNumber, course, basePath, testTitle = `Practice Test #${testNumber}`, reference, endless = false, questionCount = questions.length }) {
   const { pathname } = useLocation();
-  const testId = endless ? `${pathname}:endless` : pathname;
-  const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId));
-  const [best, setBest] = useState(() => loadHighestScore(questions, testId));
+  const testId = endless ? `${pathname}:endless` : questionCount !== questions.length ? `${pathname}:${questionCount}` : pathname;
+  const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId, undefined, questionCount));
+  const [best, setBest] = useState(() => loadHighestScore(questions, testId, undefined, questionCount));
   const [storageError, setStorageError] = useState(false);
   const { order, position, answers, complete } = attempt;
   const commitAttempt = useCallback(next => {
@@ -47,7 +47,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
     if (!answered) return;
     feedbackRef.current?.close();
     if (position === order.length - 1) {
-      const result = recordHighestScore(questions, testId, score);
+      const result = recordHighestScore(questions, testId, score, undefined, questionCount);
       setBest(result.best);
       commitAttempt(endless ? nextEndlessRound(questions, attempt) : { ...attempt, complete: true });
       if (!result.saved) setStorageError(true);
@@ -57,11 +57,11 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
   }
   const restart = useCallback(() => {
     feedbackRef.current?.close();
-    commitAttempt(newPracticeAttempt(questions));
-    setBest(loadHighestScore(questions, testId));
+    commitAttempt(newPracticeAttempt(questions, Math.random, questionCount));
+    setBest(loadHighestScore(questions, testId, undefined, questionCount));
     window.scrollTo({ top: 0, behavior: "instant" });
     requestAnimationFrame(() => headingRef.current?.focus());
-  }, [commitAttempt, questions, testId]);
+  }, [commitAttempt, questions, testId, questionCount]);
   useEffect(() => {
     const reset = event => { if (event.detail?.testId === pathname) restart(); };
     window.addEventListener(RESET_PRACTICE_EVENT, reset);

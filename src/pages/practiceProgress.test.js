@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { bankSignature, loadHighestScore, loadPracticeAttempt, newPracticeAttempt, nextEndlessRound, practiceSummary, recordHighestScore, restorePracticeAttempt, savePracticeAttempt } from "./practiceProgress.js";
+import { endlessTorqueQuestions } from "../data/torqueTest.js";
 import { scoreAnswers } from "./safetyTestLogic.js";
 
 const questions = [
@@ -110,4 +111,28 @@ test("endless rounds continue with cumulative scores, no immediate repeat, and r
     assert.equal(savePracticeAttempt(questions, "/endless", attempt, storage), true);
     assert.deepEqual(loadPracticeAttempt(questions, "/endless", storage), attempt);
   }
+});
+
+test("20-question samples resume and retain scores out of 20 rather than the whole bank", () => {
+  const storage = memoryStorage();
+  const pool = endlessTorqueQuestions;
+  const attempt = newPracticeAttempt(pool, () => 0.1, 20);
+  assert.equal(attempt.order.length, 20);
+  assert.equal(new Set(attempt.order.map(q => q.id)).size, 20);
+  attempt.position = 19;
+  attempt.answers = Object.fromEntries(attempt.order.map((q, index) => [q.id, index < 18 ? q.correctIndex : (q.correctIndex + 1) % 4]));
+  attempt.complete = true;
+  assert.equal(scoreAnswers(attempt.order, attempt.answers), 18);
+  savePracticeAttempt(pool, "/torque:20", attempt, storage);
+  assert.deepEqual(loadPracticeAttempt(pool, "/torque:20", storage, 20), attempt);
+  const result = recordHighestScore(pool, "/torque:20", 18, storage, 20);
+  assert.equal(result.best.total, 20);
+  assert.equal(recordHighestScore(pool, "/torque:20", 21, storage, 20).saved, false);
+  const reset = newPracticeAttempt(pool, () => 0.9, 20);
+  assert.notDeepEqual(reset.order.map(q => q.id), attempt.order.map(q => q.id));
+  savePracticeAttempt(pool, "/torque:20", reset, storage);
+  assert.equal(loadHighestScore(pool, "/torque:20", storage, 20).score, 18);
+  const summary = practiceSummary(pool, "/torque:20", storage, 20);
+  assert.equal(summary.answered, 0);
+  assert.equal(summary.best.total, 20);
 });

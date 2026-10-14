@@ -29,7 +29,7 @@ function referenceText(question) {
 export function practiceQuestionNotes(basePath) {
   return (practiceBanksByModule[basePath] ?? []).map((questions, index) => ({
     id: `practice-reference-${index + 1}`,
-    title: basePath.includes("structures") ? "Endless torque practice · Question reference" : `Practice Test #${index + 1} · Question reference`,
+    title: basePath.includes("structures") ? "Torque practice · Question reference" : `Practice Test #${index + 1} · Question reference`,
     questionReference: true,
     items: questions.map(question => [
       question.prompt,

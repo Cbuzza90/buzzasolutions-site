@@ -13,15 +13,15 @@ export function bankSignature(questions) {
   return `${questions.length}:${hash >>> 0}`;
 }
 
-export function newPracticeAttempt(questions, random = Math.random) {
-  return { order: shufflePractice(questions, random), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
+export function newPracticeAttempt(questions, random = Math.random, questionCount = questions.length) {
+  return { order: shufflePractice(questions, random).slice(0, questionCount), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
 }
 
-export function restorePracticeAttempt(questions, record) {
+export function restorePracticeAttempt(questions, record, questionCount = questions.length) {
   try {
-    if (!record || record.version !== 1 || record.signature !== bankSignature(questions) || !Array.isArray(record.order) || record.order.length !== questions.length) return null;
+    if (!record || record.version !== 1 || record.signature !== bankSignature(questions) || !Array.isArray(record.order) || record.order.length !== questionCount) return null;
     const source = new Map(questions.map(q => [String(q.id), q]));
-    if (new Set(record.order.map(q => q.id)).size !== source.size) return null;
+    if (new Set(record.order.map(q => q.id)).size !== questionCount) return null;
     const order = record.order.map(saved => {
       const q = source.get(saved.id);
       if (!q || !Array.isArray(saved.options) || saved.options.length !== q.options.length || new Set(saved.options).size !== q.options.length || saved.options.some(option => !q.options.includes(option))) throw new Error("Invalid choices");
@@ -42,30 +42,30 @@ export function restorePracticeAttempt(questions, record) {
   } catch { return null; }
 }
 
-export function loadPracticeAttempt(questions, testId, storage = storageForBrowser()) {
-  return restorePracticeAttempt(questions, read(storage, key("progress", testId))) ?? newPracticeAttempt(questions);
+export function loadPracticeAttempt(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
+  return restorePracticeAttempt(questions, read(storage, key("progress", testId)), questionCount) ?? newPracticeAttempt(questions, Math.random, questionCount);
 }
 
 export function savePracticeAttempt(questions, testId, attempt, storage = storageForBrowser()) {
   return write(storage, key("progress", testId), { version: 1, signature: bankSignature(questions), order: attempt.order.map(q => ({ id: String(q.id), options: q.options })), position: attempt.position, answers: attempt.answers, complete: attempt.complete, completedRounds: attempt.completedRounds ?? 0, previousCorrect: attempt.previousCorrect ?? 0 });
 }
 
-export function loadHighestScore(questions, testId, storage = storageForBrowser()) {
+export function loadHighestScore(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
   const record = read(storage, key("best", testId));
-  return record?.signature === bankSignature(questions) && record.total === questions.length && Number.isInteger(record.score) && record.score >= 0 && record.score <= record.total ? record : null;
+  return record?.signature === bankSignature(questions) && record.total === questionCount && Number.isInteger(record.score) && record.score >= 0 && record.score <= record.total ? record : null;
 }
 
-export function recordHighestScore(questions, testId, score, storage = storageForBrowser()) {
-  const previous = loadHighestScore(questions, testId, storage);
-  if (!Number.isInteger(score) || score < 0 || score > questions.length) return { best: previous, saved: false };
+export function recordHighestScore(questions, testId, score, storage = storageForBrowser(), questionCount = questions.length) {
+  const previous = loadHighestScore(questions, testId, storage, questionCount);
+  if (!Number.isInteger(score) || score < 0 || score > questionCount) return { best: previous, saved: false };
   if (previous && previous.score >= score) return { best: previous, saved: true };
-  const best = { signature: bankSignature(questions), score, total: questions.length };
+  const best = { signature: bankSignature(questions), score, total: questionCount };
   return { best, saved: write(storage, key("best", testId), best) };
 }
 
-export function practiceSummary(questions, testId, storage = storageForBrowser()) {
-  const attempt = restorePracticeAttempt(questions, read(storage, key("progress", testId)));
-  return { best: loadHighestScore(questions, testId, storage), answered: attempt ? Object.keys(attempt.answers).length : 0, complete: attempt?.complete ?? false };
+export function practiceSummary(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
+  const attempt = restorePracticeAttempt(questions, read(storage, key("progress", testId)), questionCount);
+  return { best: loadHighestScore(questions, testId, storage, questionCount), answered: attempt ? Object.keys(attempt.answers).length : 0, complete: attempt?.complete ?? false };
 }
 
 export function nextEndlessRound(questions, attempt, random = Math.random) {
