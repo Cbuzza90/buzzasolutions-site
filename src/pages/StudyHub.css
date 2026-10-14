@@ -494,3 +494,12 @@
 
 .study-torque-full-scroll{cursor:grab}
 .study-torque-full-scroll:active{cursor:grabbing}
+
+.study-notes-open{display:flex;align-items:center;gap:12px;width:100%;min-height:72px;margin:14px 0;padding:12px 14px;border:2px solid #60a5fa;border-radius:14px;background:#1d4ed8;color:#fff;font:inherit;text-align:left;cursor:pointer;box-shadow:0 3px 0 #153791}
+.study-notes-open:hover{background:#1e40af;border-color:#93c5fd}
+.study-notes-open:active{box-shadow:none;transform:translateY(2px)}
+.study-notes-open-icon{display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border-radius:10px;background:#ffffff20}
+.study-notes-open-label{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.study-notes-open-label strong{font-size:15px;font-weight:750;line-height:1.3}
+.study-notes-open-label>span{font-size:12px;line-height:1.4;color:#dbeafe}
+.study-notes-open>svg{flex-shrink:0}
