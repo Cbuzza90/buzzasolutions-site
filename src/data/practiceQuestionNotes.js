@@ -12,7 +12,7 @@ export const practiceBanksByModule = {
   "/study/safety/module-1": [safety1, safety2, safety3],
   "/study/electricity/module-1": [electricity],
   "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions],
-  "/study/structures/module-1": [torquePracticeQuestions],
+  "/study/structures/module-2": [torquePracticeQuestions],
 };
 
 function referenceText(question) {

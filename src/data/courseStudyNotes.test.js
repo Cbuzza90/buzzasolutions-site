@@ -6,7 +6,7 @@ import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 
 test("every current playable module has source-based searchable notes and valid assets", () => {
   for (const slug of ["safety", "electricity", "structures", "systems"]) {
-    const notes = studyNotesByModule[`/study/${slug}/module-1`];
+    const notes = studyNotesByModule[`/study/${slug}/${slug === "structures" ? "module-2" : "module-1"}`];
     assert.ok(notes?.basis && notes.intro && notes.sections.length);
     assert.equal(new Set(notes.sections.map(section => section.id)).size, notes.sections.length);
     for (const section of notes.sections) {

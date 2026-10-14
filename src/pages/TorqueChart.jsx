@@ -9,6 +9,7 @@ export default function TorqueChart({ question }) {
   const dialogRef = useRef(null);
   const scrollRef = useRef(null);
   const imageRef = useRef(null);
+  const mouseDragRef = useRef(null);
   const touchesRef = useRef(new Map());
   const pinchRef = useRef(null);
   const pendingScrollRef = useRef(null);
@@ -26,7 +27,7 @@ export default function TorqueChart({ question }) {
     document.body.style.overflow = "hidden";
     dialog.showModal();
     const touches = touchesRef.current;
-    return () => { dialog.close(); document.body.style.overflow = previous; touches.clear(); pinchRef.current = null; pendingScrollRef.current = null; };
+    return () => { dialog.close(); document.body.style.overflow = previous; touches.clear(); mouseDragRef.current = null; pinchRef.current = null; pendingScrollRef.current = null; };
   }, [open]);
   function changeZoom(amount) { setZoom(current => current === null ? 100 : Math.max(50, Math.min(MAX_CHART_ZOOM, current + amount))); }
   function localPoints() {
@@ -39,12 +40,33 @@ export default function TorqueChart({ question }) {
     pinchRef.current = startPinch(localPoints(), { width: imageRef.current.getBoundingClientRect().width, scrollLeft: area.scrollLeft, scrollTop: area.scrollTop });
   }
   function pointerDown(event) {
+    if (event.pointerType === "mouse") {
+      if (event.button !== 0) return;
+      const area = event.currentTarget;
+      const bounds = area.getBoundingClientRect();
+      // Leave scrollbar thumb dragging to the browser.
+      if (event.clientX >= bounds.left + area.clientLeft + area.clientWidth || event.clientY >= bounds.top + area.clientTop + area.clientHeight) return;
+      event.preventDefault();
+      area.focus({ preventScroll: true });
+      area.setPointerCapture(event.pointerId);
+      mouseDragRef.current = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      return;
+    }
     if (event.pointerType !== "touch") return;
     event.currentTarget.setPointerCapture(event.pointerId);
     touchesRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
     if (touchesRef.current.size === 2) beginPinch();
   }
   function pointerMove(event) {
+    const mouse = mouseDragRef.current;
+    if (mouse?.id === event.pointerId) {
+      event.preventDefault();
+      const area = scrollRef.current;
+      area.scrollLeft += mouse.x - event.clientX;
+      area.scrollTop += mouse.y - event.clientY;
+      mouseDragRef.current = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      return;
+    }
     const touches = touchesRef.current;
     const previous = touches.get(event.pointerId);
     if (!previous) return;
@@ -67,6 +89,7 @@ export default function TorqueChart({ question }) {
     setZoom(next.zoom);
   }
   function pointerEnd(event) {
+    if (mouseDragRef.current?.id === event.pointerId) mouseDragRef.current = null;
     if (!touchesRef.current.has(event.pointerId)) return;
     touchesRef.current.delete(event.pointerId);
     pinchRef.current = null;
@@ -81,9 +104,9 @@ export default function TorqueChart({ question }) {
         <div><dt>Bolt</dt><dd>{question.bolt === "NAS" ? "NAS583–NAS590" : question.bolt}</dd></div>
         <div><dt>Nut</dt><dd>{question.nut}</dd></div>
       </dl>}
-      <p>Full reference chart · All values in in-lb. Use the fine-thread section. Pinch with two fingers to zoom; drag with one finger to move around.</p>
+      <p>Full reference chart · All values in in-lb. Use the fine-thread section. Click and drag with a mouse to move around. On touch screens, pinch to zoom and drag with one finger.</p>
       <div className="study-torque-zoom" aria-label="Chart zoom controls"><button type="button" onClick={() => setZoom(null)}>Fit chart</button><button type="button" aria-label="Zoom out" disabled={zoom === null || zoom <= 50} onClick={() => changeZoom(-25)}><Minus size={18} /></button><output>{zoom === null ? "Fit" : `${Math.round(zoom)}%`}</output><button type="button" aria-label="Zoom in" disabled={zoom >= MAX_CHART_ZOOM} onClick={() => changeZoom(25)}><Plus size={18} /></button></div>
-      <div ref={scrollRef} className="study-diagram-scroll study-torque-full-scroll" tabIndex={0} aria-label="Full torque chart; pinch to zoom and drag to pan" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}><img ref={imageRef} draggable={false} className="study-torque-full-image" src="/structures/torque-chart.svg" alt="Complete unmarked torque chart with bolt and nut classifications, twelve minimum/maximum columns, and fine- and coarse-thread sections. All torque values are in-lb." style={{ width: zoom === null ? "100%" : `${CHART_WIDTH * zoom / 100}px` }} /></div>
+      <div ref={scrollRef} className="study-diagram-scroll study-torque-full-scroll" tabIndex={0} aria-label="Full torque chart; click and drag with a mouse, or pinch to zoom and drag to pan" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}><img ref={imageRef} draggable={false} className="study-torque-full-image" src="/structures/torque-chart.svg" alt="Complete unmarked torque chart with bolt and nut classifications, twelve minimum/maximum columns, and fine- and coarse-thread sections. All torque values are in-lb." style={{ width: zoom === null ? "100%" : `${CHART_WIDTH * zoom / 100}px` }} /></div>
       <div className="study-diagram-footer"><button type="button" className="study-primary" onClick={() => dialogRef.current?.close()}><X size={18} /> Close torque chart</button></div>
     </dialog>
   </>;

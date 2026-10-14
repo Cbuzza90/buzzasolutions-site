@@ -491,3 +491,6 @@
 .study-completed-status .study-completed-badge{margin:0}
 .study-next-date-pending{font-size:11px;line-height:1.5;color:var(--muted);font-weight:500}
 .study-option-link .study-completed-status{margin:8px 0 0}
+
+.study-torque-full-scroll{cursor:grab}
+.study-torque-full-scroll:active{cursor:grabbing}
