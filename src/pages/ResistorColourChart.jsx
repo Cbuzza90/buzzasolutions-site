@@ -19,11 +19,11 @@ export default function ResistorColourChart() {
       <div className="study-answer-dialog-content">
         <h2 id={titleId}>Resistor colour chart</h2>
         <p className="study-feedback-explanation">From your course chart. Four bands: 2 digits + multiplier + tolerance. Five bands: 3 digits + multiplier + tolerance. Six bands: add temperature coefficient.</p>
-        <div className="study-resistor-chart-controls">
-          <button className="study-primary" type="button" aria-label="Zoom out chart" disabled={zoom <= 100} onClick={() => setZoom(value => Math.max(100, value - 50))}><Minus size={18} /></button>
-          <span>{zoom}%</span>
-          <button className="study-primary" type="button" aria-label="Zoom in chart" disabled={zoom >= 300} onClick={() => setZoom(value => Math.min(300, value + 50))}><Plus size={18} /></button>
-          <button className="study-primary" type="button" onClick={() => setZoom(100)}>Fit chart</button>
+        <div className="study-chart-zoom" aria-label="Chart zoom controls">
+          <button type="button" aria-label="Zoom out chart" disabled={zoom <= 100} onClick={() => setZoom(value => Math.max(100, value - 50))}><Minus size={16} /></button>
+          <output aria-label="Zoom level">{zoom}%</output>
+          <button type="button" aria-label="Zoom in chart" disabled={zoom >= 300} onClick={() => setZoom(value => Math.min(300, value + 50))}><Plus size={16} /></button>
+          <button type="button" onClick={() => setZoom(100)}>Fit screen</button>
         </div>
         <div className="study-resistor-chart-scroll" tabIndex={0} aria-label="Original resistor colour chart; scroll to view enlarged image">
           <img className="study-resistor-original-chart" src="/electricity/resistor-colour-chart.png" alt="Original course resistor colour chart showing four-, five- and six-band examples, digit colours, multipliers, tolerances and temperature coefficients" style={{ width: `${zoom}%` }} />

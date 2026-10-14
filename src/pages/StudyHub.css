@@ -418,10 +418,6 @@
 .study-app[data-theme="dark"] .study-diagram-dialog { background: #141414; }
 
 .study-torque-chart-button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:44px;margin:12px 0;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
- .study-torque-zoom{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-shrink:0}
-.study-torque-zoom button{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
-.study-torque-zoom button:disabled{opacity:.4;cursor:default}
-.study-torque-zoom output{min-width:44px;text-align:center;color:var(--ink);font-size:12px;font-variant-numeric:tabular-nums}
 .study-torque-full-image{display:block;max-width:none;height:auto;user-select:none;-webkit-user-select:none}
 .study-torque-full-scroll{touch-action:none;scrollbar-width:thin}
 
@@ -523,6 +519,11 @@
 .study-resistor-chart-scroll{overflow:auto;max-width:100%;margin:14px 0;border:1px solid var(--line);border-radius:12px}
 @media(max-width:350px){.study-resistor-inputs{grid-template-columns:1fr}}
 
-.study-resistor-chart-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .study-resistor-chart-scroll{max-height:55dvh;background:#fff}
 .study-resistor-original-chart{display:block;height:auto;max-width:none;margin:auto}
+
+.study-chart-zoom{display:grid;grid-template-columns:36px 52px 36px max-content;align-items:center;gap:6px;margin:8px 0;flex-shrink:0}
+.study-chart-zoom button{display:flex;align-items:center;justify-content:center;height:36px;min-height:36px;min-width:36px;padding:6px 10px;margin:0;border:0;border-radius:8px;background:#2563eb;color:#fff;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
+.study-chart-zoom button:hover{background:#1d4ed8}
+.study-chart-zoom button:disabled{opacity:.45;cursor:default}
+.study-chart-zoom output{display:grid;place-items:center;height:36px;min-width:0;text-align:center;color:var(--ink);font-size:12px;line-height:1;font-variant-numeric:tabular-nums}

@@ -105,7 +105,12 @@ export default function TorqueChart({ question }) {
         <div><dt>Nut</dt><dd>{question.nut}</dd></div>
       </dl>}
       <p>Full reference chart · All values in in-lb. Use the fine-thread section. Click and drag with a mouse to move around. On touch screens, pinch to zoom and drag with one finger.</p>
-      <div className="study-torque-zoom" aria-label="Chart zoom controls"><button type="button" onClick={() => setZoom(null)}>Fit chart</button><button type="button" aria-label="Zoom out" disabled={zoom === null || zoom <= 50} onClick={() => changeZoom(-25)}><Minus size={18} /></button><output>{zoom === null ? "Fit" : `${Math.round(zoom)}%`}</output><button type="button" aria-label="Zoom in" disabled={zoom >= MAX_CHART_ZOOM} onClick={() => changeZoom(25)}><Plus size={18} /></button></div>
+      <div className="study-chart-zoom" aria-label="Chart zoom controls">
+        <button type="button" aria-label="Zoom out" disabled={zoom === null || zoom <= 50} onClick={() => changeZoom(-25)}><Minus size={16} /></button>
+        <output aria-label="Zoom level">{zoom === null ? "Fit" : `${Math.round(zoom)}%`}</output>
+        <button type="button" aria-label="Zoom in" disabled={zoom >= MAX_CHART_ZOOM} onClick={() => changeZoom(25)}><Plus size={16} /></button>
+        <button type="button" onClick={() => setZoom(null)}>Fit screen</button>
+      </div>
       <div ref={scrollRef} className="study-diagram-scroll study-torque-full-scroll" tabIndex={0} aria-label="Full torque chart; click and drag with a mouse, or pinch to zoom and drag to pan" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}><img ref={imageRef} draggable={false} className="study-torque-full-image" src="/structures/torque-chart.svg" alt="Complete unmarked torque chart with bolt and nut classifications, twelve minimum/maximum columns, and fine- and coarse-thread sections. All torque values are in-lb." style={{ width: zoom === null ? "100%" : `${CHART_WIDTH * zoom / 100}px` }} /></div>
       <div className="study-diagram-footer"><button type="button" className="study-primary" onClick={() => dialogRef.current?.close()}><X size={18} /> Close torque chart</button></div>
     </dialog>
