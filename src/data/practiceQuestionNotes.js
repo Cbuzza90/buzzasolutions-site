@@ -4,7 +4,7 @@ import safety3 from "./safety-module1-recall.json" with { type: "json" };
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
-import { endlessTorqueQuestions } from "./torqueTest.js";
+import { torquePracticeQuestions } from "./chartTorquePractice.js";
 
 // The references use the same verified answer banks as the practice tests.
 // New questions in these banks automatically become searchable study material.
@@ -12,7 +12,7 @@ export const practiceBanksByModule = {
   "/study/safety/module-1": [safety1, safety2, safety3],
   "/study/electricity/module-1": [electricity],
   "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions],
-  "/study/structures/module-1": [endlessTorqueQuestions],
+  "/study/structures/module-1": [torquePracticeQuestions],
 };
 
 function referenceText(question) {

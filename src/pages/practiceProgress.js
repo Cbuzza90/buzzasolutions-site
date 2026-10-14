@@ -13,8 +13,8 @@ export function bankSignature(questions) {
   return `${questions.length}:${hash >>> 0}`;
 }
 
-export function newPracticeAttempt(questions, random = Math.random, questionCount = questions.length) {
-  return { order: shufflePractice(questions, random).slice(0, questionCount), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
+export function newPracticeAttempt(questions, random = Math.random, questionCount = questions.length, sampleQuestions) {
+  return { order: shufflePractice(sampleQuestions ? sampleQuestions(questions, questionCount, random) : questions, random).slice(0, questionCount), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
 }
 
 export function restorePracticeAttempt(questions, record, questionCount = questions.length) {
@@ -42,8 +42,8 @@ export function restorePracticeAttempt(questions, record, questionCount = questi
   } catch { return null; }
 }
 
-export function loadPracticeAttempt(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
-  return restorePracticeAttempt(questions, read(storage, key("progress", testId)), questionCount) ?? newPracticeAttempt(questions, Math.random, questionCount);
+export function loadPracticeAttempt(questions, testId, storage = storageForBrowser(), questionCount = questions.length, sampleQuestions) {
+  return restorePracticeAttempt(questions, read(storage, key("progress", testId)), questionCount) ?? newPracticeAttempt(questions, Math.random, questionCount, sampleQuestions);
 }
 
 export function savePracticeAttempt(questions, testId, attempt, storage = storageForBrowser()) {

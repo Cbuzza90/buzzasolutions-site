@@ -7,6 +7,7 @@ import TorqueChart from "./TorqueChart";
 
 function NotesContent({ notes, question }) {
   const [query, setQuery] = useState("");
+  const [expandedReferences, setExpandedReferences] = useState({});
   const searchId = useId();
   const term = query.trim();
   const sections = findNoteSections(notes.sections, query);
@@ -15,14 +16,19 @@ function NotesContent({ notes, question }) {
     {question && <button type="button" className="study-torque-chart-button" onClick={() => setQuery(question.prompt)}><Search size={18} /> Find notes for this question</button>}
     <label className="study-search" htmlFor={searchId}><Search size={18} /><span className="sr-only">Search {notes.course} study notes</span><input id={searchId} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a topic, term or component…" /></label>
     <p className="study-notes-count" role="status">{sections.length} {sections.length === 1 ? "topic" : "topics"}</p>
-    {sections.map(section => <details className="study-notes-topic" key={`${section.id}-${Boolean(term)}`} open={term ? true : section.id === notes.defaultOpenId ? true : undefined}>
+    {sections.map(section => <details className="study-notes-topic" key={`${section.id}-${Boolean(term)}`} open={term ? true : section.id === notes.defaultOpenId ? true : undefined} onToggle={event => {
+        if (section.questionReference && !term) {
+          const expanded = event.currentTarget.open;
+          setExpandedReferences(current => ({ ...current, [section.id]: expanded }));
+        }
+      }}>
       <summary>{section.title}</summary>
-      <dl>{section.items.map(([label, text, image, diagram]) => <div key={label}>
+      {(!section.questionReference || term || expandedReferences[section.id]) && <dl>{section.items.map(([label, text, image, diagram]) => <div key={label}>
         <dt>{section.id === "fluids" && /^(Blue|Red|Purple) ·/.test(label) && <span className="study-fluid-swatch" aria-hidden="true" style={{ backgroundColor: label.startsWith("Blue") ? "#3b82f6" : label.startsWith("Red") ? "#ef4444" : "#a78bfa" }} />}{label}</dt>
         {image && <img className="study-note-symbol" src={image} alt={label} />}
         <dd>{text}</dd>
         {diagram && <QuestionDiagram diagram={diagram} />}
-      </div>)}</dl>
+      </div>)}</dl>}
       {(section.diagramKeys ?? (section.diagramKey ? [section.diagramKey] : [])).map(key => <QuestionDiagram key={key} diagram={notes.diagrams[key]} />)}
     </details>)}
     {sections.length === 0 && <p>No matching topic. Try another word or clear the search.</p>}

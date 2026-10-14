@@ -10,10 +10,10 @@ import { loadHighestScore, loadPracticeAttempt, newPracticeAttempt, nextEndlessR
 
 const letters = ["A", "B", "C", "D"];
 
-export default function MultipleChoicePractice({ questions, testNumber, course, basePath, testTitle = `Practice Test #${testNumber}`, reference, endless = false, questionCount = questions.length }) {
+export default function MultipleChoicePractice({ questions, testNumber, course, basePath, testTitle = `Practice Test #${testNumber}`, reference, endless = false, questionCount = questions.length, progressKey, sampleQuestions }) {
   const { pathname } = useLocation();
-  const testId = endless ? `${pathname}:endless` : questionCount !== questions.length ? `${pathname}:${questionCount}` : pathname;
-  const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId, undefined, questionCount));
+  const testId = progressKey ?? (endless ? `${pathname}:endless` : questionCount !== questions.length ? `${pathname}:${questionCount}` : pathname);
+  const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId, undefined, questionCount, sampleQuestions));
   const [best, setBest] = useState(() => loadHighestScore(questions, testId, undefined, questionCount));
   const [storageError, setStorageError] = useState(false);
   const { order, position, answers, complete } = attempt;
@@ -57,11 +57,11 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
   }
   const restart = useCallback(() => {
     feedbackRef.current?.close();
-    commitAttempt(newPracticeAttempt(questions, Math.random, questionCount));
+    commitAttempt(newPracticeAttempt(questions, Math.random, questionCount, sampleQuestions));
     setBest(loadHighestScore(questions, testId, undefined, questionCount));
     window.scrollTo({ top: 0, behavior: "instant" });
     requestAnimationFrame(() => headingRef.current?.focus());
-  }, [commitAttempt, questions, testId, questionCount]);
+  }, [commitAttempt, questions, testId, questionCount, sampleQuestions]);
   useEffect(() => {
     const reset = event => { if (event.detail?.testId === pathname) restart(); };
     window.addEventListener(RESET_PRACTICE_EVENT, reset);

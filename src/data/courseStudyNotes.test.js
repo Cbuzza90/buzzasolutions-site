@@ -48,7 +48,7 @@ test("every practice question finds its verified answer and explanation in the e
       covered++;
     }
   }
-  assert.equal(covered, 363);
+  assert.equal(covered, Object.values(practiceBanksByModule).flat().reduce((total, bank) => total + bank.length, 0));
 });
 
 test("notes search accepts question wording, reordered terms and punctuation variants", () => {
