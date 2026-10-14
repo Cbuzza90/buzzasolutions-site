@@ -1,22 +1,20 @@
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
 import safety2 from "./safety-module1-test2.json" with { type: "json" };
 import safety3 from "./safety-module1-recall.json" with { type: "json" };
-import electricity from "./electricity-module1-test1.json" with { type: "json" };
-import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
-import { systemsMixedQuestions } from "./systemsMixedTest.js";
+import { electricityRecallQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions } from "./typedReviewQuestions.js";
 import { torquePracticeQuestions } from "./chartTorquePractice.js";
 
 // The references use the same verified answer banks as the practice tests.
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
   "/study/safety/module-1": [safety1, safety2, safety3],
-  "/study/electricity/module-1": [electricity],
-  "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions],
+  "/study/electricity/module-1": [electricityRecallQuestions],
+  "/study/systems/module-1": [systemsRecallQuestions, systemsAppliedRecallQuestions],
   "/study/structures/module-2": [torquePracticeQuestions],
 };
 
 function referenceText(question) {
-  const answer = question.options[question.correctIndex].trim();
+  const answer = (question.answer ?? question.options[question.correctIndex]).trim();
   const explanation = question.explanation.trim();
   const remaining = explanation.slice(answer.length);
   // Many course explanations already begin with the correct answer.

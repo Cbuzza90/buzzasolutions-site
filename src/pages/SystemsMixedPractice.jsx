@@ -1,6 +1,7 @@
 import { systemsMixedQuestions } from "../data/systemsMixedTest";
-import MultipleChoicePractice from "./MultipleChoicePractice";
+import TypedAnswerPractice from "./TypedAnswerPractice";
+import { systemsAppliedRecallQuestions } from "../data/typedReviewQuestions.js";
 
 export default function SystemsMixedPractice() {
-  return <MultipleChoicePractice questions={systemsMixedQuestions} testNumber={2} course="Systems" basePath="/study/systems/module-1" />;
+  return <TypedAnswerPractice questions={systemsAppliedRecallQuestions} legacyQuestions={systemsMixedQuestions} testNumber={2} course="Systems" basePath="/study/systems/module-1" />;
 }

@@ -1,5 +1,7 @@
 # Electricity test source audit
 
+Format update: these audits describe the original multiple-choice banks. The active tests now use source-backed one-word recall prompts; see [Typed review practice](typed-review-practice.md).
+
 Checked 2026-10-14. Scope: the active 64-question multiple-choice bank and the 20-question randomized Resistor Band Calculations test. Sources: AMEM 10001 Test 1 Study Aid.docx in Downloads, the supplied 50-question Canvas result text, and Resistor Colour chart.ppt. The study aid is a list of prompts without a completed answer key; topic alignment alone does not prove each answer. The quiz text includes marked correct answers. Source files were not edited.
 
 ## Findings

@@ -527,3 +527,10 @@
 .study-chart-zoom button:hover{background:#1d4ed8}
 .study-chart-zoom button:disabled{opacity:.45;cursor:default}
 .study-chart-zoom output{display:grid;place-items:center;height:36px;min-width:0;text-align:center;color:var(--ink);font-size:12px;line-height:1;font-variant-numeric:tabular-nums}
+
+.study-typed-form{margin:18px 0}
+.study-typed-form label{display:block;font-size:15px;font-weight:700}
+.study-typed-form p{font-size:12px;line-height:1.6;color:var(--muted);margin:8px 0}
+.study-typed-form input{display:block;width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:var(--ink);font-size:16px}
+.study-typed-form .study-primary{width:100%;margin:12px 0 0;min-height:48px}
+.study-app[data-theme="dark"] .study-typed-form input{background:#171717;color:var(--ink)}

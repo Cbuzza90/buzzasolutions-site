@@ -1,0 +1,13 @@
+# Electricity and Systems typed review tests
+
+The user requested one-word typed answers in place of multiple choice. The existing Electricity practice route now uses 64 source-backed recall prompts; Systems routes use 40 foundational and 83 applied recall prompts. Every canonical answer is a single word, number, letter or hyphenated term. Multiword concepts are prompted with their remaining context supplied (chemical ___, ___-centre, power ___). Full source explanations and diagram references are retained.
+
+The source mapping is in `src/data/typedReviewQuestions.js`: each definition maps to the original bank ID and source prompt. The earlier Electricity/Systems audit documents describe the original multiple-choice banks. Their same source material underlies these recall prompts; combined source questions now ask for a specific word rather than a complete choice sentence.
+
+Grading ignores case, accents, punctuation, spaces and hyphens, and compares the whole normalized answer against an explicit synonym list. It does not use substring matches, broad fuzzy matching or an AI grader. Examples: ionization/ionisation, disc/disk, in-line/inline, and purple/light purple. Distinct concepts such as flash/fire and open/closed are not interchangeable.
+
+Typed progress uses separate `typed-progress` records and highest scores use `typed-best`. Draft input saves after each change. Restoring validates the question bank signature, unique shuffled order, answer positions and completion state, then scores submitted strings against current keys. Reset generates a new attempt and preserves the highest typed score. Existing multiple-choice storage is retained and any matching highest score is displayed as Previous multiple-choice best. Choice answers are not converted into claimed typed-answer achievements.
+
+Current recall prompts replace the active bank references in the exact course notes. Every prompt has a searchable correct answer and full source explanation. Nested diagrams, notes, reset navigation, missed-answer review and the peer tutoring suggestion remain available. The resistor calculation test keeps its numerical answer fields and original chart because it already uses typed input.
+
+Verification: all 187 single-word keys/explicit aliases, source explanations and diagram preservation; grading equivalence and false-positive rejection; saved draft/wrong answer/order reload; independent per-test storage; completed results; reset/high-score retention; legacy choice-score preservation; corruption/storage-failure handling; per-question note search. Mobile browser verification checks typed entry, correct/wrong feedback, notes/diagrams, reload and reset. Lint and production build are required.
