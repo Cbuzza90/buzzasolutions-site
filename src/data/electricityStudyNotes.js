@@ -25,7 +25,7 @@ export const electricityNoteSections = [
     ["Series", "One current path: the same current through every component. Total resistance is the sum of the individual resistances."],
     ["Parallel", "Branches connected across the same two nodes have the same voltage. Adding a positive-resistance branch lowers total resistance; the result is below the smallest branch resistance."],
     ["Voltage drop", "Potential difference across a component as energy is transferred."],
-    ["Ohm's law", "V = I × R. At fixed resistance, increasing voltage increases current. These notes and this test require no arithmetic."],
+    ["Ohm's law", "V = I × R. At fixed resistance, increasing voltage increases current. Practice Test #1 tests these relationships without arithmetic. Resistor Band Calculations requires numerical answers."],
     ["Kirchhoff's Voltage Law", "With consistent signs, voltage rises and drops around a closed loop sum to zero."],
     ["Kirchhoff's Current Law", "Total current entering a node equals total current leaving it."]
   ] },
