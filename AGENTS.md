@@ -9,6 +9,7 @@
 - All active tests are multiple choice with four distinct, plausible options. Do not use choices referring to shuffled answer letters, such as “both A and B”.
 - No numerical calculations outside the Math course. Conceptual relationships and chart lookup are allowed.
 - Preserve mobile layouts, clear correct/incorrect labels, bottom navigation and modal footer controls. Opening/closing notes and nested diagrams must preserve quiz progress.
+- Save shuffled attempts and completed highest scores per test in the shared persistence layer. Reset only the attempt, preserve the highest score, and keep Reset Test between Courses and Tests in the bottom navigation. New custom test-route names must also be recognized by the navigation.
 - Report ambiguities or errors in source material; do not silently copy an ambiguous answer key.
 
 ## Checks

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Navigate, Routes, Route, useLocation, useParams } from "react-router-dom";
-import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileText, Layers, Moon, Pause, Plane, Play, Search, Settings2, ShieldCheck, Sun, Wind, X, Zap } from "lucide-react";
+import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileText, Layers, Moon, Pause, Plane, Play, RotateCcw, Search, Settings2, ShieldCheck, Sun, Wind, X, Zap } from "lucide-react";
 import "./StudyHub.css";
 import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import ElectricityPractice, { ElectricityTestList } from "./ElectricityPractice";
@@ -10,6 +10,8 @@ import CourseStudyNotes from "./CourseStudyNotes";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
 import { formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
+
+import { RESET_PRACTICE_EVENT } from "./practiceProgress";
 
 const courses = [
   { slug: "electricity", title: "Aircraft Electricity 1", code: "AMEM-10001", category: "Foundations", icon: Zap, color: "amber", hasTests: true, description: "Build your understanding of aircraft electricity, one topic at a time." },
@@ -96,6 +98,8 @@ function CourseDetail() {
 
 export default function StudyHub() {
   const { pathname } = useLocation();
+  const onPractice = /^\/study\/[^/]+\/[^/]+\/(?:practice-\d+|torque-bolt-nut)$/.test(pathname);
+  const testsPath = pathname.slice(0, pathname.lastIndexOf("/"));
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem("study-theme") !== "light"; }
     catch { return true; }
@@ -139,7 +143,7 @@ export default function StudyHub() {
     </main>
     <nav className="study-tab-bar" aria-label="Study navigation">
       <NavLink to="/"><BookOpen size={22} /><span>Courses</span></NavLink>
-      {["/study/electricity/module-1/practice-1", "/study/structures/module-1/torque-bolt-nut", "/study/safety/module-1/practice-1", "/study/safety/module-1/practice-2", "/study/safety/module-1/practice-3", "/study/systems/module-1/practice-2", "/study/systems/module-1/practice-1"].includes(pathname) && <Link className="study-tests-nav" to={pathname.startsWith("/study/electricity/") ? "/study/electricity/module-1" : pathname.startsWith("/study/structures/") ? "/study/structures/module-1" : pathname.startsWith("/study/systems/") ? "/study/systems/module-1" : "/study/safety/module-1"}><BookOpen size={22} /><span>Tests</span></Link>}
+      {onPractice && <><button type="button" className="study-reset-nav" title="Start a new attempt; keep your highest score" onClick={() => window.dispatchEvent(new CustomEvent(RESET_PRACTICE_EVENT, { detail: { testId: pathname } }))}><RotateCcw size={22} /><span>Reset Test</span></button><Link className="study-tests-nav" to={testsPath}><BookOpen size={22} /><span>Tests</span></Link></>}
     </nav>
   </div>;
 }
