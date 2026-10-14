@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+<rect width="800" height="360" fill="#fff"/>
+<g font-family="Arial,sans-serif" fill="#172936">
+<text x="24" y="34" font-size="21" font-weight="bold">Actuator comparison — simplified concept sketches</text>
+<text x="30" y="79" font-size="24" font-weight="bold">A</text><text x="430" y="79" font-size="24" font-weight="bold">B</text>
+<g stroke="#172936" stroke-width="4">
+<path d="M60 120H330V250H60Z" fill="#e9eef3"/>
+<path d="M460 120H730V250H460Z" fill="#e9eef3"/>
+<path d="M64 124H180V246H64Z" fill="#b4dcf9" stroke="none"/>
+<path d="M464 124H580V246H464Z M594 124H726V246H594Z" fill="#b4dcf9" stroke="none"/>
+<rect x="180" y="123" width="14" height="124" fill="#6b7e8c"/>
+<rect x="580" y="123" width="14" height="124" fill="#6b7e8c"/>
+<path d="M194 177H370V193H194Z M594 177H770V193H594Z" fill="#a7b2ba"/>
+<path d="M200 148H210L220 132L234 164L248 132L262 164L276 132L290 164L304 148H325" fill="none" stroke-width="3"/>
+<path d="M95 120V94 M495 120V94 M690 120V94" fill="none" stroke="#2563eb" stroke-width="7"/>
+</g>
+<g font-size="17"><text x="67" y="89">Port</text><text x="464" y="89">Port 1</text><text x="660" y="89">Port 2</text>
+<text x="206" y="282">Return spring</text><text x="491" y="282">Ports reach opposite piston sides</text></g>
+<text x="24" y="325" font-size="16">B: one side receives pressure while the other returns fluid for the selected direction.</text>
+<text x="24" y="347" font-size="15" fill="#566775">Illustrations show construction, not valve positions or an aircraft servicing procedure.</text>
+</g></svg>

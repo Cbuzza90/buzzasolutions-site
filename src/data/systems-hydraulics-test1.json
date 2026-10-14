@@ -9,7 +9,7 @@
       "Force"
     ],
     "correctIndex": 2,
-    "explanation": "Water. This is the identification given in the supplied course answer key."
+    "explanation": "Hydraulics takes its name from the Greek word for water; aircraft hydraulic systems use specified hydraulic fluids rather than ordinary water."
   },
   {
     "id": 2,
@@ -57,7 +57,7 @@
       "Lubricity"
     ],
     "correctIndex": 2,
-    "explanation": "Viscosity. This is the identification given in the supplied course answer key."
+    "explanation": "Viscosity is internal resistance to flow, not density, compressibility or lubricating ability."
   },
   {
     "id": 6,
@@ -81,7 +81,7 @@
       "Pitot"
     ],
     "correctIndex": 0,
-    "explanation": "Saybolt. This is the identification given in the supplied course answer key."
+    "explanation": "The Saybolt universal viscosimeter assesses viscosity using a controlled flow-time test."
   },
   {
     "id": 8,
@@ -93,7 +93,7 @@
       "Lubricating ability"
     ],
     "correctIndex": 1,
-    "explanation": "Chemical stability. This is the identification given in the supplied course answer key."
+    "explanation": "Chemical stability is resistance to oxidation and deterioration. It is different from viscosity and ignition temperature."
   },
   {
     "id": 9,
@@ -129,7 +129,7 @@
       "Amber"
     ],
     "correctIndex": 1,
-    "explanation": "Blue. This is the identification given in the supplied course answer key."
+    "explanation": "The historical vegetable-base MIL-H-7644 fluid is blue in this course review."
   },
   {
     "id": 12,
@@ -141,7 +141,7 @@
       "Ethylene-propylene rubber"
     ],
     "correctIndex": 2,
-    "explanation": "Natural rubber. This is the identification given in the supplied course answer key."
+    "explanation": "The review pairs vegetable-base fluid with natural rubber seals."
   },
   {
     "id": 13,
@@ -153,11 +153,11 @@
       "Red"
     ],
     "correctIndex": 3,
-    "explanation": "Red. This is the identification given in the supplied course answer key."
+    "explanation": "MIL-H-5606 is a red-dyed mineral-base fluid. Red alone does not distinguish it from every other hydraulic specification."
   },
   {
     "id": 14,
-    "prompt": "Which synthetic rubber listed as a seal material for MIL-H-5606 in the presentation.",
+    "prompt": "Which seal material does the supplied review specifically list for mineral-base MIL-H-5606?",
     "options": [
       "Neoprene",
       "Natural rubber",
@@ -165,7 +165,7 @@
       "Ethylene-propylene rubber"
     ],
     "correctIndex": 0,
-    "explanation": "Neoprene. This is the identification given in the supplied course answer key."
+    "explanation": "The supplied course key names neoprene for mineral-base MIL-H-5606. It is not the phosphate-ester seal pairing."
   },
   {
     "id": 15,
@@ -177,7 +177,7 @@
       "Amber"
     ],
     "correctIndex": 1,
-    "explanation": "Light purple. This is the identification given in the supplied course answer key."
+    "explanation": "Light purple is the typical phosphate-ester colour in the review; identify the approved product by its specification, not colour alone."
   },
   {
     "id": 16,
@@ -189,7 +189,7 @@
       "MIL-H-83282"
     ],
     "correctIndex": 2,
-    "explanation": "Skydrol. This is the identification given in the supplied course answer key."
+    "explanation": "Skydrol is the phosphate-ester brand named in the course key. A brand name does not imply approval for every aircraft."
   },
   {
     "id": 17,
@@ -201,7 +201,7 @@
       "Butyl"
     ],
     "correctIndex": 3,
-    "explanation": "Butyl. This is the identification given in the supplied course answer key."
+    "explanation": "Butyl and ethylene-propylene are the phosphate-ester seal materials listed in the review."
   },
   {
     "id": 18,
@@ -213,7 +213,7 @@
       "3-11"
     ],
     "correctIndex": 0,
-    "explanation": "5606. This is the identification given in the supplied course answer key."
+    "explanation": "The review identifies MIL-H-5606 compatibility with MIL-H-83282. This does not establish approval to substitute fluids on every aircraft."
   },
   {
     "id": 19,
@@ -229,7 +229,7 @@
   },
   {
     "id": 20,
-    "prompt": "In an open-centre system, selector valves are arranged in __________.",
+    "prompt": "In the basic open-centre circuit shown in this review, the neutral selector passages are arranged in ______.",
     "options": [
       "Parallel",
       "Across the accumulator charging line",
@@ -237,11 +237,11 @@
       "Independently of the return circuit"
     ],
     "correctIndex": 2,
-    "explanation": "Series. This is the identification given in the supplied course answer key."
+    "explanation": "The basic open-centre arrangement in this review places neutral selector passages in series along a return route."
   },
   {
     "id": 21,
-    "prompt": "Which system type builds and stores hydraulic energy and supplies fluid to actuators when required?",
+    "prompt": "Which basic system arrangement blocks neutral selector flow and keeps operating pressure available for demand?",
     "options": [
       "Open-centre system",
       "Unpressurized reservoir",
@@ -249,7 +249,7 @@
       "Closed centre"
     ],
     "correctIndex": 3,
-    "explanation": "Closed centre. A closed-centre system maintains stored hydraulic energy for demand."
+    "explanation": "Closed-centre selectors block neutral supply flow while operating pressure remains available. An accumulator, when installed, provides stored energy."
   },
   {
     "id": 22,
@@ -261,7 +261,7 @@
       "Only in the reservoir supply line"
     ],
     "correctIndex": 0,
-    "explanation": "Parallel. This is the identification given in the supplied course answer key."
+    "explanation": "The review's closed-centre arrangement supplies selectors in parallel from the pressure line."
   },
   {
     "id": 23,
@@ -285,7 +285,7 @@
       "Pressure-regulating manifold"
     ],
     "correctIndex": 2,
-    "explanation": "Power pack. This is the identification given in the supplied course answer key."
+    "explanation": "A power pack combines the hydraulic supply and control equipment into a self-contained unit."
   },
   {
     "id": 25,
@@ -297,7 +297,7 @@
       "Integral"
     ],
     "correctIndex": 3,
-    "explanation": "Integral. This is the identification given in the supplied course answer key."
+    "explanation": "Integral means built into the power-pack assembly."
   },
   {
     "id": 26,
@@ -309,7 +309,7 @@
       "Aspirator"
     ],
     "correctIndex": 0,
-    "explanation": "In-line. This is the identification given in the supplied course answer key."
+    "explanation": "In-line means a separate reservoir connected to the system by tubing or hose."
   },
   {
     "id": 27,
@@ -321,7 +321,7 @@
       "Pressure reducer"
     ],
     "correctIndex": 1,
-    "explanation": "Filter. This is the identification given in the supplied course answer key."
+    "explanation": "A filter traps contaminants; a reservoir holds fluid and an accumulator stores hydraulic energy."
   },
   {
     "id": 28,
@@ -333,7 +333,7 @@
       "System relief valve"
     ],
     "correctIndex": 2,
-    "explanation": "Pump. This is the identification given in the supplied course answer key."
+    "explanation": "Reservoir pressurization helps maintain a positive supply at the pump inlet, especially when ambient pressure is low."
   },
   {
     "id": 29,
@@ -345,7 +345,7 @@
       "Bleed air"
     ],
     "correctIndex": 3,
-    "explanation": "Bleed air. This is the identification given in the supplied course answer key."
+    "explanation": "Bleed air from an engine or APU can supply reservoir pressurization in designs that use that method."
   },
   {
     "id": 30,
@@ -357,7 +357,7 @@
       "Pressure reduction"
     ],
     "correctIndex": 0,
-    "explanation": "Bootstrap. This is the identification given in the supplied course answer key."
+    "explanation": "A bootstrap reservoir uses hydraulic system pressure through a piston arrangement to maintain reservoir pressure."
   },
   {
     "id": 31,
@@ -441,11 +441,11 @@
       "Continuous-return"
     ],
     "correctIndex": 0,
-    "explanation": "Closed. This is the identification given in the supplied course answer key."
+    "explanation": "The early expander-tube brake example is a closed hydraulic circuit. This term is not automatically the same as a closed-centre selector system."
   },
   {
     "id": 39,
-    "prompt": "The modern aircraft brake type named in the presentation is floating __________ brakes.",
+    "prompt": "The disc-brake example highlighted in the supplied review is a floating ______ brake.",
     "options": [
       "Expander-tube",
       "Disc",
@@ -453,7 +453,7 @@
       "Band"
     ],
     "correctIndex": 1,
-    "explanation": "Disc. This is the identification given in the supplied course answer key."
+    "explanation": "The supplied review highlights floating disc brakes. Brake designs vary across aircraft; this is the review's named example."
   },
   {
     "id": 40,
@@ -465,7 +465,7 @@
       "Continuously circulating"
     ],
     "correctIndex": 2,
-    "explanation": "Single-acting. Only one piston side receives hydraulic pressure; a spring or nitrogen supplies the opposing action."
+    "explanation": "A single-acting actuator uses hydraulic pressure for one direction and a spring, gas pressure or another opposing force for return."
   },
   {
     "id": 41,
@@ -477,6 +477,6 @@
       "Double-acting"
     ],
     "correctIndex": 3,
-    "explanation": "Double-acting. Hydraulic pressure can act on either side of the piston."
+    "explanation": "A double-acting actuator can be pressurized on either side of its piston to drive movement in both directions."
   }
 ]

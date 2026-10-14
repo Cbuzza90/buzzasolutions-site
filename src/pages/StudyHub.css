@@ -446,3 +446,17 @@
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency]:hover{border-color:hsl(var(--test-hue) 75% 58%)}
 .study-app[data-theme="dark"] .study-course-card[data-test-urgency] .study-icon{background:hsl(var(--test-hue) 60% 18%);color:hsl(var(--test-hue) 90% 80%)}
 .study-course-card .study-card-bottom > span.study-test-possible{display:block;border:0;padding-top:6px;font-size:10px;font-weight:600;color:var(--muted)}
+.study-systems-notes{min-width:0;margin-top:14px}
+.study-systems-notes .study-search{margin:18px 0 8px}
+.study-notes-count{font-size:12px;color:var(--muted);margin-bottom:12px}
+.study-notes-topic{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.study-notes-topic summary{padding:16px;cursor:pointer;min-height:48px;font-size:15px;font-weight:650;line-height:1.5;color:var(--ink)}
+.study-notes-topic summary:focus-visible{outline:2px solid #3b82f6;outline-offset:-4px}
+.study-notes-topic dl{padding:0 16px 12px}
+.study-notes-topic dl>div{padding:12px 0;border-top:1px solid var(--line)}
+.study-notes-topic dt{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.study-notes-topic dd{font-size:13px;line-height:1.65;color:var(--muted);margin:0;overflow-wrap:anywhere}
+.study-notes-topic .study-question-diagram{margin:0 12px 12px}
+.study-notes-sources{display:flex;flex-direction:column;gap:4px;margin-top:12px}
+.study-notes-sources a{font-size:12px;color:var(--ink);min-height:44px;padding:10px 0;text-decoration:underline}
+.study-fluid-swatch{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px;border:1px solid #ffffff50}

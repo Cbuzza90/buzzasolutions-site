@@ -6,6 +6,7 @@ import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import ElectricityPractice, { ElectricityTestList } from "./ElectricityPractice";
 import StudyWelcome from "./StudyWelcome";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
+import SystemsStudyNotes from "./SystemsStudyNotes";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
 import { formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
@@ -127,6 +128,7 @@ export default function StudyHub() {
         <Route path="/study/structures/module-1/torque-bolt-nut" element={<StructuresTorquePractice />} />
         <Route path="/study/structures/module-1/practice-1" element={<Navigate to="/study/systems/module-1/practice-2" replace />} />
         <Route path="/study/systems/module-1" element={<SystemsTestList />} />
+        <Route path="/study/systems/module-1/notes" element={<SystemsStudyNotes />} />
         <Route path="/study/systems/module-1/practice-1" element={<SystemsPractice />} />
         <Route path="/study/systems/module-1/practice-2" element={<SystemsMixedPractice />} />
         <Route path="/study/safety/module-1/test-1/multiple-choice/practice-1" element={<Navigate to="/study/safety/module-1/practice-1" replace />} />
