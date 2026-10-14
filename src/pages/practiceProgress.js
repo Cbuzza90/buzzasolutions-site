@@ -6,6 +6,9 @@ const storageForBrowser = () => { try { return globalThis.localStorage; } catch 
 function read(storage, name) { try { return JSON.parse(storage?.getItem(name) ?? "null"); } catch { return null; } }
 function write(storage, name, value) { try { if (!storage) return false; storage.setItem(name, JSON.stringify(value)); return true; } catch { return false; } }
 
+export function readPracticeRecord(type, testId, storage = storageForBrowser()) { return read(storage, key(type, testId)); }
+export function writePracticeRecord(type, testId, value, storage = storageForBrowser()) { return write(storage, key(type, testId), value); }
+
 export function bankSignature(questions) {
   const text = JSON.stringify(questions.map(q => ({ id: String(q.id), prompt: q.prompt, options: [...q.options].sort(), correct: q.options[q.correctIndex] })).sort((a, b) => a.id.localeCompare(b.id)));
   let hash = 2166136261;

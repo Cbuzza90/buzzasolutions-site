@@ -1,0 +1,86 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { findNoteSections } from "./courseStudyNotes.js";
+import { decodeResistor, generateResistorQuestions, gradeResistor, resistorQuestion } from "./resistorBands.js";
+import { loadResistorAttempt, loadResistorBest, newResistorAttempt, recordResistorBest, resistorScore, restoreResistorAttempt, saveResistorAttempt } from "../pages/resistorPracticeLogic.js";
+
+test("the course chart's three printed examples decode correctly", () => {
+  const four = decodeResistor(["Red", "Red", "Black", "Gold"]);
+  assert.equal(four.resistance, 22); assert.equal(four.tolerance, 5);
+  assert.ok(Math.abs(four.minimum - 20.9) < 1e-10); assert.ok(Math.abs(four.maximum - 23.1) < 1e-10);
+  const five = decodeResistor(["Red", "Red", "Black", "Brown", "Brown"]);
+  assert.equal(five.resistance, 2200); assert.equal(five.tolerance, 1);
+  const six = decodeResistor(["Brown", "Black", "Black", "Orange", "Purple", "Orange"]);
+  assert.equal(six.resistance, 100000); assert.equal(six.tolerance, 0.1);
+  assert.equal(six.minimum, 99900); assert.equal(six.maximum, 100100); assert.equal(six.temperature, 15);
+});
+
+test("gold and silver are fractional multipliers and blank chart positions are rejected", () => {
+  assert.equal(decodeResistor(["Brown", "Black", "Gold", "Gold"]).resistance, 1);
+  assert.equal(decodeResistor(["Brown", "Black", "Silver", "Silver"]).resistance, 0.1);
+  assert.throws(() => decodeResistor(["Gold", "Red", "Black", "Gold"]));
+  assert.throws(() => decodeResistor(["Brown", "Black", "Grey", "Gold"]));
+  assert.throws(() => decodeResistor(["Brown", "Black", "Red", "White"]));
+  assert.throws(() => decodeResistor(["Brown", "Black", "Black", "Red", "Gold", "Blue"]));
+});
+
+test("random sets have 20 unique valid questions with a 7/7/6 band-count mix", () => {
+  for (const random of [() => 0, () => 0.999, Math.random]) {
+    const questions = generateResistorQuestions(random);
+    assert.equal(questions.length, 20);
+    assert.equal(new Set(questions.map(q => q.bands.join("|"))).size, 20);
+    assert.deepEqual([4,5,6].map(count => questions.filter(q => q.bands.length === count).length), [7,7,6]);
+    questions.forEach(q => {
+      assert.deepEqual(q.expected, decodeResistor(q.bands));
+      assert.equal(q.studyNote[0], q.prompt);
+      assert.ok(q.explanation.toLowerCase().includes("minimum") && q.explanation.toLowerCase().includes("maximum"));
+    });
+  }
+});
+
+test("numeric grading accepts equivalent units and grades each field independently", () => {
+  const question = resistorQuestion(["Yellow", "Purple", "Red", "Gold"]);
+  const answer = { unit: "kΩ", resistance: "4.7", tolerance: "5", minimum: "4.465", maximum: "4.935" };
+  assert.equal(gradeResistor(question, answer).allCorrect, true);
+  assert.equal(gradeResistor(question, { ...answer, unit: "Ω", resistance: "4700", minimum: "4465", maximum: "4935" }).allCorrect, true);
+  const wrong = gradeResistor(question, { ...answer, tolerance: "10" });
+  assert.equal(wrong.correct.resistance, true); assert.equal(wrong.correct.tolerance, false); assert.equal(wrong.allCorrect, false);
+  for (const invalid of ["", "abc", "Infinity", "-4.7", "4.7k"]) assert.equal(gradeResistor(question, { ...answer, resistance: invalid }).valid, false);
+});
+
+function memoryStorage() {
+  const data = new Map();
+  return { getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value), data };
+}
+function answerFor(question) {
+  return { unit: "Ω", ...Object.fromEntries(Object.entries(question.expected).map(([field, value]) => [field, String(value)])) };
+}
+test("draft answers, order, completed results and highest scores survive reload and reset", () => {
+  const storage = memoryStorage(), attempt = newResistorAttempt();
+  attempt.draft.resistance = "47"; attempt.draft.unit = "kΩ";
+  saveResistorAttempt(attempt, storage);
+  const restored = loadResistorAttempt(storage);
+  assert.deepEqual(restored, attempt);
+  attempt.answers = attempt.questions.map(answerFor); attempt.position = 19; attempt.complete = true;
+  assert.equal(resistorScore(attempt), 20);
+  saveResistorAttempt(attempt, storage); recordResistorBest(20, storage);
+  assert.equal(loadResistorAttempt(storage).complete, true);
+  const reset = newResistorAttempt(); saveResistorAttempt(reset, storage);
+  recordResistorBest(10, storage);
+  assert.equal(loadResistorBest(storage).score, 20);
+  assert.equal(loadResistorAttempt(storage).position, 0);
+  const malformed = JSON.parse(storage.getItem([...storage.data.keys()].find(key => key.includes("resistor-progress"))));
+  malformed.bands[0][0] = "Gold";
+  assert.equal(restoreResistorAttempt(malformed), null);
+  assert.equal(saveResistorAttempt(reset, { setItem() { throw new Error("Storage disabled"); } }), false);
+});
+
+test("every generated resistor has a searchable worked reference in the active attempt", () => {
+  const questions = generateResistorQuestions();
+  const reference = { id: "resistor-attempt-reference", title: "This resistor test", questionReference: true, items: questions.map(q => q.studyNote) };
+  for (const q of questions) {
+    const entry = findNoteSections([reference], q.prompt).flatMap(section => section.items).find(item => item[0] === q.prompt);
+    assert.ok(entry);
+    assert.equal(entry[1], q.explanation);
+  }
+});

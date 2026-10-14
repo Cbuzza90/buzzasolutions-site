@@ -3,14 +3,17 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, BookOpen, ChevronRight, Search, X } from "lucide-react";
 import { findNoteSections, studyNotesByModule } from "../data/courseStudyNotes";
 import QuestionDiagram from "./QuestionDiagram";
+import ResistorColourChart from "./ResistorColourChart";
 import TorqueChart from "./TorqueChart";
 
-function NotesContent({ notes, question }) {
+function NotesContent({ notes, question, questionReferences }) {
   const [query, setQuery] = useState("");
   const [expandedReferences, setExpandedReferences] = useState({});
   const searchId = useId();
   const term = query.trim();
-  const sections = findNoteSections(notes.sections, query);
+  const references = questionReferences ?? (question?.studyNote ? [question.studyNote] : []);
+  const availableSections = references.length ? [...notes.sections, { id: "resistor-attempt-reference", title: "This resistor test · Worked question references", questionReference: true, items: references }] : notes.sections;
+  const sections = findNoteSections(availableSections, query);
   return <div className="study-course-notes">
     <p className="study-feedback-explanation">{notes.intro} Expand a topic or search by term or question wording. Question references cover every practice test.</p>
     {question && <button type="button" className="study-torque-chart-button" onClick={() => setQuery(question.prompt)}><Search size={18} /> Find notes for this question</button>}
@@ -32,13 +35,14 @@ function NotesContent({ notes, question }) {
       {(section.diagramKeys ?? (section.diagramKey ? [section.diagramKey] : [])).map(key => <QuestionDiagram key={key} diagram={notes.diagrams[key]} />)}
     </details>)}
     {sections.length === 0 && <p>No matching topic. Try another word or clear the search.</p>}
+    {notes.resistorChart && <ResistorColourChart />}
     {notes.torqueChart && <TorqueChart question={question} />}
     <p className="study-feedback-explanation">{notes.basis}</p>
     {notes.sources && <div className="study-notes-sources">{notes.sources.map(source => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title}</a>)}</div>}
   </div>;
 }
 
-export function StudyNotesGuide({ basePath, question }) {
+export function StudyNotesGuide({ basePath, question, questionReferences }) {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef(null);
   const titleId = useId();
@@ -59,7 +63,7 @@ export function StudyNotesGuide({ basePath, question }) {
       <ChevronRight size={22} aria-hidden="true" />
     </button>
     <dialog ref={dialogRef} className="study-answer-dialog" aria-labelledby={titleId} onClose={event => { if (event.target === event.currentTarget) setOpen(false); }}>
-      <div className="study-answer-dialog-content"><h2 id={titleId}>{notes.course} study notes</h2>{open && <NotesContent notes={notes} question={question} />}</div>
+      <div className="study-answer-dialog-content"><h2 id={titleId}>{notes.course} study notes</h2>{open && <NotesContent notes={notes} question={question} questionReferences={questionReferences} />}</div>
       <div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={() => dialogRef.current?.close()}><X size={18} /> Close notes</button></div>
     </dialog></>;
 }

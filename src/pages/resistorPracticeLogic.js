@@ -1,0 +1,41 @@
+import { emptyResistorAnswer, generateResistorQuestions, gradeResistor, resistorQuestion } from "../data/resistorBands.js";
+import { readPracticeRecord, writePracticeRecord } from "./practiceProgress.js";
+
+export const resistorTestId = "/study/electricity/module-1/resistor-band-calculations";
+const version = 1;
+export function newResistorAttempt(random = Math.random) {
+  return { questions: generateResistorQuestions(random), position: 0, answers: [], draft: emptyResistorAnswer(), complete: false };
+}
+export function restoreResistorAttempt(record) {
+  try {
+    if (record?.version !== version || !Array.isArray(record.bands) || record.bands.length !== 20) return null;
+    const questions = record.bands.map(resistorQuestion);
+    if (new Set(record.bands.map(bands => bands.join("|"))).size !== 20) return null;
+    const { position, answers, draft, complete } = record;
+    if (!Number.isInteger(position) || position < 0 || position >= 20 || !Array.isArray(answers) || ![position, position + 1].includes(answers.length) || typeof complete !== "boolean") return null;
+    if (answers.some((answer, index) => !gradeResistor(questions[index], answer).valid)) return null;
+    if (!draft || !["Ω", "kΩ", "MΩ"].includes(draft.unit) || Object.keys(emptyResistorAnswer()).some(key => typeof draft[key] !== "string")) return null;
+    if (complete && (position !== 19 || answers.length !== 20)) return null;
+    return { questions, position, answers, draft, complete };
+  } catch { return null; }
+}
+export function loadResistorAttempt(storage) {
+  return restoreResistorAttempt(readPracticeRecord("resistor-progress", resistorTestId, storage)) ?? newResistorAttempt();
+}
+export function saveResistorAttempt(attempt, storage) {
+  return writePracticeRecord("resistor-progress", resistorTestId, { version, bands: attempt.questions.map(q => q.bands), position: attempt.position, answers: attempt.answers, draft: attempt.draft, complete: attempt.complete }, storage);
+}
+export function resistorScore(attempt) {
+  return attempt.answers.reduce((score, answer, index) => score + Number(gradeResistor(attempt.questions[index], answer).allCorrect), 0);
+}
+export function loadResistorBest(storage) {
+  const best = readPracticeRecord("resistor-best", resistorTestId, storage);
+  return best?.version === version && best.total === 20 && Number.isInteger(best.score) && best.score >= 0 && best.score <= 20 ? best : null;
+}
+export function recordResistorBest(score, storage) {
+  const previous = loadResistorBest(storage);
+  if (!Number.isInteger(score) || score < 0 || score > 20) return { best: previous, saved: false };
+  if (previous && previous.score >= score) return { best: previous, saved: true };
+  const best = { version, score, total: 20 };
+  return { best, saved: writePracticeRecord("resistor-best", resistorTestId, best, storage) };
+}

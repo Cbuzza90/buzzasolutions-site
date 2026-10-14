@@ -4,6 +4,7 @@ import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileTex
 import "./StudyHub.css";
 import CompletedTestStatus from "./CompletedTestStatus";
 import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
+import ResistorBandPractice from "./ResistorBandPractice";
 import ElectricityPractice, { ElectricityTestList } from "./ElectricityPractice";
 import StudyWelcome from "./StudyWelcome";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
@@ -99,7 +100,7 @@ function CourseDetail() {
 
 export default function StudyHub() {
   const { pathname } = useLocation();
-  const onPractice = /^\/study\/[^/]+\/[^/]+\/(?:practice-\d+|torque-bolt-nut)$/.test(pathname);
+  const onPractice = /^\/study\/[^/]+\/[^/]+\/(?:practice-\d+|torque-bolt-nut|resistor-band-calculations)$/.test(pathname);
   const testsPath = pathname.slice(0, pathname.lastIndexOf("/"));
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem("study-theme") !== "light"; }
@@ -124,6 +125,7 @@ export default function StudyHub() {
         <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/electricity/module-1" element={<ElectricityTestList />} />
         <Route path="/study/electricity/module-1/practice-1" element={<ElectricityPractice />} />
+        <Route path="/study/electricity/module-1/resistor-band-calculations" element={<ResistorBandPractice />} />
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
         <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
