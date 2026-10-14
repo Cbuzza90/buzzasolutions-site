@@ -15,6 +15,17 @@ export const practiceBanksByModule = {
   "/study/structures/module-1": [endlessTorqueQuestions],
 };
 
+function referenceText(question) {
+  const answer = question.options[question.correctIndex].trim();
+  const explanation = question.explanation.trim();
+  const remaining = explanation.slice(answer.length);
+  // Many course explanations already begin with the correct answer.
+  if (explanation.startsWith(answer) && (!remaining || /^[\s.,:;!?–—-]/u.test(remaining))) {
+    return `Answer: ${explanation}`;
+  }
+  return `Answer: ${answer}${/[.!?]$/.test(answer) ? "" : "."} ${explanation}`;
+}
+
 export function practiceQuestionNotes(basePath) {
   return (practiceBanksByModule[basePath] ?? []).map((questions, index) => ({
     id: `practice-reference-${index + 1}`,
@@ -22,7 +33,7 @@ export function practiceQuestionNotes(basePath) {
     questionReference: true,
     items: questions.map(question => [
       question.prompt,
-      `Answer: ${question.options[question.correctIndex]}. ${question.explanation}`,
+      referenceText(question),
       question.optionImages?.[question.correctIndex] ?? question.visual?.src ?? question.feedbackVisual?.src,
       question.diagram,
     ]),
