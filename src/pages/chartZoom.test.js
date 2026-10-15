@@ -33,3 +33,16 @@ test("coincident touches and unloaded images do not create an invalid pinch", ()
   assert.equal(startPinch([{x:100,y:100},{x:100,y:100}], {width:1280,scrollLeft:0,scrollTop:0}), null);
   assert.equal(startPinch([{x:0,y:0},{x:100,y:100}], {width:0,scrollLeft:0,scrollTop:0}), null);
 });
+
+test("resistor pinch uses its fitted width and keeps the same chart point at its 300% limit", () => {
+  const start = startPinch([{x:50,y:60},{x:150,y:60}], {width:480,scrollLeft:100,scrollTop:140});
+  const options = { baseWidth:320, minZoom:100, maxZoom:300 };
+  const next = updatePinch(start, [{x:0,y:60},{x:200,y:60}], 320, options);
+  assert.equal(next.zoom, 300);
+  assert.equal(next.width, 960);
+  assert.equal(next.scrollLeft, 300);
+  assert.equal(next.scrollTop, 340);
+  const fit = updatePinch(start, [{x:90,y:60},{x:110,y:60}], 320, options);
+  assert.equal(fit.zoom, 100);
+  assert.equal(fit.width, 320);
+});

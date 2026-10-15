@@ -6,6 +6,14 @@ import QuestionDiagram from "./QuestionDiagram";
 import ResistorColourChart from "./ResistorColourChart";
 import TorqueChart from "./TorqueChart";
 
+export function ModuleStudyNotesLink({ basePath }) {
+  return <Link className="study-notes-open study-module-notes" to={`${basePath}/notes`}>
+    <span className="study-notes-open-icon"><BookOpen size={24} aria-hidden="true" /></span>
+    <span className="study-notes-open-label"><strong>Study notes</strong><span>Search topics, diagrams & explanations</span></span>
+    <ChevronRight size={22} aria-hidden="true" />
+  </Link>;
+}
+
 function NotesContent({ notes, question, questionReferences }) {
   const [query, setQuery] = useState("");
   const [expandedReferences, setExpandedReferences] = useState({});

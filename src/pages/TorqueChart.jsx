@@ -2,21 +2,13 @@ import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { BookOpen, Minus, Plus, X } from "lucide-react";
 import { CHART_WIDTH, MAX_CHART_ZOOM, startPinch, updatePinch } from "./chartZoom";
 
-const desktopQuery = "(min-width: 1200px) and (hover: hover) and (pointer: fine)";
 
-export default function TorqueChart({ question, desktopInline = false }) {
+
+export default function TorqueChart({ question, practiceInline = false }) {
   const titleId = useId();
   const [open, setOpen] = useState(false);
-  const [desktop, setDesktop] = useState(() => desktopInline && window.matchMedia(desktopQuery).matches);
-  const inline = desktopInline && desktop;
-  const [zoom, setZoom] = useState(() => desktopInline && window.matchMedia(desktopQuery).matches ? null : 100);
-  useEffect(() => {
-    if (!desktopInline) return;
-    const media = window.matchMedia(desktopQuery);
-    const change = event => { setDesktop(event.matches); setOpen(false); };
-    media.addEventListener("change", change);
-    return () => media.removeEventListener("change", change);
-  }, [desktopInline]);
+  const inline = practiceInline;
+  const [zoom, setZoom] = useState(practiceInline ? null : 100);
   const dialogRef = useRef(null);
   const scrollRef = useRef(null);
   const imageRef = useRef(null);
@@ -114,6 +106,7 @@ export default function TorqueChart({ question, desktopInline = false }) {
         <div><dt>Nut</dt><dd>{question.nut}</dd></div>
       </dl>}
       <p>Full reference chart · All values in in-lb. Use the fine-thread section. Click and drag with a mouse to move around. On touch screens, pinch to zoom and drag with one finger.</p>
+      <span className="study-chart-mobile-hint">Pinch to zoom · drag to move</span>
       <div className="study-chart-zoom" aria-label="Chart zoom controls">
         <button type="button" aria-label="Zoom out" disabled={zoom === null || zoom <= 50} onClick={() => changeZoom(-25)}><Minus size={16} /></button>
         <output aria-label="Zoom level">{zoom === null ? "Fit" : `${Math.round(zoom)}%`}</output>

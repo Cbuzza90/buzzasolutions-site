@@ -4,7 +4,7 @@ export const RESET_PRACTICE_EVENT = "study:reset-practice";
 const key = (type, testId) => `study-practice:${type}:${testId}`;
 const storageForBrowser = () => { try { return globalThis.localStorage; } catch { return undefined; } };
 function read(storage, name) { try { return JSON.parse(storage?.getItem(name) ?? "null"); } catch { return null; } }
-function write(storage, name, value) { try { if (!storage) return false; storage.setItem(name, JSON.stringify(value)); return true; } catch { return false; } }
+function write(storage, name, value) { try { if (!storage) return false; storage.setItem(name, JSON.stringify({ ...value, updatedAt: new Date().toISOString() })); return true; } catch { return false; } }
 
 export function readPracticeRecord(type, testId, storage = storageForBrowser()) { return read(storage, key(type, testId)); }
 export function writePracticeRecord(type, testId, value, storage = storageForBrowser()) { return write(storage, key(type, testId), value); }

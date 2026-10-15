@@ -11,10 +11,10 @@ export function startPinch(points, { width, scrollLeft, scrollTop }) {
   return { separation, width, anchorX: (scrollLeft + center.x) / width, anchorY: (scrollTop + center.y) / width };
 }
 
-export function updatePinch(start, points, viewportWidth) {
+export function updatePinch(start, points, viewportWidth, { baseWidth = CHART_WIDTH, minZoom = 50, maxZoom = MAX_CHART_ZOOM } = {}) {
   const center = midpoint(points);
-  const minimum = Math.min(50, viewportWidth / CHART_WIDTH * 100);
-  const zoom = Math.max(minimum, Math.min(MAX_CHART_ZOOM, start.width * distance(points) / start.separation / CHART_WIDTH * 100));
-  const width = CHART_WIDTH * zoom / 100;
+  const minimum = Math.min(minZoom, viewportWidth / baseWidth * 100);
+  const zoom = Math.max(minimum, Math.min(maxZoom, start.width * distance(points) / start.separation / baseWidth * 100));
+  const width = baseWidth * zoom / 100;
   return { zoom, width, scrollLeft: start.anchorX * width - center.x, scrollTop: start.anchorY * width - center.y };
 }

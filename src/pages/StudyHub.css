@@ -499,6 +499,7 @@
 .study-notes-open-label strong{font-size:15px;font-weight:750;line-height:1.3}
 .study-notes-open-label>span{font-size:12px;line-height:1.4;color:#dbeafe}
 .study-notes-open>svg{flex-shrink:0}
+.study-app[data-theme] a.study-module-notes{color:#fff}
 
 .study-torque-thread-label{display:block;font-size:inherit;line-height:1.5;font-weight:inherit;color:#fff;background:#263444;border-radius:6px;padding:3px 5px;margin-top:5px}
 
@@ -577,28 +578,16 @@
   .study-app .study-detail:has(>.study-test-link)>*{grid-column:1/-1;margin-top:0}
   .study-app .study-detail:has(>.study-test-link)>.study-test-link{grid-column:auto;height:100%}
   .study-app .study-question-screen:not(.study-with-reference){max-width:960px}
-  .study-app .study-with-reference{max-width:none;display:grid;grid-template-columns:minmax(360px,.85fr) minmax(0,1.65fr);grid-template-rows:repeat(7,max-content) 1fr;column-gap:32px;align-items:start}
-  .study-with-reference>.study-eyebrow{grid-area:1/1;margin:0}
-  .study-with-reference>.study-test-progress{grid-area:2/1}
-  .study-with-reference>.study-saved-progress{grid-area:3/1}
-  .study-with-reference>progress{grid-area:4/1}
-  .study-with-reference>h1.study-question{grid-area:5/1;font-size:26px;line-height:1.45}
-  .study-with-reference>.study-notes-open{grid-area:6/1;margin:12px 0 20px}
-  .study-with-reference>.study-answer-options{grid-area:7/1;gap:12px}
-  .study-with-reference>.study-answer-options .study-answer{min-height:58px;font-size:16px}
-  .study-with-reference>.study-practice-reference{grid-area:1/2/9/3;min-width:0;position:sticky;top:72px}
+  .study-app .study-with-reference{max-width:none;display:grid;grid-template-columns:minmax(360px,.85fr) minmax(0,1.65fr);column-gap:32px;align-items:start}
+  .study-chart-workspace>.study-practice-question{grid-area:1/1;min-width:0}
+  .study-chart-workspace>.study-practice-reference{grid-area:1/2;min-width:0;position:sticky;top:72px}
+  .study-practice-question h1.study-question{font-size:26px;line-height:1.45}
   .study-torque-inline{height:calc(100dvh - 180px);min-height:480px;max-height:1000px;padding:18px;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--ink)}
   .study-app[data-theme="dark"] .study-torque-inline{background:#141414}
   .study-torque-inline>h2{font-size:20px;font-weight:700;margin:0;flex-shrink:0}
   .study-torque-inline>p{font-size:12px;line-height:1.5;color:var(--muted);margin:10px 0;flex-shrink:0}
   .study-torque-inline .study-torque-question-reference{margin-top:10px}
   .study-torque-inline .study-torque-question-reference dd{font-size:16px}
-  .study-resistor-test.study-with-reference{grid-template-rows:repeat(8,max-content) 1fr}
-  .study-resistor-test.study-with-reference>h1{grid-area:5/1}
-  .study-resistor-test.study-with-reference>.study-resistor-drawing{grid-area:6/1}
-  .study-resistor-test.study-with-reference>.study-notes-open{grid-area:7/1;margin:8px 0 12px}
-  .study-resistor-test.study-with-reference>.study-resistor-form{grid-area:8/1}
-  .study-resistor-test.study-with-reference>.study-practice-reference{grid-area:1/2/10/3}
   .study-resistor-inline{height:calc(100dvh - 180px);min-height:480px;max-height:1000px;border:1px solid var(--line);border-radius:18px;background:#fff}
   .study-app[data-theme="dark"] .study-resistor-inline{background:#141414}
   .study-resistor-inline>.study-answer-dialog-content{height:100%;padding:18px;display:flex;flex-direction:column;overflow:hidden}
@@ -606,4 +595,46 @@
   .study-resistor-inline .study-resistor-chart-scroll{flex:1;min-height:0;max-height:none;margin:10px 0}
   .study-resistor-inline :is(h2,p,.study-chart-zoom,a){flex-shrink:0}
   .study-resistor-inline .study-feedback-explanation{font-size:12px;line-height:1.5;margin:10px 0}
+}
+
+/* Shared chart workspace: keep the same chart DOM and scroll position while answering. */
+.study-workspace-controls,.study-chart-mobile-hint{display:none}
+.study-resistor-chart-scroll{touch-action:none;overscroll-behavior:contain}
+.study-resistor-original-chart{user-select:none;-webkit-user-select:none}
+.study-practice-question>.study-eyebrow{font-size:9px;letter-spacing:1px}
+@media(max-width:1199px),(hover:none),(pointer:coarse){
+  .study-app:has(.study-chart-workspace){display:flex;flex-direction:column;height:var(--practice-viewport-height,100dvh);min-height:0;padding-bottom:0;overflow:hidden}
+  .study-app:has(.study-chart-workspace) .study-header{flex-shrink:0;position:static}
+  .study-app:has(.study-chart-workspace) .study-main{flex:1;min-height:0;overflow:hidden;margin:0 auto;padding:6px 12px calc(84px + env(safe-area-inset-bottom))}
+  .study-app .study-chart-workspace{display:flex;flex-direction:column;height:100%;min-height:0;max-height:100%;gap:6px;margin:0}
+  .study-chart-workspace>.study-practice-reference{flex:0 1 var(--chart-share);min-height:80px;min-width:0;overflow:hidden}
+  .study-chart-workspace>.study-practice-question{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;overflow-anchor:none;scroll-padding:12px;padding:0 3px 12px;scrollbar-width:thin}
+  .study-workspace-controls{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-shrink:0;min-height:30px;font-size:10px;color:var(--muted)}
+  .study-workspace-controls button{border:0;border-radius:7px;padding:6px 9px;min-height:30px;font-size:11px;cursor:pointer}
+  .study-chart-workspace :is(.study-torque-inline,.study-resistor-inline){height:100%;min-height:0;display:flex;flex-direction:column;padding:8px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+  .study-app[data-theme="dark"] .study-chart-workspace :is(.study-torque-inline,.study-resistor-inline){background:#141414}
+  .study-chart-workspace :is(.study-torque-inline,.study-resistor-inline) h2{font-size:14px;font-weight:700;line-height:1.3;margin:0;flex-shrink:0}
+  .study-chart-workspace .study-torque-inline>p,.study-chart-workspace .study-resistor-inline :is(p,a){display:none}
+  .study-chart-workspace .study-resistor-inline>.study-answer-dialog-content{display:flex;flex-direction:column;padding:0;overflow:hidden;flex:1;min-height:0}
+  .study-chart-workspace .study-resistor-chart-scroll{flex:1;min-height:0;max-height:none;margin:0}
+  .study-chart-workspace .study-torque-question-reference{gap:6px;margin:5px 0 0;padding:5px 6px;border-radius:7px}
+  .study-chart-workspace .study-torque-question-reference dt{font-size:9px;margin-bottom:1px}
+  .study-chart-workspace .study-torque-question-reference dd{font-size:12px;line-height:1.2}
+  .study-chart-workspace .study-torque-thread-label{font-size:inherit;line-height:1.2;margin-top:2px;padding:2px 3px}
+  .study-chart-workspace .study-chart-mobile-hint{display:none}
+  .study-chart-workspace .study-chart-zoom{grid-template-columns:32px 48px 32px max-content;gap:5px;margin:4px 0}
+  .study-chart-workspace .study-chart-zoom :is(button,output){height:32px;min-height:32px;min-width:32px;font-size:11px}
+  .study-chart-workspace .study-practice-question h1.study-question{font-size:18px;line-height:1.4;margin:10px 0}
+  .study-chart-workspace .study-practice-question .study-saved-progress{margin:6px 0;font-size:10px}
+  .study-chart-workspace .study-practice-question .study-notes-open{min-height:48px;padding:6px 9px;margin:8px 0 12px}
+  .study-chart-workspace .study-notes-open-icon{width:30px;height:30px}
+  .study-chart-workspace .study-notes-open-label strong{font-size:13px}
+  .study-chart-workspace .study-notes-open-label>span{font-size:10px}
+  .study-chart-workspace .study-resistor-drawing svg{max-height:110px}
+  .study-app[data-practice-compact="true"] .study-chart-workspace :is(.study-torque-question-reference,.study-chart-mobile-hint,.study-workspace-controls>span){display:none}
+  .study-app[data-practice-compact="true"] .study-workspace-controls{justify-content:flex-end;min-height:26px}
+  .study-app[data-practice-compact="true"] .study-workspace-controls button{min-height:26px;padding:4px 8px}
+  .study-app[data-practice-compact="true"] .study-main{padding-bottom:60px}
+  .study-app[data-practice-compact="true"] .study-tab-bar :is(a,button){min-height:36px;flex-direction:row;gap:5px;font-size:10px}
+  .study-app[data-practice-compact="true"] .study-tab-bar svg{width:18px;height:18px}
 }

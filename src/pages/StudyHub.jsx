@@ -8,6 +8,8 @@ import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import ResistorBandPractice from "./ResistorBandPractice";
 import ElectricityPractice, { ElectricityTestList } from "./ElectricityPractice";
 import StudyWelcome from "./StudyWelcome";
+import StudentDashboard, { CourseActivity } from "./StudentDashboard";
+import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
 import SystemsMixedPractice from "./SystemsMixedPractice";
@@ -66,26 +68,29 @@ function TestDateBanner({ today, refreshDate }) {
     </dialog>
   </aside>;
 }
-function CourseCard({ course, today }) {
+function CourseCard({ course, today, summaries }) {
   const nextTest = nextCourseTest(course.slug, upcomingTests, today);
   const countdown = nextTest ? nextTest.days === 0 ? "TODAY" : `${nextTest.days} day${nextTest.days === 1 ? "" : "s"}` : null;
   const cardProps = { className: `study-course-card${course.hasTests ? "" : " unavailable"}`, "data-test-urgency": nextTest?.urgency, style: nextTest ? { "--test-hue": nextTest.hue } : undefined };
   const content = <><div className="study-card-top"><span className={`study-icon ${course.color}${nextTest ? " study-course-countdown-icon" : ""}`} title={nextTest ? `${nextTest.possible ? "Possible test" : "Next test"}: ${formatTestDate(nextTest.date)} · ${countdown}` : undefined}><course.icon size={24} strokeWidth={1.7} />{nextTest && <span className="study-course-countdown">{countdown}</span>}</span>{course.hasTests && <ArrowUpRight size={19} className="study-card-arrow" />}</div>{nextTest?.urgency === "urgent" && <span className="study-test-soon">TEST SOON!</span>}<CompletedTestStatus courseSlug={course.slug} today={today} /><p className="study-course-code">{course.code}</p><h3>{course.title}</h3><div className="study-card-bottom"><span>{course.hasTests ? course.category : <span className="study-unavailable-badge">No tests made yet</span>}</span>{nextTest?.possible && <span className="study-test-possible">Possible test · {formatTestDate(nextTest.date, true)}</span>}</div></>;
-  return course.hasTests ? <Link to={`/study/${course.slug}`} {...cardProps}>{content}</Link> : <article {...cardProps} aria-disabled="true">{content}</article>;
+  return course.hasTests ? <Link to={`/study/${course.slug}`} {...cardProps}>{content}<CourseActivity summaries={summaries} courseSlug={course.slug} /></Link> : <article {...cardProps} aria-disabled="true">{content}</article>;
 }
 
 function CourseList() {
   const [today, refreshDate] = useStudyDate();
+  const summaries = loadDashboard();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All courses");
   const filtered = sortCoursesByNextTest(courses.filter(course => (category === "All courses" || category === course.category) && `${course.title} ${course.code}`.toLowerCase().includes(query.trim().toLowerCase())), upcomingTests, today);
   return <>
-    <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your courses</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div><p>What are we studying today?</p></section>
+    <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your study dashboard</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div><p>Choose a course to open its modules, study guide and saved practice.</p></section>
+    <StudentDashboard />
     <section id="courses" className="study-courses">
+      <div className="study-dashboard-section-heading"><div><p className="study-eyebrow">YOUR STUDY SPACES</p><h2>Your courses</h2></div></div>
       <label className="study-search"><Search size={20} /><span className="sr-only">Search courses by name or code</span><input type="search" placeholder="Search a course or course code" value={query} onChange={event => setQuery(event.target.value)} /></label>
       <div className="study-filters" aria-label="Filter courses">{["All courses", "Foundations", "Aircraft", "Tools & math"].map(item => <button key={item} className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>
       <p className="sr-only" role="status">{filtered.length} courses found</p>
-      <div className="study-grid">{filtered.map(course => <CourseCard key={course.slug} course={course} today={today} />)}</div>
+      <div className="study-grid">{filtered.map(course => <CourseCard key={course.slug} course={course} today={today} summaries={summaries} />)}</div>
       {filtered.length === 0 && <div className="study-empty"><Search size={28} /><h3>No courses found</h3><p>Try another name or course code.</p><button className="study-primary" onClick={() => { setQuery(""); setCategory("All courses"); }}>Clear filters</button></div>}
     </section>
   </>;
@@ -122,6 +127,7 @@ export default function StudyHub() {
       <Routes>
         <Route path="/" element={<CourseList />} />
         <Route path="/study" element={<Navigate to="/" replace />} />
+        <Route path="/study/review/*" element={<Navigate to="/" replace />} />
         <Route path="/study/saved" element={<Navigate to="/" replace />} />
         <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/electricity/module-1" element={<ElectricityTestList />} />
