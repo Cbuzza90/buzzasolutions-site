@@ -60,3 +60,18 @@ test("notes search accepts question wording, reordered terms and punctuation var
   const references = findNoteSections(systems, "Greek").filter(section => section.questionReference);
   assert.equal(references.flatMap(section => section.items).length, 2, "Show the matching choice and one-word references, not entire banks");
 });
+
+
+test("electricity technical terms return condensed definitions as well as question references", () => {
+  const sections = studyNotesByModule["/study/electricity/module-1"].sections;
+  for (const term of ["potentiometer", "rheostat", "wiper", "voltage divider", "piezoelectric", "thermocouple", "photovoltaic", "electromagnetic induction", "nichrome", "galvanometer", "sensitivity", "full-scale", "electrical damping", "shunt", "multiplier resistor", "megohmmeter", "digital multimeter", "resolution", "accuracy", "Wheatstone", "oscilloscope", "frequency", "period", "electromotive force"]) {
+    const definitions = findNoteSections(sections, term).filter(section => !section.questionReference);
+    assert.ok(definitions.length > 0, `No condensed definition for ${term}`);
+  }
+  const entries = sections.filter(section => !section.questionReference).flatMap(section => section.items);
+  const pot = entries.find(([label]) => label === "Potentiometer")[1];
+  assert.match(pot, /wiper/);
+  assert.match(pot, /volume control/);
+  assert.match(pot, /three terminals/);
+  assert.equal(new Set(entries.map(([label]) => label)).size, entries.length, "Avoid duplicate condensed term headings");
+});

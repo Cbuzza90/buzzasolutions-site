@@ -116,3 +116,30 @@ The condensed Ohm-law note said that these notes and this test require no arithm
 ## Scope update: resistor practice
 
 The user removed temperature coefficients from the practice scope. Current attempts contain ten four-band and ten five-band questions; the viewer excludes the six-band example and coefficient column from the original chart. Earlier six-band audit counts above describe the previous implementation. Legacy saves migrate to five bands with progress and best scores retained.
+
+## Vocabulary follow-up audit - 2026-10-15
+
+Rechecked all 64 active multiple-choice prompts/answers and the 64 Electricity one-word prompts against the original DOCX paragraphs and original supplied 50-question result text. The DOCX is a list of prompts, not a completed answer key. No original files, bank questions, grading, progress keys or scores were changed in this follow-up.
+
+Potentiometer appears in the supplied quiz Q21 and Q47, site multiple-choice Q45 and recall Q45. It does not appear by name in the DOCX study aid. Rheostat is also named in quiz Q21 and site Q45, not in the DOCX. Existing short notes were expanded into definitions, operating distinctions and the source quiz's volume-control example. Related vocabulary is explained within its existing topic rather than duplicating headings.
+
+| Vocabulary | Course source | Site choice / one-word coverage | Notes action |
+| --- | --- | --- | --- |
+| Potentiometer, rheostat | Quiz Q21; potentiometer application Q47 | Choice Q45 compares both; recall Q45 asks potentiometer | Define both, wiper and voltage divider; add volume control |
+| Piezoelectric material | Quiz Q42; aid's pressure source | Q15 / recall Q15 | Explain deformation-to-voltage relationship |
+| Thermocouple, photovoltaic cell | Examples explaining aid's heat/light sources; not explicitly named in aid | Q16-17 / recall Q16-17 | Define the devices and source relationship |
+| EMF, electromagnetic induction | Aid voltage/EMF and magnetism prompts | Q19,22 / recall Q19,22 | Define EMF, changing flux and induction |
+| Nichrome, resistivity | Quiz Q15; aid resistance factors | Q9 / recall Q9 | Define alloy and material property |
+| Galvanometer | Aid needle-deflection prompt | Q46 / recall Q46 | Define movement and magnetic torque |
+| Sensitivity, full-scale deflection | Quiz Q16 | Q47 / recall Q47 | Separate definitions |
+| Damping, electrical damping | Quiz Q22 | Q48 / recall Q48 test purpose | Define damping; identify source method |
+| Shunt, multiplier resistor | Aid meter additional circuitry; quiz Q11,Q32 | Q52,54 / recall Q52,54 | Define parallel bypass versus series resistor; distinguish colour-band multiplier |
+| Ammeter, voltmeter, ohmmeter | Aid meter prompts; quiz Q9-11,Q26-27,Q38,Q44,Q49 | Q50-56 / recall Q50-56 | Add explicit instrument definitions with existing connection precautions |
+| Megohmmeter | Aid high-resistance instrument; quiz Q37 | Q57-58 / recall Q57-58 | Define insulation resistance test and its elevated test voltage |
+| DMM, resolution, accuracy | Aid resolution and low-battery prompts; quiz Q14,Q24 | Q59-61 / recall Q59-61; accuracy is a distinction in Q60 | Define separately and retain qualified accuracy comparison |
+| Wheatstone bridge | Quiz Q39,Q45 | Q62 / recall Q62 | Define resistance comparison and balanced detector |
+| Oscilloscope, waveform, cycle, period, frequency | Aid signal-analysis prompt; quiz Q3,Q19,Q35 | Q63-64 / recall Q63-64 | Define each term separately; retain time-versus-amplitude distinction |
+
+Remaining question-coverage limits: volume control is now in condensed notes, but has no separate application question; rheostat has no dedicated one-word answer prompt; electrical damping's method is not directly asked (only its purpose); analog ohms-zero calibration has no separate question. These are practice-depth gaps, not claims that the terms are absent. No unrelated advanced topics such as thermistors, transducers, capacitance or inductance were added as new syllabus requirements.
+
+Supporting references: the FAA General Handbook's variable-resistor discussion and Fluke's accuracy/resolution explanation supplement the user's course prompts. They clarify definitions rather than expand the course scope. The DOCX and supplied quiz remain the source for what is in this module.
