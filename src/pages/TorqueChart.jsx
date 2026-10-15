@@ -2,10 +2,21 @@ import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { BookOpen, Minus, Plus, X } from "lucide-react";
 import { CHART_WIDTH, MAX_CHART_ZOOM, startPinch, updatePinch } from "./chartZoom";
 
-export default function TorqueChart({ question }) {
+const desktopQuery = "(min-width: 1200px) and (hover: hover) and (pointer: fine)";
+
+export default function TorqueChart({ question, desktopInline = false }) {
   const titleId = useId();
   const [open, setOpen] = useState(false);
-  const [zoom, setZoom] = useState(100);
+  const [desktop, setDesktop] = useState(() => desktopInline && window.matchMedia(desktopQuery).matches);
+  const inline = desktopInline && desktop;
+  const [zoom, setZoom] = useState(() => desktopInline && window.matchMedia(desktopQuery).matches ? null : 100);
+  useEffect(() => {
+    if (!desktopInline) return;
+    const media = window.matchMedia(desktopQuery);
+    const change = event => { setDesktop(event.matches); setOpen(false); };
+    media.addEventListener("change", change);
+    return () => media.removeEventListener("change", change);
+  }, [desktopInline]);
   const dialogRef = useRef(null);
   const scrollRef = useRef(null);
   const imageRef = useRef(null);
@@ -21,14 +32,14 @@ export default function TorqueChart({ question }) {
     pendingScrollRef.current = null;
   }, [zoom]);
   useEffect(() => {
-    if (!open) return;
+    if (!open || inline) return;
     const dialog = dialogRef.current;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     dialog.showModal();
     const touches = touchesRef.current;
     return () => { dialog.close(); document.body.style.overflow = previous; touches.clear(); mouseDragRef.current = null; pinchRef.current = null; pendingScrollRef.current = null; };
-  }, [open]);
+  }, [open, inline]);
   function changeZoom(amount) { setZoom(current => current === null ? 100 : Math.max(50, Math.min(MAX_CHART_ZOOM, current + amount))); }
   function localPoints() {
     const area = scrollRef.current;
@@ -95,12 +106,10 @@ export default function TorqueChart({ question }) {
     pinchRef.current = null;
     if (touchesRef.current.size >= 2) beginPinch();
   }
-  return <>
-    <button type="button" className="study-torque-chart-button" aria-haspopup="dialog" onClick={() => setOpen(true)}><BookOpen size={18} /> View torque chart</button>
-    <dialog ref={dialogRef} className="study-diagram-dialog study-torque-dialog" aria-labelledby={titleId} onClose={() => setOpen(false)}>
+  const content = <>
       <h2 id={titleId}>Bolt & nut torque chart</h2>
       {question?.diameter && <dl className="study-torque-question-reference" aria-label="Current question fasteners">
-        <div><dt>Diameter</dt><dd>{question.diameter}″{question.chartThread && <small className="study-torque-thread-label">Chart row: {question.chartThread}</small>}</dd></div>
+        <div><dt>Diameter</dt><dd>{question.diameter}″{question.chartThread && <span className="study-torque-thread-label">Chart row: {question.chartThread}</span>}</dd></div>
         <div><dt>Bolt</dt><dd>{question.bolt === "NAS" ? "NAS583–NAS590" : question.bolt}</dd></div>
         <div><dt>Nut</dt><dd>{question.nut}</dd></div>
       </dl>}
@@ -112,7 +121,10 @@ export default function TorqueChart({ question }) {
         <button type="button" onClick={() => setZoom(null)}>Fit screen</button>
       </div>
       <div ref={scrollRef} className="study-diagram-scroll study-torque-full-scroll" tabIndex={0} aria-label="Full torque chart; click and drag with a mouse, or pinch to zoom and drag to pan" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}><img ref={imageRef} draggable={false} className="study-torque-full-image" src="/structures/torque-chart.svg" alt="Complete unmarked torque chart with bolt and nut classifications, twelve minimum/maximum columns, and fine- and coarse-thread sections. All torque values are in-lb." style={{ width: zoom === null ? "100%" : `${CHART_WIDTH * zoom / 100}px` }} /></div>
-      <div className="study-diagram-footer"><button type="button" className="study-primary" onClick={() => dialogRef.current?.close()}><X size={18} /> Close torque chart</button></div>
-    </dialog>
+      {!inline && <div className="study-diagram-footer"><button type="button" className="study-primary" onClick={() => dialogRef.current?.close()}><X size={18} /> Close torque chart</button></div>}
+  </>;
+  return inline ? <aside className="study-torque-inline" aria-labelledby={titleId}>{content}</aside> : <>
+    <button type="button" className="study-torque-chart-button" aria-haspopup="dialog" onClick={() => setOpen(true)}><BookOpen size={18} /> View torque chart</button>
+    <dialog ref={dialogRef} className="study-diagram-dialog study-torque-dialog" aria-labelledby={titleId} onClose={() => setOpen(false)}>{content}</dialog>
   </>;
 }
