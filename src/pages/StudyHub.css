@@ -534,3 +534,31 @@
 .study-typed-form input{display:block;width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:var(--ink);font-size:16px}
 .study-typed-form .study-primary{width:100%;margin:12px 0 0;min-height:48px}
 .study-app[data-theme="dark"] .study-typed-form input{background:#171717;color:var(--ink)}
+
+/* Shared visual cue for interactive controls throughout the study app. */
+.study-app{--action-blue:#2563eb;--action-link:#1d4ed8;--action-hover:#1d4ed8}
+.study-app[data-theme="dark"]{--action-link:#60a5fa;--action-hover:#1d4ed8}
+.study-app[data-theme] a{color:var(--action-link)}
+.study-app[data-theme] a:is(.study-option-link,.study-course-card,.study-brand) :is(strong,h3,.study-card-arrow){color:var(--action-link)}
+.study-app[data-theme] a.study-option-link,
+.study-app[data-theme] a.study-course-card:not([data-test-urgency]){border-color:var(--action-blue)}
+.study-app[data-theme] button:not(:disabled):not(.study-diagram-open):not(.study-calendar-open),
+.study-app[data-theme] a.study-primary,
+.study-app[data-theme] .study-notes-topic summary{background:var(--action-blue);color:#fff;border-color:var(--action-blue)}
+.study-app[data-theme] button:not(:disabled):not(.study-diagram-open):not(.study-calendar-open):hover,
+.study-app[data-theme] a.study-primary:hover,
+.study-app[data-theme] .study-notes-topic summary:hover{background:var(--action-hover)}
+.study-app[data-theme] .study-answer:not(:disabled) .study-answer-letter{background:#ffffff26;color:#fff}
+.study-app[data-theme] .study-diagram-open{border-color:var(--action-blue)}
+.study-app[data-theme] .study-diagram-open>span{background:var(--action-blue);color:#fff}
+.study-app[data-theme] .study-calendar-open{border:1px solid var(--action-blue);border-radius:10px}
+.study-app[data-theme] .study-calendar-heading{color:var(--action-link)}
+.study-app[data-theme] .study-tab-bar :is(a,button),
+.study-app[data-theme] .study-tab-bar a.active{background:var(--action-blue);color:#fff}
+.study-app[data-theme] .study-tab-bar :is(a,button):hover{background:var(--action-hover)}
+.study-app[data-theme] :is(input,select,textarea),
+.study-app[data-theme] .study-search{border-color:var(--action-blue);accent-color:var(--action-blue)}
+.study-app[data-theme] :is(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
+
+.study-app[data-theme] .study-filters button.selected,
+.study-app[data-theme] .study-tab-bar a.active{background:#1e40af;color:#fff;box-shadow:inset 0 0 0 2px #bfdbfe}
