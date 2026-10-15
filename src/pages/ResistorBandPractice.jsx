@@ -102,12 +102,12 @@ export default function ResistorBandPractice() {
       <div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div>
     </section>;
   }
-  return <section className="study-detail study-test study-resistor-test">
+  return <section className="study-detail study-test study-resistor-test study-question-screen study-with-reference">
     <p className="study-eyebrow">ELECTRICITY · RESISTOR BAND CALCULATIONS</p>
     <div className="study-test-progress"><span>Question {attempt.position + 1} of 20</span><span>{score} correct</span></div>{status}
     <progress max={20} value={attempt.position + Number(answered)} aria-label="Questions answered" />
     <h1 ref={headingRef} tabIndex={-1}>{question.bands.length}-band resistor</h1><Drawing question={question} />
-    <StudyNotesGuide basePath={basePath} question={question} questionReferences={references} /><ResistorColourChart />
+    <StudyNotesGuide basePath={basePath} question={question} questionReferences={references} /><div className="study-practice-reference"><ResistorColourChart desktopInline /></div>
     <form className="study-resistor-form" onSubmit={submit}>
       <p className="study-question-type">Enter all values below. One point per resistor when all fields are correct.</p>
       <fieldset disabled={answered}><legend className="sr-only">Resistor answers</legend>

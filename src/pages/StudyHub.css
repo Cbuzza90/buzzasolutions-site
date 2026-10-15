@@ -521,6 +521,8 @@
 
 .study-resistor-chart-scroll{max-height:55dvh;background:#fff}
 .study-resistor-original-chart{display:block;height:auto;max-width:none;margin:auto}
+.study-resistor-chart-scroll{cursor:grab}
+.study-resistor-chart-scroll:active{cursor:grabbing}
 
 .study-chart-zoom{display:grid;grid-template-columns:36px 52px 36px max-content;align-items:center;gap:6px;margin:8px 0;flex-shrink:0}
 .study-chart-zoom button{display:flex;align-items:center;justify-content:center;height:36px;min-height:36px;min-width:36px;padding:6px 10px;margin:0;border:0;border-radius:8px;background:#2563eb;color:#fff;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
@@ -591,4 +593,17 @@
   .study-torque-inline>p{font-size:12px;line-height:1.5;color:var(--muted);margin:10px 0;flex-shrink:0}
   .study-torque-inline .study-torque-question-reference{margin-top:10px}
   .study-torque-inline .study-torque-question-reference dd{font-size:16px}
+  .study-resistor-test.study-with-reference{grid-template-rows:repeat(8,max-content) 1fr}
+  .study-resistor-test.study-with-reference>h1{grid-area:5/1}
+  .study-resistor-test.study-with-reference>.study-resistor-drawing{grid-area:6/1}
+  .study-resistor-test.study-with-reference>.study-notes-open{grid-area:7/1;margin:8px 0 12px}
+  .study-resistor-test.study-with-reference>.study-resistor-form{grid-area:8/1}
+  .study-resistor-test.study-with-reference>.study-practice-reference{grid-area:1/2/10/3}
+  .study-resistor-inline{height:calc(100dvh - 180px);min-height:480px;max-height:1000px;border:1px solid var(--line);border-radius:18px;background:#fff}
+  .study-app[data-theme="dark"] .study-resistor-inline{background:#141414}
+  .study-resistor-inline>.study-answer-dialog-content{height:100%;padding:18px;display:flex;flex-direction:column;overflow:hidden}
+  .study-resistor-inline h2{font-size:20px;margin:0}
+  .study-resistor-inline .study-resistor-chart-scroll{flex:1;min-height:0;max-height:none;margin:10px 0}
+  .study-resistor-inline :is(h2,p,.study-chart-zoom,a){flex-shrink:0}
+  .study-resistor-inline .study-feedback-explanation{font-size:12px;line-height:1.5;margin:10px 0}
 }
