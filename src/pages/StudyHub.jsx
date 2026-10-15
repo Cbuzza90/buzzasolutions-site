@@ -85,7 +85,6 @@ function CourseList() {
   return <>
     <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your study dashboard</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div></section>
     <section id="courses" className="study-courses">
-      <div className="study-dashboard-section-heading"><div><p className="study-eyebrow">YOUR STUDY SPACES</p><h2>Your courses</h2></div></div>
       <label className="study-search"><Search size={20} /><span className="sr-only">Search courses by name or code</span><input type="search" placeholder="Search a course or course code" value={query} onChange={event => setQuery(event.target.value)} /></label>
       <div className="study-filters" aria-label="Filter courses">{["All courses", "Foundations", "Aircraft", "Tools & math"].map(item => <button key={item} className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>
       <p className="sr-only" role="status">{filtered.length} courses found</p>
