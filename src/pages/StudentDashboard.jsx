@@ -8,10 +8,6 @@ function activityText(value) {
   return value ? new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date(value)) : "Date unavailable · older save";
 }
 
-export default function StudentDashboard() {
-  return <div className="study-local-banner"><span><strong>Study without an account</strong><span>Progress saves in this browser. It isn't synced between devices or separated by student. Account sync isn't available yet.</span></span></div>;
-}
-
 export function ModuleStudyOverview({ basePath }) {
   const resume = loadDashboard().find(item => item.unfinished && item.test.basePath === basePath);
   const hasRecall = dashboardTests.some(test => test.basePath === basePath && test.kind === "typed");

@@ -26,7 +26,7 @@ export function ElectricityTestList() {
     </Link>
     <Link className="study-option-link study-test-link" to="/study/electricity/module-1/resistor-band-calculations">
       <span className="study-test-link-heading"><strong>Resistor Band Calculations</strong><span className="study-format-badge">Answer fields</span></span>
-      <span className="study-test-link-description">20 randomized resistors · 4, 5 & 6 bands <ChevronRight size={19} /></span>
+      <span className="study-test-link-description">20 randomized resistors · 4 & 5 bands <ChevronRight size={19} /></span>
       <ResistorRecordBadge />
     </Link>
     <div className="study-flow-actions"><Link to="/study/electricity"><ArrowLeft size={18} /> Electricity</Link></div>

@@ -8,7 +8,7 @@ import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import ResistorBandPractice from "./ResistorBandPractice";
 import ElectricityPractice, { ElectricityTestList } from "./ElectricityPractice";
 import StudyWelcome from "./StudyWelcome";
-import StudentDashboard, { CourseActivity } from "./StudentDashboard";
+import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
@@ -83,8 +83,7 @@ function CourseList() {
   const [category, setCategory] = useState("All courses");
   const filtered = sortCoursesByNextTest(courses.filter(course => (category === "All courses" || category === course.category) && `${course.title} ${course.code}`.toLowerCase().includes(query.trim().toLowerCase())), upcomingTests, today);
   return <>
-    <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your study dashboard</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div><p>Choose a course to open its modules, study guide and saved practice.</p></section>
-    <StudentDashboard />
+    <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1>Your study dashboard</h1><TestDateBanner today={today} refreshDate={refreshDate} /></div></section>
     <section id="courses" className="study-courses">
       <div className="study-dashboard-section-heading"><div><p className="study-eyebrow">YOUR STUDY SPACES</p><h2>Your courses</h2></div></div>
       <label className="study-search"><Search size={20} /><span className="sr-only">Search courses by name or code</span><input type="search" placeholder="Search a course or course code" value={query} onChange={event => setQuery(event.target.value)} /></label>

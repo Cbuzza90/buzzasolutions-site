@@ -4,15 +4,13 @@ import { findNoteSections } from "./courseStudyNotes.js";
 import { decodeResistor, generateResistorQuestions, gradeResistor, resistanceText, resistorQuestion } from "./resistorBands.js";
 import { loadResistorAttempt, loadResistorBest, newResistorAttempt, normalizeOhmAnswer, recordResistorBest, resistorScore, restoreResistorAttempt, saveResistorAttempt } from "../pages/resistorPracticeLogic.js";
 
-test("the course chart's three printed examples decode correctly", () => {
+test("the course chart's four- and five-band examples decode correctly", () => {
   const four = decodeResistor(["Red", "Red", "Black", "Gold"]);
   assert.equal(four.resistance, 22); assert.equal(four.tolerance, 5);
   assert.ok(Math.abs(four.minimum - 20.9) < 1e-10); assert.ok(Math.abs(four.maximum - 23.1) < 1e-10);
   const five = decodeResistor(["Red", "Red", "Black", "Brown", "Brown"]);
   assert.equal(five.resistance, 2200); assert.equal(five.tolerance, 1);
-  const six = decodeResistor(["Brown", "Black", "Black", "Orange", "Purple", "Orange"]);
-  assert.equal(six.resistance, 100000); assert.equal(six.tolerance, 0.1);
-  assert.equal(six.minimum, 99900); assert.equal(six.maximum, 100100); assert.equal(six.temperature, 15);
+  assert.throws(() => decodeResistor(["Brown", "Black", "Black", "Orange", "Purple", "Orange"]), /band count/);
 });
 
 test("gold and silver are fractional multipliers and blank chart positions are rejected", () => {
@@ -24,14 +22,15 @@ test("gold and silver are fractional multipliers and blank chart positions are r
   assert.throws(() => decodeResistor(["Brown", "Black", "Black", "Red", "Gold", "Blue"]));
 });
 
-test("random sets have 20 unique valid questions with a 7/7/6 band-count mix", () => {
+test("random sets have 20 unique valid questions with a 10/10 four/five-band mix", () => {
   for (const random of [() => 0, () => 0.999, Math.random]) {
     const questions = generateResistorQuestions(random);
     assert.equal(questions.length, 20);
     assert.equal(new Set(questions.map(q => q.bands.join("|"))).size, 20);
-    assert.deepEqual([4,5,6].map(count => questions.filter(q => q.bands.length === count).length), [7,7,6]);
+    assert.deepEqual([4,5].map(count => questions.filter(q => q.bands.length === count).length), [10,10]);
     questions.forEach(q => {
       assert.deepEqual(q.expected, decodeResistor(q.bands));
+      assert.ok(!/ppm|temperature|sixth/i.test(JSON.stringify(q)));
       assert.equal(q.studyNote[0], q.prompt);
       assert.ok(q.explanation.toLowerCase().includes("minimum") && q.explanation.toLowerCase().includes("maximum"));
     });
@@ -102,4 +101,27 @@ test("all displayed resistance values use ohms and legacy saved answers retain t
   assert.equal(normalizeOhmAnswer({ unit: "kΩ", resistance: "1,000", minimum: "", maximum: "abc" }).resistance, "1000000");
   assert.equal(normalizeOhmAnswer({ unit: "kΩ", resistance: "", minimum: "", maximum: "" }).resistance, "");
   assert.ok(!q.explanation.includes("kΩ") && !q.explanation.includes("MΩ"));
+});
+
+
+test("legacy six-band progress migrates to five bands without losing answers, drafts or highest scores", () => {
+  const storage = memoryStorage(), attempt = newResistorAttempt();
+  attempt.questions[0] = resistorQuestion(["Brown", "Black", "Black", "Orange", "Purple"], 0);
+  attempt.answers = [answerFor(attempt.questions[0])]; attempt.position = 1;
+  attempt.draft.resistance = "123";
+  saveResistorAttempt(attempt, storage); recordResistorBest(17, storage);
+  const key = [...storage.data.keys()].find(key => key.includes("resistor-progress"));
+  const record = JSON.parse(storage.getItem(key));
+  record.bands[0].push("Orange"); record.answers[0].temperature = "wrong obsolete answer"; record.draft.temperature = "25";
+  storage.setItem(key, JSON.stringify(record));
+  const restored = loadResistorAttempt(storage);
+  assert.equal(restored.position, 1);
+  assert.equal(restored.questions[0].bands.length, 5);
+  assert.equal(restored.draft.resistance, "123");
+  assert.equal(restored.draft.temperature, undefined);
+  assert.equal(restored.answers[0].temperature, undefined);
+  assert.equal(resistorScore(restored), 1);
+  assert.equal(loadResistorBest(storage).score, 17);
+  saveResistorAttempt(restored, storage);
+  assert.deepEqual(loadResistorAttempt(storage), restored);
 });

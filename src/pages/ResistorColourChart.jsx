@@ -76,7 +76,7 @@ export default function ResistorColourChart({ practiceInline = false }) {
   const content = <>
       <div className="study-answer-dialog-content">
         <h2 id={titleId}>Resistor colour chart</h2>
-        <p className="study-feedback-explanation">From your course chart. Four bands: 2 digits + multiplier + tolerance. Five bands: 3 digits + multiplier + tolerance. Six bands: add temperature coefficient.</p>
+        <p className="study-feedback-explanation">From your course chart. Four bands: 2 digits + multiplier + tolerance. Five bands: 3 digits + multiplier + tolerance.</p>
         <div className="study-chart-zoom" aria-label="Chart zoom controls">
           <button type="button" aria-label="Zoom out chart" disabled={zoom <= 100} onClick={() => setZoom(value => Math.max(100, value - 50))}><Minus size={16} /></button>
           <output aria-label="Zoom level">{zoom}%</output>
@@ -84,11 +84,11 @@ export default function ResistorColourChart({ practiceInline = false }) {
           <button type="button" onClick={() => setZoom(100)}>Fit screen</button>
         </div>
         <span className="study-chart-mobile-hint">Pinch to zoom · drag to move</span>
-        <div ref={scrollRef} className="study-resistor-chart-scroll" tabIndex={0} aria-label="Original resistor colour chart; pinch to zoom or drag to move" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}>
-          <img ref={imageRef} draggable={false} className="study-resistor-original-chart" src="/electricity/resistor-colour-chart.png" alt="Original course resistor colour chart showing four-, five- and six-band examples, digit colours, multipliers, tolerances and temperature coefficients" style={{ width: `${zoom}%` }} />
+        <div ref={scrollRef} className="study-resistor-chart-scroll" tabIndex={0} aria-label="Four- and five-band resistor colour chart; pinch to zoom or drag to move" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onLostPointerCapture={pointerEnd}>
+          <img ref={imageRef} draggable={false} className="study-resistor-original-chart" src="/electricity/resistor-colour-chart-4-5.svg" alt="Course resistor colour chart showing four- and five-band examples, digit colours, multipliers and tolerances" style={{ width: `${zoom}%` }} />
         </div>
         <p className="study-feedback-explanation">Enter all resistance answers in ohms (Ω). Minimum = R × (1 − tolerance/100); maximum = R × (1 + tolerance/100).</p>
-        <a className="study-fire-source" href="/electricity/resistor-colour-chart.png" target="_blank" rel="noreferrer">Open original course chart image</a>
+        <a className="study-fire-source" href="/electricity/resistor-colour-chart-4-5.svg" target="_blank" rel="noreferrer">Open four/five-band course chart</a>
       </div>
       {!inline && <div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={() => ref.current?.close()}><X size={18} /> Close chart</button></div>}
   </>;

@@ -112,3 +112,7 @@ The condensed Ohm-law note said that these notes and this test require no arithm
 
 - `electricity-module1-test1.json`: `99b40b445d7dbe00c4b6c0926b817eced4797bd2d1e7920286e5cc660cf31e6c`
 - `resistorBands.js`: `5a33afba105555d88c2a117acbaaa728b39ef23cad08664ae9866ecc2cb85347`
+
+## Scope update: resistor practice
+
+The user removed temperature coefficients from the practice scope. Current attempts contain ten four-band and ten five-band questions; the viewer excludes the six-band example and coefficient column from the original chart. Earlier six-band audit counts above describe the previous implementation. Legacy saves migrate to five bands with progress and best scores retained.

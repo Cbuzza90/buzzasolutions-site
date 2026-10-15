@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-export default function ChartPracticeWorkspace({ children, reference, className = "", questionKey, compactTorqueLayout = false, compactToolbar }) {
+export default function ChartPracticeWorkspace({ children, reference, className = "", questionKey, compactTorqueLayout = false, compactToolbar, compactResistorLayout = false }) {
   const workspaceRef = useRef(null), questionRef = useRef(null);
   const [largeChart, setLargeChart] = useState(false);
   const hasReference = Boolean(reference);
@@ -43,10 +43,10 @@ export default function ChartPracticeWorkspace({ children, reference, className 
     };
   }, [hasReference]);
   useLayoutEffect(() => { if (questionRef.current) questionRef.current.scrollTop = 0; }, [questionKey]);
-  return <section ref={workspaceRef} className={`study-detail study-test study-question-screen ${className}${compactTorqueLayout ? " study-torque-workspace" : ""}${reference ? " study-with-reference study-chart-workspace" : ""}`} style={{ "--chart-share": compactTorqueLayout ? (largeChart ? "46%" : "65%") : (largeChart ? "62%" : "46%") }}>
+  return <section ref={workspaceRef} className={`study-detail study-test study-question-screen ${className}${compactTorqueLayout ? " study-torque-workspace" : ""}${compactResistorLayout ? " study-resistor-workspace" : ""}${reference ? " study-with-reference study-chart-workspace" : ""}`} style={{ "--chart-share": compactTorqueLayout ? (largeChart ? "46%" : "65%") : compactResistorLayout ? "50%" : (largeChart ? "62%" : "46%") }}>
     {reference ? <>
       <div className="study-practice-reference">{reference}</div>
-      <div className="study-workspace-controls">{compactTorqueLayout ? compactToolbar : <span>Chart stays open · scroll answers below</span>}{!compactTorqueLayout && <button type="button" aria-pressed={largeChart} onClick={() => setLargeChart(value => !value)}>{largeChart ? "More answer space" : "More chart space"}</button>}</div>
+      <div className="study-workspace-controls">{compactToolbar || (compactTorqueLayout ? null : <span>Chart stays open · scroll answers below</span>)}{!compactTorqueLayout && !compactResistorLayout && <button type="button" aria-pressed={largeChart} onClick={() => setLargeChart(value => !value)}>{largeChart ? "More answer space" : "More chart space"}</button>}</div>
       <div className="study-practice-question" ref={questionRef} role="region" aria-label="Question and answers" tabIndex={0}>{children}</div>
     </> : children}
   </section>;

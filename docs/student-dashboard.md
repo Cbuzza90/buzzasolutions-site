@@ -11,3 +11,5 @@ No account service or remote storage was introduced. Browser data is shared by p
 Preview with `npm run dev` at http://127.0.0.1:5173/. These changes are for local review before publishing.
 
 Module pages use a compact heading, a single study-tip line, a smaller Study notes link, and a short Continue studying link with saved question count. Test cards retain format, question count, progress and highest score with reduced padding. The previous large Study Guide and resume panels are removed.
+
+The dashboard account notice and the introductory sentence beneath the dashboard title were removed at the user's request. Browser-local progress behavior is unchanged.

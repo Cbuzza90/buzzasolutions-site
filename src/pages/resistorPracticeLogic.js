@@ -15,13 +15,18 @@ export function normalizeOhmAnswer(answer) {
     if (/^\d{1,3}(?:,\d{3})+(?:\.\d*)?$/.test(text)) text = text.replaceAll(",", "");
     if (/^(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(text) && Number.isFinite(Number(text) * factor)) result[field] = String(Number(text) * factor);
   }
+  delete result.temperature;
   return result;
 }
 export function restoreResistorAttempt(record) {
   try {
     if (record?.version !== version || !Array.isArray(record.bands) || record.bands.length !== 20) return null;
-    const questions = record.bands.map(resistorQuestion);
-    if (new Set(record.bands.map(bands => bands.join("|"))).size !== 20) return null;
+    // Older attempts included a sixth coefficient band. Keep their order and answers,
+    // but remove that band; migrated questions can now share the same five colours.
+    const questions = record.bands.map((bands, index) => {
+      if (bands.length === 6 && !["Brown", "Red", "Orange", "Yellow"].includes(bands[5])) throw new Error("Invalid legacy sixth band");
+      return resistorQuestion(bands.length === 6 ? bands.slice(0, 5) : bands, index);
+    });
     const { position, answers, draft, complete } = record;
     if (!Number.isInteger(position) || position < 0 || position >= 20 || !Array.isArray(answers) || ![position, position + 1].includes(answers.length) || typeof complete !== "boolean") return null;
     if (answers.some((answer, index) => !gradeResistor(questions[index], answer).valid)) return null;

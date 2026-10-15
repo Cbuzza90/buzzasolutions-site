@@ -9,10 +9,10 @@ import PeerTutoringSupport from "./PeerTutoringSupport";
 import { RESET_PRACTICE_EVENT, readPracticeRecord } from "./practiceProgress";
 import { loadResistorAttempt, loadResistorBest, newResistorAttempt, recordResistorBest, resistorScore, resistorTestId, restoreResistorAttempt, saveResistorAttempt } from "./resistorPracticeLogic";
 
-const labels = { resistance: "Resistance", tolerance: "Tolerance (±%)", minimum: "Minimum resistance", maximum: "Maximum resistance", temperature: "Temperature coefficient" };
+const labels = { resistance: "Resistance", tolerance: "Tolerance (±%)", minimum: "Minimum resistance", maximum: "Maximum resistance" };
 const basePath = "/study/electricity/module-1";
 function Drawing({ question }) {
-  const positions = question.bands.length === 4 ? [190,235,280,395] : question.bands.length === 5 ? [170,210,250,290,405] : [155,195,235,275,350,410];
+  const positions = question.bands.length === 4 ? [190,235,280,395] : [170,210,250,290,405];
   return <figure className="study-resistor-drawing">
     <svg viewBox="0 0 600 150" role="img" aria-label={`${question.bands.length}-band resistor, read left to right: ${question.bands.join(", ")}`}>
       <path d="M20 75H130M470 75H580" stroke="#8b949e" strokeWidth="6" />
@@ -24,7 +24,7 @@ function Drawing({ question }) {
   </figure>;
 }
 function expectedText(question, field) {
-  return ["resistance", "minimum", "maximum"].includes(field) ? resistanceText(question.expected[field]) : field === "tolerance" ? `±${question.expected[field]}%` : `${question.expected[field]} ppm/°C`;
+  return ["resistance", "minimum", "maximum"].includes(field) ? resistanceText(question.expected[field]) : `±${question.expected[field]}%`;
 }
 
 export function ResistorRecordBadge() {
@@ -98,29 +98,30 @@ export default function ResistorBandPractice() {
       <StudyNotesGuide basePath={basePath} questionReferences={references} /><ResistorColourChart />
       {missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(q => {
         const index = attempt.questions.indexOf(q), answer = attempt.answers[index], result = gradeResistor(q, answer);
-        return <article key={q.id}><h3>{q.prompt}</h3>{resistorFields(q).map(field => <p key={field}>{result.correct[field] ? "Correct" : "Review"} · {labels[field]}: your answer {answer[field]} {field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : "Ω"}; expected <strong>{expectedText(q, field)}</strong></p>)}<p>{q.explanation}</p></article>;
+        return <article key={q.id}><h3>{q.prompt}</h3>{resistorFields(q).map(field => <p key={field}>{result.correct[field] ? "Correct" : "Review"} · {labels[field]}: your answer {answer[field]} {field === "tolerance" ? "%" : "Ω"}; expected <strong>{expectedText(q, field)}</strong></p>)}<p>{q.explanation}</p></article>;
       })}</section>}
       <div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div>
     </section>;
   }
-  return <ChartPracticeWorkspace className="study-resistor-test" questionKey={question.id} reference={<ResistorColourChart practiceInline />}>
-    <p className="study-eyebrow">ELECTRICITY · RESISTOR BAND CALCULATIONS</p>
+  return <ChartPracticeWorkspace className="study-resistor-test" compactResistorLayout compactToolbar={<span>{attempt.position + 1}/20 &middot; {score} correct</span>} questionKey={question.id} reference={<ResistorColourChart practiceInline />}>
+    <div className="study-resistor-metadata"><p className="study-eyebrow">ELECTRICITY · RESISTOR BAND CALCULATIONS</p>
     <div className="study-test-progress"><span>Question {attempt.position + 1} of 20</span><span>{score} correct</span></div>{status}
-    <progress max={20} value={attempt.position + Number(answered)} aria-label="Questions answered" />
+    <progress max={20} value={attempt.position + Number(answered)} aria-label="Questions answered" /></div>
+    {storageError && <p role="alert">Progress could not be saved in this browser.</p>}
     <h1 ref={headingRef} tabIndex={-1}>{question.bands.length}-band resistor</h1><Drawing question={question} />
-    <StudyNotesGuide basePath={basePath} question={question} questionReferences={references} />
     <form className="study-resistor-form" onSubmit={submit}>
       <p className="study-question-type">Enter all values below. One point per resistor when all fields are correct.</p>
       <fieldset disabled={answered}><legend className="sr-only">Resistor answers</legend>
         <p className="study-feedback-explanation">Enter resistance, minimum and maximum in ohms (Ω).</p>
-        <div className="study-resistor-inputs">{resistorFields(question).map(field => <label key={field} htmlFor={`resistor-${field}`}>{labels[field]}<span className="study-resistor-input-wrap"><input id={`resistor-${field}`} type="text" inputMode="decimal" autoComplete="off" required value={attempt.draft[field]} onChange={event => { setInputError(""); update({ ...attempt, draft: { ...attempt.draft, [field]: event.target.value } }); }} /><span>{field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : "Ω"}</span></span></label>)}</div>
+        <div className="study-resistor-inputs">{resistorFields(question).map(field => <label key={field} htmlFor={`resistor-${field}`}>{labels[field]}<span className="study-resistor-input-wrap"><input id={`resistor-${field}`} type="text" inputMode="decimal" autoComplete="off" required value={attempt.draft[field]} onChange={event => { setInputError(""); update({ ...attempt, draft: { ...attempt.draft, [field]: event.target.value } }); }} /><span>{field === "tolerance" ? "%" : "Ω"}</span></span></label>)}</div>
       </fieldset>
       {inputError && <p role="alert" className="study-resistor-error">{inputError}</p>}
       <button className="study-primary" type="submit" disabled={answered}>Check answers <ChevronRight size={18} /></button>
     </form>
+    <StudyNotesGuide basePath={basePath} question={question} questionReferences={references} />
     <dialog ref={feedbackRef} className="study-answer-dialog" aria-labelledby="resistor-feedback-title" onCancel={event => event.preventDefault()}>
       {grade && <><div className="study-answer-dialog-content"><h2 id="resistor-feedback-title">{grade.allCorrect ? "All correct!" : "Some answers need another look"}</h2><Drawing question={question} />
-        {resistorFields(question).map(field => <div className={`study-feedback-choice ${grade.correct[field] ? "correct" : "wrong"}`} key={field}><p>{labels[field]} · {grade.correct[field] ? "Correct" : "Incorrect"}</p><div>{grade.correct[field] ? <CheckCircle2 size={18} /> : <XCircle size={18} />}<strong>{expectedText(question, field)}</strong></div>{!grade.correct[field] && <p>Your answer: {submitted[field]} {field === "tolerance" ? "%" : field === "temperature" ? "ppm/°C" : "Ω"}</p>}</div>)}
+        {resistorFields(question).map(field => <div className={`study-feedback-choice ${grade.correct[field] ? "correct" : "wrong"}`} key={field}><p>{labels[field]} · {grade.correct[field] ? "Correct" : "Incorrect"}</p><div>{grade.correct[field] ? <CheckCircle2 size={18} /> : <XCircle size={18} />}<strong>{expectedText(question, field)}</strong></div>{!grade.correct[field] && <p>Your answer: {submitted[field]} {field === "tolerance" ? "%" : "Ω"}</p>}</div>)}
         <p className="study-feedback-explanation">{question.explanation}</p>
       </div><div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={next}>{attempt.position === 19 ? "See Results" : "Next Question"}<ChevronRight size={18} /></button></div></>}
     </dialog>

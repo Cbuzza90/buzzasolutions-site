@@ -15,3 +15,5 @@ Torque phone practice follows the chart-first reference layout: zoom controls, c
 The compact torque toolbar combines progress, Details / notes, and the chart/answer size toggle in one row. The row designation is plain single-line text; zoom controls are 28px high and the bottom navigation uses horizontal icon/label buttons. Answer targets remain 44px high.
 
 The user subsequently removed both Details / notes and More answers controls from torque phone/tablet practice. That view now keeps a fixed chart/answer split and compact progress text; module notes remain accessible via Tests without losing progress. Desktop retains its full question and notes presentation. Resistor controls are unchanged.
+
+Resistor practice now uses a fixed compact split with small zoom controls, a smaller drawing, and two-column inputs. Its notes button follows submission. Other available in-test notes actions follow answer choices. The torque phone notes exception remains as previously requested.
