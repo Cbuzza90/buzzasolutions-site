@@ -542,13 +542,12 @@
 .study-app[data-theme] a:is(.study-option-link,.study-course-card,.study-brand) :is(strong,h3,.study-card-arrow){color:var(--action-link)}
 .study-app[data-theme] a.study-option-link,
 .study-app[data-theme] a.study-course-card:not([data-test-urgency]){border-color:var(--action-blue)}
-.study-app[data-theme] button:not(:disabled):not(.study-diagram-open):not(.study-calendar-open),
+.study-app[data-theme] button:not(:disabled):not(.study-answer):not(.study-diagram-open):not(.study-calendar-open),
 .study-app[data-theme] a.study-primary,
 .study-app[data-theme] .study-notes-topic summary{background:var(--action-blue);color:#fff;border-color:var(--action-blue)}
-.study-app[data-theme] button:not(:disabled):not(.study-diagram-open):not(.study-calendar-open):hover,
+.study-app[data-theme] button:not(:disabled):not(.study-answer):not(.study-diagram-open):not(.study-calendar-open):hover,
 .study-app[data-theme] a.study-primary:hover,
 .study-app[data-theme] .study-notes-topic summary:hover{background:var(--action-hover)}
-.study-app[data-theme] .study-answer:not(:disabled) .study-answer-letter{background:#ffffff26;color:#fff}
 .study-app[data-theme] .study-diagram-open{border-color:var(--action-blue)}
 .study-app[data-theme] .study-diagram-open>span{background:var(--action-blue);color:#fff}
 .study-app[data-theme] .study-calendar-open{border:1px solid var(--action-blue);border-radius:10px}
