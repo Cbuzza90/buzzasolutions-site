@@ -477,6 +477,7 @@
 .study-torque-question-reference{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;flex-shrink:0;margin:12px 0 0;padding:12px;border:1px solid var(--line);border-radius:12px}
 .study-torque-question-reference dt{font-size:11px;color:var(--muted);margin-bottom:4px}
 .study-torque-question-reference dd{margin:0;font-size:14px;font-weight:700;color:var(--ink);overflow-wrap:anywhere}
+.study-torque-question-reference:has(.study-torque-row-reference){grid-template-columns:repeat(4,minmax(0,1fr))}
 .study-torque-dialog>h2,.study-torque-dialog>p{flex-shrink:0}
 
 .study-completed-badge{display:inline-block;width:fit-content;padding:5px 9px;border-radius:8px;background:#e4f5e9;color:#166534;font-size:11px;font-weight:700;line-height:1.5;margin:0 0 10px}
@@ -599,6 +600,7 @@
 
 /* Shared chart workspace: keep the same chart DOM and scroll position while answering. */
 .study-workspace-controls,.study-chart-mobile-hint{display:none}
+.study-torque-lookup-prompt{display:none}
 .study-resistor-chart-scroll{touch-action:none;overscroll-behavior:contain}
 .study-resistor-original-chart{user-select:none;-webkit-user-select:none}
 .study-practice-question>.study-eyebrow{font-size:9px;letter-spacing:1px}
@@ -637,4 +639,59 @@
   .study-app[data-practice-compact="true"] .study-main{padding-bottom:60px}
   .study-app[data-practice-compact="true"] .study-tab-bar :is(a,button){min-height:36px;flex-direction:row;gap:5px;font-size:10px}
   .study-app[data-practice-compact="true"] .study-tab-bar svg{width:18px;height:18px}
+}
+
+/* Torque phone layout: chart, current fasteners, then compact answers. */
+@media(max-width:1199px),(hover:none),(pointer:coarse){
+  .study-app:has(.study-torque-workspace) .study-header{padding:2px 12px;gap:8px}
+  .study-app:has(.study-torque-workspace) .study-header .study-brand-mark{width:24px;height:24px;border-radius:7px}
+  .study-app:has(.study-torque-workspace) .study-header .study-brand-mark svg{width:19px;height:19px}
+  .study-app:has(.study-torque-workspace) .study-theme-toggle{width:32px;height:32px;min-width:32px;min-height:32px;padding:5px;border-radius:8px}
+  .study-app:has(.study-torque-workspace) .study-term{padding:4px 7px;font-size:8px}
+  .study-app:has(.study-torque-workspace) .study-main{padding-top:0;padding-bottom:calc(44px + env(safe-area-inset-bottom))}
+  .study-torque-workspace>.study-practice-reference{flex-basis:min(var(--chart-share),calc(100% - 250px))}
+  .study-torque-workspace .study-torque-inline{padding:4px;border-radius:8px}
+  .study-torque-workspace .study-torque-inline>.study-chart-zoom{order:0;margin:0 0 4px}
+  .study-torque-workspace .study-torque-full-scroll{order:1;border-radius:3px}
+  .study-torque-workspace .study-torque-inline>h2{display:none}
+  .study-torque-workspace .study-torque-question-reference{order:3;margin:3px 0 0;padding:3px 5px;gap:5px}
+  .study-torque-workspace .study-torque-row-reference dd{color:#fff;white-space:nowrap}
+  .study-app[data-theme="light"] .study-torque-workspace .study-torque-row-reference dd{color:var(--ink)}
+  .study-app[data-practice-compact="true"] .study-torque-workspace .study-torque-question-reference{display:grid}
+  .study-torque-workspace .study-torque-thread-label{white-space:nowrap;background:transparent;border-radius:0;padding:0;margin-top:2px;font-size:11px}
+  .study-torque-workspace .study-chart-zoom{grid-template-columns:28px 40px 28px max-content;gap:4px}
+  .study-torque-workspace .study-chart-zoom :is(button,output){height:28px;min-height:28px;min-width:28px;font-size:10px;padding:3px 7px;border-radius:6px}
+  .study-torque-workspace>.study-workspace-controls{min-height:14px;gap:0;justify-content:flex-start}
+  .study-torque-workspace>.study-workspace-controls>span{display:block;margin-right:auto;font-size:10px;white-space:nowrap}
+  .study-torque-workspace>.study-workspace-controls button{min-height:28px;padding:4px 8px;font-size:10px}
+  .study-torque-lookup-prompt{display:block;font-size:11px;line-height:1.3;font-weight:600;margin:0 0 5px}
+  .study-torque-question-details:not(.is-open){display:none}
+  .study-torque-workspace .study-answer-options{gap:5px}
+  .study-torque-workspace .study-answer{padding:7px 10px;min-height:44px;font-size:12px;line-height:1.3;border-radius:12px}
+  .study-torque-workspace .study-answer-letter{width:26px;height:26px;min-width:26px;font-size:11px}
+  .study-app:has(.study-torque-workspace) .study-tab-bar{padding:3px 12px calc(3px + env(safe-area-inset-bottom))}
+  .study-app:has(.study-torque-workspace) .study-tab-bar :is(a,button){flex-direction:row;gap:5px;min-height:32px;font-size:10px;border-radius:7px}
+  .study-app:has(.study-torque-workspace) .study-tab-bar svg{width:15px;height:15px}
+}
+@media(max-height:740px) and (max-width:1199px){
+  .study-torque-workspace>.study-practice-reference{flex-basis:var(--chart-share)}
+}
+
+/* One compact header across course lists, modules, notes and practice screens. */
+.study-app .study-header{padding:2px 12px;gap:8px}
+.study-app .study-brand{gap:8px;font-size:20px}
+.study-app .study-brand small{display:none}
+.study-app .study-brand-mark{width:24px;height:24px;border-radius:7px}
+.study-app .study-brand-mark svg{width:19px;height:19px}
+.study-app .study-header-controls{gap:6px}
+.study-app .study-term{padding:4px 7px;font-size:8px}
+.study-app .study-theme-toggle{width:32px;height:32px;min-width:32px;min-height:32px;padding:5px;border-radius:8px}
+@media(min-width:1200px) and (hover:hover) and (pointer:fine){
+  .study-app .study-header{padding-inline:28px}
+}
+@media(max-width:1199px),(hover:none),(pointer:coarse){
+  .study-app .study-tab-bar{padding:3px 12px calc(3px + env(safe-area-inset-bottom))}
+  .study-app .study-tab-bar :is(a,button){flex-direction:row;gap:5px;min-height:32px;font-size:10px;border-radius:7px}
+  .study-app .study-tab-bar svg{width:15px;height:15px}
+  .study-app:has(.study-chart-workspace) .study-main{padding-bottom:calc(44px + env(safe-area-inset-bottom))}
 }

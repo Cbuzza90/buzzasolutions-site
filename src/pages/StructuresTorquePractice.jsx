@@ -16,5 +16,5 @@ export function StructuresTestList() {
 }
 
 export default function StructuresTorquePractice() {
-  return <MultipleChoicePractice questions={torquePracticeQuestions} questionCount={20} sampleQuestions={sampleTorqueQuestions} progressKey={`${savedBasePath}/torque-bolt-nut:20:chart-pools`} testNumber={1} testTitle={title} course="Structures" basePath={basePath} reference={question => <TorqueChart question={question} practiceInline />} />;
+  return <MultipleChoicePractice compactTorqueLayout questions={torquePracticeQuestions} questionCount={20} sampleQuestions={sampleTorqueQuestions} progressKey={`${savedBasePath}/torque-bolt-nut:20:chart-pools`} testNumber={1} testTitle={title} course="Structures" basePath={basePath} reference={question => <TorqueChart question={question} practiceInline />} />;
 }

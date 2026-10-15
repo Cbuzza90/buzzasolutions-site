@@ -13,3 +13,30 @@
 .study-dashboard-section-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:24px 0 18px}.study-dashboard-section-heading h2{font-size:26px;font-weight:700;letter-spacing:-.6px}.study-dashboard-section-heading .study-primary{margin:0;min-height:42px;padding:10px 14px}.study-app[data-theme="dark"] :is(.study-local-banner,.study-dashboard-card){background:#141414}.study-app[data-theme="dark"] .study-local-banner{background:#121b2b}.study-app[data-theme="dark"] .study-dashboard-date-status{background:#143524;color:#86efac}.study-app[data-theme="dark"] .study-dashboard-date-status.tentative{background:#3b2c12;color:#fcd34d}
 @media(max-width:1199px){.study-dashboard-grid{grid-template-columns:1fr}.study-local-banner{align-items:flex-start;flex-direction:column;gap:10px}.study-dashboard-card{padding:20px}.study-dashboard-card-heading{margin-bottom:12px}}
 @media(max-width:600px){.study-dashboard-section-heading{align-items:flex-start}.study-dashboard-section-heading h2{font-size:23px}.study-dashboard-section-heading .study-primary{font-size:12px}.study-course-activity{font-size:11px}.study-dashboard-grid{gap:12px}.study-dashboard-card h3{font-size:21px}}
+
+/* Module pages prioritize notes, saved practice and the test list. */
+.study-app .study-detail:has(>.study-module-overview){margin-top:0;row-gap:10px}
+.study-app .study-detail:has(>.study-module-overview)>.study-eyebrow{font-size:8px;letter-spacing:1px;margin:0 0 4px}
+.study-app .study-detail:has(>.study-module-overview)>h1{font-size:26px;line-height:1.2;letter-spacing:-.6px;margin:0 0 4px}
+.study-app .study-detail:has(>.study-module-overview)>.study-detail-description{font-size:12px;line-height:1.4;margin:0 0 10px}
+.study-app .study-module-overview{display:grid;grid-template-columns:1fr;gap:8px;margin:0 0 12px}
+.study-app .study-module-guide{padding:0;border:0;border-radius:0;background:transparent;font-size:12px;line-height:1.5;color:var(--muted);margin:0}
+.study-app .study-module-guide strong{color:var(--ink)}
+.study-app[data-theme] .study-module-guide{background:transparent}
+.study-app .study-module-notes{min-height:42px;padding:7px 10px;margin:0;border-radius:9px;gap:9px}
+.study-app .study-module-notes .study-notes-open-icon{width:26px;height:26px;border-radius:6px}
+.study-app .study-module-notes .study-notes-open-icon svg{width:18px;height:18px}
+.study-app .study-module-notes .study-notes-open-label strong{font-size:13px}
+.study-app .study-module-notes .study-notes-open-label>span{display:none}
+.study-module-continue{display:flex;align-items:center;gap:9px;padding:9px 11px;border:1px solid var(--action-link);border-radius:9px;color:var(--action-link);font-size:12px}
+.study-module-continue>span{flex:1;min-width:0}.study-module-continue strong{display:block;font-size:12px}.study-module-continue small{display:block;font-size:11px;line-height:1.4;color:var(--muted);margin-top:2px}.study-module-continue>svg{flex-shrink:0}
+.study-app .study-detail:has(>.study-module-overview)>.study-test-link{padding:12px 14px;margin-top:9px;border-radius:11px}
+.study-app .study-detail:has(>.study-module-overview) .study-test-link-heading strong{font-size:14px;line-height:1.4}
+.study-app .study-detail:has(>.study-module-overview) .study-format-badge{font-size:9px;padding:3px 6px;border-radius:5px}
+.study-app .study-detail:has(>.study-module-overview) .study-test-link-description{font-size:11px;line-height:1.4;margin-top:5px}
+.study-app .study-detail:has(>.study-module-overview) .study-record-badge{font-size:10px;margin-top:5px}
+@media(min-width:1200px) and (hover:hover) and (pointer:fine){
+  .study-app .study-module-overview{grid-template-columns:1fr 1fr;align-items:start;column-gap:14px}
+  .study-app .study-module-overview>.study-module-guide{grid-column:1/-1}
+  .study-app .study-detail:has(>.study-module-overview)>.study-test-link{margin-top:0}
+}

@@ -101,7 +101,8 @@ export default function TorqueChart({ question, practiceInline = false }) {
   const content = <>
       <h2 id={titleId}>Bolt & nut torque chart</h2>
       {question?.diameter && <dl className="study-torque-question-reference" aria-label="Current question fasteners">
-        <div><dt>Diameter</dt><dd>{question.diameter}″{question.chartThread && <span className="study-torque-thread-label">Chart row: {question.chartThread}</span>}</dd></div>
+        <div><dt>Diameter</dt><dd>{question.diameter}″{!inline && question.chartThread && <span className="study-torque-thread-label">Chart row: {question.chartThread}</span>}</dd></div>
+        {inline && question.chartThread && <div className="study-torque-row-reference"><dt>Chart row</dt><dd>{question.chartThread}</dd></div>}
         <div><dt>Bolt</dt><dd>{question.bolt === "NAS" ? "NAS583–NAS590" : question.bolt}</dd></div>
         <div><dt>Nut</dt><dd>{question.nut}</dd></div>
       </dl>}

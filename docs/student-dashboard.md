@@ -9,3 +9,5 @@ One-word recall tests do not offer study notes while answering. Module notes and
 No account service or remote storage was introduced. Browser data is shared by people using the same browser profile and does not sync to other devices. New saves include `updatedAt`. Existing saves remain compatible and display “Date unavailable · older save”; their recency is unknown. Reading saved progress does not create attempts.
 
 Preview with `npm run dev` at http://127.0.0.1:5173/. These changes are for local review before publishing.
+
+Module pages use a compact heading, a single study-tip line, a smaller Study notes link, and a short Continue studying link with saved question count. Test cards retain format, question count, progress and highest score with reduced padding. The previous large Study Guide and resume panels are removed.

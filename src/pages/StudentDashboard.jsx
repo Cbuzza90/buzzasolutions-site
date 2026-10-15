@@ -16,19 +16,11 @@ export function ModuleStudyOverview({ basePath }) {
   const resume = loadDashboard().find(item => item.unfinished && item.test.basePath === basePath);
   const hasRecall = dashboardTests.some(test => test.basePath === basePath && test.kind === "typed");
   return <div className="study-module-overview">
-    <section className="study-module-guide" aria-label="Study Guide">
-      <h2>Study Guide</h2>
-      <p>Start with multiple-choice tests, then practise memory recall with one-word tests.</p>
-      <p>{hasRecall ? "One-word tests keep study notes hidden while you answer. Review the module notes beforehand or after finishing." : "This module currently has multiple-choice practice only; one-word tests aren't available yet."}</p>
-    </section>
+    <p className="study-module-guide"><strong>Study guide:</strong> {hasRecall ? "Start with multiple choice, then practise one-word recall." : "Review the notes, then practise with multiple choice."}</p>
     <ModuleStudyNotesLink basePath={basePath} />
-    {resume && <section className="study-dashboard-card study-module-resume" aria-label="Continue studying">
-      <div className="study-dashboard-card-heading"><Clock3 size={20} /><h2>Continue studying</h2></div>
-      <h3>{resume.test.title}</h3><p>{resume.answered}/{resume.total} answered · {resume.total - resume.answered} remaining</p>
-      <progress max={resume.total} value={resume.answered} aria-label="Saved attempt progress" />
-      <p className="study-dashboard-meta">Last activity: {activityText(resume.updatedAt)}</p>
-      <Link className="study-primary" to={resume.test.path}>Continue attempt <ArrowRight size={17} /></Link>
-    </section>}
+    {resume && <Link className="study-module-continue" to={resume.test.path} aria-label={`Continue studying ${resume.test.title}`}>
+      <Clock3 size={17} aria-hidden="true" /><span><strong>Continue studying</strong><small>{resume.test.title} · {resume.answered}/{resume.total} answered</small></span><ArrowRight size={17} aria-hidden="true" />
+    </Link>}
   </div>;
 }
 
