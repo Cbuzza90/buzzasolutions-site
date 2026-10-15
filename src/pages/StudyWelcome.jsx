@@ -31,6 +31,7 @@ export default function StudyWelcome() {
       <span className="study-welcome-icon"><Users size={28} /></span>
       <p className="study-eyebrow">BEFORE YOU GET STARTED</p>
       <h1 id="study-welcome-title">This is for group <span>{studyGroup}</span></h1>
+      <p className="study-welcome-explanation">The test dates and countdowns on this website follow this group's schedule. If you're in a different group, the dates shown here may not match yours. Check your own myCanvas course or instructor for your test dates.</p>
       <p className="study-welcome-instruction">Not sure what that means?</p>
       <p className="study-canvas-steps">Go to <strong>myCanvas</strong> <ChevronRight size={15} /> <strong>Courses</strong> <ChevronRight size={15} /> <strong>Home</strong></p>
       <p className="study-welcome-explanation">Look for the group number at the top, like the one circled below.</p>
