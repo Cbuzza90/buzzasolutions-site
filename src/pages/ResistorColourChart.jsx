@@ -76,7 +76,7 @@ export default function ResistorColourChart({ practiceInline = false }) {
   const content = <>
       <div className="study-answer-dialog-content">
         <h2 id={titleId}>Resistor colour chart</h2>
-        <p className="study-feedback-explanation">From your course chart. Four bands: 2 digits + multiplier + tolerance. Five bands: 3 digits + multiplier + tolerance.</p>
+        <p className="study-feedback-explanation">Vector redraw of your course chart. Four bands: 2 digits + multiplier + tolerance. Five bands: 3 digits + multiplier + tolerance.</p>
         <div className="study-chart-zoom" aria-label="Chart zoom controls">
           <button type="button" aria-label="Zoom out chart" disabled={zoom <= 100} onClick={() => setZoom(value => Math.max(100, value - 50))}><Minus size={16} /></button>
           <output aria-label="Zoom level">{zoom}%</output>
