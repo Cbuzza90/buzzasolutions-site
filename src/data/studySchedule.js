@@ -4,6 +4,7 @@ export const upcomingTests = [
   { course: "Safety", courseSlug: "safety", date: "2026-10-14", label: "Safety Test: Wednesday October 14th!", tone: "urgent", completed: true, moduleSlug: "module-1" },
   { course: "Systems", courseSlug: "systems", date: "2026-10-16", label: "Systems Test: Friday October 16th!", tone: "warning" },
   { course: "Electricity", courseSlug: "electricity", date: "2026-10-19", label: "Electricity Test: Monday October 19th!", tone: "notice" },
+  { course: "Safety", courseSlug: "safety", date: "2026-10-21", title: "Safety: Human Factors Quiz", questionCount: 17, label: "Safety Human Factors Quiz: Wednesday October 21st - 17 questions", tone: "notice" },
   { course: "Structures", courseSlug: "structures", date: "2026-10-27", label: "Possible Structures Test: Tuesday October 27th", tone: "notice", possible: true },
 ];
 
