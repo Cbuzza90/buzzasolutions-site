@@ -70,9 +70,16 @@ test("the possible Structures test stays tentative and participates in the count
 
 test("completed Safety test stops warnings while Module 1 is marked done", () => {
   assert.equal(isModuleCompleted("safety", "module-1"), true);
-  assert.equal(isModuleCompleted("systems", "module-1"), false);
+  assert.equal(isModuleCompleted("systems", "module-1"), true);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-14").date, "2026-10-21");
-  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Technical Publications"]);
+  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Electricity", "Safety", "Structures", "Technical Publications"]);
+});
+
+test("completed Systems Module 1 has no upcoming date or countdown", () => {
+  assert.equal(isModuleCompleted("systems", "module-1"), true);
+  assert.equal(isModuleCompleted("systems", "module-2"), false);
+  assert.equal(nextCourseTest("systems", upcomingTests, "2026-10-16"), null);
+  assert.ok(!visibleTests(upcomingTests, "2026-10-16").some(item => item.courseSlug === "systems"));
 });
 
 test("Technical Publications Module 2 test stays visible through November 6", () => {
