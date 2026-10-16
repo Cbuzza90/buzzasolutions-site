@@ -5,10 +5,10 @@ import { isModuleCompleted, nextCourseTest, sortCoursesByNextTest, torontoDate, 
 const activeSchedule = upcomingTests.map(test => ({ ...test, completed: false }));
 
 test("test dates stay visible on the test day and expire the following day", () => {
-  assert.equal(visibleTests(activeSchedule, "2026-10-14").length, 5);
-  assert.deepEqual(visibleTests(activeSchedule, "2026-10-15").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures"]);
-  assert.deepEqual(visibleTests(activeSchedule, "2026-10-17").map(test => test.course), ["Electricity", "Safety", "Structures"]);
-  assert.equal(visibleTests(activeSchedule, "2026-10-28").length, 0);
+  assert.equal(visibleTests(activeSchedule, "2026-10-14").length, 6);
+  assert.deepEqual(visibleTests(activeSchedule, "2026-10-15").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Technical Publications"]);
+  assert.deepEqual(visibleTests(activeSchedule, "2026-10-17").map(test => test.course), ["Electricity", "Safety", "Structures", "Technical Publications"]);
+  assert.equal(visibleTests(activeSchedule, "2026-11-07").length, 0);
 });
 
 test("expiration follows Toronto midnight rather than UTC midnight", () => {
@@ -19,7 +19,7 @@ test("expiration follows Toronto midnight rather than UTC midnight", () => {
 test("visible dates are sorted without changing the saved schedule", () => {
   const reverse = [...activeSchedule].reverse();
   assert.deepEqual(visibleTests(reverse, "2026-10-12"), activeSchedule);
-  assert.equal(reverse[0].course, "Structures");
+  assert.equal(reverse[0].course, "Technical Publications");
 });
 
 test("course colours change at the requested day boundaries", () => {
@@ -72,7 +72,15 @@ test("completed Safety test stops warnings while Module 1 is marked done", () =>
   assert.equal(isModuleCompleted("safety", "module-1"), true);
   assert.equal(isModuleCompleted("systems", "module-1"), false);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-14").date, "2026-10-21");
-  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures"]);
+  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Technical Publications"]);
+});
+
+test("Technical Publications Module 2 test stays visible through November 6", () => {
+  const scheduled = nextCourseTest("publications", upcomingTests, "2026-11-06");
+  assert.equal(scheduled.title, "Technical Publications: Module 2 Test");
+  assert.equal(scheduled.moduleSlug, "module-2");
+  assert.equal(scheduled.days, 0);
+  assert.equal(nextCourseTest("publications", upcomingTests, "2026-11-07"), null);
 });
 
 test("Safety human factors quiz has 17 questions and expires after October 21", () => {
