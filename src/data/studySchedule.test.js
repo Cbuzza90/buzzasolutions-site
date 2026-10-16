@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isModuleCompleted, nextCourseTest, sortCoursesByNextTest, torontoDate, upcomingTests, visibleTests } from "./studySchedule.js";
+import { formatClassEndTime, formatClassSession, isModuleCompleted, nextCourseTest, sortCoursesByNextTest, testClassEndTime, testClassSessions, torontoDate, upcomingTests, visibleTests } from "./studySchedule.js";
 
 const activeSchedule = upcomingTests.map(test => ({ ...test, completed: false }));
 
@@ -97,4 +97,65 @@ test("Safety human factors quiz has 17 questions and expires after October 21", 
   assert.equal(quiz.days, 5);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-21").days, 0);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-22"), null);
+});
+
+test("scheduled tests disappear at class end in Toronto time", () => {
+  const cases = [
+    ["safety", "2026-10-21", "13:29", "2026-10-21T17:28:59Z", "2026-10-21T17:29:00Z"],
+    ["electricity", "2026-10-19", "17:29", "2026-10-19T21:28:59Z", "2026-10-19T21:29:00Z"],
+    ["structures", "2026-10-27", "14:29", "2026-10-27T18:28:59Z", "2026-10-27T18:29:00Z"],
+    ["systems", "2026-10-16", "13:29", "2026-10-16T17:28:59Z", "2026-10-16T17:29:00Z"],
+    // November 6 is after Toronto's return to standard time: UTC minus 5.
+    ["publications", "2026-11-06", "11:29", "2026-11-06T16:28:59Z", "2026-11-06T16:29:00Z"],
+  ];
+  for (const [courseSlug, date, end, before, after] of cases) {
+    const scheduled = { courseSlug, date };
+    assert.equal(testClassEndTime(scheduled), end);
+    assert.equal(visibleTests([scheduled], new Date(before)).length, 1, courseSlug);
+    assert.equal(visibleTests([scheduled], new Date(after)).length, 0, courseSlug);
+    assert.equal(nextCourseTest(courseSlug, [scheduled], new Date(before)).days, 0);
+    assert.equal(nextCourseTest(courseSlug, [scheduled], new Date(after)), null);
+  }
+});
+
+test("two class sessions keep the reminder until the final session unless overridden", () => {
+  const scheduled = { courseSlug: "electricity", date: "2026-10-19" };
+  assert.equal(visibleTests([scheduled], new Date("2026-10-19T15:00:00Z")).length, 1);
+  assert.equal(formatClassEndTime(scheduled), "5:29 p.m.");
+  const morning = { ...scheduled, endTime: "10:59" };
+  assert.equal(testClassEndTime(morning), "10:59");
+  assert.equal(visibleTests([morning], new Date("2026-10-19T14:59:00Z")).length, 0);
+});
+
+test("a course's other class days use their own end times", () => {
+  assert.equal(testClassEndTime({ courseSlug: "systems", date: "2026-10-22" }), "17:59");
+  assert.equal(testClassEndTime({ courseSlug: "structures", date: "2026-10-24" }), "15:59");
+  assert.equal(testClassEndTime({ courseSlug: "math", date: "2026-10-21" }), "15:59");
+  assert.equal(testClassEndTime({ courseSlug: "math", date: "2026-10-22" }), "15:29");
+});
+
+test("unknown class times clear at Toronto midnight without inventing a session", () => {
+  const tests = [{ courseSlug: "safety", date: "2026-10-20" }, { courseSlug: "new-course", date: "2026-10-20" }];
+  tests.forEach(item => assert.equal(testClassEndTime(item), null));
+  assert.equal(visibleTests(tests, new Date("2026-10-21T03:59:59Z")).length, 2);
+  assert.equal(visibleTests(tests, new Date("2026-10-21T04:00:00Z")).length, 0);
+  assert.equal(testClassEndTime({ courseSlug: "safety", date: "2027-01-06" }), null);
+});
+
+test("expired class reminders no longer affect course order", () => {
+  const courses = [{ slug: "safety", hasTests: true }, { slug: "structures", hasTests: true }];
+  const tests = [{ courseSlug: "safety", date: "2026-10-21" }, { courseSlug: "structures", date: "2026-10-27" }];
+  assert.deepEqual(sortCoursesByNextTest(courses, tests, new Date("2026-10-21T17:28:00Z")).map(c => c.slug), ["safety", "structures"]);
+  assert.deepEqual(sortCoursesByNextTest(courses, tests, new Date("2026-10-21T17:29:00Z")).map(c => c.slug), ["structures", "safety"]);
+});
+
+test("class rooms match the test weekday, with both Monday rooms and online sessions", () => {
+  const electricity = testClassSessions({ courseSlug: "electricity", date: "2026-10-19" });
+  assert.deepEqual(electricity.map(slot => slot.room), ["208", "206"]);
+  assert.equal(formatClassSession(electricity[0]), "9:00 a.m.–10:59 a.m. · Room 208");
+  assert.equal(testClassSessions({ courseSlug: "safety", date: "2026-10-21" })[0].room, "208");
+  assert.equal(testClassSessions({ courseSlug: "publications", date: "2026-11-06" })[0].room, "204");
+  assert.deepEqual(testClassSessions({ courseSlug: "structures", date: "2026-10-27" }).map(slot => slot.room), ["116", "306"]);
+  assert.match(formatClassSession(testClassSessions({ courseSlug: "structures", date: "2026-10-24" })[0]), /Online$/);
+  assert.deepEqual(testClassSessions({ courseSlug: "safety", date: "2026-10-20" }), []);
 });

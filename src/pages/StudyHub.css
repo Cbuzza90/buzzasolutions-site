@@ -189,19 +189,23 @@
 .study-calendar-pause { position: absolute; right: 3px; top: 2px; display: grid; place-items: center; min-width: 32px; min-height: 32px; cursor: pointer; border-radius: 8px; color: #866019; }
 .study-calendar-empty { display: block; font-size: 11px; padding-top: 7px; color: var(--muted); }
 @keyframes study-test-dates-vertical { to { transform: translateY(-50%); } }
-.study-dates-dialog { margin: auto; width: min(80vw, 600px); height: 80dvh; max-height: 80dvh; max-width: 80vw; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: #f6f7f2; color: var(--ink); overflow: auto; }
+.study-dates-dialog { margin: auto; width: min(80vw, 600px); height: 80dvh; max-height: 80dvh; max-width: 80vw; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: #f6f7f2; color: var(--ink); overflow: hidden; }
 .study-dates-dialog::backdrop { background: #06120bc9; backdrop-filter: blur(5px); }
 .study-dates-dialog[open] { display: flex; flex-direction: column; }
+.study-dates-heading{flex-shrink:0}
 .study-dates-heading > svg { color: #a07d32; margin-bottom: 15px; }
 .study-dates-heading h2 { font-size: 28px; font-weight: 650; letter-spacing: -.8px; }
 .study-dates-heading p { font-size: 11px; color: var(--muted); margin-top: 6px; }
-.study-dates-list { margin-top: 24px; display: grid; gap: 12px; }
+.study-dates-list { margin-top: 18px; display: grid; gap: 12px; flex:1; min-height:0; overflow-y:auto; align-content:start; padding-right:4px; overscroll-behavior:contain; }
 .study-dates-list article { display: flex; flex-direction: column; gap: 8px; background: #fff5de; border: 1px solid #e7c984; border-radius: 14px; padding: 18px; white-space: normal; }
 .study-dates-list article strong { font-size: 17px; }
 .study-dates-list article time { font-size: 13px; line-height: 1.6; }
+.study-test-rooms{display:flex;flex-direction:column;gap:4px;line-height:1.5}
+.study-test-rooms>span{font-size:11px;color:var(--muted)}
+.study-test-rooms>small{font-size:12px;overflow-wrap:anywhere}
 .study-date-today { font-size: 11px; }
-.study-dates-note { color: var(--muted); font-size: 11px; line-height: 1.6; margin: 20px 0; }
-.study-dates-footer { margin-top: auto; padding-top: 12px; position: sticky; bottom: -24px; padding-bottom: 12px; background: inherit; }
+.study-dates-note { color: var(--muted); font-size: 11px; line-height: 1.6; margin: 12px 0 0; flex-shrink:0; }
+.study-dates-footer { padding-top: 12px; background: inherit; flex-shrink:0; }
 .study-dates-footer .study-primary { width: 100%; margin-top: 0; }
 .study-app[data-theme="dark"] .study-dates-dialog { background: #17231d; }
 .study-app[data-theme="dark"] .study-dates-list article { background: #30291b; border-color: #655128; }

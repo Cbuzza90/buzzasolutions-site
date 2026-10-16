@@ -14,7 +14,7 @@ import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorque
 import CourseStudyNotes from "./CourseStudyNotes";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
-import { formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
+import { formatClassSession, testClassSessions, formatClassEndTime, formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 import { RESET_PRACTICE_EVENT } from "./practiceProgress";
 
@@ -29,16 +29,22 @@ const courses = [
   { slug: "publications", title: "Technical Publications/Documents", code: "AMEM-10033", category: "Tools & math", icon: FileText, color: "violet", description: "Find your way around the technical publications and documents used in class." },
 ];
 
-function useStudyDate() {
-  const [today, setToday] = useState(() => torontoDate());
+function useStudyClock() {
+  const [instant, setInstant] = useState(() => new Date());
   useEffect(() => {
-    const refresh = () => setToday(torontoDate());
-    const timer = setInterval(refresh, 60_000);
+    const refresh = () => setInstant(new Date());
+    let timer;
+    const tick = () => {
+      refresh();
+      timer = setTimeout(tick, 60_000 - Date.now() % 60_000);
+    };
+    // Class ends are minute-based. Align refreshes to the minute boundary.
+    timer = setTimeout(tick, 60_000 - Date.now() % 60_000);
     window.addEventListener("focus", refresh);
     document.addEventListener("visibilitychange", refresh);
-    return () => { clearInterval(timer); window.removeEventListener("focus", refresh); document.removeEventListener("visibilitychange", refresh); };
+    return () => { clearTimeout(timer); window.removeEventListener("focus", refresh); document.removeEventListener("visibilitychange", refresh); };
   }, []);
-  return [today, () => setToday(torontoDate())];
+  return [instant, () => setInstant(new Date())];
 }
 
 function TestDateBanner({ today, refreshDate }) {
@@ -57,13 +63,13 @@ function TestDateBanner({ today, refreshDate }) {
   return <aside className={`study-calendar ${paused ? "paused" : ""}`} aria-label={`Upcoming tests for group ${studyGroup}`}>
     <button type="button" className="study-calendar-open" aria-label="Test dates" aria-haspopup="dialog" aria-expanded={expanded} onClick={openDates}>
       <span className="study-calendar-heading"><span><CalendarDays size={13} /> TEST DATES</span></span>
-      <span className="study-calendar-window">{tests.length ? <span className="study-calendar-track" style={{ animationDuration: `${tests.length * 5}s` }}>{[false, true].map(copy => <span className="study-calendar-dates" key={String(copy)} aria-hidden={copy || undefined}>{tests.map(test => <span className={`study-date ${test.tone}`} key={test.course}><strong>{test.title ?? `${test.course} Test`}{test.possible ? " (possible)" : ""}</strong><time dateTime={test.date}>{formatTestDate(test.date, true)}</time></span>)}</span>)}</span> : <span className="study-calendar-empty">No upcoming tests</span>}</span>
+      <span className="study-calendar-window">{tests.length ? <span className="study-calendar-track" style={{ animationDuration: `${tests.length * 5}s` }}>{[false, true].map(copy => <span className="study-calendar-dates" key={String(copy)} aria-hidden={copy || undefined}>{tests.map(test => <span className={`study-date ${test.tone}`} key={`${test.courseSlug}-${test.date}-${test.title ?? "test"}`}><strong>{test.title ?? `${test.course} Test`}{test.possible ? " (possible)" : ""}</strong><time dateTime={test.date}>{formatTestDate(test.date, true)}</time></span>)}</span>)}</span> : <span className="study-calendar-empty">No upcoming tests</span>}</span>
     </button>
     {tests.length > 1 && <button type="button" className="study-calendar-pause" aria-label={paused ? "Resume test dates" : "Pause test dates"} onClick={() => setPaused(value => !value)}>{paused ? <Play size={12} /> : <Pause size={12} />}</button>}
     <dialog ref={dialogRef} className="study-dates-dialog" aria-labelledby="study-dates-title" onClose={() => setExpanded(false)} onClick={event => { if (event.target === event.currentTarget) closeDates(); }}>
       <div className="study-dates-heading"><CalendarDays size={26} /><h2 id="study-dates-title">Test dates</h2><p>Group {studyGroup}</p></div>
-      <div className="study-dates-list">{tests.length ? tests.map(test => <article className={`study-date ${test.tone}`} key={test.course}><strong>{test.title ?? `${test.course} Test`}{test.possible ? " (possible)" : ""}</strong><time dateTime={test.date}>{formatTestDate(test.date)}</time>{test.questionCount && <span>{test.questionCount} questions</span>}{test.date === today && <span className="study-date-today">Today</span>}</article>) : <p>No upcoming tests. New dates will appear here when added.</p>}</div>
-      <p className="study-dates-note">Dates disappear the day after the test.</p>
+      <div className="study-dates-list">{tests.length ? tests.map(test => <article className={`study-date ${test.tone}`} key={`${test.courseSlug}-${test.date}-${test.title ?? "test"}`}><strong>{test.title ?? `${test.course} Test`}{test.possible ? " (possible)" : ""}</strong><time dateTime={test.date}>{formatTestDate(test.date)}</time>{test.questionCount && <span>{test.questionCount} questions</span>}{testClassSessions(test).length > 0 && <div className="study-test-rooms"><span>Scheduled classes</span>{testClassSessions(test).map(slot => <small key={slot.start}>{formatClassSession(slot)}</small>)}</div>}{formatClassEndTime(test) && <span>Ends {formatClassEndTime(test)} (Toronto)</span>}{test.date === torontoDate(today) && <span className="study-date-today">Today</span>}</article>) : <p>No upcoming tests. New dates will appear here when added.</p>}</div>
+      <p className="study-dates-note">Dates clear at class end in Toronto time. If no class time is known, they clear at midnight.</p>
       <div className="study-dates-footer"><button type="button" className="study-primary" onClick={closeDates}><X size={18} /> Close</button></div>
     </dialog>
   </aside>;
@@ -72,12 +78,12 @@ function CourseCard({ course, today, summaries }) {
   const nextTest = nextCourseTest(course.slug, upcomingTests, today);
   const countdown = nextTest ? nextTest.days === 0 ? "TODAY" : `${nextTest.days} day${nextTest.days === 1 ? "" : "s"}` : null;
   const cardProps = { className: `study-course-card${course.hasTests ? "" : " unavailable"}`, "data-test-urgency": nextTest?.urgency, style: nextTest ? { "--test-hue": nextTest.hue } : undefined };
-  const content = <><div className="study-card-top"><span className={`study-icon ${course.color}${nextTest ? " study-course-countdown-icon" : ""}`} title={nextTest ? `${nextTest.possible ? "Possible test" : "Next test"}: ${formatTestDate(nextTest.date)} · ${countdown}` : undefined}><course.icon size={24} strokeWidth={1.7} />{nextTest && <span className="study-course-countdown">{countdown}</span>}</span>{course.hasTests && <ArrowUpRight size={19} className="study-card-arrow" />}</div>{nextTest?.urgency === "urgent" && <span className="study-test-soon">TEST SOON!</span>}<CompletedTestStatus courseSlug={course.slug} today={today} /><p className="study-course-code">{course.code}</p><h3>{course.title}</h3><div className="study-card-bottom"><span>{course.hasTests ? course.category : <span className="study-unavailable-badge">No tests made yet</span>}</span>{nextTest?.possible && <span className="study-test-possible">Possible test · {formatTestDate(nextTest.date, true)}</span>}</div></>;
+  const content = <><div className="study-card-top"><span className={`study-icon ${course.color}${nextTest ? " study-course-countdown-icon" : ""}`} title={nextTest ? `${nextTest.possible ? "Possible test" : "Next test"}: ${formatTestDate(nextTest.date)} · ${countdown}` : undefined}><course.icon size={24} strokeWidth={1.7} />{nextTest && <span className="study-course-countdown">{countdown}</span>}</span>{course.hasTests && <ArrowUpRight size={19} className="study-card-arrow" />}</div>{nextTest?.urgency === "urgent" && <span className="study-test-soon">TEST SOON!</span>}<CompletedTestStatus courseSlug={course.slug} today={today} showCompletedLabel={course.slug !== "safety"} /><p className="study-course-code">{course.code}</p><h3>{course.title}</h3><div className="study-card-bottom"><span>{course.hasTests ? course.category : <span className="study-unavailable-badge">No tests made yet</span>}</span>{nextTest?.possible && <span className="study-test-possible">Possible test · {formatTestDate(nextTest.date, true)}</span>}</div></>;
   return course.hasTests ? <Link to={`/study/${course.slug}`} {...cardProps}>{content}<CourseActivity summaries={summaries} courseSlug={course.slug} /></Link> : <article {...cardProps} aria-disabled="true">{content}</article>;
 }
 
 function CourseList() {
-  const [today, refreshDate] = useStudyDate();
+  const [today, refreshDate] = useStudyClock();
   const summaries = loadDashboard();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All courses");
