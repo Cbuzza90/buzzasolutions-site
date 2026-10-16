@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Mail, Users } from "lucide-react";
+import { Mail } from "lucide-react";
 
 // Offer help below 70% using the actual score, before display rounding.
-export default function PeerTutoringSupport({ score, total, course }) {
-  if (total <= 0 || score / total >= 0.7) return null;
+export default function PeerTutoringSupport({ score, total, course, justCompleted = false }) {
+  // Saved results do not replay the offer. Only the completion action enables it.
+  if (!justCompleted || total <= 0 || score / total >= 0.7) return null;
   return <TutoringWindow course={course} />;
 }
 
@@ -25,8 +26,8 @@ function TutoringWindow({ course }) {
     };
   }, [open]);
 
+  if (!open) return null;
   return <>
-    <button type="button" className="study-torque-chart-button" onClick={() => setOpen(true)}><Users size={18} /> Get peer tutoring support</button>
     <dialog ref={dialogRef} className="study-answer-dialog study-tutoring-dialog" aria-labelledby="study-tutoring-title" aria-describedby="study-tutoring-description" onCancel={event => { event.preventDefault(); setOpen(false); }}>
       <div className="study-answer-dialog-content">
         <p className="study-eyebrow">PEER TUTORING</p>

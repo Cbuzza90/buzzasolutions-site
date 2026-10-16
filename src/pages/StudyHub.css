@@ -768,3 +768,24 @@
   .study-resistor-workspace .study-resistor-form>.study-primary{min-height:40px;padding:9px 12px;margin:8px 0 0}
   .study-question-screen .study-typed-form .study-primary{min-height:42px;margin-top:10px;padding:9px 12px}
 }
+/* Notes are a reference workspace on PCs, with diagrams beside their text. */
+.study-notes-topic :is(dt,dd,summary){overflow-wrap:anywhere}
+@media (min-width:1200px) and (hover:hover) and (pointer:fine){
+  .study-notes-dialog{width:min(1200px,calc(100vw - 64px));max-width:calc(100vw - 64px);height:calc(100dvh - 48px);max-height:calc(100dvh - 48px)}
+  .study-notes-dialog>.study-answer-dialog-content{padding:20px 24px;overflow-x:hidden}
+  .study-notes-dialog>.study-answer-dialog-footer{padding:10px 24px 14px}
+  .study-notes-dialog>.study-answer-dialog-footer .study-primary{min-height:40px}
+  .study-notes-dialog .study-course-notes{margin-top:8px}
+  .study-notes-tools{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin:12px 0 8px}
+  .study-notes-tools>.study-search{grid-column:1;grid-row:1;margin:0;min-width:0}
+  .study-notes-tools>.study-search input{min-width:0;padding:12px 0}
+  .study-notes-tools>.study-torque-chart-button{grid-column:2;grid-row:1;width:auto;margin:0;min-height:44px;padding:10px 14px;font-size:13px}
+  .study-notes-topic summary{padding:10px 14px;min-height:42px;font-size:14px}
+  .study-notes-topic dl>div{min-width:0}
+  .study-notes-dialog .study-notes-topic dl>div:has(>.study-question-diagram){display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);grid-template-rows:min-content 1fr;gap:8px 24px;align-items:start;padding:14px 0}
+  .study-notes-dialog .study-notes-topic dl>div:has(>.study-question-diagram)>dt{grid-column:1;grid-row:1;font-size:15px;margin:0;line-height:1.5}
+  .study-notes-dialog .study-notes-topic dl>div:has(>.study-question-diagram)>dd{grid-column:1;grid-row:2;font-size:14px}
+  .study-notes-dialog .study-notes-topic dl>div>.study-question-diagram{grid-column:2;grid-row:1/span 2;margin:0;min-width:0;text-align:center}
+  .study-notes-dialog .study-notes-topic .study-diagram-open{width:min(100%,calc((100dvh - 430px) * var(--diagram-aspect)));margin:0 auto}
+  .study-notes-dialog .study-notes-topic .study-diagram-open>span{padding:6px;font-size:11px}
+}

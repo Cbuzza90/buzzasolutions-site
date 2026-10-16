@@ -38,6 +38,7 @@ export default function ResistorBandPractice() {
   const [attempt, setAttempt] = useState(loadResistorAttempt);
   const [best, setBest] = useState(loadResistorBest);
   const [storageError, setStorageError] = useState(false);
+  const [justCompleted, setJustCompleted] = useState(false);
   const [inputError, setInputError] = useState("");
   const feedbackRef = useRef(null), headingRef = useRef(null);
   const question = attempt.questions[attempt.position];
@@ -50,6 +51,7 @@ export default function ResistorBandPractice() {
     setStorageError(!saveResistorAttempt(next));
   }, []);
   const restart = useCallback(() => {
+    setJustCompleted(false);
     feedbackRef.current?.close();
     update(newResistorAttempt());
     setBest(loadResistorBest());
@@ -81,6 +83,7 @@ export default function ResistorBandPractice() {
     if (attempt.position === 19) {
       const result = recordResistorBest(score);
       setBest(result.best);
+      setJustCompleted(true);
       update({ ...attempt, complete: true });
       if (!result.saved) setStorageError(true);
     } else update({ ...attempt, position: attempt.position + 1, draft: emptyResistorAnswer() });
@@ -94,7 +97,7 @@ export default function ResistorBandPractice() {
     return <section className="study-detail study-test">
       <p className="study-eyebrow">ELECTRICITY · RESISTOR BAND CALCULATIONS · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1>{status}
       <div className="study-result"><strong>{score}<span> / 20</span></strong><p>{score * 5}% correct</p><p>One point per resistor when all its fields are correct.</p></div>
-      <PeerTutoringSupport score={score} total={20} course="Electricity" />
+      <PeerTutoringSupport justCompleted={justCompleted} score={score} total={20} course="Electricity" />
       <StudyNotesGuide basePath={basePath} questionReferences={references} /><ResistorColourChart />
       {missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(q => {
         const index = attempt.questions.indexOf(q), answer = attempt.answers[index], result = gradeResistor(q, answer);

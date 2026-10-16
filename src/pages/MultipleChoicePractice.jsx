@@ -23,6 +23,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
   const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId, undefined, questionCount, sampleQuestions));
   const [best, setBest] = useState(() => loadHighestScore(questions, testId, undefined, questionCount));
   const [storageError, setStorageError] = useState(false);
+  const [justCompleted, setJustCompleted] = useState(false);
   const { order, position, answers, complete } = attempt;
   const commitAttempt = useCallback(next => {
     setAttempt(next);
@@ -56,6 +57,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
     if (position === order.length - 1) {
       const result = recordHighestScore(questions, testId, score, undefined, questionCount);
       setBest(result.best);
+      setJustCompleted(!endless);
       commitAttempt(endless ? nextEndlessRound(questions, attempt) : { ...attempt, complete: true });
       if (!result.saved) setStorageError(true);
     } else commitAttempt({ ...attempt, position: position + 1 });
@@ -63,6 +65,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
     requestAnimationFrame(() => focusQuestion(headingRef));
   }
   const restart = useCallback(() => {
+    setJustCompleted(false);
     feedbackRef.current?.close();
     commitAttempt(newPracticeAttempt(questions, Math.random, questionCount, sampleQuestions));
     setBest(loadHighestScore(questions, testId, undefined, questionCount));
@@ -78,7 +81,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
 
   if (complete) {
     const missed = order.filter(item => answers[item.id] !== item.correctIndex);
-    return <section className="study-detail study-test"><p className="study-eyebrow">{course.toUpperCase()} · {testTitle.toUpperCase()} · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1>{savedStatus}<div className="study-result"><strong>{score}<span> / {order.length}</span></strong><p>{Math.round(score / order.length * 100)}% correct</p><p>{missed.length === 0 ? "You answered every question correctly." : `${missed.length} question${missed.length === 1 ? "" : "s"} to review below.`}</p></div><PeerTutoringSupport score={score} total={order.length} course={course} /><StudyNotesGuide basePath={basePath} />{missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(item => <article key={item.id}><h3>{item.prompt}</h3><p className="study-missed-answer">Your answer: {letters[answers[item.id]]}. {item.options[answers[item.id]]}</p><p><strong>Correct: {letters[item.correctIndex]}. {item.options[item.correctIndex]}</strong></p><p>{item.explanation}</p></article>)}</section>}<div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div></section>;
+    return <section className="study-detail study-test"><p className="study-eyebrow">{course.toUpperCase()} · {testTitle.toUpperCase()} · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1>{savedStatus}<div className="study-result"><strong>{score}<span> / {order.length}</span></strong><p>{Math.round(score / order.length * 100)}% correct</p><p>{missed.length === 0 ? "You answered every question correctly." : `${missed.length} question${missed.length === 1 ? "" : "s"} to review below.`}</p></div><PeerTutoringSupport justCompleted={justCompleted} score={score} total={order.length} course={course} /><StudyNotesGuide basePath={basePath} />{missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(item => <article key={item.id}><h3>{item.prompt}</h3><p className="study-missed-answer">Your answer: {letters[answers[item.id]]}. {item.options[answers[item.id]]}</p><p><strong>Correct: {letters[item.correctIndex]}. {item.options[item.correctIndex]}</strong></p><p>{item.explanation}</p></article>)}</section>}<div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div></section>;
   }
 
   const compactToolbar = compactTorqueLayout && <span className="study-torque-count">{position + 1}/{order.length} &middot; {score} correct</span>;

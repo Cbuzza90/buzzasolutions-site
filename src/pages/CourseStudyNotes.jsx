@@ -24,8 +24,10 @@ function NotesContent({ notes, question, questionReferences }) {
   const sections = findNoteSections(availableSections, query);
   return <div className="study-course-notes">
     <p className="study-feedback-explanation">{notes.intro} Expand a topic or search by term or question wording. Question references cover every practice test.</p>
-    {question && <button type="button" className="study-torque-chart-button" onClick={() => setQuery(question.prompt)}><Search size={18} /> Find notes for this question</button>}
-    <label className="study-search" htmlFor={searchId}><Search size={18} /><span className="sr-only">Search {notes.course} study notes</span><input id={searchId} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a topic, term or component…" /></label>
+    <div className="study-notes-tools">
+      {question && <button type="button" className="study-torque-chart-button" onClick={() => setQuery(question.prompt)}><Search size={18} /> Find notes for this question</button>}
+      <label className="study-search" htmlFor={searchId}><Search size={18} /><span className="sr-only">Search {notes.course} study notes</span><input id={searchId} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a topic, term or component…" /></label>
+    </div>
     <p className="study-notes-count" role="status">{sections.length} {sections.length === 1 ? "topic" : "topics"}</p>
     {sections.map(section => <details className="study-notes-topic" key={`${section.id}-${Boolean(term)}`} open={term ? true : section.id === notes.defaultOpenId ? true : undefined} onToggle={event => {
         if (section.questionReference && !term) {
@@ -70,7 +72,7 @@ export function StudyNotesGuide({ basePath, question, questionReferences }) {
       <span className="study-notes-open-label"><strong>Open study notes</strong><span>Search topics & explanations</span></span>
       <ChevronRight size={22} aria-hidden="true" />
     </button>
-    <dialog ref={dialogRef} className="study-answer-dialog" aria-labelledby={titleId} onClose={event => { if (event.target === event.currentTarget) setOpen(false); }}>
+    <dialog ref={dialogRef} className="study-answer-dialog study-notes-dialog" aria-labelledby={titleId} onClose={event => { if (event.target === event.currentTarget) setOpen(false); }}>
       <div className="study-answer-dialog-content"><h2 id={titleId}>{notes.course} study notes</h2>{open && <NotesContent notes={notes} question={question} questionReferences={questionReferences} />}</div>
       <div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={() => dialogRef.current?.close()}><X size={18} /> Close notes</button></div>
     </dialog></>;
