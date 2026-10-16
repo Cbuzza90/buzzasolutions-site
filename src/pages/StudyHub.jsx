@@ -6,7 +6,7 @@ import "./StudyHub.css";
 import CompletedTestStatus from "./CompletedTestStatus";
 import SafetyPractice, { SafetyTestList } from "./SafetyPractice";
 import ResistorBandPractice from "./ResistorBandPractice";
-import ElectricityPractice, { ElectricityTestList } from "./ElectricityPractice";
+import ElectricityPractice, { ElectricityEasyPractice, ElectricityTestList } from "./ElectricityPractice";
 import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
@@ -130,6 +130,7 @@ export default function StudyHub() {
         <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/electricity/module-1" element={<ElectricityTestList />} />
         <Route path="/study/electricity/module-1/practice-1" element={<ElectricityPractice />} />
+        <Route path="/study/electricity/module-1/practice-2" element={<ElectricityEasyPractice />} />
         <Route path="/study/electricity/module-1/one-word-1" element={<ElectricityWordPractice />} />
         <Route path="/study/electricity/module-1/resistor-band-calculations" element={<ResistorBandPractice />} />
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />

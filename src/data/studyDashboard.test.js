@@ -28,3 +28,18 @@ test("old saves show no invented activity date, and invalid saves cannot recomme
   storage.setItem(key, JSON.stringify(record));
   assert.equal(savedTestSummary(bank, storage).missed.length, 0);
 });
+
+test("Easy Electricity saves and resumes independently from Medium and Hard", () => {
+  const storage = memory();
+  const easy = dashboardTests.find(t => t.slug === "electricity-easy");
+  const medium = dashboardTests.find(t => t.slug === "electricity-choice");
+  const hard = dashboardTests.find(t => t.slug === "electricity-word");
+  const attempt = newPracticeAttempt(easy.questions);
+  attempt.answers[attempt.order[0].id] = attempt.order[0].correctIndex;
+  savePracticeAttempt(easy.questions, easy.storageId, attempt, storage);
+  assert.equal(easy.path, "/study/electricity/module-1/practice-2");
+  assert.equal(savedTestSummary(easy, storage).answered, 1);
+  assert.equal(savedTestSummary(easy, storage).unfinished, true);
+  assert.equal(savedTestSummary(medium, storage).attempt, undefined);
+  assert.equal(savedTestSummary(hard, storage).attempt, undefined);
+});

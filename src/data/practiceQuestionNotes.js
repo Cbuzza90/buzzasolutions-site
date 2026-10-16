@@ -1,4 +1,5 @@
 import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
+import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
@@ -11,7 +12,7 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
   "/study/safety/module-1": [safety1, safety2, safety3],
-  "/study/electricity/module-1": [electricitySource, electricityRecallQuestions],
+  "/study/electricity/module-1": [electricitySource, electricityEasyQuestions, electricityRecallQuestions],
   "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions],
   "/study/structures/module-2": [torquePracticeQuestions],
 };
@@ -28,15 +29,19 @@ function referenceText(question) {
 }
 
 export function practiceQuestionNotes(basePath) {
-  return (practiceBanksByModule[basePath] ?? []).map((questions, index) => ({
-    id: `practice-reference-${index + 1}`,
-    title: basePath.includes("structures") ? "Torque practice · Question reference" : questions[0]?.answer ? `One-Word Test #${index + 1 - (practiceBanksByModule[basePath].filter(bank => !bank[0]?.answer).length)} · Question reference` : `Practice Test #${index + 1} · Question reference`,
-    questionReference: true,
-    items: questions.map(question => [
-      question.prompt,
-      referenceText(question),
-      question.optionImages?.[question.correctIndex] ?? question.visual?.src ?? question.feedbackVisual?.src,
-      question.diagram,
-    ]),
-  }));
+  let choiceNumber = 0, typedNumber = 0;
+  return (practiceBanksByModule[basePath] ?? []).map((questions, index) => {
+    const title = questions[0]?.answer ? `One-Word Test #${++typedNumber}` : `Practice Test #${++choiceNumber}`;
+    return {
+      id: `practice-reference-${index + 1}`,
+      title: `${basePath.includes("structures") ? "Torque practice" : questions === electricityEasyQuestions ? "Easy Review" : title} · Question reference`,
+      questionReference: true,
+      items: questions.map(question => [
+        question.prompt,
+        referenceText(question),
+        question.optionImages?.[question.correctIndex] ?? question.visual?.src ?? question.feedbackVisual?.src,
+        question.diagram,
+      ]),
+    };
+  });
 }

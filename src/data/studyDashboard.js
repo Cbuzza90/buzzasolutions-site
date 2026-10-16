@@ -1,4 +1,5 @@
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
+import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
 import safety2 from "./safety-module1-test2.json" with { type: "json" };
 import safety3 from "./safety-module1-recall.json" with { type: "json" };
@@ -15,6 +16,7 @@ const choice = (slug, course, module, title, questions, suffix, storageId) => ({
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
   choice("electricity-choice", "Electricity", "module-1", "Practice Test #1", electricity, "practice-1"),
+  choice("electricity-easy", "Electricity", "module-1", "Review Practice · Easy", electricityEasyQuestions, "practice-2"),
   typed("electricity-word", "Electricity", "One-Word Test #1", electricityRecallQuestions, 1),
   choice("safety-1", "Safety", "module-1", "Practice Test #1", safety1, "practice-1"),
   choice("safety-2", "Safety", "module-1", "Practice Test #2", safety2, "practice-2"),

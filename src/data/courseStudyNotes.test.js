@@ -40,7 +40,7 @@ test("every practice question finds its verified answer and explanation in the e
     const notes = studyNotesByModule[basePath];
     for (const questions of banks) for (const question of questions) {
       const found = findNoteSections(notes.sections, question.prompt);
-      const entry = found.flatMap(section => section.items).find(item => item[0] === question.prompt);
+      const entry = found.flatMap(section => section.items).find(item => item[0] === question.prompt && item[1].includes(question.explanation));
       assert.ok(entry, `${basePath}: ${question.prompt}`);
       assert.ok(entry[1].includes(question.answer ?? question.options[question.correctIndex]));
       assert.ok(entry[1].includes(question.explanation));
