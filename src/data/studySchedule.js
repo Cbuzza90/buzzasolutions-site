@@ -22,6 +22,7 @@ export const upcomingTests = [
   { course: "Safety", courseSlug: "safety", date: "2026-10-21", title: "Safety: Human Factors Quiz", questionCount: 17, label: "Safety Human Factors Quiz: Wednesday October 21st - 17 questions", tone: "notice" },
   { course: "Structures", courseSlug: "structures", date: "2026-10-27", label: "Possible Structures Test: Tuesday October 27th", tone: "notice", possible: true },
   { course: "Technical Publications", courseSlug: "publications", moduleSlug: "module-2", date: "2026-11-06", title: "Technical Publications: Module 2 Test", label: "Technical Publications Module 2 Test: Friday November 6th", tone: "notice" },
+  { course: "Aerodynamics", courseSlug: "aerodynamics", date: "2026-11-06", title: "Aerodynamics Test", label: "Aerodynamics Test: Friday November 6th", tone: "notice" },
 ];
 
 export function isModuleCompleted(courseSlug, moduleSlug) {
