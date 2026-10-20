@@ -142,6 +142,7 @@ export default function StudyHub() {
         <Route path="/study/safety/module-1" element={<SafetyTestList />} />
         <Route path="/study/safety/module-1/practice-1" element={<SafetyPractice key="practice-1" testNumber={1} />} />
         <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
+        <Route path="/study/safety/module-1/practice-4" element={<SafetyPractice key="practice-4" testNumber={4} />} />
         <Route path="/study/safety/module-1/practice-3" element={<SafetyPractice key="practice-3" testNumber={3} />} />
         <Route path="/study/safety/module-1/recall" element={<Navigate to="/study/safety/module-1/practice-3" replace />} />
         <Route path="/study/structures/module-2" element={<StructuresTestList />} />
