@@ -4,13 +4,14 @@ import { readFileSync } from "node:fs";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
 import { torqueQuestions } from "./torqueTest.js";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
+import { measuringToolsQuestions } from "./measuringToolsPractice.js";
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import { shufflePractice, scoreAnswers } from "../pages/safetyTestLogic.js";
 const banks = ["safety-module1-test1.json", "safety-module1-test2.json", "safety-module1-recall.json", "systems-hydraulics-test1.json", "electricity-module1-test1.json"].map(name => JSON.parse(readFileSync(new URL(name, import.meta.url), "utf8")));
-banks.push(systemsMixedQuestions, torqueQuestions, electricityEasyQuestions, humanFactorsQuestions);
+banks.push(systemsMixedQuestions, torqueQuestions, electricityEasyQuestions, humanFactorsQuestions, measuringToolsQuestions);
 
 test("every playable bank uses four unique choices and a valid answer key", () => {
-  assert.deepEqual(banks.map(bank => bank.length), [24, 24, 24, 40, 64, 83, 50, 40, 32]);
+  assert.deepEqual(banks.map(bank => bank.length), [24, 24, 24, 40, 64, 83, 50, 40, 32, 59]);
   for (const bank of banks) for (const q of bank) {
     assert.ok(q.prompt && q.explanation, String(q.id));
     assert.equal(q.options.length, 4, String(q.id));

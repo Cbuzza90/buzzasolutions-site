@@ -10,11 +10,12 @@ import ElectricityPractice, { ElectricityEasyPractice, ElectricityTestList } fro
 import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
+import MeasuringToolsPractice from "./MeasuringToolsPractice";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
-import { formatClassSession, testClassSessions, formatClassEndTime, formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
+import { isModuleCompleted, formatClassSession, testClassSessions, formatClassEndTime, formatTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 import { RESET_PRACTICE_EVENT } from "./practiceProgress";
 
@@ -100,11 +101,23 @@ function CourseList() {
   </>;
 }
 
+// All course sections share the same active-first ordering.
+const courseModules = {
+  electricity: [{ slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
+  safety: [
+    { slug: "module-1", title: "Module 1", description: "Original mixed Safety practice" },
+    { slug: "human-factors", title: "Human Factors Quiz", description: "PEAR, Dirty Dozen & error models" },
+  ],
+  structures: [{ slug: "module-2", title: "Module 2", description: "Measuring tools · Fasteners & torque charts" }],
+  systems: [{ slug: "module-1", title: "Module 1", description: "Hydraulics · Choice, recall & diagrams" }],
+};
+
 function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find(item => item.slug === slug);
+  const modules = [...(courseModules[slug] ?? [])].sort((a, b) => Number(isModuleCompleted(slug, a.slug)) - Number(isModuleCompleted(slug, b.slug)));
   if (!course) return <section className="study-empty"><h1>Course not found</h1><p>Choose one of your eight courses to get started.</p><Link className="study-primary" to="/">View courses</Link></section>;
-  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{slug === "electricity" ? <Link className="study-option-link" to="/study/electricity/module-1"><span><strong>Module 1</strong><small>Electrical fundamentals · Circuits & meters</small></span><ChevronRight size={22} /></Link> : slug === "safety" ? <><Link className="study-option-link" to="/study/safety/module-1"><span><strong>Module 1</strong><small className="study-completed-badge">Completed</small></span><ChevronRight size={22} /></Link><Link className="study-option-link" to="/study/safety/human-factors"><span><strong>Human Factors Quiz</strong><small>PEAR, Dirty Dozen &amp; error models</small></span><ChevronRight size={22} /></Link></> : slug === "structures" ? <Link className="study-option-link" to="/study/structures/module-2"><span><strong>Module 2</strong><small>Fasteners · Torque bolt/nut practice</small></span><ChevronRight size={22} /></Link> : slug === "systems" ? <Link className="study-option-link" to="/study/systems/module-1"><span><strong>Module 1</strong><small>Hydraulics · Choice, recall & diagrams</small><CompletedTestStatus courseSlug={slug} moduleSlug="module-1" label="Module 1" /></span><ChevronRight size={22} /></Link> : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
+  return <section className="study-detail"><span className={`study-icon ${course.color}`}><course.icon size={30} /></span><p className="study-eyebrow">{course.code} · FALL 2026</p><h1>{course.title}</h1><p className="study-detail-description">{course.description}</p>{modules.length ? modules.map(module => <Link key={module.slug} className="study-option-link" to={`/study/${slug}/${module.slug}`}><span><strong>{module.title}</strong><small>{module.description}</small>{isModuleCompleted(slug, module.slug) && <><small className="study-completed-badge">Completed</small><CompletedTestStatus courseSlug={slug} moduleSlug={module.slug} showCompletedLabel={false} /></>}</span><ChevronRight size={22} /></Link>) : <div className="study-detail-panel"><BookOpen size={32} strokeWidth={1.5} /><span className="study-soon">COMING NEXT</span><h2>Your practice starts here.</h2><p>We're preparing this course's study space. Topics and practice questions will appear here as they're added.</p><div className="study-planned"><span>Multiple choice</span><span>Typed answers</span><span>Practice & test modes</span></div></div>}</section>;
 }
 
 
@@ -150,6 +163,7 @@ export default function StudyHub() {
         <Route path="/study/structures/module-2" element={<StructuresTestList />} />
         <Route path="/study/structures/module-1" element={<Navigate to="/study/structures/module-2" replace />} />
         <Route path="/study/structures/module-1/notes" element={<Navigate to="/study/structures/module-2/notes" replace />} />
+        <Route path="/study/structures/module-2/practice-1" element={<MeasuringToolsPractice />} />
         <Route path="/study/structures/module-2/torque-bolt-nut" element={<StructuresTorquePractice />} />
         <Route path="/study/structures/module-1/torque-bolt-nut" element={<Navigate to="/study/structures/module-2/torque-bolt-nut" replace />} />
         <Route path="/study/structures/module-1/practice-1" element={<Navigate to="/study/systems/module-1/practice-2" replace />} />

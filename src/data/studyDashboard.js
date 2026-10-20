@@ -7,6 +7,7 @@ import safety3 from "./safety-module1-recall.json" with { type: "json" };
 import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
 import { electricityRecallQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions } from "./typedReviewQuestions.js";
+import { measuringToolsQuestions } from "./measuringToolsPractice.js";
 import { torquePracticeQuestions } from "./chartTorquePractice.js";
 import { readPracticeRecord, restorePracticeAttempt, loadHighestScore } from "../pages/practiceProgress.js";
 import { restoreTypedAttempt, loadTypedBest, gradeTypedAnswer } from "../pages/typedPracticeLogic.js";
@@ -27,6 +28,7 @@ export const dashboardTests = [
   choice("systems-2", "Systems", "module-1", "Applied review · Multiple choice", systemsMixedQuestions, "practice-2"),
   typed("systems-word-1", "Systems", "Hydraulics · One-word recall", systemsRecallQuestions, 1),
   typed("systems-word-2", "Systems", "Applied review · One-word recall", systemsAppliedRecallQuestions, 2),
+  choice("measuring-tools", "Structures", "module-2", "Measuring Tools", measuringToolsQuestions, "practice-1"),
   { ...choice("torque", "Structures", "module-2", "Torque bolt/nut practice", torquePracticeQuestions, "torque-bolt-nut", "/study/structures/module-1/torque-bolt-nut:20:chart-pools"), count: 20 },
   { slug: "resistors", course: "Electricity", courseSlug: "electricity", title: "Resistor band calculations", kind: "resistor", basePath: "/study/electricity/module-1", path: resistorTestId, storageId: resistorTestId },
 ];
