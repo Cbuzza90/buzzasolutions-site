@@ -12,7 +12,8 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // The references use the same verified answer banks as the practice tests.
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
-  "/study/safety/module-1": [safety1, safety2, safety3, humanFactorsQuestions],
+  "/study/safety/human-factors": [humanFactorsQuestions],
+  "/study/safety/module-1": [safety1, safety2, safety3],
   "/study/electricity/module-1": [electricitySource, electricityEasyQuestions, electricityRecallQuestions],
   "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions],
   "/study/structures/module-2": [torquePracticeQuestions],

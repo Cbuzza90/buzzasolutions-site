@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
 import { dashboardTests } from "./studyDashboard.js";
+import { studyNotesByModule } from "./courseStudyNotes.js";
 
 test("Human Factors keeps source answers and covers all twelve factors and PEAR without fire/shop questions", () => {
   assert.equal(humanFactorsQuestions.length, 32);
@@ -22,4 +23,9 @@ test("Human Factors keeps source answers and covers all twelve factors and PEAR 
   const registered = dashboardTests.find(t => t.slug === "safety-human-factors");
   assert.equal(registered.questions, humanFactorsQuestions);
   assert.equal(registered.storageId, "/study/safety/module-1/practice-4");
+  assert.equal(registered.basePath, "/study/safety/human-factors");
+  assert.equal(registered.path, "/study/safety/human-factors/practice-1");
+  const notes = studyNotesByModule[registered.basePath];
+  assert.ok(notes);
+  assert.deepEqual(notes.sections.filter(section => !section.questionReference).map(section => section.id), ["pear", "dirty-dozen", "models", "disciplines"]);
 });
