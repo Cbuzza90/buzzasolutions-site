@@ -1,6 +1,6 @@
 # Structures Module 2: Measuring Tools
 
-Separate 59-question multiple-choice test: /study/structures/module-2/practice-1. The existing 20-question torque chart test remains available with its original storage keys.
+Current 54-question conceptual multiple-choice test: /study/structures/module-2/practice-1. The existing 20-question torque chart test remains available with its original storage keys.
 
 ## Sources
 
@@ -86,3 +86,9 @@ Shared MultipleChoicePractice, independent persistence/high score, reset preserv
 | pressure-gauges | 69 | — | Fluid or gas pressure, including vacuum where the gauge is designed for it |
 | temperature-contact | 70, 71 | — | Pyrometer |
 | weigh-scales | 72 | — | Measuring resin quantities |
+
+## Simulator split (2026-10-21)
+
+Five scale-reading targets (thimble-turn, sleeve-line, thimble-line, dial-revolution and vernier-zero) moved out of the active Measuring Tools and full-review banks. Their explanatory facts remain in the notes. Module 2 now has Calibration Tool Measurement Tests with four original course simulator links and Test yourself copy. The imperial micrometer URL uses the verified current redirect destination. Tool identification, parts, use and care remain in the quizzes.
+
+Measuring Tools now stores progress at /study/structures/module-2/practice-1:concepts. Valid original attempts migrate by dropping the removed questions and retaining remaining choices/answers. Completed attempts regrade the retained 54 questions. Prior 59-question high scores remain at their original key and appear as a labelled previous-version score. Migration does not overwrite an existing revised attempt.

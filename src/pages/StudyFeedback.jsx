@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Mail } from "lucide-react";
-import { feedbackEmail, feedbackTypes, sendStudyFeedback } from "./studyFeedbackDelivery.js";
+import { feedbackEmail, feedbackTypes, feedbackImageTypes, validateFeedbackImage, sendStudyFeedback } from "./studyFeedbackDelivery.js";
 import "./StudyFeedback.css";
 
 const draftKey = "study-feedback-draft";
@@ -19,6 +19,8 @@ export default function StudyFeedback() {
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [image, setImage] = useState(null);
+  const imageInput = useRef(null);
   useEffect(() => {
     try { sessionStorage.setItem(draftKey, JSON.stringify(draft)); }
     catch { /* The form still works without browser draft storage. */ }
@@ -39,9 +41,11 @@ export default function StudyFeedback() {
     setError("");
     setSent(false);
     try {
-      await sendStudyFeedback(draft);
+      await sendStudyFeedback({ ...draft, image });
       setSent(true);
       setDraft(emptyDraft);
+      setImage(null);
+      if (imageInput.current) imageInput.current.value = "";
     } catch (failure) {
       setError(failure instanceof TypeError || ["AbortError", "SyntaxError"].includes(failure.name) ? "Could not confirm submission. Your message is still here. Check your connection and try again." : failure.message);
     } finally { setSending(false); }
@@ -59,6 +63,14 @@ export default function StudyFeedback() {
       <input id="feedback-course" value={draft.course} onChange={event => update("course", event.target.value)} maxLength={100} placeholder="e.g. Structures" />
       <label htmlFor="feedback-message">Your message</label>
       <textarea id="feedback-message" value={draft.message} onChange={event => update("message", event.target.value)} required maxLength={2000} rows={6} placeholder="Tell me what you’d like added or fixed. For a missing test date, include the course, test and date." aria-describedby="feedback-help" />
+      <label htmlFor="feedback-image">Attach an image <span>(optional)</span></label>
+      <input ref={imageInput} id="feedback-image" type="file" accept={feedbackImageTypes.join(",")} aria-describedby="feedback-image-help" onChange={event => {
+        const selected = event.target.files?.[0] ?? null;
+        try { validateFeedbackImage(selected); setImage(selected); setError(""); }
+        catch (failure) { event.target.value = ""; setImage(null); setError(failure.message); }
+      }} />
+      <p id="feedback-image-help">JPG, PNG, WebP or GIF · up to 10 MB. Images stay selected until you send or leave this page.</p>
+      {image && <button type="button" className="study-primary" onClick={() => { setImage(null); imageInput.current.value = ""; }}>Remove image</button>}
       <p id="feedback-help">Send directly to {feedbackEmail} through FormSubmit.</p>
       </fieldset>
       {error && <p role="alert">{error}</p>}

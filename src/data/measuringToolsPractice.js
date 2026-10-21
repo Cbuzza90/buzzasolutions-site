@@ -97,7 +97,11 @@ add("inspection", "pressure-gauges", "What can pressure gauges in the slides mea
 add("inspection", "temperature-contact", "Which course instrument measures surface temperature remotely without contact?", "Pyrometer", ["Contact thermometer", "Dial caliper", "Depth gauge"], "The course pyrometer measures surface temperature remotely. A contact thermometer must contact the temperature source; an aiming laser is not itself the temperature sensor.", [70,71]);
 add("inspection", "weigh-scales", "Which application of weigh scales is given for composite manufacture or repair?", "Measuring resin quantities", ["Setting fastener torque", "Checking a shaft's end play", "Comparing an internal radius"], "The slides give measuring resins or glue during composite manufacture and repair as an application of weigh scales. They describe spring, counterbalance and electronic load-cell designs.", [72]);
 
-export const measuringToolsQuestions = bank;
+// Reading/scale practice belongs in the external simulators; retain the source
+// facts in notes and the old bank solely for progress/score compatibility.
+export const legacyMeasuringToolsQuestions = bank;
+const simulatorTargets = new Set(["thimble-turn", "sleeve-line", "thimble-line", "dial-revolution", "vernier-zero"]);
+export const measuringToolsQuestions = bank.filter(q => !simulatorTargets.has(q.learningTarget));
 export const measuringToolsNoteSections = Object.entries(sections).map(([id, title]) => ({
   id: `measuring-${id}`, title,
   items: [...bank.filter(q => q.noteSection === id).map(q => [

@@ -13,5 +13,6 @@
 .study-feedback-form textarea{min-height:140px;resize:vertical;line-height:1.5}
 .study-feedback-form p{font-size:13px;color:var(--muted);line-height:1.5;margin:3px 0 6px;overflow-wrap:anywhere}
 .study-feedback-form .study-primary{align-self:flex-start;cursor:pointer}
+.study-feedback-form input[type=file]::file-selector-button{background:#2563eb;color:#fff;border:0;border-radius:6px;padding:7px 10px;margin-right:10px;cursor:pointer}
 .study-app[data-theme=dark] .study-feedback-form :is(input,select,textarea){background:#121212;color:var(--ink)}
 @media(max-width:600px){.study-feedback-link{padding:8px 10px;font-size:12px;min-height:36px}.study-feedback-page{padding-top:8px}.study-feedback-form{margin-top:10px}}

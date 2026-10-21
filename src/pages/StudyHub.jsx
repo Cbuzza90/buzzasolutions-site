@@ -11,6 +11,7 @@ import StudyFeedback from "./StudyFeedback";
 import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
+import StructuresModule2Practice from "./StructuresModule2Practice";
 import MeasuringToolsPractice from "./MeasuringToolsPractice";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
@@ -109,7 +110,7 @@ const courseModules = {
     { slug: "module-1", title: "Module 1", description: "Original mixed Safety practice" },
     { slug: "human-factors", title: "Human Factors Quiz", description: "PEAR, Dirty Dozen & error models" },
   ],
-  structures: [{ slug: "module-2", title: "Module 2", description: "Measuring tools · Fasteners & torque charts" }],
+  structures: [{ slug: "module-2", title: "Module 2", description: "Measuring tools · Safetying, cables & hardware" }],
   systems: [{ slug: "module-1", title: "Module 1", description: "Hydraulics · Choice, recall & diagrams" }],
 };
 
@@ -165,6 +166,7 @@ export default function StudyHub() {
         <Route path="/study/structures/module-2" element={<StructuresTestList />} />
         <Route path="/study/structures/module-1" element={<Navigate to="/study/structures/module-2" replace />} />
         <Route path="/study/structures/module-1/notes" element={<Navigate to="/study/structures/module-2/notes" replace />} />
+        <Route path="/study/structures/module-2/practice-2" element={<StructuresModule2Practice />} />
         <Route path="/study/structures/module-2/practice-1" element={<MeasuringToolsPractice />} />
         <Route path="/study/structures/module-2/torque-bolt-nut" element={<StructuresTorquePractice />} />
         <Route path="/study/structures/module-1/torque-bolt-nut" element={<Navigate to="/study/structures/module-2/torque-bolt-nut" replace />} />

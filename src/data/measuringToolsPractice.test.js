@@ -6,9 +6,9 @@ import { dashboardTests } from "./studyDashboard.js";
 import { studyNotesByModule, findNoteSections } from "./courseStudyNotes.js";
 
 test("Measuring Tools has independently saved source-mapped questions and original tool pictures", () => {
-  assert.equal(measuringToolsQuestions.length, 59);
-  assert.equal(new Set(measuringToolsQuestions.map(q => q.id)).size, 59);
-  assert.equal(new Set(measuringToolsQuestions.map(q => q.learningTarget)).size, 59);
+  assert.equal(measuringToolsQuestions.length, 54);
+  assert.equal(new Set(measuringToolsQuestions.map(q => q.id)).size, 54);
+  assert.equal(new Set(measuringToolsQuestions.map(q => q.learningTarget)).size, 54);
   for (const q of measuringToolsQuestions) {
     assert.ok(q.source.slides.length);
     assert.ok(q.source.slides.every(slide => Number.isInteger(slide) && slide >= 1 && slide <= 74));
@@ -23,7 +23,7 @@ test("Measuring Tools has independently saved source-mapped questions and origin
   const entry = dashboardTests.find(t => t.slug === "measuring-tools");
   assert.equal(entry.questions, measuringToolsQuestions);
   assert.equal(entry.basePath, "/study/structures/module-2");
-  assert.equal(entry.storageId, "/study/structures/module-2/practice-1");
+  assert.equal(entry.storageId, "/study/structures/module-2/practice-1:concepts");
   assert.notEqual(entry.storageId, dashboardTests.find(t => t.slug === "torque").storageId);
 });
 

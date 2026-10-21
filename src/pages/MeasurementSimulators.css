@@ -1,0 +1,8 @@
+.study-measurement-tests{margin:14px 0;border:1px solid var(--line);border-radius:14px;padding:12px}
+.study-measurement-tests h2{font-size:17px;line-height:1.3;margin:0 0 5px}
+.study-measurement-tests p{font-size:13px;color:var(--muted);margin:0 0 9px;line-height:1.5}
+.study-measurement-tests>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.study-measurement-tests .study-option-link{margin:0;padding:10px 12px;min-height:44px;gap:8px;font-size:13px}
+.study-measurement-tests .study-option-link svg{flex-shrink:0}
+.study-measurement-tests small{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:8px}
+@media(max-width:600px){.study-measurement-tests>div{grid-template-columns:1fr}}

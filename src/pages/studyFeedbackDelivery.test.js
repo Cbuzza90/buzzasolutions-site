@@ -12,12 +12,28 @@ test("feedback goes directly to the corrected recipient with only the entered fi
       assert.equal(url, feedbackEndpoint);
       assert.ok(url.endsWith(feedbackEmail));
       assert.equal(options.method, "POST");
-      assert.deepEqual(JSON.parse(options.body), {
+      assert.ok(options.body instanceof FormData);
+      assert.equal(options.headers["Content-Type"], undefined);
+      assert.deepEqual(Object.fromEntries(options.body), {
         _subject: "Aviation Study: Test request", _template: "table", type: "Test request",
         course: "Structures", message: "Please add measuring tool identification.",
       });
       return response(success);
     });
+  }
+});
+
+test("an optional image is sent as a real multipart attachment and invalid files never submit", async () => {
+  const image = new File([new Uint8Array([137, 80, 78, 71])], "screenshot.png", { type: "image/png" });
+  await sendStudyFeedback({ ...draft, image }, async (url, options) => {
+    const attached = options.body.get("attachment");
+    assert.equal(attached.name, image.name);
+    assert.equal(attached.type, image.type);
+    assert.deepEqual(await attached.arrayBuffer(), await image.arrayBuffer());
+    return response(true);
+  });
+  for (const invalid of [new File(["x"], "bad.html", { type: "text/html" }), new File([], "empty.png", { type: "image/png" }), new File([new Uint8Array(10_000_001)], "large.png", { type: "image/png" })]) {
+    await assert.rejects(sendStudyFeedback({ ...draft, image: invalid }, async () => assert.fail("Must not submit invalid images")), /Choose/);
   }
 });
 

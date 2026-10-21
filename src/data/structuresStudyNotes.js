@@ -27,7 +27,7 @@ export const structuresNoteSections = [
     ["Units", "All practice answers are in-lb. Do not read or label the values as foot-pounds."],
     ["Two values", "Minimum and maximum are a pair; do not give just one limit or mix limits from adjacent columns."],
     ["Use the full chart", "Open the full reference below. Fit, zoom buttons, and two-finger pinch with touch panning help inspect the row and headings together."],
-    ["Scope", "This torque section covers the supplied bolt/nut chart. Measuring-tools sections above cover the supplied presentation and review sheet."],
+    ["Scope", "This torque section covers the supplied bolt/nut chart. The sections above cover all five supplied Module 2 presentations and the measuring-tools review sheet."],
     ["Aircraft instructions", "Manufacturer-specified torque takes precedence. This general chart practice is not a substitute for the applicable maintenance instructions."]
   ] }
 ];
