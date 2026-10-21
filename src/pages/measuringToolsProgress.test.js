@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { legacyMeasuringToolsQuestions as oldBank, measuringToolsQuestions as bank } from "../data/measuringToolsPractice.js";
-import { structuresModule2Questions } from "../data/structuresModule2Review.js";
+import { structuresPostedQuestions } from "../data/structuresPostedPractice.js";
 import { migrateMeasuringToolsProgress, measuringToolsProgressKey as currentKey, legacyMeasuringToolsProgressKey as oldKey } from "./measuringToolsProgress.js";
 import { newPracticeAttempt, savePracticeAttempt, readPracticeRecord, restorePracticeAttempt, recordHighestScore, loadHighestScore } from "./practiceProgress.js";
 
@@ -13,7 +13,7 @@ test("simulator reading targets leave both quiz pools while the legacy score ban
   assert.ok(bank.some(q => q.learningTarget === "zero-check"), "Care/zero checks stay in the conceptual test");
   for (const target of removed) {
     assert.ok(!bank.some(q => q.learningTarget === target));
-    assert.ok(!structuresModule2Questions.some(q => q.learningTarget === target));
+    assert.ok(!structuresPostedQuestions.some(q => q.learningTarget === target));
   }
 });
 

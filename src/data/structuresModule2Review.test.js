@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { structuresModule2Questions, structuresHardwareQuestions, structuresModule2Diagrams, structuresReviewCategories, sampleStructuresReview } from "./structuresModule2Review.js";
+import { structuresPostedQuestions, structuresPostedProgressKey } from "./structuresPostedPractice.js";
 import { studyNotesByModule, findNoteSections } from "./courseStudyNotes.js";
 import { dashboardTests } from "./studyDashboard.js";
 import { newPracticeAttempt, restorePracticeAttempt, savePracticeAttempt, recordHighestScore, loadHighestScore } from "../pages/practiceProgress.js";
@@ -23,9 +24,9 @@ test("full Structures pool maps all five course decks and selects eight unique q
   for (const diagram of Object.values(structuresModule2Diagrams)) assert.ok(existsSync(new URL(`../../public${diagram.src}`, import.meta.url)));
 });
 
-test("all full-review questions are searchable, without duplicating reused measuring references", () => {
+test("every posted-quiz question is searchable in the exact module notes", () => {
   const notes = studyNotesByModule[path];
-  for (const q of structuresModule2Questions) {
+  for (const q of structuresPostedQuestions) {
     const items = findNoteSections(notes.sections, q.prompt).flatMap(section => section.items);
     const answers = items.filter(item => item[0] === q.prompt && item[1].includes(q.explanation));
     assert.equal(answers.length, 1, q.id);
@@ -49,20 +50,27 @@ test("all pasted safety-quiz facts have slide-backed answers and uncertain blank
   assert.ok(!structuresHardwareQuestions.some(q => /what.*temperature.*NAS679|proves.*properly torqued/i.test(q.prompt)));
 });
 
-test("balanced 40-question attempts resume and keep best scores independently of older Structures tests", () => {
-  const record = dashboardTests.find(t => t.slug === "structures-full-review");
-  assert.equal(record.count, 40);
-  assert.equal(record.storageId, `${path}/practice-2:40`);
+test("posted quiz replaces the full review and keeps progress independent from its old scores", () => {
+  assert.equal(structuresPostedQuestions.length, 26);
+  assert.equal(new Set(structuresPostedQuestions.map(q => q.id)).size, 26);
+  assert.ok(structuresPostedQuestions.every(q => q.postedSource && !["bolts", "nuts", "screws-pins"].includes(q.category)));
+  assert.ok(!dashboardTests.some(t => t.slug === "structures-full-review"));
+  const record = dashboardTests.find(t => t.slug === "structures-posted-review");
+  assert.equal(record.storageId, structuresPostedProgressKey);
   const values = new Map();
   const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
-  const attempt = newPracticeAttempt(structuresModule2Questions, () => 0.5, 40, sampleStructuresReview);
+  const oldKey = `${path}/practice-2:40`;
+  recordHighestScore(structuresModule2Questions, oldKey, 34, storage, 40);
+  const oldBest = values.get(`study-practice:best:${oldKey}`);
+  const attempt = newPracticeAttempt(structuresPostedQuestions, () => 0.5);
   attempt.answers[attempt.order[0].id] = attempt.order[0].correctIndex;
   attempt.position = 1;
-  savePracticeAttempt(structuresModule2Questions, record.storageId, attempt, storage);
+  savePracticeAttempt(structuresPostedQuestions, record.storageId, attempt, storage);
   const saved = JSON.parse(values.get(`study-practice:progress:${record.storageId}`));
-  assert.deepEqual(restorePracticeAttempt(structuresModule2Questions, saved, 40), attempt);
-  recordHighestScore(structuresModule2Questions, record.storageId, 34, storage, 40);
-  savePracticeAttempt(structuresModule2Questions, record.storageId, newPracticeAttempt(structuresModule2Questions, () => 0.2, 40, sampleStructuresReview), storage);
-  assert.equal(loadHighestScore(structuresModule2Questions, record.storageId, storage, 40).score, 34);
-  assert.equal(loadHighestScore(structuresModule2Questions, `${path}/practice-1`, storage, 40), null);
+  assert.deepEqual(restorePracticeAttempt(structuresPostedQuestions, saved), attempt);
+  recordHighestScore(structuresPostedQuestions, record.storageId, 24, storage);
+  savePracticeAttempt(structuresPostedQuestions, record.storageId, newPracticeAttempt(structuresPostedQuestions, () => 0.2), storage);
+  assert.equal(loadHighestScore(structuresPostedQuestions, record.storageId, storage).score, 24);
+  assert.equal(loadHighestScore(structuresModule2Questions, oldKey, storage, 40).score, 34);
+  assert.equal(values.get(`study-practice:best:${oldKey}`), oldBest);
 });

@@ -1,4 +1,4 @@
-# Structures Module 2: full review source audit
+# Structures Module 2: source audit and posted-quiz practice
 
 ## Source retrieval and scope
 
@@ -16,9 +16,13 @@ The chat includes pasted measuring-tool and 15 safety/cable quiz prompts. Those 
 
 ## Delivered behavior
 
-/study/structures/module-2/practice-2 is Module 2 Full Review. A 224-question pool samples 40 distinct questions per attempt, eight from each of the five presentation topics. All material remains searchable in exact Module 2 notes, even when not sampled. A reset reshuffles the pool and keeps the highest completed score. Stored progress uses /study/structures/module-2/practice-2:40, independently of old measuring/torque attempts. Both existing tests remain active.
+The user requested removal of the broad Module 2 Full Review. /study/structures/module-2/practice-2 now shows Posted Quiz Practice: all 26 questions derived from the readable pasted quiz text and five accessible quiz screenshots, with four choices per prompt. True/false prompts become equivalent four-choice questions; the three-item Nicopress match becomes three individual step questions. The two accessible turnbuckle identifications retain cropped original slide diagrams. No random extra slide facts are added to this quiz. Earlier image-only questions remain unavailable through the cross-chat reader; this is a verified subset, not a claim to reproduce every uploaded screenshot.
 
-The shared multiple-choice engine handles answer shuffling, grading, notes closing, diagrams and results. Original source images are copied at native resolution, not screenshot thumbnails. Four identification questions use crops of the source turnbuckle comparison with the printed names outside the quiz crop; the full labelled image is available in the notes. Reused measuring question references are displayed once rather than twice in notes search.
+Scale-reading questions remain in the external simulators as previously requested. Three numerical conversions remain excluded under the existing non-Math standard. The torque-seal screenshot's claim that a mark proves proper torque is qualified to ask about the movement-reference term instead; the discrepancy is explained after answering. All five slide decks remain available as condensed searchable topic notes, while active question references cover only the current quiz banks. The previous 224-question pool is retained internally as historical/source data, not an active test.
+
+New attempts use /study/structures/module-2/practice-2:posted-v1. Previous full-review storage and highest scores are left untouched and are not mixed with the replacement test. The existing Measuring Tools, torque chart practice and simulator links remain active.
+
+The shared multiple-choice engine handles answer shuffling, grading, notes closing, diagrams and results. Original source images are copied at native resolution, not screenshot thumbnails. The historical pool has four identification questions using crops of the source turnbuckle comparison with the printed names outside the quiz crop; the full labelled image is available in the notes. Reused measuring question references are displayed once rather than twice in notes search.
 
 ## Source cautions and exclusions
 
