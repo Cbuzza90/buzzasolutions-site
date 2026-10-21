@@ -1,0 +1,17 @@
+.study-feedback-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #60a5fa;border-radius:10px;background:#2563eb;color:#fff;padding:9px 12px;font-size:13px;font-weight:700;text-decoration:none;line-height:1.3;min-height:40px}
+.study-feedback-link:hover{background:#1d4ed8}
+.study-app[data-theme] a.study-feedback-link{color:#fff}
+.study-feedback-link:focus-visible,.study-feedback-form :is(input,select,textarea):focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
+.study-feedback-page{max-width:680px;margin-inline:auto}
+.study-feedback-page h1{font-size:clamp(23px,4vw,30px);line-height:1.2}
+.study-feedback-form{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.study-feedback-form fieldset{display:flex;flex-direction:column;gap:8px;border:0;margin:0;padding:0;min-width:0}
+.study-feedback-form button:disabled{opacity:.65;cursor:wait}
+.study-feedback-form label{font-size:14px;font-weight:700;margin-top:5px}
+.study-feedback-form label span{color:var(--muted);font-weight:400}
+.study-feedback-form :is(input,select,textarea){width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:16px;color:var(--ink);background:#fff}
+.study-feedback-form textarea{min-height:140px;resize:vertical;line-height:1.5}
+.study-feedback-form p{font-size:13px;color:var(--muted);line-height:1.5;margin:3px 0 6px;overflow-wrap:anywhere}
+.study-feedback-form .study-primary{align-self:flex-start;cursor:pointer}
+.study-app[data-theme=dark] .study-feedback-form :is(input,select,textarea){background:#121212;color:var(--ink)}
+@media(max-width:600px){.study-feedback-link{padding:8px 10px;font-size:12px;min-height:36px}.study-feedback-page{padding-top:8px}.study-feedback-form{margin-top:10px}}

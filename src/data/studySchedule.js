@@ -23,6 +23,8 @@ export const upcomingTests = [
   { course: "Structures", courseSlug: "structures", date: "2026-10-27", label: "Possible Structures Test: Tuesday October 27th", tone: "notice", possible: true },
   { course: "Technical Publications", courseSlug: "publications", moduleSlug: "module-2", date: "2026-11-06", title: "Technical Publications: Module 2 Test", label: "Technical Publications Module 2 Test: Friday November 6th", tone: "notice" },
   { course: "Aerodynamics", courseSlug: "aerodynamics", date: "2026-11-06", title: "Aerodynamics Test", label: "Aerodynamics Test: Friday November 6th", tone: "notice" },
+  { course: "Math", courseSlug: "math", date: "2026-11-16", endDate: "2026-11-20", title: "Math Test #2", label: "Math Test #2: November 16–20", tone: "notice" },
+  { course: "Math", courseSlug: "math", date: "2026-12-14", endDate: "2026-12-18", title: "Math Test #3", label: "Math Test #3: December 14–18", tone: "notice" },
 ];
 
 export function isModuleCompleted(courseSlug, moduleSlug) {
@@ -44,6 +46,7 @@ function torontoClock(now) {
 }
 
 export function testClassEndTime(test) {
+  if (test.endDate) return null; // A test window has no confirmed class session.
   // A specific test time overrides the weekly timetable (e.g. morning lab).
   if (/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(test.endTime ?? "")) return test.endTime;
   const classes = testClassSessions(test);
@@ -52,6 +55,7 @@ export function testClassEndTime(test) {
 }
 
 export function testClassSessions(test) {
+  if (test.endDate) return [];
   if (test.date < classTimetable.from || test.date > classTimetable.through) return [];
   const day = new Date(`${test.date}T12:00:00Z`).getUTCDay();
   return (classTimetable.courses[test.courseSlug] ?? []).filter(slot => slot.day === day);
@@ -76,7 +80,8 @@ export function formatClassEndTime(test) {
 export function visibleTests(tests, now = new Date()) {
   const clock = torontoClock(now);
   return tests.filter(test => {
-    if (test.completed || test.date < clock.date) return false;
+    if (test.completed || (test.endDate ?? test.date) < clock.date) return false;
+    if (test.endDate) return true; // Keep the whole window, through its final Toronto date.
     if (test.date > clock.date) return true;
     const end = testClassEndTime(test);
     if (!end) return true; // No matching class: retain until the end of the date.
@@ -90,7 +95,7 @@ export function nextCourseTest(courseSlug, tests = upcomingTests, now = new Date
   if (!test) return null;
   const today = torontoClock(now).date;
   // Compare calendar days, so daylight-saving changes do not shift the countdown.
-  const days = Math.round((Date.parse(`${test.date}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 86_400_000);
+  const days = Math.max(0, Math.round((Date.parse(`${test.date}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 86_400_000));
   const urgency = days <= 2 ? "urgent" : days <= 6 ? "warning" : "ready";
   const hue = urgency === "urgent" ? 0 : urgency === "ready" ? 140 : 12 + (days - 3) * 16;
   return { ...test, days, urgency, hue };
@@ -103,4 +108,8 @@ export function sortCoursesByNextTest(courses, tests = upcomingTests, now = new 
 
 export function formatTestDate(date, short = false) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto", weekday: short ? "short" : "long", month: short ? "short" : "long", day: "numeric" }).format(new Date(`${date}T12:00:00-04:00`));
+}
+
+export function formatScheduledTestDate(test, short = false) {
+  return test.endDate ? `${formatTestDate(test.date, short)} – ${formatTestDate(test.endDate, short)}` : formatTestDate(test.date, short);
 }
