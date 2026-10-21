@@ -28,10 +28,11 @@ test("Math test windows stay visible throughout the range and advance to the nex
 });
 
 test("test dates stay visible on the test day and expire the following day", () => {
-  assert.equal(visibleTests(activeSchedule, "2026-10-14").length, 9);
-  assert.deepEqual(visibleTests(activeSchedule, "2026-10-15").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Technical Publications", "Aerodynamics", "Math", "Math"]);
-  assert.deepEqual(visibleTests(activeSchedule, "2026-10-17").map(test => test.course), ["Electricity", "Safety", "Structures", "Technical Publications", "Aerodynamics", "Math", "Math"]);
-  assert.equal(visibleTests(activeSchedule, "2026-12-19").length, 0);
+  assert.equal(visibleTests(activeSchedule, "2026-10-14").length, 12);
+  assert.deepEqual(visibleTests(activeSchedule, "2026-10-15").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Math", "Engines", "Math", "Engines"]);
+  assert.deepEqual(visibleTests(activeSchedule, "2026-10-17").map(test => test.course), ["Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Math", "Engines", "Math", "Engines"]);
+  assert.equal(visibleTests(activeSchedule, "2026-12-19")[0].date, "2027-01-18");
+  assert.equal(visibleTests(activeSchedule, "2027-01-19").length, 0);
 });
 
 test("expiration follows Toronto midnight rather than UTC midnight", () => {
@@ -45,7 +46,7 @@ test("visible dates are sorted without changing the saved schedule", () => {
   const sorted = visibleTests(reverse, "2026-10-12");
   assert.deepEqual(sorted.map(test => test.date), activeSchedule.map(test => test.date));
   assert.deepEqual(reverse, original);
-  assert.equal(reverse[0].course, "Math");
+  assert.equal(reverse[0].course, "Engines");
 });
 
 test("course colours change at the requested day boundaries", () => {
@@ -98,7 +99,7 @@ test("completed Safety test stops warnings while Module 1 is marked done", () =>
   assert.equal(isModuleCompleted("safety", "module-1"), true);
   assert.equal(isModuleCompleted("systems", "module-1"), true);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-14").date, "2026-10-21");
-  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Electricity", "Safety", "Structures", "Technical Publications", "Aerodynamics", "Math", "Math"]);
+  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Math", "Engines", "Math", "Engines"]);
 });
 
 test("completed Systems Module 1 has no upcoming date or countdown", () => {
