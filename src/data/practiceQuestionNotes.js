@@ -1,5 +1,6 @@
 import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
+import { enginesReviewQuestions, enginesLectureQuestions } from "./enginesTest2.js";
 import { aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions } from "./aerodynamicsModule2.js";
 import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
 import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
@@ -16,6 +17,7 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // The references use the same verified answer banks as the practice tests.
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
+  "/study/engines/module-2": [enginesReviewQuestions, enginesLectureQuestions],
   "/study/aerodynamics/module-2": [aerodynamicsReviewQuestions, aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions],
   "/study/safety/human-factors": [humanFactorsQuestions],
   "/study/safety/module-1": [safety1, safety2, safety3],
@@ -42,7 +44,7 @@ export function practiceQuestionNotes(basePath) {
     const title = questions[0]?.answer ? `One-Word Test #${++typedNumber}` : `Practice Test #${++choiceNumber}`;
     return {
       id: `practice-reference-${index + 1}`,
-      title: `${questions === aerodynamicsReviewQuestions ? "Aerodynamics Review & Practice Quiz" : questions === aerodynamicsChoiceQuestions ? "Aerodynamics Notes Practice" : questions === aerodynamicsRecallQuestions ? "Aerodynamics One-Word Recall" : questions === torquePracticeQuestions ? "Torque practice" : questions === structuresPostedQuestions ? "Posted Quiz Practice" : questions === measuringToolsQuestions ? "Measuring Tools" : questions === electricityEasyQuestions ? "Easy Review" : questions === humanFactorsQuestions ? "Human Factors" : title} · Question reference`,
+      title: `${questions === enginesReviewQuestions ? "Engines Review Questions" : questions === enginesLectureQuestions ? "Engines Lecture Practice" : questions === aerodynamicsReviewQuestions ? "Aerodynamics Review & Practice Quiz" : questions === aerodynamicsChoiceQuestions ? "Aerodynamics Notes Practice" : questions === aerodynamicsRecallQuestions ? "Aerodynamics One-Word Recall" : questions === torquePracticeQuestions ? "Torque practice" : questions === structuresPostedQuestions ? "Posted Quiz Practice" : questions === measuringToolsQuestions ? "Measuring Tools" : questions === electricityEasyQuestions ? "Easy Review" : questions === humanFactorsQuestions ? "Human Factors" : title} · Question reference`,
       questionReference: true,
       items: questions.filter(question => {
         if (basePath !== "/study/aerodynamics/module-2") return true;

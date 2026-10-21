@@ -5,8 +5,8 @@ import { practiceBanksByModule } from "./practiceQuestionNotes.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 
 test("every current playable module has source-based searchable notes and valid assets", () => {
-  for (const slug of ["safety", "electricity", "structures", "systems", "aerodynamics"]) {
-    const notes = studyNotesByModule[`/study/${slug}/${["structures", "aerodynamics"].includes(slug) ? "module-2" : "module-1"}`];
+  for (const slug of ["safety", "electricity", "structures", "systems", "aerodynamics", "engines"]) {
+    const notes = studyNotesByModule[`/study/${slug}/${["structures", "aerodynamics", "engines"].includes(slug) ? "module-2" : "module-1"}`];
     assert.ok(notes?.basis && notes.intro && notes.sections.length);
     assert.equal(new Set(notes.sections.map(section => section.id)).size, notes.sections.length);
     for (const section of notes.sections) {

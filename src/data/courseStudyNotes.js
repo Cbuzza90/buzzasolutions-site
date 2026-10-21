@@ -1,4 +1,5 @@
 import { resistorNoteSections } from "./resistorBands.js";
+import { enginesNoteSections } from "./enginesTest2.js";
 import { aerodynamicsNoteSections, aerodynamicsDiagrams, aerodynamicsWeek8Warning } from "./aerodynamicsModule2.js";
 import { practiceQuestionNotes } from "./practiceQuestionNotes.js";
 import { safetyNoteSections } from "./safetyStudyNotes.js";
@@ -12,6 +13,7 @@ import { systemsDiagrams } from "./systemsMixedTest.js";
 // Register notes for the exact module. A new module must not silently inherit
 // unrelated notes just because it belongs to the same course.
 export const studyNotesByModule = {
+  "/study/engines/module-2": { course: "Engines", sections: enginesNoteSections, defaultOpenId: "engines-fundamentals", intro: "Test 2: reciprocating-engine oil and lubrication. Start with the review, then use the lecture detail to distinguish systems, valves and indications.", basis: "Course basis: the supplied AMEM10057_Test2_Condensed_Codex.pdf, Section 1 (31 review entries) and Section 2 (Oil D13.01/D13.02 and D13.03 lecture digest). Answers cite PDF pages and review question/slide references. Engine-specific values and procedures are course examples; ambiguous expansion-space and pour-point wording is not turned into an exact numerical rule." },
   "/study/aerodynamics/module-2": { course: "Aerodynamics", sections: aerodynamicsNoteSections, diagrams: aerodynamicsDiagrams, defaultOpenId: "aero-axes", intro: `Controls, stability, stalls, loads, high-speed flight, structure and the additional review topics. ${aerodynamicsWeek8Warning}`, basis: "Course basis: the ten supplied Module 2 PDFs available here, presentations 14–23, the 60-entry Fall 2025 review and all 54 supplied practice-quiz prompts. Source page numbers are cited in each topic and explanation. The numerical Mach calculation is excluded; misleading absolute claims are qualified." },
   "/study/safety/human-factors": { course: "Safety", sections: safetyNoteSections.filter(section => ["pear", "dirty-dozen", "models", "disciplines"].includes(section.id)), defaultOpenId: "pear", intro: "Human Factors only: PEAR, Dirty Dozen, error models and disciplines.", basis: "Course basis: the supplied Safety questions and answer key. Human Factors questions retain their verified source answers." },
   "/study/safety/module-1": { course: "Safety", sections: safetyNoteSections, defaultOpenId: "fire", intro: "Shop safety, fire safety and human factors from your Safety practice sets.", basis: "Course basis: the supplied Safety questions and answer key, with fire-class symbols and agents checked against CCOHS.", sources: [{ title: "CCOHS · fire extinguishers", url: "https://www.ccohs.ca/oshanswers/safety_haz/fire_extinguishers.html" }] },

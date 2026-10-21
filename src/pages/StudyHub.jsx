@@ -13,6 +13,7 @@ import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresModule2Practice from "./StructuresModule2Practice";
 import { AerodynamicsTestList, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
+import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
 import MeasuringToolsPractice from "./MeasuringToolsPractice";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
@@ -25,7 +26,7 @@ import { RESET_PRACTICE_EVENT } from "./practiceProgress";
 const courses = [
   { slug: "electricity", title: "Aircraft Electricity 1", code: "AMEM-10001", category: "Foundations", icon: Zap, color: "amber", hasTests: true, description: "Build your understanding of aircraft electricity, one topic at a time." },
   { slug: "aerodynamics", title: "Aircraft Eng & Aerodynamics", code: "AMEM-10002", category: "Foundations", icon: Wind, color: "sky", hasTests: true, description: "Make sense of the principles behind flight and aircraft engineering." },
-  { slug: "engines", title: "Aircraft Engines (Intro)", code: "AMEM-10057", category: "Aircraft", icon: Settings2, color: "violet", description: "Get familiar with aircraft engines and how their components work together." },
+  { slug: "engines", title: "Aircraft Engines (Intro)", code: "AMEM-10057", category: "Aircraft", icon: Settings2, color: "violet", hasTests: true, description: "Get familiar with aircraft engines and how their components work together." },
   { slug: "safety", title: "Aviation Health and Safety", code: "SAFE-10094", category: "Foundations", icon: ShieldCheck, color: "green", hasTests: true, description: "Review the health and safety concepts covered in your aviation course." },
   { slug: "structures", title: "Basic Aircraft Structures 1", code: "AMEM-10003", category: "Aircraft", icon: Layers, color: "rose", hasTests: true, description: "Explore aircraft construction, structures, and the parts that hold it all together." },
   { slug: "systems", title: "Basic Aircraft Systems", code: "AMEM-10004", category: "Aircraft", icon: Plane, color: "sky", hasTests: true, description: "Connect the concepts behind the systems that keep an aircraft operating." },
@@ -106,6 +107,7 @@ function CourseList() {
 
 // All course sections share the same active-first ordering.
 const courseModules = {
+  engines: [{ slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" }],
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
   electricity: [{ slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
   safety: [
@@ -148,6 +150,9 @@ export default function StudyHub() {
       <Routes>
         <Route path="/" element={<CourseList />} />
         <Route path="/study/feedback" element={<StudyFeedback />} />
+        <Route path="/study/engines/module-2" element={<EnginesTestList />} />
+        <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
+        <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />
         <Route path="/study/aerodynamics/module-2" element={<AerodynamicsTestList />} />
         <Route path="/study/aerodynamics/module-2/practice-1" element={<AerodynamicsReviewPractice />} />
         <Route path="/study/aerodynamics/module-2/practice-2" element={<AerodynamicsChoicePractice />} />
