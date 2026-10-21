@@ -12,7 +12,7 @@ export function ModuleStudyOverview({ basePath }) {
   const resume = loadDashboard().find(item => item.unfinished && item.test.basePath === basePath);
   const hasRecall = dashboardTests.some(test => test.basePath === basePath && test.kind === "typed");
   return <div className="study-module-overview">
-    <p className="study-module-guide"><strong>Study guide:</strong> {basePath === "/study/electricity/module-1" ? "Start with Easy review, move to Medium multiple choice, then Hard one-word recall." : hasRecall ? "Start with multiple choice, then practise one-word recall." : "Review the notes, then practise with multiple choice."}</p>
+    <p className="study-module-guide"><strong>Study guide:</strong> {["/study/electricity/module-1", "/study/aerodynamics/module-2"].includes(basePath) ? "Start with Easy review, move to Medium multiple choice, then Hard one-word recall." : hasRecall ? "Start with multiple choice, then practise one-word recall." : "Review the notes, then practise with multiple choice."}</p>
     <ModuleStudyNotesLink basePath={basePath} />
     {resume && <Link className="study-module-continue" to={resume.test.path} aria-label={`Continue studying ${resume.test.title}`}>
       <Clock3 size={17} aria-hidden="true" /><span><strong>Continue studying</strong><small>{resume.test.title} · {resume.answered}/{resume.total} answered</small></span><ArrowRight size={17} aria-hidden="true" />

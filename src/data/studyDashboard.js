@@ -1,5 +1,7 @@
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
+import { aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions, aerodynamicsModule2Path } from "./aerodynamicsModule2.js";
+import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
 import safety2 from "./safety-module1-test2.json" with { type: "json" };
@@ -19,6 +21,9 @@ import { gradeResistor } from "./resistorBands.js";
 const choice = (slug, course, module, title, questions, suffix, storageId) => ({ slug, course, courseSlug: course.toLowerCase(), title, questions, kind: "choice", basePath: `/study/${course.toLowerCase()}/${module}`, path: `/study/${course.toLowerCase()}/${module}/${suffix}`, storageId: storageId ?? `/study/${course.toLowerCase()}/${module}/${suffix}` });
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
+  choice("aerodynamics-review", "Aerodynamics", "module-2", "Review & Practice Quiz", aerodynamicsReviewQuestions, "practice-1"),
+  choice("aerodynamics-choice", "Aerodynamics", "module-2", "Notes Practice", aerodynamicsChoiceQuestions, "practice-2"),
+  { ...choice("aerodynamics-word", "Aerodynamics", "module-2", "One-Word Recall", aerodynamicsRecallQuestions, "one-word-1", `${aerodynamicsModule2Path}/one-word-1`), kind: "typed" },
   choice("electricity-choice", "Electricity", "module-1", "Practice Test #1", electricity, "practice-1"),
   choice("electricity-easy", "Electricity", "module-1", "Review Practice · Easy", electricityEasyQuestions, "practice-2"),
   typed("electricity-word", "Electricity", "One-Word Test #1", electricityRecallQuestions, 1),
