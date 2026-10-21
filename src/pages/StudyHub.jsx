@@ -1,7 +1,7 @@
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Navigate, Routes, Route, useLocation, useParams } from "react-router-dom";
-import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileText, Layers, Moon, Pause, Plane, Play, RotateCcw, Search, Settings2, ShieldCheck, Sun, Wind, X, Zap } from "lucide-react";
+import { ArrowUpRight, BookOpen, CalendarDays, Calculator, ChevronRight, FileText, Layers, Moon, Pause, Plane, Play, RotateCcw, Settings2, ShieldCheck, Sun, Wind, X, Zap } from "lucide-react";
 import "./StudyHub.css";
 import CompletedTestStatus from "./CompletedTestStatus";
 import SafetyPractice, { SafetyTestList, HumanFactorsTestList, HumanFactorsPractice } from "./SafetyPractice";
@@ -90,17 +90,15 @@ function CourseCard({ course, today, summaries }) {
 function CourseList() {
   const [today, refreshDate] = useStudyClock();
   const summaries = loadDashboard();
-  const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All courses");
-  const filtered = sortCoursesByNextTest(courses.filter(course => (category === "All courses" || category === course.category) && `${course.title} ${course.code}`.toLowerCase().includes(query.trim().toLowerCase())), upcomingTests, today);
+  const filtered = sortCoursesByNextTest(courses.filter(course => category === "All courses" || category === course.category), upcomingTests, today);
   return <>
     <section className="study-welcome"><p className="study-eyebrow">FALL 2026</p><div className="study-welcome-row"><h1 className="sr-only">Aviation study courses</h1><Link className="study-feedback-link" to="/study/feedback">Complaint or suggestion?</Link><TestDateBanner today={today} refreshDate={refreshDate} /></div></section>
     <section id="courses" className="study-courses">
-      <label className="study-search"><Search size={20} /><span className="sr-only">Search courses by name or code</span><input type="search" placeholder="Search a course or course code" value={query} onChange={event => setQuery(event.target.value)} /></label>
       <div className="study-filters" aria-label="Filter courses">{["All courses", "Foundations", "Aircraft", "Tools & math"].map(item => <button key={item} className={category === item ? "selected" : ""} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>
       <p className="sr-only" role="status">{filtered.length} courses found</p>
       <div className="study-grid">{filtered.map(course => <CourseCard key={course.slug} course={course} today={today} summaries={summaries} />)}</div>
-      {filtered.length === 0 && <div className="study-empty"><Search size={28} /><h3>No courses found</h3><p>Try another name or course code.</p><button className="study-primary" onClick={() => { setQuery(""); setCategory("All courses"); }}>Clear filters</button></div>}
+      {filtered.length === 0 && <div className="study-empty"><BookOpen size={28} /><h3>No courses in this category</h3><button className="study-primary" onClick={() => setCategory("All courses")}>Show all courses</button></div>}
     </section>
   </>;
 }
