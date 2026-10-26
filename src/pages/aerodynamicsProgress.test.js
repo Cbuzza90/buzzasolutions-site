@@ -1,0 +1,96 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { aerodynamicsChoiceQuestions as choice, aerodynamicsRecallQuestions as recall, legacyAerodynamicsChoiceQuestions as oldChoice, legacyAerodynamicsRecallQuestions as oldRecall, previousAerodynamicsChoiceQuestions as previousChoice, previousAerodynamicsRecallQuestions as previousRecall } from "../data/aerodynamicsModule2.js";
+import { migrateAerodynamicsProgress, aeroChoiceKey, aeroRecallKey, legacyAeroChoiceKey, legacyAeroRecallKey, previousAeroChoiceKey, previousAeroRecallKey } from "./aerodynamicsProgress.js";
+import { newPracticeAttempt, savePracticeAttempt, restorePracticeAttempt, readPracticeRecord, recordHighestScore, loadHighestScore } from "./practiceProgress.js";
+import { newTypedAttempt, saveTypedAttempt, restoreTypedAttempt, recordTypedBest, loadTypedBest } from "./typedPracticeLogic.js";
+
+const memory = () => {
+  const entries = new Map();
+  return { getItem: key => entries.get(key) ?? null, setItem: (key, value) => entries.set(key, value) };
+};
+test("expanded Aerodynamics banks retain paused answers, option order and typed draft; migration is idempotent", () => {
+  const storage = memory();
+  const mc = newPracticeAttempt(oldChoice, () => 0.42);
+  mc.answers[mc.order[0].id] = mc.order[0].correctIndex;
+  mc.position = 1;
+  const typed = newTypedAttempt(oldRecall, () => 0.42);
+  typed.answers[typed.order[0].id] = typed.order[0].answer;
+  typed.position = 1; typed.draft = "partly typed";
+  savePracticeAttempt(oldChoice, legacyAeroChoiceKey, mc, storage);
+  saveTypedAttempt(oldRecall, legacyAeroRecallKey, typed, storage);
+  migrateAerodynamicsProgress(storage);
+  const updated = restorePracticeAttempt(choice, readPracticeRecord("progress", aeroChoiceKey, storage));
+  const updatedTyped = restoreTypedAttempt(recall, readPracticeRecord("typed-progress", aeroRecallKey, storage));
+  assert.equal(updated.order.length, 318);
+  assert.equal(updatedTyped.order.length, 287);
+  assert.deepEqual(updated.order.slice(0, oldChoice.length).map(q => [q.id,q.options,q.correctIndex]), mc.order.map(q => [q.id,q.options,q.correctIndex]));
+  assert.deepEqual(updated.answers, mc.answers);
+  assert.equal(updated.position, 1);
+  assert.deepEqual(updatedTyped.order.slice(0, oldRecall.length).map(q => [q.id,q.answer,q.acceptedAnswers]), typed.order.map(q => [q.id,q.answer,q.acceptedAnswers]));
+  assert.deepEqual(updatedTyped.answers, typed.answers);
+  assert.equal(updatedTyped.position, 1);
+  assert.equal(updatedTyped.draft, "partly typed");
+  const saved = storage.getItem(`study-practice:progress:${aeroChoiceKey}`);
+  const savedTyped = storage.getItem(`study-practice:typed-progress:${aeroRecallKey}`);
+  migrateAerodynamicsProgress(storage);
+  assert.equal(storage.getItem(`study-practice:progress:${aeroChoiceKey}`), saved);
+  assert.equal(storage.getItem(`study-practice:typed-progress:${aeroRecallKey}`), savedTyped);
+});
+
+test("completed older banks resume at new material without mislabelling old bests as expanded-test scores", () => {
+  const storage = memory();
+  const mc = newPracticeAttempt(oldChoice);
+  mc.answers = Object.fromEntries(mc.order.map(q => [q.id, q.correctIndex]));
+  mc.position = mc.order.length - 1; mc.complete = true;
+  const typed = newTypedAttempt(oldRecall);
+  typed.answers = Object.fromEntries(typed.order.map(q => [q.id, q.answer]));
+  typed.position = typed.order.length - 1; typed.complete = true;
+  savePracticeAttempt(oldChoice, legacyAeroChoiceKey, mc, storage);
+  saveTypedAttempt(oldRecall, legacyAeroRecallKey, typed, storage);
+  recordHighestScore(oldChoice, legacyAeroChoiceKey, 160, storage);
+  recordTypedBest(oldRecall, legacyAeroRecallKey, 120, storage);
+  migrateAerodynamicsProgress(storage);
+  const updated = restorePracticeAttempt(choice, readPracticeRecord("progress", aeroChoiceKey, storage));
+  const updatedTyped = restoreTypedAttempt(recall, readPracticeRecord("typed-progress", aeroRecallKey, storage));
+  assert.equal(updated.position, 165); assert.equal(updated.complete, false);
+  assert.equal(updatedTyped.position, 124); assert.equal(updatedTyped.complete, false);
+  assert.equal(loadHighestScore(choice, aeroChoiceKey, storage), null);
+  assert.equal(loadTypedBest(recall, aeroRecallKey, storage), null);
+  assert.equal(loadHighestScore(oldChoice, legacyAeroChoiceKey, storage).score, 160);
+  assert.equal(loadTypedBest(oldRecall, legacyAeroRecallKey, storage).score, 120);
+  recordHighestScore(choice, aeroChoiceKey, 200, storage);
+  recordTypedBest(recall, aeroRecallKey, 150, storage);
+  savePracticeAttempt(choice, aeroChoiceKey, newPracticeAttempt(choice), storage);
+  saveTypedAttempt(recall, aeroRecallKey, newTypedAttempt(recall), storage);
+  migrateAerodynamicsProgress(storage);
+  assert.equal(loadHighestScore(choice, aeroChoiceKey, storage).score, 200);
+  assert.equal(loadTypedBest(recall, aeroRecallKey, storage).score, 150);
+  assert.equal(loadHighestScore(oldChoice, legacyAeroChoiceKey, storage).score, 160);
+  assert.equal(loadTypedBest(oldRecall, legacyAeroRecallKey, storage).score, 120);
+});
+
+
+test("the 207/155-question version migrates before older records, keeping grading and historical best totals", () => {
+  const storage = memory();
+  const mc = newPracticeAttempt(previousChoice, () => 0.6);
+  mc.answers[mc.order[0].id] = mc.order[0].correctIndex; mc.position = 1;
+  const typed = newTypedAttempt(previousRecall, () => 0.6);
+  typed.answers[typed.order[0].id] = typed.order[0].answer; typed.position = 1; typed.draft = "partial";
+  savePracticeAttempt(previousChoice, previousAeroChoiceKey, mc, storage);
+  saveTypedAttempt(previousRecall, previousAeroRecallKey, typed, storage);
+  recordHighestScore(previousChoice, previousAeroChoiceKey, 200, storage);
+  recordTypedBest(previousRecall, previousAeroRecallKey, 150, storage);
+  migrateAerodynamicsProgress(storage);
+  const next = restorePracticeAttempt(choice, readPracticeRecord("progress", aeroChoiceKey, storage));
+  const nextTyped = restoreTypedAttempt(recall, readPracticeRecord("typed-progress", aeroRecallKey, storage));
+  assert.deepEqual(next.order.slice(0,207).map(q => [q.id,q.options,q.correctIndex]), mc.order.map(q => [q.id,q.options,q.correctIndex]));
+  assert.deepEqual(next.answers, mc.answers); assert.equal(next.position, 1);
+  assert.deepEqual(nextTyped.order.slice(0,155).map(q => [q.id,q.answer]), typed.order.map(q => [q.id,q.answer]));
+  assert.equal(nextTyped.draft, "partial"); assert.equal(nextTyped.position, 1);
+  assert.deepEqual(nextTyped.answers, typed.answers);
+  assert.equal(loadHighestScore(previousChoice, previousAeroChoiceKey, storage).total, 207);
+  assert.equal(loadTypedBest(previousRecall, previousAeroRecallKey, storage).total, 155);
+  assert.equal(loadHighestScore(choice, aeroChoiceKey, storage), null);
+  assert.equal(loadTypedBest(recall, aeroRecallKey, storage), null);
+});

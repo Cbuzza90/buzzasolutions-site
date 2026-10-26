@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { aeroSources, aerodynamicsChoiceQuestions as choice, aerodynamicsRecallQuestions as recall, aerodynamicsDiagrams, aerodynamicsWeek8Warning, aerodynamicsModule2Path as path } from "./aerodynamicsModule2.js";
+import { aeroSources, aerodynamicsChoiceQuestions as choice, aerodynamicsRecallQuestions as recall, aerodynamicsDiagrams, aerodynamicsModule2Path as path } from "./aerodynamicsModule2.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 import { dashboardTests } from "./studyDashboard.js";
 import { aerodynamicsReviewQuestions as review, aerodynamicsReviewExclusions } from "./aerodynamicsReviewPractice.js";
@@ -9,12 +9,12 @@ import { gradeTypedAnswer, newTypedAttempt, saveTypedAttempt, restoreTypedAttemp
 import { newPracticeAttempt, savePracticeAttempt, restorePracticeAttempt, recordHighestScore, loadHighestScore, readPracticeRecord } from "../pages/practiceProgress.js";
 
 test("Aerodynamics banks cover every available PDF and each topic with valid, source-backed choices and one-word keys", () => {
-  assert.equal(choice.length, 165);
-  assert.equal(recall.length, 124);
+  assert.equal(choice.length, 318);
+  assert.equal(recall.length, 287);
   for (const bank of [choice, recall, review]) {
     assert.equal(new Set(bank.map(q => q.id)).size, bank.length);
-    assert.deepEqual([...new Set(bank.map(q => q.source.deck))].sort(), Object.keys(aeroSources).sort());
-    if (bank !== review) assert.equal(new Set(bank.map(q => q.topic)).size, 19);
+    assert.deepEqual([...new Set(bank.map(q => q.source.deck))].sort(), Object.keys(aeroSources).filter(key => bank !== review || !["empennage", "ground", "primaryStructure", "engineStructure", "stations", "stressDistribution"].includes(key)).sort());
+    if (bank !== review) assert.equal(new Set(bank.map(q => q.topic)).size, bank === choice ? 34 : 33);
     for (const q of bank) {
       assert.ok(q.explanation && q.source.pages.length);
       assert.ok(q.source.pages.every(page => Number.isInteger(page) && page > 0 && page <= aeroSources[q.source.deck].pages), q.id);
@@ -44,16 +44,37 @@ test("review test covers all 60 review entries and 53 conceptual quiz positions,
   assert.ok(review.find(q => q.learningTarget === "vortex-generators").options[0].includes("boundary layer"));
 });
 
+test("both module tests cover every review/quiz target with reworded questions, including all four final PDFs", () => {
+  for (const bank of [choice,recall]) {
+    for (const reference of review) {
+      const variants = bank.filter(q => q.reviewTargets?.includes(reference.learningTarget));
+      assert.ok(variants.length, reference.learningTarget);
+      assert.ok(variants.every(q => q.prompt !== reference.prompt), reference.id);
+      for (const n of reference.reviewQuestions) assert.ok(variants.some(q => q.reviewQuestions.includes(n)), `Review ${n}`);
+      for (const n of reference.quizPositions) assert.ok(variants.some(q => q.quizPositions.includes(n)), `Quiz ${n}`);
+    }
+    assert.deepEqual([...new Set(bank.flatMap(q => q.reviewQuestions ?? []))].sort((a,b)=>a-b), Array.from({length:60},(_,i)=>i+1));
+    assert.equal(new Set(bank.flatMap(q => q.quizPositions ?? [])).size,53);
+    for (const deck of ["primaryStructure","engineStructure","stations","stressDistribution"]) assert.ok(bank.filter(q => q.source.deck===deck).length >= 8, deck);
+  }
+  const cautions = studyNotesByModule[path].sections.find(s => s.id === "aero-new-source-cautions");
+  assert.ok(cautions.items.some(([label]) => label.includes("Normal stress")));
+  assert.ok(cautions.items.some(([label]) => label.includes("Flap location")));
+  for (const term of ["malleability","ductility","hardness","toughness","trunnion","pylon","lightening","datum","proof load","kinetic friction","yield"]) {
+    assert.ok(findNoteSections(studyNotesByModule[path].sections,term).some(s=>!s.questionReference),term);
+  }
+});
+
 test("every Aerodynamics question is searchable in its exact module, with valid enlargable source references", () => {
   const notes = studyNotesByModule[path];
-  assert.ok(notes.basis.includes("14–23"));
-  assert.ok(notes.intro.includes(aerodynamicsWeek8Warning));
+  assert.ok(notes.basis.includes("14–29"));
+  assert.ok(!/week 8.*pending|aren.t out yet/i.test(notes.intro));
   assert.equal(new Set(notes.sections.map(s => s.id)).size, notes.sections.length);
   for (const q of [...choice, ...recall, ...review]) {
     const items = findNoteSections(notes.sections, q.prompt).flatMap(s => s.items);
     assert.ok(items.some(item => item[0] === q.prompt && item[1].includes(q.explanation)), q.id);
   }
-  for (const term of ["elevons", "ruddervators", "flaperons", "spoilerons", "stabilator", "positive static", "negative static", "neutral dynamic", "dihedral", "anhedral", "Dutch roll", "tension", "compression", "bending", "shear", "torsion", "Mach trim", "Mach feel", "load factor", "wing loading", "spar", "rib", "longerons"]) {
+  for (const term of ["elevons", "ruddervators", "flaperons", "spoilerons", "stabilator", "positive static", "negative static", "neutral dynamic", "dihedral", "anhedral", "Dutch roll", "tension", "compression", "bending", "shear", "torsion", "Mach trim", "Mach feel", "load factor", "wing loading", "spar", "rib", "longerons", "trunnion", "dorsal", "ventral", "service panel", "stagger", "aspect ratio"]) {
     assert.ok(findNoteSections(notes.sections, term).some(s => !s.questionReference), term);
   }
   for (const diagram of Object.values(aerodynamicsDiagrams)) {

@@ -7,11 +7,12 @@ import { StudyNotesGuide } from "./CourseStudyNotes";
 import { loadHighestScore, readPracticeRecord, RESET_PRACTICE_EVENT } from "./practiceProgress.js";
 import { gradeTypedAnswer, loadTypedAttempt, loadTypedBest, newTypedAttempt, normalizeTypedAnswer, recordTypedBest, restoreTypedAttempt, saveTypedAttempt, typedScore } from "./typedPracticeLogic.js";
 
-export function TypedRecordBadge({ questions, legacyQuestions, testId }) {
+export function TypedRecordBadge({ questions, legacyQuestions, testId, label }) {
   const attempt = restoreTypedAttempt(questions, readPracticeRecord("typed-progress", testId));
   const best = loadTypedBest(questions, testId);
   const previous = legacyQuestions ? loadHighestScore(legacyQuestions, testId) : null;
   const answered = Object.keys(attempt?.answers ?? {}).length;
+  if (label) return best ? <span className="study-record-badge"><span>{label}</span><span>Highest typed score · {best.score}/{best.total} ({Math.round(best.score / best.total * 100)}%)</span></span> : null;
   if (!answered && !best && !previous) return null;
   return <span className="study-record-badge">{answered > 0 && !attempt?.complete && <span>In progress · {answered}/{questions.length} answered</span>}{best && <span>Highest typed score · {best.score}/{best.total} ({Math.round(best.score / best.total * 100)}%)</span>}{previous && <span>Multiple-choice best · {previous.score}/{previous.total}</span>}{attempt?.complete && !best && <span>Completed · Results saved</span>}</span>;
 }
