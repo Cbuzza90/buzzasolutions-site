@@ -1,3 +1,4 @@
+import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Navigate, Routes, Route, useLocation, useParams } from "react-router-dom";
@@ -12,7 +13,7 @@ import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresModule2Practice from "./StructuresModule2Practice";
-import { AerodynamicsTestList, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
+import { AerodynamicsTestList, AerodynamicsPartPractice, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
 import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
 import MeasuringToolsPractice from "./MeasuringToolsPractice";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
@@ -127,8 +128,7 @@ function CourseDetail() {
 
 export default function StudyHub() {
   const { pathname } = useLocation();
-  const onPractice = /^\/study\/[^/]+\/[^/]+\/(?:practice-\d+|one-word-\d+|torque-bolt-nut|resistor-band-calculations)$/.test(pathname);
-  const testsPath = pathname.slice(0, pathname.lastIndexOf("/"));
+  const { onPractice, testsPath } = studyPracticeNavigation(pathname);
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem("study-theme") !== "light"; }
     catch { return true; }
@@ -152,8 +152,11 @@ export default function StudyHub() {
         <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
         <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />
         <Route path="/study/aerodynamics/module-2" element={<AerodynamicsTestList />} />
+        <Route path="/study/aerodynamics/module-2/practice-1/:partSlug" element={<AerodynamicsPartPractice familyId="review" />} />
         <Route path="/study/aerodynamics/module-2/practice-1" element={<AerodynamicsReviewPractice />} />
+        <Route path="/study/aerodynamics/module-2/practice-2/:partSlug" element={<AerodynamicsPartPractice familyId="choice" />} />
         <Route path="/study/aerodynamics/module-2/practice-2" element={<AerodynamicsChoicePractice />} />
+        <Route path="/study/aerodynamics/module-2/one-word-1/:partSlug" element={<AerodynamicsPartPractice familyId="word" />} />
         <Route path="/study/aerodynamics/module-2/one-word-1" element={<AerodynamicsWordPractice />} />
         <Route path="/study" element={<Navigate to="/" replace />} />
         <Route path="/study/review/*" element={<Navigate to="/" replace />} />

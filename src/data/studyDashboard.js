@@ -1,9 +1,7 @@
-import { aeroChoiceKey, aeroRecallKey } from "../pages/aerodynamicsProgress.js";
+import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import { enginesReviewQuestions, enginesAllNotesQuestions } from "./enginesTest2.js";
-import { aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions } from "./aerodynamicsModule2.js";
-import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
 import safety2 from "./safety-module1-test2.json" with { type: "json" };
@@ -25,9 +23,7 @@ const typed = (slug, course, title, questions, number) => ({ ...choice(slug, cou
 export const dashboardTests = [
   choice("engines-review", "Engines", "module-2", "Review Questions", enginesReviewQuestions, "practice-1"),
   choice("engines-notes", "Engines", "module-2", "Notes & Review Practice", enginesAllNotesQuestions, "practice-2"),
-  choice("aerodynamics-review", "Aerodynamics", "module-2", "Review & Practice Quiz", aerodynamicsReviewQuestions, "practice-1"),
-  choice("aerodynamics-choice", "Aerodynamics", "module-2", "Notes Practice", aerodynamicsChoiceQuestions, "practice-2", aeroChoiceKey),
-  { ...choice("aerodynamics-word", "Aerodynamics", "module-2", "One-Word Recall", aerodynamicsRecallQuestions, "one-word-1", aeroRecallKey), kind: "typed" },
+  ...aerodynamicsTestParts,
   choice("electricity-choice", "Electricity", "module-1", "Practice Test #1", electricity, "practice-1"),
   choice("electricity-easy", "Electricity", "module-1", "Review Practice · Easy", electricityEasyQuestions, "practice-2"),
   typed("electricity-word", "Electricity", "One-Word Test #1", electricityRecallQuestions, 1),

@@ -88,3 +88,17 @@ The supplied review adds six tail/gear layout terms, all four coordinate referen
 - Station datums and sign directions, split-rudder high-speed section use, and material-temperature trends are scoped to the lecture/aircraft example.
 
 Final checks: the full suite validates reworded review/quiz target coverage in both module banks, exact-module question search, four distinct choices, one-word accepted answers, source page bounds, all image assets and migration from both prior bank versions. No current browser provider is connected, so no fresh browser layout verification is claimed.
+
+## Shorter practice parts
+
+All questions and answers remain unchanged. The three module entries now open part lists:
+
+- Review & Practice Quiz: four parts of 34 (136 total).
+- Notes Practice: nine parts of 35–36 (318 total).
+- One-Word Recall: eight parts of 35–36 (287 total).
+
+The balanced fixed partitions preserve source order across parts; the shared engines shuffle questions and choices independently within each part. Each part has its own persistence ID and highest score, and is registered for module Continue studying. Notes still resolve to the exact Module 2 reference. Typed attempts still hide the in-test notes guide. The nested part routes retain Courses / Reset Test / Tests navigation; Tests opens the corresponding part list.
+
+Existing full-test records remain intact. Migration filters the existing shuffled attempt into each part, preserving answer-choice order, answers, grading and a typed draft only in the part containing that draft's question. Fully answered parts receive their actual completed score; earlier historical bests without an answer history are retained as full-test bests rather than invented part scores. A part record is never overwritten on subsequent migration or reset. The original full-test URLs now open part lists, so existing bookmarks remain usable.
+
+Validation covers exact question preservation without duplicates, the 39-question cap, balanced sizes, unique routes/storage IDs, navigation recognition, migration, independent part results and reset preserving bests. No source content or answer key was altered by the partitioning.
