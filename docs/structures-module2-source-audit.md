@@ -280,3 +280,16 @@ These hashes identify the inspected copies; full decks, extracted texts and chat
 ## External measurement practice
 
 The five reading/scale prompts were removed from both active question pools at the user's request. Module 2 links to imperial/metric micrometer, imperial vernier caliper and imperial dial caliper simulators from Measuring Tools slide 74. Their destination pages were verified on 2026-10-21; see src/data/measurementSimulators.js. The full review remains 40 questions, eight per presentation, from the revised 224-question pool.
+
+
+## Dedicated cotter-pin calculations (user request, 2026-10-27)
+
+The user explicitly requested a separate diameter/length calculation test and worked notes. This authorizes this specific numerical exercise despite the general non-Math exclusion; other Structures calculations are unchanged.
+
+Route: `/study/structures/module-2/cotter-pin-sizing`. Each attempt samples 20 questions (10 diameter, 10 length) from a 56-question bank, using 28 explicitly listed AN380 part-number combinations. Source: the existing Safety/Cables slides 41–42 and Screws/Pins slide 23, cross-checked against Boeing/Aviall's one-page Split Cotter Pins / MS24665 interchangeability chart (printed page 26): https://shop.boeing.com/medias/0026.pdf .
+
+The test uses first size code divided by 32 for diameter and the verified quarter-inch length codes divided by 4. Fractions are reduced and mixed numbers displayed, with each calculation explained in per-question notes. Example AN380-2-6 is 1/16 inch diameter and 1 1/2 inches long.
+
+The primary chart includes exceptions: AN380-1-1 and AN380-2-1 are 3/8 inch long, not 1/4. Those length-code-1 rows are excluded from generated calculation questions and explicitly flagged in notes. AN381's illustrated length codes use sixteenths, and MS24665 numbers require lookup; the test never applies the AN380 quarter-inch rule to either family. No unlisted arbitrary part numbers are generated.
+
+The shared choice engine supplies neutral answer buttons, below-answer study notes, saved shuffled attempts and highest score out of 20. The module card, Continue studying registry, question references and Courses / Reset Test / Tests navigation include the new route. No existing source-bank question or best score was changed.

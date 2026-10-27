@@ -1,3 +1,4 @@
+import { cotterPinQuestions, cotterPinProgressKey } from "./cotterPinPractice.js";
 import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
@@ -37,6 +38,7 @@ export const dashboardTests = [
   typed("systems-word-2", "Systems", "Applied review · One-word recall", systemsAppliedRecallQuestions, 2),
   choice("structures-posted-review", "Structures", "module-2", "Posted Quiz Practice", structuresPostedQuestions, "practice-2", structuresPostedProgressKey),
   choice("measuring-tools", "Structures", "module-2", "Measuring Tools", measuringToolsQuestions, "practice-1", measuringToolsProgressKey),
+  { ...choice("cotter-pin-sizing", "Structures", "module-2", "Cotter-Pin Diameter & Length", cotterPinQuestions, "cotter-pin-sizing", cotterPinProgressKey), count:20 },
   { ...choice("torque", "Structures", "module-2", "Torque bolt/nut practice", torquePracticeQuestions, "torque-bolt-nut", "/study/structures/module-1/torque-bolt-nut:20:chart-pools"), count: 20 },
   { slug: "resistors", course: "Electricity", courseSlug: "electricity", title: "Resistor band calculations", kind: "resistor", basePath: "/study/electricity/module-1", path: resistorTestId, storageId: resistorTestId },
 ];

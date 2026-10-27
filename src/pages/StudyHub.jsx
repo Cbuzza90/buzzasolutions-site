@@ -1,3 +1,4 @@
+import CotterPinPractice from "./CotterPinPractice";
 import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
 import { useEffect, useRef, useState } from "react";
@@ -180,6 +181,7 @@ export default function StudyHub() {
         <Route path="/study/structures/module-1/notes" element={<Navigate to="/study/structures/module-2/notes" replace />} />
         <Route path="/study/structures/module-2/practice-2" element={<StructuresModule2Practice />} />
         <Route path="/study/structures/module-2/practice-1" element={<MeasuringToolsPractice />} />
+        <Route path="/study/structures/module-2/cotter-pin-sizing" element={<CotterPinPractice />} />
         <Route path="/study/structures/module-2/torque-bolt-nut" element={<StructuresTorquePractice />} />
         <Route path="/study/structures/module-1/torque-bolt-nut" element={<Navigate to="/study/structures/module-2/torque-bolt-nut" replace />} />
         <Route path="/study/structures/module-1/practice-1" element={<Navigate to="/study/systems/module-1/practice-2" replace />} />
