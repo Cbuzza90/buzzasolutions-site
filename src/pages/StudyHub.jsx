@@ -1,3 +1,4 @@
+import TechPubPractice, { TechPubTestList } from "./TechPubPractice";
 import CotterPinPractice from "./CotterPinPractice";
 import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
@@ -33,7 +34,7 @@ const courses = [
   { slug: "structures", title: "Basic Aircraft Structures 1", code: "AMEM-10003", category: "Aircraft", icon: Layers, color: "rose", hasTests: true, description: "Explore aircraft construction, structures, and the parts that hold it all together." },
   { slug: "systems", title: "Basic Aircraft Systems", code: "AMEM-10004", category: "Aircraft", icon: Plane, color: "sky", hasTests: true, description: "Connect the concepts behind the systems that keep an aircraft operating." },
   { slug: "math", title: "Math (Aviation Technician)", code: "MATH-10079", category: "Tools & math", icon: Calculator, color: "amber", description: "Practice the mathematical skills used in your aviation technician studies." },
-  { slug: "publications", title: "Technical Publications/Documents", code: "AMEM-10033", category: "Tools & math", icon: FileText, color: "violet", description: "Find your way around the technical publications and documents used in class." },
+  { slug: "publications", title: "Technical Publications/Documents", code: "AMEM-10033", category: "Tools & math", icon: FileText, color: "violet", hasTests: true, description: "Find your way around the technical publications and documents used in class." },
 ];
 
 function useStudyClock() {
@@ -107,6 +108,7 @@ function CourseList() {
 
 // All course sections share the same active-first ordering.
 const courseModules = {
+  publications: [{ slug: "module-2", title: "Module 2", description: "ATA chapter codes 05–79" }],
   engines: [{ slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" }],
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
   electricity: [{ slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
@@ -149,6 +151,8 @@ export default function StudyHub() {
       <Routes>
         <Route path="/" element={<CourseList />} />
         <Route path="/study/feedback" element={<StudyFeedback />} />
+        <Route path="/study/publications/module-2" element={<TechPubTestList />} />
+        <Route path="/study/publications/module-2/ata-codes" element={<TechPubPractice />} />
         <Route path="/study/engines/module-2" element={<EnginesTestList />} />
         <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
         <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />
