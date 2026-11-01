@@ -28,9 +28,9 @@ test("Math test windows stay visible throughout the range and advance to the nex
 });
 
 test("test dates stay visible on the test day and expire the following day", () => {
-  assert.equal(visibleTests(activeSchedule, "2026-10-14").length, 12);
-  assert.deepEqual(visibleTests(activeSchedule, "2026-10-15").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Math", "Engines", "Math", "Engines"]);
-  assert.deepEqual(visibleTests(activeSchedule, "2026-10-17").map(test => test.course), ["Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Math", "Engines", "Math", "Engines"]);
+  assert.equal(visibleTests(activeSchedule, "2026-10-14").length, 14);
+  assert.deepEqual(visibleTests(activeSchedule, "2026-10-15").map(test => test.course), ["Systems", "Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Safety", "Systems", "Math", "Engines", "Math", "Engines"]);
+  assert.deepEqual(visibleTests(activeSchedule, "2026-10-17").map(test => test.course), ["Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Safety", "Systems", "Math", "Engines", "Math", "Engines"]);
   assert.equal(visibleTests(activeSchedule, "2026-12-19")[0].date, "2027-01-18");
   assert.equal(visibleTests(activeSchedule, "2027-01-19").length, 0);
 });
@@ -99,14 +99,14 @@ test("completed Safety test stops warnings while Module 1 is marked done", () =>
   assert.equal(isModuleCompleted("safety", "module-1"), true);
   assert.equal(isModuleCompleted("systems", "module-1"), true);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-14").date, "2026-10-21");
-  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Math", "Engines", "Math", "Engines"]);
+  assert.deepEqual(visibleTests(upcomingTests, "2026-10-14").map(test => test.course), ["Electricity", "Safety", "Structures", "Engines", "Aerodynamics", "Technical Publications", "Safety", "Systems", "Math", "Engines", "Math", "Engines"]);
 });
 
-test("completed Systems Module 1 has no upcoming date or countdown", () => {
+test("completed Systems Module 1 stays complete alongside the next Systems test", () => {
   assert.equal(isModuleCompleted("systems", "module-1"), true);
   assert.equal(isModuleCompleted("systems", "module-2"), false);
-  assert.equal(nextCourseTest("systems", upcomingTests, "2026-10-16"), null);
-  assert.ok(!visibleTests(upcomingTests, "2026-10-16").some(item => item.courseSlug === "systems"));
+  assert.equal(nextCourseTest("systems", upcomingTests, "2026-10-16").date, "2026-11-13");
+  assert.equal(visibleTests(upcomingTests, "2026-10-16").filter(item => item.courseSlug === "systems").length, 1);
 });
 
 test("Technical Publications Module 2 test stays visible through November 6", () => {
@@ -123,7 +123,7 @@ test("Safety human factors quiz has 17 questions and expires after October 21", 
   assert.equal(quiz.questionCount, 17);
   assert.equal(quiz.days, 5);
   assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-21").days, 0);
-  assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-22"), null);
+  assert.equal(nextCourseTest("safety", upcomingTests, "2026-10-22").date, "2026-11-11");
 });
 
 test("scheduled tests disappear at class end in Toronto time", () => {
@@ -132,6 +132,8 @@ test("scheduled tests disappear at class end in Toronto time", () => {
     ["electricity", "2026-10-19", "17:29", "2026-10-19T21:28:59Z", "2026-10-19T21:29:00Z"],
     ["structures", "2026-10-27", "14:29", "2026-10-27T18:28:59Z", "2026-10-27T18:29:00Z"],
     ["systems", "2026-10-16", "13:29", "2026-10-16T17:28:59Z", "2026-10-16T17:29:00Z"],
+    ["safety", "2026-11-11", "13:29", "2026-11-11T18:28:59Z", "2026-11-11T18:29:00Z"],
+    ["systems", "2026-11-13", "13:29", "2026-11-13T18:28:59Z", "2026-11-13T18:29:00Z"],
     // November 6 is after Toronto's return to standard time: UTC minus 5.
     ["publications", "2026-11-06", "11:29", "2026-11-06T16:28:59Z", "2026-11-06T16:29:00Z"],
   ];
