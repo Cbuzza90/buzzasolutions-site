@@ -65,7 +65,7 @@ export const torquePracticeQuestions = torqueBoltSizes.flatMap(size => {
     return [{ ...size, nut, chartThread: row.thread, id: `${size.diameter}-${size.bolt}-${nut}`,
       prompt: `Diameter: ${size.diameter}″ · Bolt: ${size.bolt} · Nut: ${nut}\nWhat is the minimum–maximum fine-thread torque in in-lb?`,
       options: [right, ...wrong], correctIndex: 0,
-      explanation: `Use the ${row.thread} fine-thread row, ${pool.name}, and its ${shear ? "shear" : "tension"}-nut column for ${nut}. Minimum: ${range[0].toLocaleString("en-US")} in-lb; maximum: ${range[1].toLocaleString("en-US")} in-lb.`,
+      explanation: `Use the ${row.thread} fine-thread row, ${pool.name}, and its ${shear ? "shear" : "tension"}-nut column for ${nut}. Minimum: ${range[0].toLocaleString("en-US")} in-lb; maximum: ${range[1].toLocaleString("en-US")} in-lb. The diameter/thread selects the row; the bolt family and nut class select the column. A value from another row or the other nut-class column describes a different combination, which is why this matching chart cell supplies the answer.`,
     }];
   });
 });

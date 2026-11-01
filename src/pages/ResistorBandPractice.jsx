@@ -1,3 +1,4 @@
+import AnswerExplanation from "./AnswerExplanation";
 import ChartPracticeWorkspace from "./ChartPracticeWorkspace";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -125,7 +126,7 @@ export default function ResistorBandPractice() {
     <dialog ref={feedbackRef} className="study-answer-dialog" aria-labelledby="resistor-feedback-title" onCancel={event => event.preventDefault()}>
       {grade && <><div className="study-answer-dialog-content"><h2 id="resistor-feedback-title">{grade.allCorrect ? "All correct!" : "Some answers need another look"}</h2><Drawing question={question} />
         {resistorFields(question).map(field => <div className={`study-feedback-choice ${grade.correct[field] ? "correct" : "wrong"}`} key={field}><p>{labels[field]} · {grade.correct[field] ? "Correct" : "Incorrect"}</p><div>{grade.correct[field] ? <CheckCircle2 size={18} /> : <XCircle size={18} />}<strong>{expectedText(question, field)}</strong></div>{!grade.correct[field] && <p>Your answer: {submitted[field]} {field === "tolerance" ? "%" : "Ω"}</p>}</div>)}
-        <p className="study-feedback-explanation">{question.explanation}</p>
+        <AnswerExplanation question={question} />
       </div><div className="study-answer-dialog-footer"><button className="study-primary" type="button" onClick={next}>{attempt.position === 19 ? "See Results" : "Next Question"}<ChevronRight size={18} /></button></div></>}
     </dialog>
   </ChartPracticeWorkspace>;

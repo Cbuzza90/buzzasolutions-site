@@ -9,7 +9,7 @@
       "Only the person operating equipment"
     ],
     "correctIndex": 0,
-    "explanation": "Everyone is responsible for safety.",
+    "explanation": "Everyone shares responsibility for safety in the work area. It is not confined to a supervisor or one job title, because each person's work and housekeeping can affect other people.",
     "learningTarget": "shared-safety-responsibility"
   },
   {
@@ -22,7 +22,7 @@
       "On the person, protecting the relevant body parts"
     ],
     "correctIndex": 3,
-    "explanation": "On the person, protecting the relevant body parts.",
+    "explanation": "Personal protective equipment is worn on the person to protect the relevant body parts. This distinguishes PPE from a fixed guard or another control located on the machine or in the workplace.",
     "learningTarget": "ppe-location"
   },
   {
@@ -35,7 +35,7 @@
       "Gloves prevent both entanglement and electrical-contact hazards from jewelry"
     ],
     "correctIndex": 1,
-    "explanation": "Entanglement and electrical hazards.",
+    "explanation": "Loose clothing can become caught in moving machinery, and jewellery can create electrical hazards. Those mechanisms explain why the course treats them as safety concerns rather than merely a clothing preference.",
     "learningTarget": "loose-clothing-jewelry"
   },
   {
@@ -48,7 +48,7 @@
       "Combustible metals such as magnesium"
     ],
     "correctIndex": 0,
-    "explanation": "Class A: ordinary combustibles such as wood, paper, and cloth.",
+    "explanation": "Class A covers ordinary combustibles such as wood, paper and cloth. The fuel type distinguishes it from flammable-liquid Class B fires and combustible-metal Class D fires.",
     "learningTarget": "fire-a-materials",
     "visual": {
       "src": "/safety/fire-class-a.svg",
@@ -65,7 +65,7 @@
       "Ordinary combustibles such as cloth and paper"
     ],
     "correctIndex": 0,
-    "explanation": "Class D: combustible metals such as magnesium.",
+    "explanation": "Class D covers combustible metals, such as magnesium. Metal combustion requires an agent approved for that metal; an ordinary ABC marking does not include this class.",
     "learningTarget": "fire-d-materials",
     "visual": {
       "src": "/safety/fire-class-d.svg",
@@ -82,7 +82,7 @@
       "It can displace oxygen and create an asphyxiation hazard"
     ],
     "correctIndex": 3,
-    "explanation": "CO₂ can displace oxygen and cause asphyxiation.",
+    "explanation": "CO2 can displace oxygen in an enclosed space. The absence of residue does not remove that atmospheric hazard, so residue and breathing safety are different considerations.",
     "learningTarget": "co2-atmosphere-hazard"
   },
   {
@@ -95,7 +95,7 @@
       "60%"
     ],
     "correctIndex": 1,
-    "explanation": "80%, according to your slides.",
+    "explanation": "The supplied Human Factors introduction slides give 80%. Treat this as the course's stated figure, not a universal statistic for every organization or event; the learning point is the importance of human performance in maintenance errors.",
     "learningTarget": "slide-human-factors-percentage"
   },
   {
@@ -108,7 +108,7 @@
       "Reducing equipment failures while relying on experience to control human error"
     ],
     "correctIndex": 2,
-    "explanation": "Risk arising from human performance and error.",
+    "explanation": "Human factors helps people work effectively while reducing risks arising from human performance and error. The goal is to recognize the conditions contributing to errors, rather than assuming that equipment alone determines safety.",
     "learningTarget": "human-error-risk"
   },
   {
@@ -121,7 +121,7 @@
       "Studying body dimensions to improve reach and access"
     ],
     "correctIndex": 2,
-    "explanation": "Identify hazards and design systems to remain safe when failures occur.",
+    "explanation": "Safety engineering identifies hazards and designs systems to remain safe when failures occur. The emphasis on hazards and failure-safe design distinguishes it from disciplines focused on body dimensions or information processing.",
     "learningTarget": "safety-engineering"
   },
   {
@@ -134,7 +134,7 @@
       "Complacency"
     ],
     "correctIndex": 0,
-    "explanation": "Lack of awareness.",
+    "explanation": "Lack of awareness means failing to recognize the consequences of an action. The clue is the unrecognized effect or hazard, rather than a person who recognizes the concern but is unwilling to speak up.",
     "learningTarget": "awareness-identification"
   },
   {
@@ -147,7 +147,7 @@
       "A technician incorrectly tightens a fitting during maintenance"
     ],
     "correctIndex": 3,
-    "explanation": "A technician incorrectly tightening a fitting.",
+    "explanation": "An active error occurs during the work, such as incorrectly tightening a fitting. It differs from a latent failure, which is a hidden pre-existing weakness that may contribute when circumstances align.",
     "learningTarget": "active-error"
   },
   {
@@ -160,7 +160,7 @@
       "Top-event or Fault Tree diagram"
     ],
     "correctIndex": 1,
-    "explanation": "Cause-and-effect or Ishikawa diagram.",
+    "explanation": "A fishbone diagram is also called a cause-and-effect or Ishikawa diagram. Its branches organize possible causes of an observed effect; they guide investigation rather than proving that every listed cause occurred.",
     "learningTarget": "fishbone-name"
   },
   {
@@ -179,7 +179,7 @@
       "/safety/fire-class-c-shape.svg",
       "/safety/fire-class-d-shape.svg"
     ],
-    "explanation": "Class C uses a blue circle.",
+    "explanation": "The traditional Class C symbol is a blue circle. C identifies energized electrical equipment, so the symbol expresses the fire rating rather than the cylinder's body colour.",
     "feedbackVisual": {
       "src": "/safety/fire-class-c.svg",
       "alt": "Class C: blue circle"
@@ -196,7 +196,7 @@
       "B and D"
     ],
     "correctIndex": 1,
-    "explanation": "Standard CO₂ extinguishers are intended for flammable-liquid and energized-electrical fires.",
+    "explanation": "The course identifies appropriately rated CO2 extinguishers for B/C situations: flammable liquids and energized electrical equipment. This does not establish suitability for combustible metals or lasting cooling of deeply smouldering Class A material.",
     "id": 14
   },
   {
@@ -209,7 +209,7 @@
       "Standard CO₂ is intended only for combustible-metal fires"
     ],
     "correctIndex": 0,
-    "explanation": "CO₂ may not provide lasting cooling of smouldering ordinary combustibles.",
+    "explanation": "CO2 may not provide lasting cooling of deeply smouldering ordinary combustibles. Material can remain hot after discharge, which explains the risk of reignition rather than assuming the lack of visible flame means the heat is gone.",
     "id": 15
   },
   {
@@ -222,7 +222,7 @@
       "Raise the alarm, evacuate, and get emergency help"
     ],
     "correctIndex": 3,
-    "explanation": "Do not attempt an uncertain extinguisher selection on an unidentified fire.",
+    "explanation": "If the fire or extinguisher suitability is unknown, do not guess an agent. The course response is to evacuate and obtain emergency help, because a class-specific rating cannot be selected reliably without identifying the hazard.",
     "id": 16
   },
   {
@@ -235,7 +235,7 @@
       "It can be returned if the safety pin can be reinserted"
     ],
     "correctIndex": 2,
-    "explanation": "An extinguisher that has been used needs the appropriate service before reuse.",
+    "explanation": "An extinguisher that has been discharged needs the required service or recharge before return to use. Even a partial discharge changes its available agent, so remaining contents do not establish serviceability.",
     "id": 17
   },
   {
@@ -248,7 +248,7 @@
       "Pressure"
     ],
     "correctIndex": 1,
-    "explanation": "The problem is insufficient task knowledge or training.",
+    "explanation": "Lack of knowledge means the person lacks the understanding or training required for the task. An unfamiliar procedure without the necessary training fits that factor, rather than merely a shortage of tools.",
     "id": 18
   },
   {
@@ -261,7 +261,7 @@
       "Lack of awareness"
     ],
     "correctIndex": 0,
-    "explanation": "Resources include suitable equipment and task information.",
+    "explanation": "Lack of resources means the required tools, current information, equipment or support are unavailable. The missing approved tool and manual are direct examples, even if the technician understands the task.",
     "id": 19
   },
   {
@@ -274,7 +274,7 @@
       "Norms"
     ],
     "correctIndex": 3,
-    "explanation": "An unwritten work habit is being substituted for the approved procedure.",
+    "explanation": "Norms are unofficial work habits that become accepted because people commonly follow them. An unwritten shortcut replacing the approved procedure fits this factor even when it feels normal within the group.",
     "id": 20
   },
   {
@@ -287,7 +287,7 @@
       "Environment"
     ],
     "correctIndex": 2,
-    "explanation": "Resources covers what is available to support the work.",
+    "explanation": "Resources in PEAR means the manuals, tools, equipment, information and support available to do the work. These enable the task, which distinguishes them from Actions, the steps that must be performed.",
     "id": 21
   },
   {
@@ -300,7 +300,7 @@
       "The shape of the container it was poured into"
     ],
     "correctIndex": 1,
-    "explanation": "Appearance or smell is not a reliable substitute for identification.",
+    "explanation": "Appearance or smell cannot reliably establish a liquid's identity or handling requirements. Verify identification and applicable information instead of treating an uncertain observation as proof of what the container holds.",
     "id": 22
   },
   {
@@ -313,7 +313,7 @@
       "A defense removes the possibility of human error permanently"
     ],
     "correctIndex": 0,
-    "explanation": "Multiple defenses can still have aligned gaps.",
+    "explanation": "The Swiss Cheese model represents weaknesses in several defences. An event can occur when their gaps align and allow the hazard through, so multiple layers do not guarantee protection if they share a path of weakness.",
     "id": 23
   },
   {
@@ -326,7 +326,7 @@
       "Explain the specific concern and seek a safe resolution"
     ],
     "correctIndex": 3,
-    "explanation": "Constructive assertiveness communicates the concern and supports a safe solution.",
+    "explanation": "Constructive assertiveness communicates the specific concern and seeks a safe resolution. It addresses the hazard directly without staying silent or turning the situation into a personal confrontation.",
     "id": 24
   }
 ]

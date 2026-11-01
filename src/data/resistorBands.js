@@ -42,7 +42,7 @@ export function decodeResistor(bands) {
 export function resistorQuestion(bands, index = 0) {
   const expected = decodeResistor(bands);
   const prompt = `${bands.length}-band resistor: ${bands.join(" · ")}`;
-  const explanation = `${expected.significant} × ${numberText(expected.multiplier)} = ${resistanceText(expected.resistance)}. Tolerance: ±${expected.tolerance}%. Minimum = R × (1 − tolerance/100) = ${resistanceText(expected.minimum)}; maximum = R × (1 + tolerance/100) = ${resistanceText(expected.maximum)}.`;
+  const explanation = `The first ${bands.length === 4 ? "two" : "three"} bands give the significant digits ${expected.significant}. The next band sets the multiplier, so ${expected.significant} × ${numberText(expected.multiplier)} = ${resistanceText(expected.resistance)}. The final band gives tolerance, ±${expected.tolerance}%, which describes the permitted variation around nominal resistance. Minimum = R × (1 − tolerance/100) = ${resistanceText(expected.minimum)}; maximum = R × (1 + tolerance/100) = ${resistanceText(expected.maximum)}. Subtract the tolerance for the lower limit and add it for the upper limit.`;
   return { id: `resistor-${index}`, bands, expected, prompt, explanation, studyNote: [prompt, explanation] };
 }
 

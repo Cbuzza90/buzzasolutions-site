@@ -9,7 +9,7 @@
       "Inspect the area before work, then leave cleanup until the next inspection"
     ],
     "correctIndex": 1,
-    "explanation": "Good housekeeping; clean as you work.",
+    "explanation": "Housekeeping means keeping the work area orderly and cleaning as work progresses. This reduces obstructions and prevents loose tools or debris from becoming hazards during the task.",
     "learningTarget": "housekeeping-routine"
   },
   {
@@ -22,7 +22,7 @@
       "Storage boundaries that become walkways when cleared"
     ],
     "correctIndex": 2,
-    "explanation": "Designated pedestrian walkways.",
+    "explanation": "Yellow walkways identify pedestrian travel routes. Using the designated route separates people from work areas and moving equipment; the marking does not make every surrounding area safe to walk through.",
     "learningTarget": "yellow-walkway-purpose"
   },
   {
@@ -35,7 +35,7 @@
       "Their signs must be visible, with access checked only at shift changes"
     ],
     "correctIndex": 0,
-    "explanation": "Know exit locations and keep access clear.",
+    "explanation": "Emergency exits must be known and unobstructed. Knowing an exit is not enough if stored equipment blocks the route when people need to leave.",
     "learningTarget": "emergency-exit-access"
   },
   {
@@ -48,7 +48,7 @@
       "Isolate the system and safely release stored pressure according to the procedure"
     ],
     "correctIndex": 3,
-    "explanation": "Isolate the system and safely release stored pressure.",
+    "explanation": "An isolated hydraulic system can still contain stored pressure. The procedure therefore requires both isolation and safe pressure release before servicing; stopping a pump alone does not prove that stored energy is gone.",
     "learningTarget": "hydraulic-energy-isolation"
   },
   {
@@ -61,7 +61,7 @@
       "Combustible metals such as magnesium"
     ],
     "correctIndex": 0,
-    "explanation": "Class B: flammable liquids such as gasoline and solvent.",
+    "explanation": "Class B identifies flammable-liquid fires, such as fuel or solvent. The liquid fuel is the distinguishing feature, so the agent must have the appropriate fire rating rather than being chosen by cylinder colour.",
     "learningTarget": "fire-b-materials",
     "visual": {
       "src": "/safety/fire-class-b.svg",
@@ -78,7 +78,7 @@
       "Open the cabinet to find the fire before isolating the electrical supply"
     ],
     "correctIndex": 2,
-    "explanation": "Disconnect or isolate electrical power, if safe.",
+    "explanation": "Energized equipment introduces an electrical hazard as well as a fire hazard. Isolating the electrical supply, when safe, removes that source of energy; it does not by itself prove that all burning material is extinguished.",
     "learningTarget": "electrical-power-isolation"
   },
   {
@@ -91,7 +91,7 @@
       "Yellow five-pointed star"
     ],
     "correctIndex": 1,
-    "explanation": "Red square.",
+    "explanation": "The traditional Class B symbol is a red square. B identifies flammable liquids, so the symbol links the extinguisher rating to that fire class; it is not a rule about the paint colour of the cylinder.",
     "learningTarget": "symbol-b-colour",
     "optionImages": [
       "/safety/fire-class-a-shape.svg",
@@ -114,7 +114,7 @@
       "Anthropometry"
     ],
     "correctIndex": 3,
-    "explanation": "Anthropometry.",
+    "explanation": "Anthropometry concerns human body dimensions and physical capabilities. The question asks about body size and ability, which distinguishes it from cognitive science's focus on information processing.",
     "learningTarget": "anthropometry"
   },
   {
@@ -127,7 +127,7 @@
       "Medical science"
     ],
     "correctIndex": 1,
-    "explanation": "Cognitive science.",
+    "explanation": "Cognitive science considers the mind as an information processor. That matches a question about processing information, rather than measuring body dimensions or examining organizational relationships.",
     "learningTarget": "cognitive-science"
   },
   {
@@ -140,7 +140,7 @@
       "Educational psychology"
     ],
     "correctIndex": 1,
-    "explanation": "Organizational psychology.",
+    "explanation": "Organizational psychology examines relationships between people and their work, including structure and job satisfaction. Those workplace relationships distinguish it from the study of body dimensions or electrical equipment.",
     "learningTarget": "organizational-psychology"
   },
   {
@@ -153,7 +153,7 @@
       "Distraction"
     ],
     "correctIndex": 2,
-    "explanation": "Complacency.",
+    "explanation": "Complacency is self-satisfaction that reduces vigilance toward possible dangers. Familiarity with a task can lead someone to stop actively checking for hazards, which is why a loss of vigilance points to this factor.",
     "learningTarget": "complacency-identification"
   },
   {
@@ -166,7 +166,7 @@
       "Prevention"
     ],
     "correctIndex": 0,
-    "explanation": "People.",
+    "explanation": "P in PEAR means People: the capabilities, condition, experience and interactions of those doing the work. The other letters separate the surroundings, task and resources, so a question about the worker belongs under People.",
     "learningTarget": "pear-people"
   },
   {
@@ -179,7 +179,7 @@
       "A person’s social environment"
     ],
     "correctIndex": 3,
-    "explanation": "A person’s social environment.",
+    "explanation": "The supplied slides identify a person's social environment as the first domino in Heinrich's original model. A domino model illustrates connected contributing factors, so this is a course-model identification rather than a claim that every accident has one identical cause.",
     "learningTarget": "heinrich-first-domino"
   },
   {
@@ -198,7 +198,7 @@
       "/safety/fire-class-c-shape.svg",
       "/safety/fire-class-d-shape.svg"
     ],
-    "explanation": "Class D uses a yellow five-pointed star.",
+    "explanation": "The traditional Class D symbol is a yellow five-pointed star. D identifies combustible metals; it is distinct from the Class B red square and Class C blue circle and does not mean an ordinary ABC agent is suitable.",
     "feedbackVisual": {
       "src": "/safety/fire-class-d.svg",
       "alt": "Class D: yellow five-pointed star"
@@ -215,7 +215,7 @@
       "The B marking makes the powder suitable for magnesium"
     ],
     "correctIndex": 2,
-    "explanation": "ABC approval does not include combustible-metal fires.",
+    "explanation": "ABC marks suitability for the listed A, B and C fire classes. It does not include D, so the marking cannot be used as approval for a combustible-metal fire; the agent must be approved for the particular metal.",
     "id": 15
   },
   {
@@ -228,7 +228,7 @@
       "Residue depends only on the fire-class letter rather than the agent"
     ],
     "correctIndex": 1,
-    "explanation": "Dry chemical leaves residue; agent selection must also match the fire rating.",
+    "explanation": "Dry chemical can leave residue after discharge. A lack-of-residue preference cannot override fire suitability, so agent selection must still match the extinguisher's actual rating and instructions.",
     "id": 16
   },
   {
@@ -241,7 +241,7 @@
       "Pressurize, Aim, Seal, Sweep"
     ],
     "correctIndex": 0,
-    "explanation": "PASS describes releasing the pin, aiming, operating the handle, and sweeping the discharge.",
+    "explanation": "PASS means Pull the pin, Aim at the base, Squeeze the handle and Sweep side to side. It describes the discharge sequence; the target is the base of the fire, not simply the visible flame tips. Use still depends on training, suitable conditions and a safe escape route.",
     "id": 17
   },
   {
@@ -254,7 +254,7 @@
       "It can spread the burning liquid"
     ],
     "correctIndex": 3,
-    "explanation": "Water can spread a burning liquid rather than control the fire.",
+    "explanation": "A water stream can move and spread burning liquid. That is why a flammable-liquid fire calls for an appropriately rated agent rather than assuming the cooling action used on ordinary combustibles will be suitable.",
     "id": 18
   },
   {
@@ -267,7 +267,7 @@
       "Lack of resources"
     ],
     "correctIndex": 2,
-    "explanation": "An interruption diverts attention from the work.",
+    "explanation": "Distraction is an interruption that draws attention away from the current task. In the phone example, the direct clue is the break in attention; re-establishing the last completed step helps prevent omitted or repeated work.",
     "id": 19
   },
   {
@@ -280,7 +280,7 @@
       "Lack of knowledge"
     ],
     "correctIndex": 1,
-    "explanation": "The deadline creates urgency to complete the task.",
+    "explanation": "Pressure is a demand that creates urgency to finish or rush. A departure deadline is the clue in this scenario; the issue is the push to hurry rather than missing tools or unfamiliarity with the task.",
     "id": 20
   },
   {
@@ -293,7 +293,7 @@
       "People"
     ],
     "correctIndex": 0,
-    "explanation": "Environment covers conditions around the work.",
+    "explanation": "Environment in PEAR means the conditions surrounding the work, such as lighting, noise and temperature. These describe where work happens, rather than the worker, task steps or available equipment.",
     "id": 21
   },
   {
@@ -306,7 +306,7 @@
       "Replace it with suitable serviceable protection before starting"
     ],
     "correctIndex": 3,
-    "explanation": "Required protection needs to be serviceable before exposure.",
+    "explanation": "PPE must be suitable and serviceable before the required exposure begins. Cracked eyewear cannot be assumed to provide the intended protection merely because someone is wearing it.",
     "id": 22
   },
   {
@@ -319,7 +319,7 @@
       "Wait for the next shift to notice where it is"
     ],
     "correctIndex": 2,
-    "explanation": "Tool accountability needs to be resolved rather than assumed.",
+    "explanation": "A missing tool is an unresolved work-status issue, not something to assume has been misplaced safely. The required accountability process must resolve it before release so a possible remaining hazard is addressed.",
     "id": 23
   },
   {
@@ -332,7 +332,7 @@
       "It eliminates the need to collect evidence"
     ],
     "correctIndex": 1,
-    "explanation": "A diagram organizes possible causes; evidence is still needed to confirm them.",
+    "explanation": "A fishbone diagram organizes possible contributing causes. A branch is a hypothesis to investigate, so putting an idea on the diagram does not prove it caused the event; supporting evidence is still required.",
     "id": 24
   }
 ]

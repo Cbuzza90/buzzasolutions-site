@@ -77,7 +77,7 @@ export const ataCodeQuestions=ataChapters.flatMap(chapter=>{
     .sort((a,b)=>Math.abs(a.number-chapter.number)-Math.abs(b.number-chapter.number)||a.number-b.number).slice(0,3);
   const source={title:ataDeckTitle,slide:chapter.slide};
   const common={chapter:chapter.code,topic:`ata-${chapter.group}`,source,
-    explanation:`ATA ${chapter.code} is ${chapter.title} in the supplied ${groups[chapter.group].toLowerCase()} list. (${ataDeckTitle}, slide ${chapter.slide}.)`};
+    explanation:`ATA ${chapter.code} is ${chapter.title} in the supplied ${groups[chapter.group].toLowerCase()} list. ATA chapter numbers are shared references that help readers find the same system or topic across aircraft manuals, so the answer comes from this fixed number/name pairing. For comparison, ATA ${peers[0].code} refers to ${peers[0].title}, a different heading. (${ataDeckTitle}, slides 6–7 and ${chapter.slide}.)`};
   return [
     {...common,id:`ata-${chapter.code}-name`,learningTarget:`ata-${chapter.code}-name`,direction:"name",prompt:`Which chapter name matches ATA ${chapter.code}?`,options:[chapter.title,...peers.map(p=>p.title)],correctIndex:0},
     {...common,id:`ata-${chapter.code}-code`,learningTarget:`ata-${chapter.code}-code`,direction:"code",prompt:`Which ATA chapter covers ${chapter.title}?`,options:[`ATA ${chapter.code}`,...peers.map(p=>`ATA ${p.code}`)],correctIndex:0},

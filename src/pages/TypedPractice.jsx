@@ -1,3 +1,4 @@
+import AnswerExplanation from "./AnswerExplanation";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, ChevronRight, RotateCcw, XCircle } from "lucide-react";
@@ -71,7 +72,7 @@ export default function TypedPractice({ questions, title, eyebrow, basePath, gra
         <p className="study-feedback-question">{question.prompt}</p>
         <div className={`study-feedback-choice ${result.correct ? "correct" : "wrong"}`}><p>{result.correct ? "Your answer" : "Your answer · Incorrect"}</p><div><strong>{result.response}</strong></div></div>
         {result.close && <p className="study-feedback-explanation">Small spelling difference accepted.</p>}
-        {question.explanation && <p className="study-feedback-explanation">{question.explanation}</p>}
+        <AnswerExplanation question={question} />
         {(!result.correct || result.close) && <div className="study-feedback-choice correct"><p>{result.correct ? "Accepted wording" : "Correct answer"}</p><div><strong>{question.answer}</strong></div></div>}
       </div><div className="study-answer-dialog-footer"><button className="study-primary" onClick={nextQuestion}>{position === order.length - 1 ? "See Results" : "Next Question"}<ChevronRight size={18} /></button></div></>}
     </dialog>

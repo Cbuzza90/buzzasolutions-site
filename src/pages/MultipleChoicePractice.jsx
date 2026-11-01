@@ -1,3 +1,4 @@
+import AnswerExplanation from "./AnswerExplanation";
 import ChartPracticeWorkspace from "./ChartPracticeWorkspace";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -101,7 +102,8 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
             <div><span className="study-answer-letter">{letters[selected]}</span><strong>{question.options[selected]}</strong>{correct ? <CheckCircle2 size={20} /> : <XCircle size={20} />}</div>
           </div>
           {question.feedbackVisual && <figure className="study-question-visual"><img src={question.feedbackVisual.src} alt={question.feedbackVisual.alt} /></figure>}
-          {!correct && <><div className="study-feedback-choice correct"><p>Correct answer</p><div><span className="study-answer-letter">{letters[question.correctIndex]}</span><strong>{question.options[question.correctIndex]}</strong><CheckCircle2 size={20} /></div></div><p className="study-feedback-explanation">{question.explanation}</p></>}
+          {!correct && <div className="study-feedback-choice correct"><p>Correct answer</p><div><span className="study-answer-letter">{letters[question.correctIndex]}</span><strong>{question.options[question.correctIndex]}</strong><CheckCircle2 size={20} /></div></div>}
+          <AnswerExplanation question={question} />
         </div>
         <div className="study-answer-dialog-footer"><button type="button" className="study-primary" onClick={nextQuestion}>{!endless && position === order.length - 1 ? "See Results" : "Next Question"}<ChevronRight size={18} /></button></div>
       </>}

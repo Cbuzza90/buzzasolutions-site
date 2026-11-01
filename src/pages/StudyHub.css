@@ -254,6 +254,9 @@
 .study-feedback-choice strong { flex: 1; min-width: 0; font-size: 13px; line-height: 1.7; font-weight: 550; overflow-wrap: anywhere; }
 .study-feedback-choice svg { flex-shrink: 0; margin-top: 6px; }
 .study-feedback-explanation { font-size: 12px; line-height: 1.8; color: var(--muted); margin-top: 18px; }
+.study-answer-explanation { margin-top: 14px; }
+.study-answer-explanation h3 { font-size: 14px; line-height: 1.4; margin: 0 0 5px; }
+.study-answer-explanation .study-feedback-explanation { margin-top: 0; }
 .study-answer-dialog-footer { margin-top: auto; position: sticky; bottom: 0; background: inherit; padding: 16px 24px 22px; display: flex; justify-content: center; }
 .study-answer-dialog-footer .study-primary { margin: 0; width: 100%; }
 .study-app[data-theme="dark"] .study-answer-dialog { background: #17231d; }

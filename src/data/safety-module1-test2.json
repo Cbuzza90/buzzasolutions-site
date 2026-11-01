@@ -9,7 +9,7 @@
       "Clean it and return it to its designated storage location"
     ],
     "correctIndex": 3,
-    "explanation": "Clean equipment and return it to its designated storage.",
+    "explanation": "Clean equipment and return it to its designated storage after use. This keeps the work area orderly and makes equipment available and identifiable for the next person rather than leaving it as an obstruction or an unknown item.",
     "learningTarget": "equipment-return"
   },
   {
@@ -22,7 +22,7 @@
       "Secure it upright with its protective cap fitted, leaving the valve open"
     ],
     "correctIndex": 1,
-    "explanation": "Upright, secured, valve closed, protective cap fitted where applicable.",
+    "explanation": "The course describes cylinders stored upright and secured, with the valve closed and protective cap fitted where applicable. Securing and protecting the cylinder addresses movement and valve exposure; simply leaning it against something does not meet that description.",
     "learningTarget": "gas-cylinder-storage"
   },
   {
@@ -35,7 +35,7 @@
       "Use a covered shop container in a ventilated general-purpose cupboard"
     ],
     "correctIndex": 2,
-    "explanation": "Approved containers in designated flammable-liquid storage.",
+    "explanation": "Flammable liquids belong in approved containers in designated storage. The approved arrangement identifies and controls the storage hazard; an ordinary convenient container is not equivalent merely because it can hold liquid.",
     "learningTarget": "flammable-storage"
   },
   {
@@ -48,7 +48,7 @@
       "Heat, oxygen, and a sustained chemical chain reaction"
     ],
     "correctIndex": 0,
-    "explanation": "Fuel, heat, and oxygen.",
+    "explanation": "The fire triangle consists of fuel, heat and oxygen. Combustion needs these conditions together, so removing one explains how an appropriate fire-control method can interrupt burning.",
     "learningTarget": "fire-triangle"
   },
   {
@@ -61,7 +61,7 @@
       "Combustible metal shavings"
     ],
     "correctIndex": 0,
-    "explanation": "Class C: energized electrical equipment.",
+    "explanation": "Class C identifies energized electrical equipment. The energized condition is the important distinction, which is why an agent must be rated for that situation and power is isolated when safe.",
     "learningTarget": "fire-c-materials",
     "visual": {
       "src": "/safety/fire-class-c.svg",
@@ -78,7 +78,7 @@
       "Water mist, selected because it cools the metal"
     ],
     "correctIndex": 1,
-    "explanation": "Use an agent approved for the particular combustible metal. Ordinary powder is not automatically Class D rated, and water must not be used on the metal fire.",
+    "explanation": "Class D covers combustible metals. An agent must be approved for the particular metal; ordinary ABC powder is not automatically Class D rated, so the word powder alone is insufficient to identify a suitable extinguisher.",
     "learningTarget": "metal-specific-agent"
   },
   {
@@ -91,7 +91,7 @@
       "To verify that the discharge horn delivers the specified flow"
     ],
     "correctIndex": 2,
-    "explanation": "Check for loss of extinguishing agent.",
+    "explanation": "Required weighing can reveal a loss of extinguishing agent, particularly for CO2. An extinguisher's appearance alone does not establish that the required quantity of agent is still present.",
     "learningTarget": "extinguisher-weighing"
   },
   {
@@ -104,7 +104,7 @@
       "Organizational psychology"
     ],
     "correctIndex": 0,
-    "explanation": "Computer science.",
+    "explanation": "The supplied introduction slides assign human-computer interaction to Computer science. The clue is the interaction with a computer, rather than body measurements or organizational job satisfaction; this is the course's discipline classification.",
     "learningTarget": "human-computer-discipline"
   },
   {
@@ -117,7 +117,7 @@
       "Fewer error reports, even if staff have become reluctant to report"
     ],
     "correctIndex": 0,
-    "explanation": "Improved quality, fewer errors, and greater safety.",
+    "explanation": "Human factors considers how people perform work and where errors can arise. Better awareness can improve quality and reduce errors, which supports both worker safety and aircraft safety rather than only increasing work speed.",
     "learningTarget": "human-factors-benefits"
   },
   {
@@ -130,7 +130,7 @@
       "Fatigue"
     ],
     "correctIndex": 3,
-    "explanation": "Fatigue.",
+    "explanation": "Fatigue is tiredness that can reduce cognition, coordination and reaction time. Those performance effects are the clues in the question, distinguishing fatigue from a lack of information or tools.",
     "learningTarget": "fatigue-identification"
   },
   {
@@ -143,7 +143,7 @@
       "Distraction from interruptions, rather than mental or physiological strain"
     ],
     "correctIndex": 1,
-    "explanation": "Physical, psychological, or physiological demands creating strain.",
+    "explanation": "Stress involves physical, psychological or physiological demands creating strain. The question concerns the demands on the person, rather than only an external deadline or an unavailable piece of equipment.",
     "learningTarget": "stress-definition"
   },
   {
@@ -156,7 +156,7 @@
       "An accident outcome after the final protective barrier has failed"
     ],
     "correctIndex": 2,
-    "explanation": "Hidden weaknesses that remain dormant until contributing to an event.",
+    "explanation": "A latent failure is a hidden weakness that may remain dormant before contributing to an event. It differs from an active error made during the task; the weakness can exist before the person carrying out the work encounters it.",
     "learningTarget": "latent-failure"
   },
   {
@@ -175,7 +175,7 @@
       "/safety/fire-class-c-shape.svg",
       "/safety/fire-class-d-shape.svg"
     ],
-    "explanation": "Class A uses a green triangle.",
+    "explanation": "The traditional Class A symbol is a green triangle. A identifies ordinary combustibles such as wood, paper and cloth, so the symbol connects the rating to that class rather than to cylinder paint colour.",
     "feedbackVisual": {
       "src": "/safety/fire-class-a.svg",
       "alt": "Class A: green triangle"
@@ -192,7 +192,7 @@
       "By covering a liquid fuel with a foam layer"
     ],
     "correctIndex": 0,
-    "explanation": "Water removes heat from ordinary combustible material.",
+    "explanation": "Water's useful action on suitable ordinary-combustible fires is cooling: it removes heat. That links the agent to the heat side of the fire triangle and does not make water suitable for every fire class.",
     "id": 14
   },
   {
@@ -205,7 +205,7 @@
       "A and B"
     ],
     "correctIndex": 3,
-    "explanation": "Suitable chemical foam is listed for Class A and Class B fires; check the actual rating.",
+    "explanation": "The course lists suitably rated foam for Class A and B fires. The actual extinguisher rating must cover the fire involved; the label foam alone does not establish suitability for energized equipment or combustible metals.",
     "id": 15
   },
   {
@@ -218,7 +218,7 @@
       "The colour of the carrying handle"
     ],
     "correctIndex": 2,
-    "explanation": "Class markings identify suitability; cylinder colour alone is not a class rating.",
+    "explanation": "Fire-class markings and the extinguisher's label identify its rated suitability. Cylinder paint colour alone does not provide that information, so selecting solely by body colour can confuse different agents or ratings.",
     "id": 16
   },
   {
@@ -231,7 +231,7 @@
       "It is irrelevant once an extinguisher has been selected"
     ],
     "correctIndex": 1,
-    "explanation": "Keep a safe retreat route available while facing the fire.",
+    "explanation": "Keep a clear retreat route behind you while facing the fire, when conditions permit trained extinguisher use. This arrangement keeps access to escape available rather than requiring you to move past the fire to leave.",
     "id": 17
   },
   {
@@ -244,7 +244,7 @@
       "Complacency"
     ],
     "correctIndex": 0,
-    "explanation": "The missing handover information is a communication failure.",
+    "explanation": "Lack of communication means important work information is not passed to the person who needs it. The disconnected component at handover is the clue: the next shift does not receive the actual work status.",
     "id": 18
   },
   {
@@ -257,7 +257,7 @@
       "Lack of teamwork"
     ],
     "correctIndex": 3,
-    "explanation": "The failure is in working together toward the shared task.",
+    "explanation": "Lack of teamwork is a failure to coordinate work toward a shared task. In this scenario the information and equipment already exist, so the direct problem is cooperation rather than lack of resources.",
     "id": 19
   },
   {
@@ -270,7 +270,7 @@
       "Complacency"
     ],
     "correctIndex": 2,
-    "explanation": "The technician needs to express the recognized safety concern.",
+    "explanation": "Lack of assertiveness means a recognized concern is not voiced. The technician already sees the unsafe instruction, so the missing action is communicating that concern and seeking a safe resolution.",
     "id": 20
   },
   {
@@ -283,7 +283,7 @@
       "People"
     ],
     "correctIndex": 1,
-    "explanation": "Actions covers what must be done in the task.",
+    "explanation": "Actions in PEAR means the tasks, steps and demands of the job. A question about what the technician must do therefore belongs under Actions rather than the physical surroundings or available tools.",
     "id": 21
   },
   {
@@ -296,7 +296,7 @@
       "Keep using it until the next scheduled inspection"
     ],
     "correctIndex": 0,
-    "explanation": "The defect must be communicated so another user does not unknowingly use the equipment.",
+    "explanation": "Defective equipment must be removed from use and reported through the required procedure. Otherwise a later user may not know about the defect and may treat the equipment as serviceable.",
     "id": 22
   },
   {
@@ -309,7 +309,7 @@
       "It controls access to the hazard at the equipment rather than being worn by the worker"
     ],
     "correctIndex": 3,
-    "explanation": "A physical guard controls the equipment hazard; PPE is worn by the worker.",
+    "explanation": "A machine guard controls access to a hazard at the equipment, while PPE is worn by the worker. Their locations and functions are different, so a fixed guard is not an item of personal protective equipment.",
     "id": 23
   },
   {
@@ -322,7 +322,7 @@
       "Rely entirely on the interrupting person’s memory"
     ],
     "correctIndex": 2,
-    "explanation": "Re-establishing the work status helps prevent missed or repeated steps.",
+    "explanation": "After an interruption, re-establish the work status and last completed step before resuming. This addresses the loss of attention that can otherwise produce a skipped or repeated checklist step.",
     "id": 24
   }
 ]
