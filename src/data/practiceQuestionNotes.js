@@ -31,7 +31,7 @@ export const practiceBanksByModule = {
 
 function referenceText(question) {
   const answer = (question.answer ?? question.options[question.correctIndex]).trim();
-  const explanation = question.explanation.trim();
+  const explanation = [question.explanation.trim(), ...(question.learningNotes ?? []).map(([title, text]) => `${title}: ${text}`)].join(" ");
   const remaining = explanation.slice(answer.length);
   // Many course explanations already begin with the correct answer.
   if (explanation.startsWith(answer) && (!remaining || /^[\s.,:;!?–—-]/u.test(remaining))) {

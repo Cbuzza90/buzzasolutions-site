@@ -5,6 +5,22 @@ import { studyNotesByModule, findNoteSections } from "./courseStudyNotes.js";
 import { dashboardTests } from "./studyDashboard.js";
 import { newPracticeAttempt, savePracticeAttempt, restorePracticeAttempt, readPracticeRecord, recordHighestScore, loadHighestScore } from "../pages/practiceProgress.js";
 import { shufflePractice } from "../pages/safetyTestLogic.js";
+import { enginesLearningNotesByTarget } from "./enginesAnswerNotes.js";
+
+test("every Engines answer has a focused source-backed lesson that survives shuffled attempts and is searchable", () => {
+  assert.equal(Object.keys(enginesLearningNotesByTarget).length, all.length);
+  const notes=studyNotesByModule[path];
+  for (const q of shufflePractice(all,()=>0.4)) {
+    assert.equal(q.learningNotes.length,2,q.id);
+    assert.equal(q.learningNotes,enginesLearningNotesByTarget[q.learningTarget]);
+    for(const [title,text] of q.learningNotes) {
+      assert.ok(title && text.length>140,q.id);
+      assert.match(text,/PDF p[1-3]/,q.id);
+      const refs=findNoteSections(notes.sections,text).flatMap(s=>s.items);
+      assert.ok(refs.some(([prompt,content])=>prompt===q.prompt && content.includes(text)),q.id);
+    }
+  }
+});
 
 test("Engines review stays within Section 1, covers every review entry and expands grouped concepts", () => {
   assert.equal(review.length, 61);

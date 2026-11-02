@@ -255,10 +255,16 @@
 .study-feedback-choice svg { flex-shrink: 0; margin-top: 6px; }
 .study-feedback-explanation { font-size: 12px; line-height: 1.8; color: var(--muted); margin-top: 18px; }
 .study-answer-explanation { margin-top: 14px; }
-.study-answer-explanation summary { list-style: none; width: fit-content; min-height: 44px; cursor: pointer; }
-.study-answer-explanation summary::-webkit-details-marker { display: none; }
-.study-answer-explanation summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-.study-answer-explanation .study-feedback-explanation { margin-top: 10px; }
+.study-answer-explanation > button { width: fit-content; min-height: 44px; }
+.study-learning-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.study-learning-heading > .study-primary { flex: 0 0 44px; min-height: 44px; padding: 10px; margin: 0; }
+.study-learning-dialog h2 { font-size: 23px; line-height: 1.3; }
+.study-learning-dialog h3 { font-size: 14px; font-weight: 700; margin: 0 0 7px; }
+.study-learning-answer { padding: 14px; border: 1px solid var(--line); border-left: 3px solid #2563eb; border-radius: 10px; }
+.study-learning-answer p { font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.study-learning-section { margin-top: 20px; }
+.study-learning-section p { font-size: 14px; line-height: 1.75; color: var(--muted); overflow-wrap: anywhere; }
+.study-learning-dialog .study-answer-dialog-content { overscroll-behavior: contain; }
 .study-answer-dialog-footer { margin-top: auto; position: sticky; bottom: 0; background: inherit; padding: 16px 24px 22px; display: flex; justify-content: center; }
 .study-answer-dialog-footer .study-primary { margin: 0; width: 100%; }
 .study-app[data-theme="dark"] .study-answer-dialog { background: #17231d; }

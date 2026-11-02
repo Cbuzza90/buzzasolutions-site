@@ -1,3 +1,5 @@
+import { enginesLearningNotesByTarget } from "./enginesAnswerNotes.js";
+
 export const enginesTest2Path = "/study/engines/module-2";
 export const enginesSourceTitle = "AMEM10057_Test2_Condensed_Codex.pdf";
 const review = [], lecture = [];
@@ -5,6 +7,7 @@ const reviewSlides = [2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
 function add(list, target, topic, prompt, answer, distractors, explanation, source) {
   list.push({ id: `engines-${target}`, learningTarget: target, topic, prompt,
     options: [answer, ...distractors], correctIndex: 0,
+    learningNotes: enginesLearningNotesByTarget[target],
     explanation: `${explanation} (${enginesSourceTitle}, PDF page ${source.page}${source.reviewNumber ? `, review Q${source.reviewNumber}, review slide ${source.slide}` : ", Section 2 lecture detail"}.)`, source });
 }
 function r(number, target, topic, prompt, answer, distractors, explanation) {

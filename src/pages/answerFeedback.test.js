@@ -42,7 +42,7 @@ test("all registered choice/recall questions include learning explanations rathe
   }
   assert.ok(checked>1000);
 });
-test("correct and incorrect choice/typed submissions both offer collapsed See notes before Next Question",async()=>{
+test("correct and incorrect choice/typed submissions offer a secondary learning dialog before Next Question",async()=>{
   const {Choice,Typed}=await engines();
   const previous=Object.getOwnPropertyDescriptor(globalThis,"localStorage");
   try {
@@ -56,7 +56,9 @@ test("correct and incorrect choice/typed submissions both offer collapsed See no
       const choice=render(Choice,{questions:[question],testNumber:1,course:"Test",basePath:"/study/test/module-1"},path);
       assert.ok(choice.includes(correct?"Correct!":"Not quite."));
       assert.ok(choice.includes(question.explanation));
-      assert.match(choice,/<details class="study-answer-explanation"><summary class="study-primary">/);
+      assert.match(choice,/<button type="button" class="study-primary" aria-haspopup="dialog">/);
+      assert.match(choice,/<dialog class="study-answer-dialog study-learning-dialog" aria-labelledby=/);
+      assert.ok(choice.includes("Back to my answer"));
       assert.ok(!choice.includes("What it means and why"));
       assert.ok(choice.indexOf("See notes")<choice.indexOf("See Results"));
       const word={id:"recall",prompt:"Name the single-path circuit.",answer:"series",acceptedAnswers:["series"],explanation:question.explanation};
@@ -65,7 +67,7 @@ test("correct and incorrect choice/typed submissions both offer collapsed See no
       const markup=render(Typed,{questions:[word],testNumber:1,course:"Test",basePath:"/study/test/module-1"},path);
       assert.ok(markup.includes(correct?"Correct!":"Not quite."));
       assert.ok(markup.includes(word.explanation));
-      assert.match(markup,/<details class="study-answer-explanation"><summary class="study-primary">/);
+      assert.match(markup,/<dialog class="study-answer-dialog study-learning-dialog" aria-labelledby=/);
       assert.ok(markup.indexOf("See notes")<markup.indexOf("See Results"));
     }
   } finally {
@@ -84,7 +86,7 @@ test("resistor feedback teaches band roles and worked limits for both correct an
       const markup=render(Resistor,{},"/study/electricity/module-1/resistor-band-calculations");
       assert.ok(markup.includes(correct?"All correct!":"Some answers need another look"));
       assert.ok(markup.includes("See notes"));
-      assert.match(markup,/<details class="study-answer-explanation"><summary class="study-primary">/);
+      assert.match(markup,/<dialog class="study-answer-dialog study-learning-dialog" aria-labelledby=/);
       assert.ok(!markup.includes("What it means and why"));
       assert.ok(markup.includes("significant digits"));
       assert.ok(markup.includes("permitted variation"));
