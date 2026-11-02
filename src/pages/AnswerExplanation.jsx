@@ -1,8 +1,10 @@
-// Shared by every quiz engine. Keep learning feedback independent of grading:
-// getting an answer right must never hide the explanation.
+import { BookOpen } from "lucide-react";
+
+// Available after every answer, independently of grading. Key the disclosure
+// to the question so advancing starts the next question's notes collapsed.
 export default function AnswerExplanation({ question }) {
-  return <section className="study-answer-explanation" aria-label="Answer explanation">
-    <h3>What it means and why</h3>
+  return <details key={question.id} className="study-answer-explanation">
+    <summary className="study-primary"><BookOpen size={18} aria-hidden="true" /> See notes</summary>
     <p className="study-feedback-explanation">{question.explanation}</p>
-  </section>;
+  </details>;
 }
