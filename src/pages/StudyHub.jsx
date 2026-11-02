@@ -1,4 +1,4 @@
-import TechPubPractice, { TechPubTestList } from "./TechPubPractice";
+import TechPubPractice, { TechPubTestList, TechPubWorksheetPractice } from "./TechPubPractice";
 import CotterPinPractice from "./CotterPinPractice";
 import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
@@ -108,7 +108,7 @@ function CourseList() {
 
 // All course sections share the same active-first ordering.
 const courseModules = {
-  publications: [{ slug: "module-2", title: "Module 2", description: "ATA chapter codes 05–79" }],
+  publications: [{ slug: "module-2", title: "Module 2", description: "Test 2 worksheet, manuals, stations & ATA codes" }],
   engines: [{ slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" }],
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
   electricity: [{ slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
@@ -153,6 +153,7 @@ export default function StudyHub() {
         <Route path="/study/feedback" element={<StudyFeedback />} />
         <Route path="/study/publications/module-2" element={<TechPubTestList />} />
         <Route path="/study/publications/module-2/ata-codes" element={<TechPubPractice />} />
+        <Route path="/study/publications/module-2/practice-1" element={<TechPubWorksheetPractice />} />
         <Route path="/study/engines/module-2" element={<EnginesTestList />} />
         <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
         <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />
