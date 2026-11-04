@@ -5,8 +5,7 @@ import { practiceBanksByModule } from "./practiceQuestionNotes.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 
 test("every current playable module has source-based searchable notes and valid assets", () => {
-  for (const slug of ["safety", "electricity", "structures", "systems", "aerodynamics", "engines"]) {
-    const notes = studyNotesByModule[`/study/${slug}/${["structures", "aerodynamics", "engines"].includes(slug) ? "module-2" : "module-1"}`];
+  for (const notes of Object.values(studyNotesByModule)) {
     assert.ok(notes?.basis && notes.intro && notes.sections.length);
     assert.equal(new Set(notes.sections.map(section => section.id)).size, notes.sections.length);
     for (const section of notes.sections) {
@@ -21,7 +20,8 @@ test("every current playable module has source-based searchable notes and valid 
       }
     }
   }
-  assert.equal(studyNotesByModule["/study/safety/module-2"], undefined, "New modules must not inherit unrelated notes");
+  assert.equal(studyNotesByModule["/study/safety/module-99"], undefined, "New modules must not inherit unrelated notes");
+  assert.notEqual(studyNotesByModule["/study/safety/module-2"],studyNotesByModule["/study/safety/module-1"]);
 });
 
 test("search matches headings and explanations, ignores case and whitespace, and handles no results", () => {

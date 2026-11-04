@@ -5,20 +5,21 @@ import { formatScheduledTestDate, formatClassEndTime, formatClassSession, isModu
 const activeSchedule = upcomingTests.map(test => ({ ...test, completed: false }));
 
 test("Math test windows stay visible throughout the range and advance to the next test afterward", () => {
-  const second = nextCourseTest("math", upcomingTests, "2026-11-15");
+  const second = nextCourseTest("math", upcomingTests, "2026-11-24");
   assert.equal(second.title, "Math Test #2");
-  assert.equal(second.date, "2026-11-16");
-  assert.equal(second.endDate, "2026-11-20");
+  assert.equal(second.date, "2026-11-25");
+  assert.equal(second.endDate, "2026-11-26");
+  assert.equal(second.possible, true);
   assert.equal(second.days, 1);
-  for (const day of ["2026-11-16", "2026-11-18", "2026-11-20"]) {
+  for (const day of ["2026-11-25", "2026-11-26"]) {
     assert.equal(nextCourseTest("math", upcomingTests, day).title, "Math Test #2");
     assert.equal(nextCourseTest("math", upcomingTests, day).days, 0);
   }
   assert.deepEqual(testClassSessions(second), []);
   assert.equal(testClassEndTime(second), null);
-  assert.equal(formatScheduledTestDate(second, true), "Mon, Nov 16 – Fri, Nov 20");
-  assert.equal(nextCourseTest("math", upcomingTests, new Date("2026-11-21T04:59:59Z")).title, "Math Test #2");
-  const third = nextCourseTest("math", upcomingTests, new Date("2026-11-21T05:00:00Z"));
+  assert.equal(formatScheduledTestDate(second, true), "Wed, Nov 25 – Thu, Nov 26");
+  assert.equal(nextCourseTest("math", upcomingTests, new Date("2026-11-27T04:59:59Z")).title, "Math Test #2");
+  const third = nextCourseTest("math", upcomingTests, new Date("2026-11-27T05:00:00Z"));
   assert.equal(third.title, "Math Test #3");
   assert.equal(third.date, "2026-12-14");
   assert.equal(third.endDate, "2026-12-18");

@@ -1,4 +1,5 @@
 import TechPubPractice, { TechPubTestList, TechPubWorksheetPractice } from "./TechPubPractice";
+import SafetyModule2Practice, { SafetyModule2TestList } from "./SafetyModule2Practice";
 import CotterPinPractice from "./CotterPinPractice";
 import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
@@ -113,6 +114,7 @@ const courseModules = {
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
   electricity: [{ slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
   safety: [
+    { slug: "module-2", title: "Module 2", description: "WHMIS · Confined spaces · Flight line · Towing · Lockout/tagout" },
     { slug: "module-1", title: "Module 1", description: "Original mixed Safety practice" },
     { slug: "human-factors", title: "Human Factors Quiz", description: "PEAR, Dirty Dozen & error models" },
   ],
@@ -178,6 +180,9 @@ export default function StudyHub() {
         <Route path="/study/safety/module-1/practice-2" element={<SafetyPractice key="practice-2" testNumber={2} />} />
         <Route path="/study/safety/module-1/practice-4" element={<Navigate to="/study/safety/human-factors/practice-1" replace />} />
         <Route path="/study/safety/human-factors" element={<HumanFactorsTestList />} />
+        <Route path="/study/safety/module-2" element={<SafetyModule2TestList />} />
+        <Route path="/study/safety/module-2/notes" element={<CourseStudyNotes basePath="/study/safety/module-2" />} />
+        <Route path="/study/safety/module-2/:testSlug" element={<SafetyModule2Practice />} />
         <Route path="/study/safety/human-factors/practice-1" element={<HumanFactorsPractice />} />
         <Route path="/study/safety/module-1/practice-3" element={<SafetyPractice key="practice-3" testNumber={3} />} />
         <Route path="/study/safety/module-1/recall" element={<Navigate to="/study/safety/module-1/practice-3" replace />} />
