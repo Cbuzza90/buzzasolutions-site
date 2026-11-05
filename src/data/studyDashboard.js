@@ -1,7 +1,7 @@
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { safetyModule2Parts } from "./safetyModule2.js";
 import { safetyEasyReviewParts } from "./safetyEasyReview.js";
-import { techPubWorksheetQuestions } from "./techPubWorksheetPractice.js";
+import { techPubWorksheetQuestions, techPubMediumQuestions } from "./techPubWorksheetPractice.js";
 import { cotterPinQuestions, cotterPinProgressKey } from "./cotterPinPractice.js";
 import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
@@ -28,6 +28,7 @@ const typed = (slug, course, title, questions, number) => ({ ...choice(slug, cou
 export const dashboardTests = [
   ...safetyEasyReviewParts,...safetyModule2Parts,
   { ...choice("publications-worksheet", "Publications", "module-2", "Test 2 Worksheet Practice", techPubWorksheetQuestions, "practice-1"), course:"Technical Publications" },
+  { ...choice("publications-medium", "Publications", "module-2", "Study Notes Practice · Medium", techPubMediumQuestions, "practice-2"), course:"Technical Publications" },
   { ...choice("ata-codes", "Publications", "module-2", "ATA Codes 05–79", ataCodeQuestions, "ata-codes", ataProgressKey), course:"Technical Publications" },
   choice("engines-review", "Engines", "module-2", "Review Questions", enginesReviewQuestions, "practice-1"),
   choice("engines-notes", "Engines", "module-2", "Notes & Review Practice", enginesAllNotesQuestions, "practice-2"),

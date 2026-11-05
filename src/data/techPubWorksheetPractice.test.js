@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { techPubWorksheetQuestions as questions, techPubWorksheetPath as path, techPubWorksheetSources, techPubSourceLimit, techPubWorksheetTargets } from "./techPubWorksheetPractice.js";
+import { techPubWorksheetQuestions as questions, techPubWorksheetPath as path, techPubMediumQuestions as medium, techPubMediumPath, techPubWorksheetSources, techPubSourceLimit, techPubWorksheetTargets, techPubMediumTargets } from "./techPubWorksheetPractice.js";
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 import { dashboardTests, savedTestSummary } from "./studyDashboard.js";
@@ -39,6 +39,47 @@ test("every worksheet question and explanation is searchable in the exact public
   for(const term of ["effectivity","Body Station","Front Spar Station","Rear Spar Station","Maintenance Practices","Adjustment/Test","Component Maintenance Manual"]) {
     assert.ok(findNoteSections(notes.sections,term).some(section=>!section.questionReference),term);
   }
+});
+
+test("Tech Pub Medium uses 25 self-contained, source-backed study-note questions",()=>{
+  assert.equal(medium.length,25);
+  assert.deepEqual(new Set(medium.map(q=>q.id)),new Set(techPubMediumTargets.map(target=>`techpub-medium-${target}`)));
+  assert.ok(!medium.some(q=>questions.some(easy=>easy.id===q.id)));
+  const shuffled=shufflePractice(medium,()=>0.4);
+  for(const q of shuffled) {
+    const original=medium.find(item=>item.id===q.id);
+    assert.equal(q.options.length,4,q.id);
+    assert.equal(new Set(q.options.map(option=>option.toLowerCase().trim())).size,4,q.id);
+    assert.equal(q.options[q.correctIndex],original.options[original.correctIndex],q.id);
+    assert.ok(q.explanation.length>150,q.id);
+    assert.ok(q.explanation.includes(techPubWorksheetSources[q.source.deck]),q.id);
+    assert.ok(!/\b(?:slide|lesson|pictured|shown above|supplied notes)\b/i.test(q.prompt),q.id);
+    assert.ok(!/overall length|stations.*between|span of|height of|wheel base/i.test(q.prompt),q.id);
+  }
+  const ipcPages=medium.find(q=>q.id==="techpub-medium-ipc-pages");
+  assert.match(ipcPages.prompt,/page 0.*page 1/i);
+  assert.equal(ipcPages.options[ipcPages.correctIndex],"Page 1, the parts list");
+});
+
+test("Medium question references are searchable and its progress is independent",()=>{
+  const notes=studyNotesByModule["/study/publications/module-2"];
+  for(const q of medium) {
+    const matches=findNoteSections(notes.sections,q.prompt).filter(section=>section.questionReference).flatMap(section=>section.items).filter(([label])=>label===q.prompt);
+    assert.equal(matches.length,1,q.id);
+    assert.ok(matches[0][1].includes(q.explanation),q.id);
+  }
+  const values=new Map(),storage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};
+  const test=dashboardTests.find(item=>item.path===techPubMediumPath);
+  assert.equal(test.questions,medium);
+  const attempt=newPracticeAttempt(medium,()=>0.5);
+  attempt.answers[attempt.order[0].id]=attempt.order[0].correctIndex;
+  savePracticeAttempt(medium,test.storageId,attempt,storage);
+  assert.equal(savedTestSummary(test,storage).answered,1);
+  assert.equal(savedTestSummary(dashboardTests.find(item=>item.path===path),storage).answered,0);
+  recordHighestScore(medium,test.storageId,21,storage);
+  savePracticeAttempt(medium,test.storageId,newPracticeAttempt(medium),storage);
+  assert.equal(loadHighestScore(medium,test.storageId,storage).score,21);
+  assert.deepEqual(studyPracticeNavigation(techPubMediumPath),{onPractice:true,testsPath:"/study/publications/module-2"});
 });
 
 test("worksheet progress and best score are separate from the existing ATA quiz and navigation recognizes the route",()=>{

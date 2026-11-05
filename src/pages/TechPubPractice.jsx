@@ -4,7 +4,7 @@ import { ModuleStudyOverview } from "./StudentDashboard";
 import MultipleChoicePractice from "./MultipleChoicePractice";
 import PracticeRecordBadge from "./PracticeRecordBadge";
 import { ataChapters, ataCodeQuestions, ataModulePath, ataPracticePath, ataProgressKey } from "../data/ataCodePractice.js";
-import { techPubWorksheetQuestions, techPubWorksheetPath } from "../data/techPubWorksheetPractice.js";
+import { techPubWorksheetQuestions, techPubWorksheetPath, techPubMediumQuestions, techPubMediumPath } from "../data/techPubWorksheetPractice.js";
 
 export function TechPubTestList() {
   return <section className="study-detail">
@@ -15,6 +15,11 @@ export function TechPubTestList() {
       <span className="study-test-link-heading"><strong>Test 2 Worksheet Practice</strong><span className="study-test-badges"><span className="study-difficulty" data-difficulty="easy">Easy difficulty</span><span className="study-format-badge">Multiple Choice</span></span></span>
       <span className="study-test-link-description">{techPubWorksheetQuestions.length} questions · Test 2 review worksheet only · Random order <ChevronRight size={19} /></span>
       <PracticeRecordBadge questions={techPubWorksheetQuestions} testId={techPubWorksheetPath} />
+    </Link>
+    <Link className="study-option-link study-test-link" to={techPubMediumPath}>
+      <span className="study-test-link-heading"><strong>Study Notes Practice</strong><span className="study-test-badges"><span className="study-difficulty" data-difficulty="medium">Medium difficulty</span><span className="study-format-badge">Multiple Choice</span></span></span>
+      <span className="study-test-link-description">{techPubMediumQuestions.length} self-contained questions · Manuals, stations, page blocks &amp; IPC · Random order <ChevronRight size={19} /></span>
+      <PracticeRecordBadge questions={techPubMediumQuestions} testId={techPubMediumPath} />
     </Link>
     <p className="study-detail-description">Boeing dimension and exact station lookups need the matching manual pages. Source issues are listed in Study notes.</p>
     <Link className="study-option-link study-test-link" to={ataPracticePath}>
@@ -27,6 +32,9 @@ export function TechPubTestList() {
 }
 export function TechPubWorksheetPractice() {
   return <MultipleChoicePractice questions={techPubWorksheetQuestions} testNumber={1} testTitle="Test 2 Worksheet Practice · Easy difficulty" course="Technical Publications" basePath={ataModulePath} />;
+}
+export function TechPubMediumPractice() {
+  return <MultipleChoicePractice questions={techPubMediumQuestions} testNumber={2} testTitle="Study Notes Practice · Medium difficulty" course="Technical Publications" basePath={ataModulePath} />;
 }
 export default function TechPubPractice() {
   return <MultipleChoicePractice questions={ataCodeQuestions} progressKey={ataProgressKey} testNumber={1} testTitle="ATA Codes 05–79" course="Technical Publications" basePath={ataModulePath} />;

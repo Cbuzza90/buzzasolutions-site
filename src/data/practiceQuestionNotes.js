@@ -1,7 +1,7 @@
 import { ataCodeQuestions } from "./ataCodePractice.js";
 import { safetyModule2Choice, safetyModule2Recall } from "./safetyModule2.js";
 import { safetyEasyReviewQuestions } from "./safetyEasyReview.js";
-import { techPubWorksheetQuestions } from "./techPubWorksheetPractice.js";
+import { techPubWorksheetQuestions, techPubMediumQuestions } from "./techPubWorksheetPractice.js";
 import { cotterPinQuestions } from "./cotterPinPractice.js";
 import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
@@ -23,7 +23,7 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
   "/study/safety/module-2": [safetyModule2Choice,safetyModule2Recall,safetyEasyReviewQuestions],
-  "/study/publications/module-2": [ataCodeQuestions, techPubWorksheetQuestions],
+  "/study/publications/module-2": [ataCodeQuestions, techPubWorksheetQuestions, techPubMediumQuestions],
   "/study/engines/module-2": [enginesReviewQuestions, enginesLectureQuestions],
   "/study/aerodynamics/module-2": [aerodynamicsReviewQuestions, aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions],
   "/study/safety/human-factors": [humanFactorsQuestions],
@@ -51,7 +51,7 @@ export function practiceQuestionNotes(basePath) {
     const title = questions === techPubWorksheetQuestions ? "Test 2 Worksheet Practice" : questions[0]?.answer ? `One-Word Test #${++typedNumber}` : `Practice Test #${++choiceNumber}`;
     return {
       id: `practice-reference-${index + 1}`,
-      title: `${questions === enginesReviewQuestions ? "Engines Review Questions" : questions === enginesLectureQuestions ? "Engines Lecture Practice" : questions === aerodynamicsReviewQuestions ? "Aerodynamics Review & Practice Quiz" : questions === aerodynamicsChoiceQuestions ? "Aerodynamics Notes Practice" : questions === aerodynamicsRecallQuestions ? "Aerodynamics One-Word Recall" : questions === ataCodeQuestions ? "ATA Codes 05–79" : questions === cotterPinQuestions ? "Cotter-Pin Diameter & Length" : questions === torquePracticeQuestions ? "Torque practice" : questions === structuresPostedQuestions ? "Posted Quiz Practice" : questions === measuringToolsQuestions ? "Measuring Tools" : questions === electricityEasyQuestions ? "Easy Review" : questions === humanFactorsQuestions ? "Human Factors" : title} · Question reference`,
+      title: `${questions === enginesReviewQuestions ? "Engines Review Questions" : questions === enginesLectureQuestions ? "Engines Lecture Practice" : questions === aerodynamicsReviewQuestions ? "Aerodynamics Review & Practice Quiz" : questions === aerodynamicsChoiceQuestions ? "Aerodynamics Notes Practice" : questions === aerodynamicsRecallQuestions ? "Aerodynamics One-Word Recall" : questions === ataCodeQuestions ? "ATA Codes 05–79" : questions === techPubMediumQuestions ? "Tech Pub Study Notes Practice" : questions === cotterPinQuestions ? "Cotter-Pin Diameter & Length" : questions === torquePracticeQuestions ? "Torque practice" : questions === structuresPostedQuestions ? "Posted Quiz Practice" : questions === measuringToolsQuestions ? "Measuring Tools" : questions === electricityEasyQuestions ? "Easy Review" : questions === humanFactorsQuestions ? "Human Factors" : title} · Question reference`,
       questionReference: true,
       items: questions.filter(question => {
         if (basePath !== "/study/aerodynamics/module-2") return true;
