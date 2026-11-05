@@ -6,14 +6,26 @@ export const techPubWorksheetSources = {
 };
 export const techPubWorksheetQuestions = [];
 export const techPubWorksheetNoteSections = [];
+// The Easy quiz follows Test 2 Material Worksheet.docx. The slide decks
+// support its answers, but slide-only topics are not tested here. ATA chapter
+// memorization remains in the separate ATA quiz.
+export const techPubWorksheetTargets = [
+  "amm", "cmm", "srm", "ipc", "fim", "amm-parts", "amm-work",
+  "warning", "caution", "note", "effectivity", "effectivity-location",
+  "page-purpose", "page-201", "page-501",
+  "number-chapter", "number-section", "number-subject",
+  "bs", "fss", "rss", "le", "te",
+];
+const worksheetTargets = new Set(techPubWorksheetTargets);
 function group(id, title, deck, rows) {
   const items = [];
   for (const [target, prompt, answer, distractors, explanation, slides] of rows) {
+    if (!worksheetTargets.has(target)) continue;
     const text = `${explanation} (${techPubWorksheetSources[deck]}, slides ${slides.join(", ")}.)`;
     techPubWorksheetQuestions.push({ id:`techpub-worksheet-${target}`, topic:id, prompt, options:[answer,...distractors], correctIndex:0, explanation:text, source:{deck,slides} });
     items.push([answer,text]);
   }
-  techPubWorksheetNoteSections.push({id:`techpub-worksheet-${id}`,title,items});
+  if (items.length) techPubWorksheetNoteSections.push({id:`techpub-worksheet-${id}`,title,items});
 }
 
 group("manuals","Manual names, purposes & AMM sections","stations",[

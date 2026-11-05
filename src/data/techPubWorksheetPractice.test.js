@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { techPubWorksheetQuestions as questions, techPubWorksheetPath as path, techPubWorksheetSources, techPubSourceLimit } from "./techPubWorksheetPractice.js";
+import { techPubWorksheetQuestions as questions, techPubWorksheetPath as path, techPubWorksheetSources, techPubSourceLimit, techPubWorksheetTargets } from "./techPubWorksheetPractice.js";
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 import { dashboardTests, savedTestSummary } from "./studyDashboard.js";
@@ -8,9 +8,10 @@ import { newPracticeAttempt, savePracticeAttempt, recordHighestScore, loadHighes
 import { shufflePractice } from "../pages/safetyTestLogic.js";
 import { studyPracticeNavigation } from "../pages/studyPracticeNavigation.js";
 
-test("Tech Pub worksheet has 39 source-backed questions with distinct choices and stable shuffled answers",()=>{
-  assert.equal(questions.length,39);
-  assert.equal(new Set(questions.map(q=>q.id)).size,39);
+test("Tech Pub Easy tests only the review worksheet prompts, with source-backed answers",()=>{
+  assert.equal(questions.length,23);
+  assert.deepEqual(new Set(questions.map(q=>q.id)),new Set(techPubWorksheetTargets.map(target=>`techpub-worksheet-${target}`)));
+  assert.ok(!questions.some(q=>q.id==="techpub-worksheet-ipc-pages"));
   for(const q of shufflePractice(questions,()=>0.4)) {
     const original=questions.find(item=>item.id===q.id);
     assert.equal(q.options.length,4);
@@ -22,7 +23,7 @@ test("Tech Pub worksheet has 39 source-backed questions with distinct choices an
     assert.ok(!q.options.some(option=>/both [a-d] and [a-d]|of the above/i.test(option)));
     assert.ok(!/overall length|stations.*between|span of|height of|wheel base/i.test(q.prompt),"No guessed aircraft dimensions or station ranges");
   }
-  for(const target of ["bs","fss","rss","le","te","amm","cmm","srm","ipc","fim","frm","warning","caution","note","effectivity-location","page-201","page-501","number-chapter","number-section","number-subject"]) {
+  for(const target of ["bs","fss","rss","le","te","amm","cmm","srm","ipc","fim","warning","caution","note","effectivity-location","page-201","page-501","number-chapter","number-section","number-subject"]) {
     assert.ok(questions.some(q=>q.id===`techpub-worksheet-${target}`),target);
   }
   assert.match(techPubSourceLimit,/matching AMM diagrams/);
@@ -35,7 +36,7 @@ test("every worksheet question and explanation is searchable in the exact public
     assert.equal(matches.length,1,q.id);
     assert.ok(matches[0][1].includes(q.explanation));
   }
-  for(const term of ["effectivity","Body Station","Front Spar Station","Rear Spar Station","Maintenance Practices","Adjustment/Test","Water line","Buttock line","Component Maintenance Manual","nomenclature"]) {
+  for(const term of ["effectivity","Body Station","Front Spar Station","Rear Spar Station","Maintenance Practices","Adjustment/Test","Component Maintenance Manual"]) {
     assert.ok(findNoteSections(notes.sections,term).some(section=>!section.questionReference),term);
   }
 });
@@ -51,8 +52,8 @@ test("worksheet progress and best score are separate from the existing ATA quiz 
   savePracticeAttempt(questions,test.storageId,attempt,storage);
   assert.equal(savedTestSummary(test,storage).answered,1);
   assert.equal(savedTestSummary(ata,storage).attempt,undefined);
-  recordHighestScore(questions,test.storageId,33,storage);
+  recordHighestScore(questions,test.storageId,20,storage);
   savePracticeAttempt(questions,test.storageId,newPracticeAttempt(questions),storage);
-  assert.equal(loadHighestScore(questions,test.storageId,storage).score,33);
+  assert.equal(loadHighestScore(questions,test.storageId,storage).score,20);
   assert.deepEqual(studyPracticeNavigation(path),{onPractice:true,testsPath:"/study/publications/module-2"});
 });
