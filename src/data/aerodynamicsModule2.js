@@ -23,14 +23,6 @@ export const aerodynamicsNoteSections = [...base.aerodynamicsNoteSections,...aer
     ["LBL — L, B, L","Left, buttock, line: first L means left, B means buttock, final L means line. (Presentation 28, PDF page 9.)"],
     ["RBL — R, B, L","Right, buttock, line: R means right, B means buttock, L means line. (Presentation 28, PDF page 9.)"],
   ],
-},{
-  id:"aero-screenshot-test-limits", title:"Class screenshot test — source wording to watch", items:[
-    ["Available questions","The supplied photos show only questions 5–12 and 26–33. The separate screenshot test reproduces those sixteen stems and option sets; unseen questions are not reconstructed."],
-    ["Empennage wording","Question 5 says ‘vertical and directional control’. The intended option is the only tail-function choice, but the fuller description is that the empennage provides pitch and yaw stability and control through horizontal and vertical tail surfaces."],
-    ["Sound through materials","Question 26's intended answer is solid for the listed ordinary media. Sound requires a medium and cannot travel through a vacuum; density alone does not set sound speed for every material."],
-    ["Cabin altitude","Question 32's 8,000 feet is the supplied review example, not a universal cruise setting for every airplane."],
-    ["Bank angle","Question 33's 30°–40° choice is an approximate ‘noticeable’ range. In a steady level turn, load factor begins increasing as soon as bank is nonzero; the original word ‘begin’ is misleading."],
-  ],
 }];
 const diagram = (file,alt) => ({ src:`/aerodynamics/module-2/${file}.png`, alt, crop:{x:0,y:0,width:1920,height:1080,imageWidth:1920,imageHeight:1080} });
 export const aerodynamicsDiagrams = { ...base.aerodynamicsDiagrams,

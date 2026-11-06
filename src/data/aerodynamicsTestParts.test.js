@@ -11,10 +11,10 @@ const memory = () => {
   return { getItem:key=>entries.get(key)??null, setItem:(key,value)=>entries.set(key,value) };
 };
 test("all Aerodynamics questions survive in fixed balanced parts capped at 39, with independent navigation/storage", () => {
-  assert.deepEqual(aerodynamicsTestFamilies.map(f=>f.parts.length),[1,4,9,8]);
-  assert.equal(aerodynamicsTestParts.length,22);
-  assert.equal(new Set(aerodynamicsTestParts.map(p=>p.path)).size,22);
-  assert.equal(new Set(aerodynamicsTestParts.map(p=>p.storageId)).size,22);
+  assert.deepEqual(aerodynamicsTestFamilies.map(f=>f.parts.length),[4,9,8]);
+  assert.equal(aerodynamicsTestParts.length,21);
+  assert.equal(new Set(aerodynamicsTestParts.map(p=>p.path)).size,21);
+  assert.equal(new Set(aerodynamicsTestParts.map(p=>p.storageId)).size,21);
   for (const family of aerodynamicsTestFamilies) {
     assert.deepEqual(family.parts.flatMap(p=>p.questions),family.questions);
     assert.equal(new Set(family.parts.flatMap(p=>p.questions.map(q=>q.id))).size,family.questions.length);
