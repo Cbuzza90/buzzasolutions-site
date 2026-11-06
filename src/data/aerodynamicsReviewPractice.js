@@ -1,4 +1,5 @@
 import { aerodynamicsChoiceQuestions } from "./aerodynamicsModule2Base.js";
+import { withAerodynamicsRationale } from "./aerodynamicsAnswerRationale.js";
 
 const bank = [];
 function reuse(position, targets) {
@@ -77,5 +78,5 @@ for (const [number, targets] of Object.entries(reviewMap)) for (const target of 
   }
   question.reviewQuestions.push(Number(number));
 }
-export const aerodynamicsReviewQuestions = bank;
+export const aerodynamicsReviewQuestions = bank.map(withAerodynamicsRationale);
 export const aerodynamicsReviewExclusions = [{ quizPosition: 40, reason: "Numerical Mach calculation excluded under the existing non-Math-course standard." }];

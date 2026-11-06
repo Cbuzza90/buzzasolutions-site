@@ -2,13 +2,14 @@ import * as base from "./aerodynamicsModule2Base.js";
 import { aeroFinalSources, aeroFinalChoice, aeroFinalRecall, aeroFinalNotes } from "./aerodynamicsFinalContent.js";
 import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
 import { includeReviewConcepts } from "./aerodynamicsReviewVariants.js";
+import { withAerodynamicsRationale } from "./aerodynamicsAnswerRationale.js";
 export * from "./aerodynamicsModule2Base.js";
 export const previousAerodynamicsChoiceQuestions = base.aerodynamicsChoiceQuestions;
 export const previousAerodynamicsRecallQuestions = base.aerodynamicsRecallQuestions;
 export const aeroSources = { ...base.aeroSources, ...aeroFinalSources };
 const expanded = includeReviewConcepts([...base.aerodynamicsChoiceQuestions,...aeroFinalChoice], [...base.aerodynamicsRecallQuestions,...aeroFinalRecall], aerodynamicsReviewQuestions);
-export const aerodynamicsChoiceQuestions = expanded.choice;
-export const aerodynamicsRecallQuestions = expanded.recall;
+export const aerodynamicsChoiceQuestions = expanded.choice.map(withAerodynamicsRationale);
+export const aerodynamicsRecallQuestions = expanded.recall.map(withAerodynamicsRationale);
 export const aerodynamicsNoteSections = [...base.aerodynamicsNoteSections,...aeroFinalNotes,{
   id:"aero-coordinate-abbreviations", title:"Coordinate abbreviations — each letter", items:[
     ["FS — F","F means fuselage. (Presentation 28, PDF page 8.)"],

@@ -17,6 +17,8 @@ test("Aerodynamics banks cover every available PDF and each topic with valid, so
     if (bank !== review) assert.equal(new Set(bank.map(q => q.topic)).size, bank === choice ? 34 : 33);
     for (const q of bank) {
       assert.ok(q.explanation && q.source.pages.length);
+      assert.equal(q.answerRationaleAdded, true, `Missing why-this-fits reasoning: ${q.id}`);
+      assert.ok(q.explanation.length >= 160, `Thin answer explanation: ${q.id}`);
       assert.ok(q.source.pages.every(page => Number.isInteger(page) && page > 0 && page <= aeroSources[q.source.deck].pages), q.id);
       if (q.options) {
         assert.equal(q.options.length, 4, q.id);
@@ -74,6 +76,8 @@ test("every Aerodynamics question is searchable in its exact module, with valid 
     const items = findNoteSections(notes.sections, q.prompt).flatMap(s => s.items);
     assert.ok(items.some(item => item[0] === q.prompt && item[1].includes(q.explanation)), q.id);
   }
+  assert.ok(findNoteSections(notes.sections, "wings move in opposite vertical directions")
+    .some(section => section.questionReference && section.items.some(([, text]) => text.includes("wings move in opposite vertical directions"))));
   for (const term of ["elevons", "ruddervators", "flaperons", "spoilerons", "stabilator", "positive static", "negative static", "neutral dynamic", "dihedral", "anhedral", "Dutch roll", "tension", "compression", "bending", "shear", "torsion", "Mach trim", "Mach feel", "load factor", "wing loading", "spar", "rib", "longerons", "trunnion", "dorsal", "ventral", "service panel", "stagger", "aspect ratio"]) {
     assert.ok(findNoteSections(notes.sections, term).some(s => !s.questionReference), term);
   }
