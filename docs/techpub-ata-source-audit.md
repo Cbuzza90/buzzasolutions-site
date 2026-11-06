@@ -1,22 +1,9 @@
-# Technical Publications: ATA chapter practice
+# Technical Publications Module 2 source audit
 
-Source: the user's `ATA A3.01_ A3.08_ AB.02.pptx`, supplied 2026-10-30. All 31 slides were extracted for inspection. Chapter entries come only from the tables on slides 8–13. The introduction on slides 6–7 supports the notes' ATA expansion and chapter-pairing explanation.
+The Test 2 Material Worksheet is the sole source for the ATA quiz's chapter **scope**. It asks what chapters 01 and 02 define and separately lists 06, 12, 24, 25, 28, 33, 49, 57, 73 and 79. The supplied `ATA A3.01, A3.08, AB.02.pptx` slides 8–13 supply the corresponding names. The attached AMEM 10033 Project #2 lists additional chapters, including 80, but the user explicitly limited the ATA quiz and study sheet to the review worksheet. No assignment-only chapter appears there.
 
-Scope: the 63 listed chapters in the requested inclusive range 05–79. The table's unlisted numbers 13–17, 19, 43, 58–60 and 68–69 are excluded. Chapters 00–04 and 80+ are outside the request. No chapter names are invented for gaps. Names follow the course deck, including 45 Diagnostic and Maintenance System, 66 Rotor Blade / Tail Pylon and 75 Bleed Air; alternate names in other editions are not graded as this course's answer key.
+The ATA study sheet is at `/study/publications/module-2/ata-study-sheet`. The single quiz at `/study/publications/module-2/ata-codes` contains 24 shuffled questions: code-to-name and name-to-code for each of the 12 chapters, with four distinct choices. Notes list only those chapters and remain searchable during the quiz. The changed scope uses a new `:review:v2` persistence key; older 126-question scores remain stored under their earlier key rather than being misreported as scores out of 24.
 
-The 63 chapter numbers, normalized names and slide numbers were compared programmatically against the original PowerPoint XML table cells. All match. Temporary source text and the comparison result remain under `tmp/ata-techpub/` and are not published.
+The Medium test uses topics from the Test 2 worksheet and AMEM 10033 Project #2, with answers checked against the supplied ATA, Stations and IPC slides. Its 36 prompts are self-contained and do not require viewing a slide during the test. The project includes aircraft-specific B727 and Mooney lookups, but the matching AMM/IPC pages or answer key were not supplied. Those items are excluded from grading; the missing sources and ambiguous datum-change question are reported in the module notes. Medium uses a new `:project:v2` persistence key so old attempts and scores are not reinterpreted under the new bank.
 
-Implementation:
-
-- Course: `publications`, existing Technical Publications/Documents card, now enabled.
-- Module: `/study/publications/module-2`, aligned with the existing Module 2 course entry/test schedule.
-- Test: `/study/publications/module-2/ata-codes`.
-- Bank: 126 multiple-choice questions, one code-to-name and one name-to-code question per chapter. Four distinct choices use neighbouring listed chapters from the same group.
-- Attempt: one complete test, as explicitly requested by the user. Every attempt contains all 126 questions, covering every one of the 63 listed chapters in both directions. The shared engine randomizes question order and choices and saves the full attempt, choices, grading and progress. There is no sampling or split into parts.
-- Score: independent highest score out of 126. Reset preserves it.
-- Notes: exact Module 2 registration, condensed chapter tables grouped as in the deck, all ATA acronym letters and explicit scope/wording notes. All 126 question references are searchable. Notes remain below answers during multiple-choice practice.
-- Navigation: Courses / Reset Test / Tests recognizes the custom `ata-codes` route. The dashboard registry supports module Continue studying and course activity.
-
-Checks cover exact chapter scope, both directions, unique options, key source examples, complete 63-chapter/two-direction coverage in every shuffled attempt, independent persistence, reset retaining best score, search for every chapter and question, and custom route recognition. Full test suite, lint and production build are required. Shared note dialog/layout code is unchanged; no new chart or nested image tool is introduced.
-
-The full test uses a separate `:full:v1` persistence key. The earlier unshipped 30-question draft key is not overwritten. The user explicitly requested a single complete test in place of short sampled sessions.
+Checks verify exact chapter scope, both ATA directions, unique options, every-question notes search, Medium topic coverage, separate saved attempts and highest scores, navigation, lint and production build.

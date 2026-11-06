@@ -812,3 +812,18 @@
 .study-app[data-theme="dark"] .study-difficulty[data-difficulty="easy"]{background:#14532d;color:#dcfce7;border-color:#4ade80}
 .study-app[data-theme="dark"] .study-difficulty[data-difficulty="medium"]{background:#facc15;color:#422006;border-color:#fde047}
 .study-app[data-theme="dark"] .study-difficulty[data-difficulty="hard"]{background:#7f1d1d;color:#fee2e2;border-color:#f87171}
+.study-ata-sheet{max-width:900px}
+.study-ata-tip{display:flex;align-items:flex-start;gap:12px;margin:20px 0;padding:16px 18px;border:1px solid #93c5fd;border-radius:14px;background:#eff6ff;color:var(--ink)}
+.study-ata-tip svg{flex:0 0 auto;color:#2563eb}
+.study-ata-tip p{margin:0;line-height:1.65}
+.study-ata-search{margin:22px 0 8px}
+.study-ata-count,.study-ata-source{font-size:12px;color:var(--muted);line-height:1.6}
+.study-ata-group{margin:28px 0}
+.study-ata-group h2{font-size:19px;margin-bottom:12px}
+.study-ata-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.study-ata-entry{display:flex;align-items:center;gap:12px;min-height:66px;padding:14px;border:1px solid var(--line);border-radius:12px;background:rgba(37,99,235,.05)}
+.study-ata-entry strong{flex:0 0 66px;color:#1d4ed8;font-size:15px}
+.study-ata-entry span{font-size:13px;font-weight:600;line-height:1.4}
+.study-app[data-theme="dark"] .study-ata-tip{background:#172b48;border-color:#3b82f6}
+.study-app[data-theme="dark"] .study-ata-tip svg,.study-app[data-theme="dark"] .study-ata-entry strong{color:#93c5fd}
+@media(max-width:480px){.study-ata-grid{grid-template-columns:1fr}.study-ata-tip{padding:14px}.study-ata-entry{min-height:58px}}

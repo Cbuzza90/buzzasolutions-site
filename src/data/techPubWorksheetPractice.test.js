@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { techPubWorksheetQuestions as questions, techPubWorksheetPath as path, techPubMediumQuestions as medium, techPubMediumPath, techPubWorksheetSources, techPubSourceLimit, techPubWorksheetTargets, techPubMediumTargets } from "./techPubWorksheetPractice.js";
+import { techPubWorksheetQuestions as questions, techPubWorksheetPath as path, techPubMediumQuestions as medium, techPubMediumPath, techPubMediumProgressKey, techPubWorksheetSources, techPubSourceLimit, techPubWorksheetTargets, techPubMediumTargets } from "./techPubWorksheetPractice.js";
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 import { dashboardTests, savedTestSummary } from "./studyDashboard.js";
@@ -26,7 +26,7 @@ test("Tech Pub Easy tests only the review worksheet prompts, with source-backed 
   for(const target of ["bs","fss","rss","le","te","amm","cmm","srm","ipc","fim","warning","caution","note","effectivity-location","page-201","page-501","number-chapter","number-section","number-subject"]) {
     assert.ok(questions.some(q=>q.id===`techpub-worksheet-${target}`),target);
   }
-  assert.match(techPubSourceLimit,/matching AMM diagrams/);
+  assert.match(techPubSourceLimit,/matching AMM or IPC pages/);
 });
 
 test("every worksheet question and explanation is searchable in the exact publications module",()=>{
@@ -41,8 +41,8 @@ test("every worksheet question and explanation is searchable in the exact public
   }
 });
 
-test("Tech Pub Medium uses 25 self-contained, source-backed study-note questions",()=>{
-  assert.equal(medium.length,25);
+test("Tech Pub Medium uses 36 self-contained, source-backed worksheet and project questions",()=>{
+  assert.equal(medium.length,36);
   assert.deepEqual(new Set(medium.map(q=>q.id)),new Set(techPubMediumTargets.map(target=>`techpub-medium-${target}`)));
   assert.ok(!medium.some(q=>questions.some(easy=>easy.id===q.id)));
   const shuffled=shufflePractice(medium,()=>0.4);
@@ -56,9 +56,10 @@ test("Tech Pub Medium uses 25 self-contained, source-backed study-note questions
     assert.ok(!/\b(?:slide|lesson|pictured|shown above|supplied notes)\b/i.test(q.prompt),q.id);
     assert.ok(!/overall length|stations.*between|span of|height of|wheel base/i.test(q.prompt),q.id);
   }
-  const ipcPages=medium.find(q=>q.id==="techpub-medium-ipc-pages");
-  assert.match(ipcPages.prompt,/page 0.*page 1/i);
-  assert.equal(ipcPages.options[ipcPages.correctIndex],"Page 1, the parts list");
+  for(const target of ["zone-purpose","zone-digits","panel-zone","panel-letter","panel-location","stby","typ","inb","ob","ref","nha","interchangeable","ar","alt","replaced-by","assy","ipc-blank-effectivity","ata-system"]) {
+    assert.ok(medium.some(q=>q.id===`techpub-medium-${target}`),target);
+  }
+  assert.ok(!medium.some(q=>q.id==="techpub-medium-ipc-pages"));
 });
 
 test("Medium question references are searchable and its progress is independent",()=>{
@@ -71,6 +72,7 @@ test("Medium question references are searchable and its progress is independent"
   const values=new Map(),storage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};
   const test=dashboardTests.find(item=>item.path===techPubMediumPath);
   assert.equal(test.questions,medium);
+  assert.equal(test.storageId,techPubMediumProgressKey);
   const attempt=newPracticeAttempt(medium,()=>0.5);
   attempt.answers[attempt.order[0].id]=attempt.order[0].correctIndex;
   savePracticeAttempt(medium,test.storageId,attempt,storage);

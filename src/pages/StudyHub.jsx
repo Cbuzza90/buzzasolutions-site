@@ -1,4 +1,5 @@
 import TechPubPractice, { TechPubTestList, TechPubWorksheetPractice, TechPubMediumPractice } from "./TechPubPractice";
+import AtaStudySheet from "./AtaStudySheet";
 import SafetyModule2Practice, { SafetyModule2TestList } from "./SafetyModule2Practice";
 import CotterPinPractice from "./CotterPinPractice";
 import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
@@ -154,6 +155,7 @@ export default function StudyHub() {
         <Route path="/" element={<CourseList />} />
         <Route path="/study/feedback" element={<StudyFeedback />} />
         <Route path="/study/publications/module-2" element={<TechPubTestList />} />
+        <Route path="/study/publications/module-2/ata-study-sheet" element={<AtaStudySheet />} />
         <Route path="/study/publications/module-2/ata-codes" element={<TechPubPractice />} />
         <Route path="/study/publications/module-2/practice-1" element={<TechPubWorksheetPractice />} />
         <Route path="/study/publications/module-2/practice-2" element={<TechPubMediumPractice />} />

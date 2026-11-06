@@ -1,12 +1,18 @@
 export const ataModulePath = "/study/publications/module-2";
 export const ataPracticePath = `${ataModulePath}/ata-codes`;
-export const ataProgressKey = `${ataPracticePath}:full:v1`;
+export const ataStudySheetPath = `${ataModulePath}/ata-study-sheet`;
+export const ataProgressKey = `${ataPracticePath}:review:v2`;
 export const ataDeckTitle = "ATA A3.01_ A3.08_ AB.02.pptx";
 const groups = {
   general:"Aircraft general", systems:"Airframe systems", structures:"Structures", powerplant:"Powerplant",
 };
-// Only the chapter rows actually supplied in slides 8–13, within 05–79.
+// Chapter titles come from the supplied ATA slides. Quiz scope comes only from
+// Test 2 Material Worksheet: its chapter list plus 01 and 02, asked separately.
+export const ataReviewCodes = [1,2,6,12,24,25,28,33,49,57,73,79];
+const reviewCodes = new Set(ataReviewCodes);
 const rows = [
+  [1,"Maintenance Policy","general",8],
+  [2,"Operations","general",8],
   [5,"Time Limits / Maintenance Checks","general",8],
   [6,"Dimensions and Areas","general",8],
   [7,"Lifting and Shoring","general",8],
@@ -71,10 +77,11 @@ const rows = [
   [78,"Exhaust","powerplant",13],
   [79,"Oil","powerplant",13],
 ];
-export const ataChapters=rows.map(([number,title,group,slide])=>({number,code:String(number).padStart(2,"0"),title,group,slide}));
+export const ataChapters=rows.filter(([number])=>reviewCodes.has(number)).map(([number,title,group,slide])=>({number,code:String(number).padStart(2,"0"),title,group,slide}));
 export const ataCodeQuestions=ataChapters.flatMap(chapter=>{
-  const peers=ataChapters.filter(other=>other.group===chapter.group && other.number!==chapter.number)
-    .sort((a,b)=>Math.abs(a.number-chapter.number)-Math.abs(b.number-chapter.number)||a.number-b.number).slice(0,3);
+  const nearby=(list)=>list.sort((a,b)=>Math.abs(a.number-chapter.number)-Math.abs(b.number-chapter.number)||a.number-b.number);
+  const sameGroup=nearby(ataChapters.filter(other=>other.group===chapter.group && other.number!==chapter.number));
+  const peers=[...sameGroup,...nearby(ataChapters.filter(other=>other.group!==chapter.group))].slice(0,3);
   const source={title:ataDeckTitle,slide:chapter.slide};
   const common={chapter:chapter.code,topic:`ata-${chapter.group}`,source,
     explanation:`ATA ${chapter.code} is ${chapter.title} in the supplied ${groups[chapter.group].toLowerCase()} list. ATA chapter numbers are shared references that help readers find the same system or topic across aircraft manuals, so the answer comes from this fixed number/name pairing. For comparison, ATA ${peers[0].code} refers to ${peers[0].title}, a different heading. (${ataDeckTitle}, slides 6–7 and ${chapter.slide}.)`};
@@ -89,9 +96,9 @@ export const ataNoteSections=[{
     ["ATA — T","Transport. (Supplied deck, slide 6.)"],
     ["ATA — final A","Association. (Supplied deck, slide 6.)"],
     ["Code and chapter name","Learn each pairing in both directions. For example, Electrical Power is ATA 24, and ATA 24 is Electrical Power. (Supplied deck, slides 7 and 9.)"],
-    ["Scope: ATA 05–79","The supplied slides list 63 chapter entries within this range. Numbers 13–17, 19, 43, 58–60 and 68–69 are not listed, so the test does not invent chapter names for those gaps. Chapters 00–04 and 80 upward are outside this requested test."],
-    ["Use your course wording","The test uses this deck's chapter names, including ATA 45 Diagnostic and Maintenance System, ATA 66 Rotor Blade / Tail Pylon and ATA 75 Bleed Air. Titles in other manuals or editions can differ. This is chapter-recognition practice based on your supplied course list."],
-    ["One complete randomized test","Every attempt includes all 126 questions: each of the 63 listed chapters appears once as code-to-name and once as name-to-code. Questions and answer choices are shuffled. Progress saves so you can stop and resume. Reset reshuffles the whole test and preserves your highest score."],
+    ["Scope: Test 2 review worksheet","Study only 01, 02, 06, 12, 24, 25, 28, 33, 49, 57, 73 and 79. The worksheet asks what chapters 01 and 02 define, then lists the other ten in its ATA question. Assignment-only chapters are outside this quiz."],
+    ["Use your course wording","The chapter names follow the supplied ATA course slides. The Test 2 Material Worksheet selects which chapters to study; it does not provide the names. Titles in other manuals or editions may differ."],
+    ["One complete randomized test","Every attempt includes all 24 questions: each of the 12 review chapters appears once as code-to-name and once as name-to-code. Questions and answer choices are shuffled. Progress saves so you can stop and resume. Reset reshuffles the test and preserves your highest score."],
   ],
 },...Object.entries(groups).map(([group,title])=>({id:`ata-${group}`,title:`ATA chapters: ${title}`,items:ataChapters.filter(c=>c.group===group).map(c=>[
   `ATA ${c.code} · ${c.title}`,`Chapter ${c.code} in the ${title.toLowerCase()} group. Source: ${ataDeckTitle}, slide ${c.slide}.`,

@@ -7,6 +7,7 @@ export const techPubWorksheetSources = {
 export const techPubWorksheetQuestions = [];
 export const techPubWorksheetNoteSections = [];
 export const techPubMediumPath = "/study/publications/module-2/practice-2";
+export const techPubMediumProgressKey = `${techPubMediumPath}:project:v2`;
 export const techPubMediumQuestions = [];
 export const techPubMediumNoteSections = [];
 // The Easy quiz follows Test 2 Material Worksheet.docx. The slide decks
@@ -21,10 +22,13 @@ export const techPubWorksheetTargets = [
 ];
 const worksheetTargets = new Set(techPubWorksheetTargets);
 export const techPubMediumTargets = [
-  "frm", "cmm-work", "effectivity-all", "datum", "datum-location", "wl", "bl", "ws", "nac",
-  "ipc-authority", "ipc-item", "ipc-nomenclature", "ipc-quantity", "ipc-pages", "ipc-index", "ipc-effectivity",
-  "page-301", "page-401", "page-601", "effectivity-except", "ipc-known-part", "ipc-vendor-code",
+  "cmm-work", "effectivity-all", "datum", "datum-location", "wl", "bl", "ws",
+  "ipc-authority", "ipc-item", "ipc-nomenclature", "ipc-quantity", "ipc-vendor-code",
   "station-two-axes", "amm-task-vs-ipc", "ipc-part-vs-item",
+  "zone-purpose", "zone-digits", "panel-zone", "panel-letter", "panel-location",
+  "stby", "typ", "inb", "ob", "ref",
+  "nha", "interchangeable", "ar", "alt", "replaced-by", "assy",
+  "ipc-effectivity-field", "ipc-blank-effectivity", "ata-system", "numbered-reference", "procedure-label",
 ];
 const mediumTargets = new Set(techPubMediumTargets);
 function group(id, title, deck, rows) {
@@ -32,7 +36,7 @@ function group(id, title, deck, rows) {
   for (const [target, prompt, answer, distractors, explanation, slides] of rows) {
     const easy = worksheetTargets.has(target);
     if (!easy && !mediumTargets.has(target)) continue;
-    const text = `${explanation} (${techPubWorksheetSources[deck]}, slides ${slides.join(", ")}.)`;
+    const text = `${explanation} (${easy ? "Test 2 Material Worksheet" : "AMEM 10033 Project #2"} topic; ${techPubWorksheetSources[deck]}, slides ${slides.join(", ")}.)`;
     const bank = easy ? techPubWorksheetQuestions : techPubMediumQuestions;
     bank.push({ id:`techpub-${easy ? "worksheet" : "medium"}-${target}`, topic:id, prompt, options:[answer,...distractors], correctIndex:0, explanation:text, source:{deck,slides} });
     (easy ? easyItems : mediumItems).push([answer,text]);
@@ -113,4 +117,37 @@ group("applied-stations","Combining aircraft position references","stations",[
   ["station-two-axes","A drawing gives a component's height and its left/right position from the fuselage centreline. Which references identify those two directions?","Water line for height; buttock line for left/right",["Buttock line for height; water line for left/right","Wing station for both height and left/right","Effectivity for height; page block for left/right"],"Water lines describe vertical position from a manufacturer-set zero line. Buttock lines describe position left or right of the fuselage centreline. These two references answer different location questions and should not be swapped.",[21,23]],
 ]);
 
-export const techPubSourceLimit = "B727/B737 dimension and exact station-range answers await the matching AMM diagrams or an answer key. The B737-800 activity says 'B727-800' in its instruction line; confirm the intended manual before using it. Station slide 18 calls fuselage station locations 'vertical', while slide 26 says wing stations run along the longitudinal axis 'outward along the wing'. These directional statements need instructor clarification and are not graded. ATA chapter-code memorization remains in the separate ATA quiz.";
+group("project-zones","Zones and access panel identifiers","stations",[
+  ["zone-purpose","Why does an aircraft manual divide the airplane into zones?","To identify areas and access panels for maintenance planning",["To replace all aircraft effectivity checks","To give every component the same part number","To state the aircraft's maximum takeoff mass"],"Zones are recognizable aircraft areas used to plan maintenance and identify access doors or panels. Their boundaries generally follow major structure; a zone number locates an area, but it does not replace a part number or a maintenance procedure.",[39]],
+  ["zone-digits","A zone identifier has three digits. What do those digits identify?","Major zone, subzone and a location or component group",["Chapter, section and subject in an AMM number","Part number, quantity and effectivity","Page, figure and item in an IPC"],"The course's three-digit zone scheme moves from major zone to subzone to a more specific area or component group. Do not confuse zone digits with an ATA chapter-section-subject reference, even though both use grouped numbers.",[40,45,46]],
+  ["panel-zone","In access-panel code 421AB, what does 421 identify?","The aircraft zone",["The AMM page block","The part number","The panel's top or bottom location letter"],"The first three characters of this five-character access-panel identifier give the zone. The fourth character distinguishes panels within it, and the fifth adds location information; those letters are not part of the three-digit zone number.",[50,51,52]],
+  ["panel-letter","In access-panel code 421AB, what does the fourth character A identify?","A particular panel within zone 421",["The aircraft's effectivity","An ATA chapter","The panel's bottom location"],"The fourth character is a panel letter that distinguishes access doors or panels in one zone. In 421AB, the fifth letter B supplies the location detail, so the two letters have different jobs.",[50,51,52]],
+  ["panel-location","In access-panel code 421AB, what does the final B mean in the supplied code scheme?","Bottom location",["Boeing aircraft only","Body station","A second ATA chapter"],"The fifth character adds location information. The supplied legend uses B for bottom, while the preceding A identifies one panel within zone 421; the code therefore combines zone, panel and location.",[50,51,52]],
+]);
+
+group("project-drawing-terms","Project drawing abbreviations","stations",[
+  ["stby","A drawing labels equipment STBY. What does STBY mean?","Standby",["Station by year","Structural bay","System test boundary"],"STBY is the supplied abbreviation for standby. It describes a standby item or state, whereas STA is the separate abbreviation for station; the similar first letters should not be exchanged.",[12]],
+  ["typ","A drawing detail is marked TYP. What does TYP mean?","Typical",["Type certificate","Temporary yield point","Top yoke position"],"TYP means typical in the supplied drawing abbreviation list. It flags a representative detail, not an ATA chapter, an aircraft type certificate or a station measurement.",[14]],
+  ["inb","A wing drawing marks a component INB. Which direction does that mean?","Inboard, toward the aircraft centreline",["Outboard, toward the wingtip","Above the water-line zero","Aft of the tail"],"INB abbreviates inboard. On a wing, it points toward the aircraft centreline, while OB means outboard toward the wingtip; the pair describes opposite sideways directions.",[13]],
+  ["ob","A wing drawing marks a component OB. Which direction does that mean?","Outboard, away from the aircraft centreline",["Inboard, toward the centreline","Below the water-line zero","Forward of the nose"],"OB abbreviates outboard in the supplied list. On a wing, it points away from the centreline; INB is the opposite direction and should not be confused with a vertical water-line position.",[13]],
+  ["ref","A drawing note is marked REF. What does REF mean?","Reference",["Refinish","Rear fuselage","Required engine fit"],"REF means reference in the supplied drawing abbreviation list. It points the reader to reference information; it is not an aircraft location or the name of a repair process.",[14]],
+]);
+
+group("project-ipc-terms","Project IPC abbreviations and applicability","ipc",[
+  ["nha","An IPC entry is marked NHA. What does NHA stand for?","Next Highest Assembly",["New Hardware Approval","Nose Hydraulic Area","Numbered Handling Action"],"NHA means Next Highest Assembly in the supplied IPC abbreviation list. It points to the larger assembly that contains the referenced item, rather than identifying the item's aircraft effectivity or quantity.",[7]],
+  ["interchangeable","An IPC note says I/W. What relationship does I/W indicate?","Interchangeable with",["Installed without","Inspection warning","Inboard wing"],"I/W means interchangeable with in the supplied IPC notes. It describes a relationship between parts; the actual applicable airplane and installation requirements still need to be checked in the catalogue and approved maintenance data.",[7]],
+  ["ar","An IPC quantity is marked AR. What does AR mean?","As required",["Alternate repair","Aircraft registration","Assembly reference"],"AR means as required in the supplied IPC abbreviations. It is not a fixed units-per-assembly quantity; the applicable parts listing and procedure determine how many are needed for the specific installation.",[7]],
+  ["alt","An IPC parts entry is marked ALT. What does ALT mean?","Alternate",["Altitude","Alignment tolerance","Airline test log"],"ALT means alternate in the supplied IPC list. It indicates an alternative entry or part relationship, not the aircraft's altitude or the quantity required for installation.",[7]],
+  ["replaced-by","An IPC entry says RPL BY. What does that mean?","Replaced by",["Repair by","Report before year-end","Reference below"],"RPL BY expands to replaced by in the supplied IPC abbreviations. It directs attention to a replacement entry; part effectivity and interchangeability still matter before treating it as usable on a particular aircraft.",[7]],
+  ["assy","An IPC entry uses ASSY. What does ASSY stand for?","Assembly",["Aircraft system summary","Assigned serial year","Assisted servicing"],"ASSY means assembly in the supplied IPC list. An assembly is a grouped unit; the abbreviation is not itself a part number, quantity, or aircraft applicability statement.",[7]],
+  ["ipc-effectivity-field","Which IPC field tells you which aircraft a listed part number applies to?","Effectivity",["Nomenclature","Units per assembly","Figure item number"],"The IPC effectivity field identifies the aircraft covered by a part listing. Nomenclature names the part, units per assembly gives a quantity and the figure item number links to the illustration; these fields answer different questions.",[16,17]],
+  ["ipc-blank-effectivity","In the supplied IPC, an empty Effect From To entry is treated how?","Applicable to all airplanes covered by that IPC",["Applicable to no airplanes","Exactly one unit is required","Only the first illustrated airplane is covered"],"The supplied IPC notes say a blank Effect From To field makes the part applicable to all airplanes covered by that IPC. This is bounded by that catalogue's coverage; use its Airplane Effectivity Cross-Reference to identify the actual airplanes.",[17]],
+]);
+
+group("project-ata-reading","Applying ATA and procedure notation","ata",[
+  ["ata-system","What is the purpose of the ATA chapter-numbering system in aircraft manuals?","To give common subject references across manuals and aircraft",["To replace every aircraft-specific maintenance procedure","To identify only the manufacturer of each part","To state a component's physical station"],"ATA chapter numbers provide a shared way to find the same subject or system across manuals and aircraft. They are an organizational reference; actual procedures, effectivity and part applicability must still be read in the relevant aircraft documents.",[6,7]],
+  ["numbered-reference","In document reference 53-00-01, what do the three pairs identify?","Chapter, section and subject",["Zone, panel letter and location letter","Part number, quantity and effectivity","Page block, warning and caution"],"ATA-style XX-XX-XX references are read as chapter, section and subject. In the supplied example, 53 identifies the fuselage chapter, while the later pairs narrow the topic; panel identifiers and IPC columns use different schemes.",[14]],
+  ["procedure-label","An AMM instruction says disobeying it could injure a person. Which label fits that consequence?","Warning",["Caution","Note","Effectivity"],"A warning is for possible injury or death. A caution concerns possible equipment damage, while a note adds procedural information; effectivity tells which aircraft the procedure covers rather than its safety consequence.",[28]],
+]);
+
+export const techPubSourceLimit = "The Test 2 worksheet's B727 dimensions and Project #2's B727 panel/figure lookups and Mooney IPC lookups need the matching AMM or IPC pages, or an instructor key, before they can be graded. Project #2 asks whether the manufacturer can change the datum; the supplied station slides say the manufacturer chooses it but do not resolve the change question. The B737-800 activity says 'B727-800' in its instruction line; confirm the intended manual. Station slide 18 calls fuselage station locations 'vertical', while slide 26 describes wing stations outward along the wing; these directional statements need instructor clarification. ATA chapter memorization stays in the separate review-only quiz.";
