@@ -24,11 +24,11 @@ export function AerodynamicsTestList() {
   useState(() => { migrateAerodynamicsParts(); return true; });
   return <section className="study-detail">
     <p className="study-eyebrow">AIRCRAFT ENGINEERING &amp; AERODYNAMICS</p><h1>Module 2</h1>
-    <p className="study-detail-description">Shorter parts · All questions retained · Maximum 39 questions per part</p>
+    <p className="study-detail-description">Practice in saved parts · Maximum 39 questions per part</p>
     <ModuleStudyOverview basePath={basePath} />
     {aerodynamicsTestFamilies.map(family => <Link key={family.id} className="study-option-link study-test-link" to={family.path}>
       <span className="study-test-link-heading"><strong>{family.title}</strong><FormatBadge family={family} /></span>
-      <span className="study-test-link-description">{family.parts.length} parts · {[...new Set(family.parts.map(p=>p.questions.length))].sort((a,b)=>a-b).join("–")} questions each · {family.questions.length} total <ChevronRight size={19} /></span>
+      <span className="study-test-link-description">{family.id === "screenshot" ? "16 questions transcribed from the supplied screenshots (Q5–12 and Q26–33)" : `${family.parts.length} parts · ${[...new Set(family.parts.map(p=>p.questions.length))].sort((a,b)=>a-b).join("–")} questions each · ${family.questions.length} total`} <ChevronRight size={19} /></span>
     </Link>)}
     <div className="study-flow-actions"><Link to="/study/aerodynamics"><ArrowLeft size={18} /> Aerodynamics</Link></div>
   </section>;
@@ -61,3 +61,4 @@ export function AerodynamicsPartPractice({ familyId }) {
 export function AerodynamicsChoicePractice() { return <AerodynamicsPartList familyId="choice" />; }
 export function AerodynamicsReviewPractice() { return <AerodynamicsPartList familyId="review" />; }
 export function AerodynamicsWordPractice() { return <AerodynamicsPartList familyId="word" />; }
+export function AerodynamicsScreenshotPractice() { return <AerodynamicsPartList familyId="screenshot" />; }

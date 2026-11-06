@@ -1,5 +1,6 @@
 import { aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions, aerodynamicsModule2Path } from "./aerodynamicsModule2.js";
 import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
+import { aerodynamicsScreenshotQuestions } from "./aerodynamicsScreenshotTest.js";
 import { aeroChoiceKey, aeroRecallKey } from "../pages/aerodynamicsProgress.js";
 
 export function splitQuestionBank(questions, maximum = 39) {
@@ -13,6 +14,7 @@ export function splitQuestionBank(questions, maximum = 39) {
   });
 }
 export const aerodynamicsTestFamilies = [
+  { id:"screenshot", title:"Class Screenshot Test", difficulty:"easy", kind:"choice", suffix:"screenshot-test", questions:aerodynamicsScreenshotQuestions, fullKey:`${aerodynamicsModule2Path}/screenshot-test` },
   { id:"review", title:"Review & Practice Quiz", difficulty:"easy", kind:"choice", suffix:"practice-1", questions:aerodynamicsReviewQuestions, fullKey:`${aerodynamicsModule2Path}/practice-1` },
   { id:"choice", title:"Notes Practice", difficulty:"medium", kind:"choice", suffix:"practice-2", questions:aerodynamicsChoiceQuestions, fullKey:aeroChoiceKey },
   { id:"word", title:"One-Word Recall", difficulty:"hard", kind:"typed", suffix:"one-word-1", questions:aerodynamicsRecallQuestions, fullKey:aeroRecallKey },

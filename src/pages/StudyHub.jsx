@@ -17,7 +17,7 @@ import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresModule2Practice from "./StructuresModule2Practice";
-import { AerodynamicsTestList, AerodynamicsPartPractice, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
+import { AerodynamicsTestList, AerodynamicsPartPractice, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice, AerodynamicsScreenshotPractice } from "./AerodynamicsPractice";
 import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
 import MeasuringToolsPractice from "./MeasuringToolsPractice";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
@@ -163,6 +163,8 @@ export default function StudyHub() {
         <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
         <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />
         <Route path="/study/aerodynamics/module-2" element={<AerodynamicsTestList />} />
+        <Route path="/study/aerodynamics/module-2/screenshot-test/:partSlug" element={<AerodynamicsPartPractice familyId="screenshot" />} />
+        <Route path="/study/aerodynamics/module-2/screenshot-test" element={<AerodynamicsScreenshotPractice />} />
         <Route path="/study/aerodynamics/module-2/practice-1/:partSlug" element={<AerodynamicsPartPractice familyId="review" />} />
         <Route path="/study/aerodynamics/module-2/practice-1" element={<AerodynamicsReviewPractice />} />
         <Route path="/study/aerodynamics/module-2/practice-2/:partSlug" element={<AerodynamicsPartPractice familyId="choice" />} />
