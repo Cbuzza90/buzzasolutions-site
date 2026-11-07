@@ -143,11 +143,17 @@ export const safetyEasyReviewDiagrams={
   reviewLines:chart("review-fluid-lines.png",1505,932,"Original review slide 72 labelled fluid-line colour and geometric-symbol reference, including the highlighted entries."),
 };
 const pictograms=[
-  ["Flammable",15,10],["Corrosive",351,10],["Biohazardous infectious materials",705,10],
-  ["Oxidizer",15,173],["Health hazard",350,173],["Harmful/irritant",692,173],
-  ["Compressed gas",15,345],["Explosive",351,345],["Toxic",692,345],
+  ["Flammable",15,10,"The plain flame identifies the chart's flammable category. The flame over a circle instead identifies an oxidizer."],
+  ["Corrosive",351,10,"The corrosion pictogram shows liquid attacking a hand and a metal surface. It differs from the skull and crossbones used for toxic material."],
+  ["Biohazardous infectious materials",705,10,"The three-part biohazard symbol identifies infectious materials. It differs from the skull and crossbones used for chemical toxicity."],
+  ["Oxidizer",15,173,"The flame over a circle identifies an oxidizer. The circle distinguishes it from the plain flame used for flammable material."],
+  ["Health hazard",350,173,"The person silhouette with a star-like mark in the chest is the chart's health-hazard symbol. The exclamation mark instead identifies the harmful/irritant category in this chart."],
+  ["Harmful/irritant",692,173,"The exclamation mark identifies the chart's harmful/irritant category. It differs from the person silhouette used for the health-hazard category."],
+  ["Compressed gas",15,345,"The gas-cylinder pictogram identifies compressed gas. A cylinder communicates a pressure hazard, whereas a flame communicates fire-related hazards."],
+  ["Explosive",351,345,"The exploding-bomb pictogram identifies the chart's explosive category. The bursting fragments distinguish it from the flame and gas-cylinder symbols."],
+  ["Toxic",692,345,"The skull and crossbones identifies the chart's toxic category. It differs from the biohazard symbol used for infectious material."],
 ];
-for(const [i,[answer,x,y]] of pictograms.entries()) add(`symbol-${i+1}`,"review-symbols","What does this symbol represent in the review chart?",answer,pictograms.filter(row=>row[0]!==answer).slice(0,3).map(row=>row[0]),`The review labels this symbol ${answer.toLowerCase()}. Read its shape and pictogram rather than assuming the red border alone distinguishes one hazard from another.`,[6],{diagram:{src:safetyEasyReviewDiagrams.reviewWhmis.src,alt:"Unlabelled WHMIS symbol from the review for identification.",crop:{imageWidth:1060,x,y,width:144,height:145}}});
+for(const [i,[answer,x,y,meaning]] of pictograms.entries()) add(`symbol-${i+1}`,"review-symbols","What does this symbol represent in the review chart?",answer,pictograms.filter(row=>row[0]!==answer).slice(0,3).map(row=>row[0]),`${meaning} These are the labels used on the supplied review chart.`,[6],{diagram:{src:safetyEasyReviewDiagrams.reviewWhmis.src,alt:"Unlabelled WHMIS symbol from the review for identification.",crop:{imageWidth:1060,x,y,width:144,height:145}}});
 for(const [letter,answer,x,y] of [["A","Compressed gas",204,11],["B","Flammable and combustible material",204,105],["C","Oxidizing material",204,197]]) add(`legacy-${letter}`,"review-symbols",`In the review's older WHMIS classification, what does Class ${letter} represent?`,answer,["Corrosive material","Biohazardous infectious material","Dangerously reactive material"],`The older review chart identifies Class ${letter} as ${answer.toLowerCase()}. This question is explicitly about the historical lettered system, not the current hazard-class naming system.`,[7],{diagram:{src:safetyEasyReviewDiagrams.reviewLegacy.src,alt:"Older WHMIS circular symbol used for this historical class question.",crop:{imageWidth:558,x,y,width:78,height:79}}});
 
 const lines=[

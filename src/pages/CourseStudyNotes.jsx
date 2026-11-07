@@ -36,7 +36,7 @@ function NotesContent({ notes, question, questionReferences }) {
         }
       }}>
       <summary>{section.title}</summary>
-      {(!section.questionReference || term || expandedReferences[section.id]) && <dl>{section.items.map(([label, text, image, diagram]) => <div key={label}>
+      {(!section.questionReference || term || expandedReferences[section.id]) && <dl>{section.items.map(([label, text, image, diagram], index) => <div key={`${label}-${index}`}>
         <dt>{section.id === "fluids" && /^(Blue|Red|Purple) ·/.test(label) && <span className="study-fluid-swatch" aria-hidden="true" style={{ backgroundColor: label.startsWith("Blue") ? "#3b82f6" : label.startsWith("Red") ? "#ef4444" : "#a78bfa" }} />}{label}</dt>
         {image && <img className="study-note-symbol" src={image} alt={label} />}
         <dd>{text}</dd>

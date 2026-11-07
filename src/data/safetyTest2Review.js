@@ -42,22 +42,6 @@ for (const [id, answer, description] of [
   ["rear-fuselage", "Rear fuselage", "The worksheet names rear-fuselage work as an example alongside wing and auxiliary fuel tanks."],
 ]) add(`example-${id}`, "confined-entry", `Which location is explicitly listed as an aircraft confined-space work example: ${id === "wing-tank" ? "a fuel tank in the wing" : id === "auxiliary-tank" ? "a tank carrying additional fuel" : "an area toward the back of the fuselage"}?`, answer, ["Open apron parking area", "Unrestricted hangar aisle", "Outdoor equipment staging area"], `${description} The review describes limited entry and a space not designed for occupancy. These are course examples; the particular space and its hazards must still be assessed.`, [21, 22]);
 
-const symbolExplanations = [
-  "The flame identifies the chart's flammable category. It differs from the flame over a circle, which identifies an oxidizer.",
-  "The corrosion pictogram shows liquid attacking a hand and a metal surface. The image distinguishes corrosive effects from the skull-and-crossbones toxicity symbol.",
-  "The biohazard symbol identifies biohazardous infectious materials. Its three-part shape differs from the skull-and-crossbones used for toxic material.",
-  "The flame over a circle identifies an oxidizer in this chart. The circle distinguishes it from the plain flame used for flammable material.",
-  "The person silhouette with a star-like mark in the chest is the chart's health-hazard symbol. It differs from the exclamation mark used here for harmful/irritant material.",
-  "The exclamation mark identifies the chart's harmful/irritant category. It differs from the person silhouette used for the health-hazard category.",
-  "The gas-cylinder pictogram identifies compressed gas in the review. Recognize the cylinder rather than relying on the red border shared by several symbols.",
-  "The exploding-bomb pictogram identifies the chart's explosive category. The bursting fragments distinguish it from the flame and flame-over-circle symbols.",
-  "The skull and crossbones identifies the chart's toxic category. It differs from the biohazard symbol used for infectious material.",
-];
-for (const [index, text] of symbolExplanations.entries()) {
-  const question = safetyTest2ReviewQuestions.find(item => item.id === `safety2-review-symbol-${index + 1}`);
-  question.explanation = `${text} These are the labels used on the supplied review chart. (${safetyTest2ReviewSources.deck}, slide 6.)`;
-}
-
 // Show a short unlabelled pattern sample rather than stretching the complete
 // narrow strip to several phone screens. The full labelled chart is in notes.
 for (const question of safetyTest2ReviewQuestions.filter(item => item.topic === "review-fluid-lines")) {
