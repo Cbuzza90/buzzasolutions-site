@@ -14,6 +14,7 @@ import safety2 from "./safety-module1-test2.json" with { type: "json" };
 import safety3 from "./safety-module1-recall.json" with { type: "json" };
 import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
+import { systemsModule2Parts } from "./systemsModule2.js";
 import { electricityRecallQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions } from "./typedReviewQuestions.js";
 import { structuresPostedQuestions, structuresPostedProgressKey } from "./structuresPostedPractice.js";
 import { measuringToolsProgressKey } from "../pages/measuringToolsProgress.js";
@@ -27,6 +28,7 @@ import { gradeResistor } from "./resistorBands.js";
 const choice = (slug, course, module, title, questions, suffix, storageId) => ({ slug, course, courseSlug: course.toLowerCase(), title, questions, kind: "choice", basePath: `/study/${course.toLowerCase()}/${module}`, path: `/study/${course.toLowerCase()}/${module}/${suffix}`, storageId: storageId ?? `/study/${course.toLowerCase()}/${module}/${suffix}` });
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
+  ...systemsModule2Parts,
   safetyTest2Review,
   ...safetyEasyReviewParts,...safetyModule2Parts,
   { ...choice("publications-worksheet", "Publications", "module-2", "Test 2 Worksheet Practice", techPubWorksheetQuestions, "practice-1"), course:"Technical Publications" },

@@ -24,6 +24,7 @@ import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorque
 import CourseStudyNotes from "./CourseStudyNotes";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
+import SystemsModule2Practice, { SystemsModule2TestList } from "./SystemsModule2Practice";
 import { isModuleCompleted, formatClassSession, testClassSessions, formatClassEndTime, formatScheduledTestDate, nextCourseTest, sortCoursesByNextTest, studyGroup, torontoDate, upcomingTests, visibleTests } from "../data/studySchedule";
 
 import { RESET_PRACTICE_EVENT } from "./practiceProgress";
@@ -120,7 +121,7 @@ const courseModules = {
     { slug: "human-factors", title: "Human Factors Quiz", description: "PEAR, Dirty Dozen & error models" },
   ],
   structures: [{ slug: "module-2", title: "Module 2", description: "Measuring tools · Safetying, cables & hardware" }],
-  systems: [{ slug: "module-1", title: "Module 1", description: "Hydraulics · Choice, recall & diagrams" }],
+  systems: [{ slug: "module-2", title: "Module 2", description: "Hydraulic components & pneumatics · Easy, Medium & Hard" }, { slug: "module-1", title: "Module 1", description: "Hydraulics · Choice, recall & diagrams" }],
 };
 
 function CourseDetail() {
@@ -199,6 +200,9 @@ export default function StudyHub() {
         <Route path="/study/structures/module-1/torque-bolt-nut" element={<Navigate to="/study/structures/module-2/torque-bolt-nut" replace />} />
         <Route path="/study/structures/module-1/practice-1" element={<Navigate to="/study/systems/module-1/practice-2" replace />} />
         <Route path="/study/systems/module-1" element={<SystemsTestList />} />
+        <Route path="/study/systems/module-2" element={<SystemsModule2TestList />} />
+        <Route path="/study/systems/module-2/notes" element={<CourseStudyNotes basePath="/study/systems/module-2" />} />
+        <Route path="/study/systems/module-2/:testSlug" element={<SystemsModule2Practice />} />
         <Route path="/study/:slug/:module/notes" element={<CourseStudyNotes />} />
         <Route path="/study/systems/module-1/practice-1" element={<SystemsPractice />} />
         <Route path="/study/systems/module-1/practice-2" element={<SystemsMixedPractice />} />
