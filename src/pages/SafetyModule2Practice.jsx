@@ -6,14 +6,22 @@ import PracticeRecordBadge from "./PracticeRecordBadge";
 import { ModuleStudyOverview } from "./StudentDashboard";
 import { safetyModule2Parts, safetyModule2Path, safetyModule2Choice, safetyModule2Recall } from "../data/safetyModule2.js";
 import { safetyEasyReviewParts, safetyEasyReviewQuestions } from "../data/safetyEasyReview.js";
+import { safetyTest2Review } from "../data/safetyTest2Review.js";
 
-const allParts=[...safetyEasyReviewParts,...safetyModule2Parts];
+const allParts=[safetyTest2Review,...safetyEasyReviewParts,...safetyModule2Parts];
 
 export function SafetyModule2TestList() {
   return <section className="study-detail">
     <p className="study-eyebrow">AVIATION HEALTH AND SAFETY</p><h1>Module 2</h1>
     <p className="study-detail-description">WHMIS &amp; worker rights · Confined spaces · Flight line · Towing · Lockout/tagout</p>
     <ModuleStudyOverview basePath={safetyModule2Path} />
+    <h2>Test 2 Review</h2>
+    <p className="study-detail-description">Complete review from your worksheets, professor answer key and compressed review slides. The conflicting oxygen-range item is explained in Study notes and excluded from grading.</p>
+    <Link className="study-option-link study-test-link" to={safetyTest2Review.path}>
+      <span className="study-test-link-heading"><strong>{safetyTest2Review.title}</strong><span className="study-format-badge">Multiple Choice</span></span>
+      <span className="study-test-link-description">{safetyTest2Review.questions.length} questions · Full review · Saves your place <ChevronRight size={19} /></span>
+      <PracticeRecordBadge questions={safetyTest2Review.questions} testId={safetyTest2Review.storageId} />
+    </Link>
     <p className="study-detail-description">Easy practice follows the supplied review. Older WHMIS/MSDS material and conflicting source claims are clearly labelled in Study notes.</p>
     {["easy","medium","hard"].map(difficulty=><div key={difficulty}>
       <h2>{difficulty==="easy"?"Easy · Review practice":difficulty==="medium"?"Medium · Multiple choice":"Hard · One-word recall"}</h2>
@@ -33,5 +41,5 @@ export default function SafetyModule2Practice() {
   const part=allParts.find(part=>part.path===`${safetyModule2Path}/${testSlug}`);
   if(!part) return <Navigate to={safetyModule2Path} replace/>;
   const Practice=part.kind==="choice"?MultipleChoicePractice:TypedAnswerPractice;
-  return <Practice key={part.path} questions={part.questions} testNumber={part.number} course="Safety" basePath={safetyModule2Path} progressKey={part.storageId} testTitle={`${part.title} · ${part.difficulty==="easy"?"Easy":part.difficulty==="medium"?"Medium":"Hard"} difficulty`}/>;
+  return <Practice key={part.path} questions={part.questions} testNumber={part.number} course="Safety" basePath={safetyModule2Path} progressKey={part.storageId} testTitle={part.difficulty==="review"?part.title:`${part.title} · ${part.difficulty==="easy"?"Easy":part.difficulty==="medium"?"Medium":"Hard"} difficulty`}/>;
 }

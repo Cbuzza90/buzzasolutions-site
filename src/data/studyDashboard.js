@@ -1,6 +1,7 @@
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { safetyModule2Parts } from "./safetyModule2.js";
 import { safetyEasyReviewParts } from "./safetyEasyReview.js";
+import { safetyTest2Review } from "./safetyTest2Review.js";
 import { techPubWorksheetQuestions, techPubMediumQuestions, techPubMediumProgressKey } from "./techPubWorksheetPractice.js";
 import { cotterPinQuestions, cotterPinProgressKey } from "./cotterPinPractice.js";
 import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
@@ -26,6 +27,7 @@ import { gradeResistor } from "./resistorBands.js";
 const choice = (slug, course, module, title, questions, suffix, storageId) => ({ slug, course, courseSlug: course.toLowerCase(), title, questions, kind: "choice", basePath: `/study/${course.toLowerCase()}/${module}`, path: `/study/${course.toLowerCase()}/${module}/${suffix}`, storageId: storageId ?? `/study/${course.toLowerCase()}/${module}/${suffix}` });
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
+  safetyTest2Review,
   ...safetyEasyReviewParts,...safetyModule2Parts,
   { ...choice("publications-worksheet", "Publications", "module-2", "Test 2 Worksheet Practice", techPubWorksheetQuestions, "practice-1"), course:"Technical Publications" },
   { ...choice("publications-medium", "Publications", "module-2", "Project & Worksheet Practice · Medium", techPubMediumQuestions, "practice-2", techPubMediumProgressKey), course:"Technical Publications" },

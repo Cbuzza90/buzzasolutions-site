@@ -1,6 +1,7 @@
 import { ataCodeQuestions } from "./ataCodePractice.js";
 import { safetyModule2Choice, safetyModule2Recall } from "./safetyModule2.js";
 import { safetyEasyReviewQuestions } from "./safetyEasyReview.js";
+import { safetyTest2ReviewQuestions } from "./safetyTest2Review.js";
 import { techPubWorksheetQuestions, techPubMediumQuestions } from "./techPubWorksheetPractice.js";
 import { cotterPinQuestions } from "./cotterPinPractice.js";
 import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
@@ -22,7 +23,7 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // The references use the same verified answer banks as the practice tests.
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
-  "/study/safety/module-2": [safetyModule2Choice,safetyModule2Recall,safetyEasyReviewQuestions],
+  "/study/safety/module-2": [safetyModule2Choice,safetyModule2Recall,safetyEasyReviewQuestions,safetyTest2ReviewQuestions],
   "/study/publications/module-2": [ataCodeQuestions, techPubWorksheetQuestions, techPubMediumQuestions],
   "/study/engines/module-2": [enginesReviewQuestions, enginesLectureQuestions],
   "/study/aerodynamics/module-2": [aerodynamicsReviewQuestions, aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions],
@@ -48,7 +49,7 @@ export function practiceQuestionNotes(basePath) {
   let choiceNumber = 0, typedNumber = 0;
   const seenAerodynamicsReferences = new Set();
   return (practiceBanksByModule[basePath] ?? []).map((questions, index) => {
-    const title = questions === techPubWorksheetQuestions ? "Test 2 Worksheet Practice" : questions[0]?.answer ? `One-Word Test #${++typedNumber}` : `Practice Test #${++choiceNumber}`;
+    const title = questions === safetyTest2ReviewQuestions ? "Safety Test 2 Review" : questions === techPubWorksheetQuestions ? "Test 2 Worksheet Practice" : questions[0]?.answer ? `One-Word Test #${++typedNumber}` : `Practice Test #${++choiceNumber}`;
     return {
       id: `practice-reference-${index + 1}`,
       title: `${questions === enginesReviewQuestions ? "Engines Review Questions" : questions === enginesLectureQuestions ? "Engines Lecture Practice" : questions === aerodynamicsReviewQuestions ? "Aerodynamics Review & Practice Quiz" : questions === aerodynamicsChoiceQuestions ? "Aerodynamics Notes Practice" : questions === aerodynamicsRecallQuestions ? "Aerodynamics One-Word Recall" : questions === ataCodeQuestions ? "ATA Review Chapters" : questions === techPubMediumQuestions ? "Tech Pub Project & Worksheet Practice" : questions === cotterPinQuestions ? "Cotter-Pin Diameter & Length" : questions === torquePracticeQuestions ? "Torque practice" : questions === structuresPostedQuestions ? "Posted Quiz Practice" : questions === measuringToolsQuestions ? "Measuring Tools" : questions === electricityEasyQuestions ? "Easy Review" : questions === humanFactorsQuestions ? "Human Factors" : title} · Question reference`,
