@@ -826,3 +826,20 @@
 .study-app[data-theme="dark"] .study-ata-tip{background:#172b48;border-color:#3b82f6}
 .study-app[data-theme="dark"] .study-ata-tip svg,.study-app[data-theme="dark"] .study-ata-entry strong{color:#93c5fd}
 @media(max-width:480px){.study-ata-grid{grid-template-columns:1fr}.study-ata-tip{padding:14px}.study-ata-entry{min-height:58px}}
+
+/* Home update stamp, Steam spotlight and feedback below the courses. */
+.study-home-intro{margin-bottom:8px}
+.study-last-updated{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.6}
+.study-last-updated time{color:var(--ink);font-weight:600}
+.study-warno{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 22px;border:1px solid #2563eb;border-radius:16px;background:linear-gradient(115deg,#101c34,#172c4b);color:#f5f7ff}
+.study-warno-eyebrow{display:block;font-size:9px;font-weight:700;letter-spacing:1.8px;color:#93c5fd;margin-bottom:4px}
+.study-warno strong{display:block;font-size:29px;line-height:1.1;letter-spacing:2px;font-weight:850}
+.study-warno p{margin:7px 0 0;font-size:12px;line-height:1.6;color:#c4d3e8}
+.study-warno-action{display:inline-flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;min-height:46px;padding:12px 16px;border-radius:10px;background:#2563eb;color:#fff;font-size:12px;font-weight:700;text-align:center}
+.study-warno-action:hover{background:#1d4ed8}
+.study-home-footer{display:flex;justify-content:center;margin-top:28px;padding:18px 0 4px;border-top:1px solid var(--line)}
+.study-home-footer .study-feedback-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#2563eb;font-size:13px;font-weight:600}
+.study-app[data-theme="dark"] .study-home-footer .study-feedback-link{color:#60a5fa}
+@media(max-width:480px){.study-warno{align-items:flex-start;flex-direction:column;gap:16px;padding:18px}.study-warno-action{width:100%}}
+.study-app[data-theme] a.study-warno-action,
+.study-app[data-theme] .study-home-footer a.study-feedback-link{color:#fff}
