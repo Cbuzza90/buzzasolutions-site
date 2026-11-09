@@ -77,7 +77,10 @@ function CourseList() {
       <p className="study-last-updated">Last updated: <time dateTime={import.meta.env.VITE_STUDY_LAST_UPDATED}>{new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(`${import.meta.env.VITE_STUDY_LAST_UPDATED}T12:00:00Z`))}</time></p>
       <aside className="study-warno" aria-label="WARNO on Steam">
         <a className="study-warno-link" href="https://store.steampowered.com/app/1611600/WARNO/" target="_blank" rel="noopener noreferrer" aria-label="Get WARNO on Steam">
-          <img src="/promos/warno-banner.webp" alt="WARNO artwork featuring a Cold War jet and tank at sunset." width="2172" height="724" decoding="async" />
+          <span className="study-warno-artwork">
+            <img src="/promos/warno-banner.webp" alt="WARNO artwork featuring a Cold War jet and tank at sunset." width="2172" height="724" decoding="async" />
+            <span className="study-warno-topline" aria-hidden="true">CLICK HERE TO PLAY</span>
+          </span>
           <span className="study-warno-caption">Get WARNO on Steam <ArrowUpRight size={18} aria-hidden="true" /></span>
         </a>
       </aside>

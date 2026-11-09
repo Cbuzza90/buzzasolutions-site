@@ -838,6 +838,8 @@
 .study-warno{display:block;border:1px solid #2563eb;border-radius:16px;background:#101c34;max-width:720px;margin-inline:auto;padding:0;overflow:hidden;transition:transform .18s,border-color .18s}
 .study-warno:hover{transform:translateY(-2px);border-color:#60a5fa}
 .study-warno-link{display:block}
+.study-warno-artwork{display:block;position:relative}
+.study-warno-topline{position:absolute;inset:0 0 auto;display:block;padding:8px 12px;background:#091629e8;border-bottom:1px solid #60a5fa80;color:#fff;text-align:center;font-size:clamp(10px,2.5vw,13px);font-weight:850;letter-spacing:1.5px;line-height:1.3;text-shadow:0 1px 3px #000}
 .study-warno img{display:block;width:100%;height:auto;aspect-ratio:2172/724;object-fit:contain}
 .study-warno-caption{display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 14px;background:#2563eb;font-size:12px;font-weight:700}
 .study-app[data-theme] a.study-warno-link{color:#fff}
