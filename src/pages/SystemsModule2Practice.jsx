@@ -15,7 +15,7 @@ const families = [
 export function SystemsModule2TestList() {
   return <section className="study-detail">
     <p className="study-eyebrow">BASIC AIRCRAFT SYSTEMS</p><h1>Module 2</h1>
-    <p className="study-detail-description">Hydraulic components &amp; pneumatics · Test 2</p>
+    <p className="study-detail-description">Hydraulic components &amp; pneumatics · Test 2. Screenshot Review parts include your 27 supplied questions, with matching items expanded and original diagrams available to enlarge.</p>
     <ModuleStudyOverview basePath={systemsModule2Path} />
     {families.map(family => {
       const parts = systemsModule2Parts.filter(part => part.difficulty === family.difficulty);

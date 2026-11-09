@@ -1,18 +1,18 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
-import { systemsModule2Easy as easy, systemsModule2Medium as medium, systemsModule2Hard as hard, systemsModule2Parts as parts, systemsModule2Path as path, systemsModule2Diagrams as diagrams } from "./systemsModule2.js";
+import { existsSync, readFileSync } from "node:fs";
+import { systemsModule2Easy as easy, systemsModule2Medium as medium, systemsModule2Hard as hard, systemsModule2Parts as parts, systemsModule2Path as path, systemsModule2Diagrams as diagrams, systemsScreenshotReview } from "./systemsModule2.js";
 import { dashboardTests, savedTestSummary } from "./studyDashboard.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 import { shufflePractice } from "../pages/safetyTestLogic.js";
-import { gradeTypedAnswer, newTypedAttempt, saveTypedAttempt, recordTypedBest, loadTypedBest } from "../pages/typedPracticeLogic.js";
-import { newPracticeAttempt, savePracticeAttempt, recordHighestScore, loadHighestScore } from "../pages/practiceProgress.js";
+import { gradeTypedAnswer, newTypedAttempt, saveTypedAttempt, recordTypedBest, loadTypedBest, typedSignature } from "../pages/typedPracticeLogic.js";
+import { newPracticeAttempt, savePracticeAttempt, recordHighestScore, loadHighestScore, bankSignature } from "../pages/practiceProgress.js";
 import { studyPracticeNavigation } from "../pages/studyPracticeNavigation.js";
 
 test("Systems Test 2 has review-only Easy, broad Medium and single-word Hard banks with source references", () => {
-  assert.deepEqual([easy.length, medium.length, hard.length], [82, 137, 135]);
+  assert.deepEqual([easy.length, medium.length, hard.length], [127, 182, 180]);
   assert.equal(new Set([...easy, ...medium, ...hard].map(q => q.id)).size, easy.length + medium.length + hard.length);
-  assert.ok(easy.every(q => q.source.reviewSlides.length && q.source.reviewSlides.every(n => n >= 1 && n <= 38)));
+  assert.ok(easy.every(q => (q.source.reviewSlides.length || q.source.screenshotQuestions?.length) && q.source.reviewSlides.every(n => n >= 1 && n <= 38)));
   for (const q of [...easy, ...medium, ...hard]) {
     assert.ok(q.prompt && q.explanation.length > 140, q.id);
     assert.ok(q.source.pages.every(n => Number.isInteger(n) && n >= 1 && n <= 113), q.id);
@@ -35,6 +35,37 @@ test("Systems Test 2 has review-only Easy, broad Medium and single-word Hard ban
   }
 });
 
+test("all 27 screenshot questions and grouped concepts are covered with intact image crops", () => {
+  const { choice, hard: recall } = systemsScreenshotReview;
+  assert.equal(choice.length, 45);
+  assert.equal(recall.length, 45);
+  assert.deepEqual([...new Set(choice.flatMap(q => q.source.screenshotQuestions))].sort((a, b) => a - b), Array.from({ length: 27 }, (_, i) => i + 1));
+  for (const [number, count] of [[2, 4], [7, 3], [11, 5], [12, 4], [13, 4], [20, 2], [25, 2], [27, 2]]) {
+    assert.equal(choice.filter(q => q.source.screenshotQuestions.includes(number)).length, count, `Question ${number}`);
+  }
+  const answer = number => choice.filter(q => q.source.screenshotQuestions.includes(number)).map(q => q.options[q.correctIndex]);
+  assert.deepEqual(answer(21), ["Air (oxygen) or MIL-H-5606"]);
+  assert.deepEqual(answer(17), ["10 microns"]);
+  assert.deepEqual(answer(26), ["Felt"]);
+  assert.ok(choice.every(q => !q.options.includes("No answer text provided.")));
+  for (const q of choice) assert.ok(recall.some(r => r.learningTarget === q.learningTarget));
+  const images = Object.values(diagrams).filter(d => d.src.includes("hold-"));
+  assert.equal(images.length, 11);
+  for (const d of images) {
+    const bytes = readFileSync(new URL(`../../public${d.src}`, import.meta.url));
+    if (d.src.endsWith(".png")) {
+      assert.equal(bytes.toString("ascii", 1, 4), "PNG");
+      assert.equal(bytes.readUInt32BE(16), d.crop.imageWidth);
+      assert.ok(d.crop.y + d.crop.height <= bytes.readUInt32BE(20));
+    } else assert.equal(bytes.readUInt16BE(0), 0xffd8, "Preserve the original JPEG bytes");
+  }
+});
+
+test("the 11 original Systems 2 routes retain their bank signatures for saved attempts and best scores", () => {
+  const signatures = ["28:4164483123", "27:3192764109", "27:1111658521", "35:2819081192", "34:3476342380", "34:3920872613", "34:1019184452", "34:2108722153", "34:3065835799", "34:1659329218", "33:1369839099"];
+  assert.deepEqual(parts.slice(0, 11).map(p => p.kind === "typed" ? typedSignature(p.questions) : bankSignature(p.questions)), signatures);
+});
+
 test("every Systems 2 question, individual pairing and source conflict is searchable in the exact module", () => {
   const notes = studyNotesByModule[path];
   assert.notEqual(notes, studyNotesByModule["/study/systems/module-1"]);
@@ -48,14 +79,16 @@ test("every Systems 2 question, individual pairing and source conflict is search
   for (const [key, diagram] of Object.entries(diagrams)) {
     assert.equal(notes.diagrams[key], diagram);
     assert.ok(existsSync(new URL(`../../public${diagram.src}`, import.meta.url)), key);
-    assert.deepEqual(diagram.crop, { imageWidth: 1080, x: 0, y: 0, width: 1080, height: 810 });
+    assert.ok(diagram.crop.width > 0 && diagram.crop.height > 0);
+    assert.ok(diagram.crop.x + diagram.crop.width <= diagram.crop.imageWidth);
+    if (!diagram.src.includes("hold-")) assert.deepEqual(diagram.crop, { imageWidth: 1080, x: 0, y: 0, width: 1080, height: 810 });
   }
   for (const q of [...easy, ...medium].filter(item => item.diagram)) assert.ok(Object.values(diagrams).includes(q.diagram));
-  assert.ok(!hard.some(q => q.diagram), "Source-labelled charts should not give away one-word answers");
+  assert.ok(!hard.some(q => q.diagram && !q.source.screenshotQuestions), "Source-labelled charts should not give away one-word answers");
 });
 
 test("all Systems 2 parts register independent saved tests without replacing the original Systems quizzes", () => {
-  assert.equal(parts.length, 11);
+  assert.equal(parts.length, 17);
   assert.equal(new Set(parts.map(part => part.storageId)).size, parts.length);
   for (const [difficulty, bank] of [["easy", easy], ["medium", medium], ["hard", hard]]) {
     const family = parts.filter(part => part.difficulty === difficulty);

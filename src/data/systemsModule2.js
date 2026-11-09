@@ -1,3 +1,5 @@
+import { createSystemsScreenshotReview, systemsScreenshotDiagrams } from "./systemsScreenshotReview.js";
+
 export const systemsModule2Path = "/study/systems/module-2";
 export const systemsModule2Sources = {
   review: { title: "AMEM 10004 Review Test 2", slides: 38 },
@@ -188,6 +190,7 @@ add("variable-swashplate", "pumps", "What changes the delivered volume in the il
 
 const diagram = (page, alt) => ({ src: `/systems/module-2/slide-${String(page).padStart(3, "0")}.webp`, alt, crop: { imageWidth: 1080, x: 0, y: 0, width: 1080, height: 810 } });
 export const systemsModule2Diagrams = {
+  ...systemsScreenshotDiagrams,
   selectors: diagram(8, "Original component slide 8: open-centre poppet selector with neutral, extend and retract fluid paths and port labels."),
   spool: diagram(12, "Original component slide 12: open-centre spool valve in neutral, with pressure, return and actuator ports."),
   checks: diagram(25, "Original component slide 25: ball, cone, swing and orifice check-valve drawings."),
@@ -237,5 +240,27 @@ function parts(bank, difficulty, kind, firstNumber = 1) {
     return { slug: `systems-module2-${difficulty}-${index + 1}`, course: "Systems", courseSlug: "systems", basePath: systemsModule2Path, path, storageId: path, kind, difficulty, questions, number: index + 1, title: `${difficulty === "easy" ? "Review Practice" : difficulty === "medium" ? "Component Practice" : "One-Word Recall"} · Part ${index + 1}` };
   });
 }
+// Freeze the original partitions before appending the screenshot revision set.
+// Moving existing questions between routes would invalidate saved attempts/bests.
 const easyParts = parts(systemsModule2Easy, "easy", "choice");
-export const systemsModule2Parts = [...easyParts, ...parts(systemsModule2Medium, "medium", "choice", easyParts.length + 1), ...parts(systemsModule2Hard, "hard", "typed")];
+const mediumParts = parts(systemsModule2Medium, "medium", "choice", easyParts.length + 1);
+const hardParts = parts(systemsModule2Hard, "hard", "typed");
+export const systemsScreenshotReview = createSystemsScreenshotReview(systemsModule2Medium);
+const screenshotEasy = systemsScreenshotReview.choice.map(q => ({ ...q, id: q.id.replace("screenshot-choice", "screenshot-easy") }));
+systemsModule2Easy.push(...screenshotEasy);
+systemsModule2Medium.push(...systemsScreenshotReview.choice);
+systemsModule2Hard.push(...systemsScreenshotReview.hard);
+systemsModule2NoteSections.push({ id: "systems2-screenshot-review", title: "Test 2 screenshot review · components, matching and package reading", diagramKeys: Object.keys(systemsScreenshotDiagrams), items: [
+  ...systemsScreenshotReview.choice.map(q => [`Screenshot ${q.source.screenshotQuestions[0]} · ${q.prompt}`, `${q.options[q.correctIndex]}. ${q.explanation}`]),
+  ["Screenshot source repairs", "Questions 1–27 are represented. Each named matching item and all four one-way seal names are tested separately. Question 7 has an unnamed fourth matching row that cannot be recovered. Duplicate choices, blank 'No answer text provided' choices, a three-choice question, five-choice question and true/false item are adapted to four distinct choices. Hidden dropdown descriptions use the supplied component lesson, not guessed transcriptions."],
+  ["Package expiry and material choices", "Screenshot 20's expiry calculation is replaced with reading the printed 1Q13 cure quarter and 15-year shelf-life field, following the no-calculations standard. Screenshot 25's material list is not a reliable multiple-select key: the lesson specifically names leather and Teflon (a plastic). Both are covered independently. Screenshot 26 supplies no marked key; the source says wipers are often felt and does not establish an exhaustive list. The course's blue-dot chart includes air (oxygen) or MIL-H-5606, not fuel, which is red."],
+] });
+function screenshotParts(bank, difficulty, kind, start) {
+  return parts(bank, difficulty, kind, start).map((part, i) => ({ ...part, slug: `systems-module2-${difficulty}-screenshots-${i + 1}`, title: `Screenshot Review · Part ${i + 1}` }));
+}
+const nextChoice = easyParts.length + mediumParts.length + 1;
+const extraEasy = screenshotParts(screenshotEasy, "easy", "choice", nextChoice);
+export const systemsModule2Parts = [...easyParts, ...mediumParts, ...hardParts,
+  ...extraEasy,
+  ...screenshotParts(systemsScreenshotReview.choice, "medium", "choice", nextChoice + extraEasy.length),
+  ...screenshotParts(systemsScreenshotReview.hard, "hard", "typed", hardParts.length + 1)];
