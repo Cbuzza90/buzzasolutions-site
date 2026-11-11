@@ -6,8 +6,21 @@ const storageForBrowser = () => { try { return globalThis.localStorage; } catch 
 function read(storage, name) { try { return JSON.parse(storage?.getItem(name) ?? "null"); } catch { return null; } }
 function write(storage, name, value) { try { if (!storage) return false; storage.setItem(name, JSON.stringify({ ...value, updatedAt: new Date().toISOString() })); return true; } catch { return false; } }
 
-export function readPracticeRecord(type, testId, storage = storageForBrowser()) { return read(storage, key(type, testId)); }
-export function writePracticeRecord(type, testId, value, storage = storageForBrowser()) { return write(storage, key(type, testId), value); }
+// One-time restart after the requested Safety/Systems answer-choice update.
+// Keep score records independent so a restarted attempt never clears a best.
+const answerChoiceRevision = "2026-11-11-requested-difficulty";
+function attemptRevision(type, testId) {
+  return ["progress", "typed-progress"].includes(type) && /^\/study\/(safety|systems)\//.test(testId) ? answerChoiceRevision : undefined;
+}
+export function readPracticeRecord(type, testId, storage = storageForBrowser()) {
+  const record = read(storage, key(type, testId));
+  const revision = attemptRevision(type, testId);
+  return revision && record?.attemptRevision !== revision ? null : record;
+}
+export function writePracticeRecord(type, testId, value, storage = storageForBrowser()) {
+  const revision = attemptRevision(type, testId);
+  return write(storage, key(type, testId), { ...value, ...(revision ? { attemptRevision: revision } : {}) });
+}
 
 export function bankSignature(questions) {
   const text = JSON.stringify(questions.map(q => ({ id: String(q.id), prompt: q.prompt, options: [...q.options].sort(), correct: q.options[q.correctIndex] })).sort((a, b) => a.id.localeCompare(b.id)));
@@ -54,11 +67,11 @@ export function restorePracticeAttempt(questions, record, questionCount = questi
 }
 
 export function loadPracticeAttempt(questions, testId, storage = storageForBrowser(), questionCount = questions.length, sampleQuestions) {
-  return restorePracticeAttempt(questions, read(storage, key("progress", testId)), questionCount) ?? newPracticeAttempt(questions, Math.random, questionCount, sampleQuestions);
+  return restorePracticeAttempt(questions, readPracticeRecord("progress", testId, storage), questionCount) ?? newPracticeAttempt(questions, Math.random, questionCount, sampleQuestions);
 }
 
 export function savePracticeAttempt(questions, testId, attempt, storage = storageForBrowser()) {
-  return write(storage, key("progress", testId), { version: 1, signature: bankSignature(questions), order: attempt.order.map(q => ({ id: String(q.id), options: q.options })), position: attempt.position, answers: attempt.answers, complete: attempt.complete, completedRounds: attempt.completedRounds ?? 0, previousCorrect: attempt.previousCorrect ?? 0 });
+  return writePracticeRecord("progress", testId, { version: 1, signature: bankSignature(questions), order: attempt.order.map(q => ({ id: String(q.id), options: q.options })), position: attempt.position, answers: attempt.answers, complete: attempt.complete, completedRounds: attempt.completedRounds ?? 0, previousCorrect: attempt.previousCorrect ?? 0 }, storage);
 }
 
 export function loadHighestScore(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
@@ -75,7 +88,7 @@ export function recordHighestScore(questions, testId, score, storage = storageFo
 }
 
 export function practiceSummary(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
-  const attempt = restorePracticeAttempt(questions, read(storage, key("progress", testId)), questionCount);
+  const attempt = restorePracticeAttempt(questions, readPracticeRecord("progress", testId, storage), questionCount);
   return { best: loadHighestScore(questions, testId, storage, questionCount), answered: attempt ? Object.keys(attempt.answers).length : 0, complete: attempt?.complete ?? false };
 }
 
