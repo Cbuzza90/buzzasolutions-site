@@ -75,7 +75,7 @@ function CourseList() {
     <section className="study-home-intro" aria-label="Site updates">
       <h1 className="sr-only">Aviation study courses</h1>
       <p className="study-last-updated">Last updated: <time dateTime={import.meta.env.VITE_STUDY_LAST_UPDATED}>{new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(`${import.meta.env.VITE_STUDY_LAST_UPDATED}T12:00:00Z`))}</time></p>
-      <aside className="study-update-alert" role="status"><strong>Due to request: improved Safety &amp; Systems answer-choice difficulty.</strong><p>More realistic wrong answers to help you distinguish similar concepts. Previous Safety and Systems attempts have been reset so you start with the newest questions. Your highest scores are kept.</p></aside>
+      <aside className="study-update-alert" role="status"><strong>Due to request: improved Safety &amp; Systems answer-choice.</strong></aside>
       <aside className="study-warno" aria-label="WARNO on Steam">
         <a className="study-warno-link" href="https://store.steampowered.com/app/1611600/WARNO/" target="_blank" rel="noopener noreferrer" aria-label="Get WARNO on Steam">
           <span className="study-warno-artwork">
