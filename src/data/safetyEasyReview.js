@@ -176,9 +176,17 @@ const lines=[
   ["Hydraulic","Blue/yellow with circle symbols",668,651],
   ["Air condition","Brown/grey with oval symbols",1064,651],
 ];
+// Colours sampled from the supplied chart. Show them beside the original
+// pattern without the printed service name or the slide's yellow highlights.
+const lineColours = [
+  ["#ff1e22"], ["#ff1e22", "#a8a8a8"], ["#ff1e22", "#a8a8a8"], ["#ffff0e"],
+  ["#ffff0e", "#007b49"], ["#007b49"], ["#ff561f"], ["#ff561f"],
+  ["#ff561f", "#a8a8a8"], ["#007b49", "#a8a8a8"], ["#838295"], ["#8b3f25"],
+  ["#ff561f", "#056fc6"], ["#056fc6"], ["#056fc6", "#ffff0e"], ["#8b3f25", "#a8a8a8"],
+];
 for(const [i,[answer,pattern,x,y]] of lines.entries()) {
   const peers=[...new Set(lines.map(row=>row[0]))].filter(label=>label!==answer);
-  add(`fluid-line-${i+1}`,"review-fluid-lines",`Identify this aircraft line from the review: ${pattern}.`,answer,peers.slice(0,3),`The supplied review chart labels ${pattern.toLowerCase()} as ${answer.toLowerCase()}. Use the colour plus geometric code, not colour alone. Both orange/grey zigzag and orange/blue crossed-line entries are labelled Instrument Air in this source.`,[72],{diagram:{src:safetyEasyReviewDiagrams.reviewLines.src,alt:"Geometric identification strip from the original fluid-line chart, with the service name outside the crop.",crop:{imageWidth:1505,x,y,width:45,height:245}}});
+  add(`fluid-line-${i+1}`,"review-fluid-lines",`Identify this aircraft line from the review: ${pattern}.`,answer,peers.slice(0,3),`The supplied review chart labels ${pattern.toLowerCase()} as ${answer.toLowerCase()}. Use the colour plus geometric code, not colour alone. Both orange/grey zigzag and orange/blue crossed-line entries are labelled Instrument Air in this source.`,[72],{diagram:{src:safetyEasyReviewDiagrams.reviewLines.src,alt:`Unlabelled aircraft line marking: ${pattern.toLowerCase()}.`,lineBand:{colours:lineColours[i]},crop:{imageWidth:1505,x:x+3,y:y+16,width:40,height:220}}});
 }
 
 // Condensed review notes are separate from the bank-backed question references.

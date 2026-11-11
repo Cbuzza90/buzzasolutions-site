@@ -421,6 +421,11 @@
 .study-diagram-crop { position: relative; width: 100%; overflow: hidden; background: white; }
 .study-diagram-open > .study-diagram-crop { width: min(100%, calc(300px * var(--diagram-aspect))); margin-inline: auto; }
 .study-diagram-crop img { position: absolute; max-width: none; height: auto; }
+.study-line-identification { display: flex; overflow: hidden; background: white; border: 1px solid #222; }
+.study-line-colours { display: flex; flex: 0 0 75%; }
+.study-line-colours > span { flex: 1; }
+.study-line-pattern { flex: 0 0 25%; }
+.study-diagram-open > .study-line-identification { width: min(100%, calc(300px * var(--diagram-aspect))); margin-inline: auto; }
 .study-diagram-open > span { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 11px; font-size: 12px; background: #141414; color: #F5F5F5; }
 .study-diagram-dialog { margin: auto; width: min(94vw, 1100px); height: fit-content; max-width: 94vw; max-height: 85dvh; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: #f6f7f2; color: var(--ink); }
 .study-diagram-dialog[open] { display: flex; flex-direction: column; }

@@ -44,12 +44,8 @@ for (const [id, answer, description] of [
   ["rear-fuselage", "Rear fuselage", "The worksheet names rear-fuselage work as an example alongside wing and auxiliary fuel tanks."],
 ]) add(`example-${id}`, "confined-entry", `Which location is explicitly listed as an aircraft confined-space work example: ${id === "wing-tank" ? "a fuel tank in the wing" : id === "auxiliary-tank" ? "a tank carrying additional fuel" : "an area toward the back of the fuselage"}?`, answer, ["Open apron parking area", "Unrestricted hangar aisle", "Outdoor equipment staging area"], `${description} The review describes limited entry and a space not designed for occupancy. These are course examples; the particular space and its hazards must still be assessed.`, [21, 22]);
 
-// Show a short unlabelled pattern sample rather than stretching the complete
-// narrow strip to several phone screens. The full labelled chart is in notes.
-for (const question of safetyTest2ReviewQuestions.filter(item => item.topic === "review-fluid-lines")) {
-  const crop = question.diagram.crop;
-  question.diagram = { ...question.diagram, crop: { ...crop, width: Math.min(90, crop.imageWidth - crop.x), height: 80 } };
-}
+// Reuse the same unlabelled colour-and-pattern bands as Easy practice.
+// The complete original labelled chart remains available in Study notes.
 
 export const safetyTest2ReviewNoteSections = [{
   id: "safety2-test2-review", title: "Test 2 Review · study guide", diagramKeys: ["reviewWhmis", "reviewLegacy", "reviewLines"],
