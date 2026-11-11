@@ -433,6 +433,8 @@
 .study-diagram-dialog h2 { font-size: 20px; font-weight: 650; }
 .study-diagram-dialog p { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 8px 0 14px; }
 .study-diagram-scroll { flex: 0 1 auto; min-height: 0; overflow: auto; overscroll-behavior: contain; border-radius: 10px; background: white; }
+.study-diagram-toolbar { display: flex; justify-content: flex-end; flex-shrink: 0; margin-bottom: 10px; }
+.study-diagram-toolbar .study-primary { margin: 0; padding: 9px 14px; min-height: 42px; font-size: 13px; }
 .study-diagram-enlarged { width: var(--diagram-enlarged-width); max-width: none; margin-inline: auto; }
 .study-diagram-footer { display: flex; justify-content: center; flex-shrink: 0; padding-top: 14px; }
 .study-diagram-footer .study-primary { width: 100%; margin: 0; }

@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { Expand, X } from "lucide-react";
+import { Expand, X, ZoomIn, Minimize2 } from "lucide-react";
 
 function CroppedImage({ diagram }) {
   const { crop } = diagram;
@@ -16,16 +16,21 @@ function DiagramImage({ diagram }) {
 
 export default function QuestionDiagram({ diagram }) {
   const dialogRef = useRef(null);
+  const scrollRef = useRef(null);
   const titleId = useId();
   const [expanded, setExpanded] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
   const { crop } = diagram;
   const aspect = (diagram.lineBand ? crop.width * 4 : crop.width) / crop.height;
   // Keep small symbols readable without expanding a narrow source strip to
   // hundreds of pixels across and several thousand pixels down.
   const enlargedWidth = (diagram.lineBand ? crop.width * 4 : crop.width) * Math.min(3, Math.max(1, 600 / crop.height));
-  // Individual symbols should be visible in full on phones. Full reference
-  // charts retain horizontal scrolling so their labels can stay readable.
-  const enlargedStyle = crop.width <= 160 ? { maxWidth: "100%" } : undefined;
+  // Start with the complete image visible. Explicit zoom keeps labels readable
+  // without opening a phone dialog on an unexplained fragment of the diagram.
+  const enlargedStyle = { maxWidth: zoomed ? "none" : "100%" };
+  useEffect(() => {
+    if (expanded) scrollRef.current?.scrollTo({ left: 0, top: 0 });
+  }, [expanded, zoomed]);
   useEffect(() => {
     if (!expanded) return;
     const dialog = dialogRef.current;
@@ -34,5 +39,14 @@ export default function QuestionDiagram({ diagram }) {
     dialog.showModal();
     return () => { dialog.close(); document.body.style.overflow = previous; };
   }, [expanded]);
-  return <figure className="study-question-diagram" style={{ "--diagram-aspect": aspect, "--diagram-enlarged-width": `${enlargedWidth}px` }}><button type="button" className="study-diagram-open" aria-label="Enlarge question diagram" aria-haspopup="dialog" aria-expanded={expanded} onClick={() => setExpanded(true)}><DiagramImage diagram={diagram} /><span><Expand size={15} /> Tap to enlarge</span></button><dialog ref={dialogRef} className="study-diagram-dialog" aria-labelledby={titleId} onClose={() => setExpanded(false)}><h2 id={titleId}>{diagram.lineBand ? "Aircraft line marking" : "Question diagram"}</h2><p>{diagram.lineBand ? "Use the colour band and geometric pattern together." : "Scroll sideways or vertically to inspect the enlarged image."}</p><div className="study-diagram-scroll"><div className="study-diagram-enlarged" style={enlargedStyle}><DiagramImage diagram={diagram} /></div></div><div className="study-diagram-footer"><button type="button" className="study-primary" onClick={() => dialogRef.current?.close()}><X size={18} /> Close diagram</button></div></dialog></figure>;
+  return <figure className="study-question-diagram" style={{ "--diagram-aspect": aspect, "--diagram-enlarged-width": `${enlargedWidth}px` }}>
+    <button type="button" className="study-diagram-open" aria-label="Enlarge question diagram" aria-haspopup="dialog" aria-expanded={expanded} onClick={() => { setZoomed(false); setExpanded(true); }}><DiagramImage diagram={diagram} /><span><Expand size={15} /> Tap to enlarge</span></button>
+    <dialog ref={dialogRef} className="study-diagram-dialog" aria-labelledby={titleId} onClose={() => setExpanded(false)}>
+      <h2 id={titleId}>{diagram.lineBand ? "Aircraft line marking" : "Question diagram"}</h2>
+      <p>{zoomed ? "Scroll sideways or vertically to read the details. Fit image shows the whole picture again." : diagram.lineBand ? "Use the colour band and geometric pattern together." : "The whole image is shown. Zoom in to read small labels."}</p>
+      <div className="study-diagram-toolbar"><button type="button" className="study-primary" aria-pressed={zoomed} onClick={() => setZoomed(value => !value)}>{zoomed ? <Minimize2 size={17} /> : <ZoomIn size={17} />}{zoomed ? "Fit image" : "Zoom in"}</button></div>
+      <div ref={scrollRef} className="study-diagram-scroll"><div className="study-diagram-enlarged" style={enlargedStyle}><DiagramImage diagram={diagram} /></div></div>
+      <div className="study-diagram-footer"><button type="button" className="study-primary" onClick={() => dialogRef.current?.close()}><X size={18} /> Close diagram</button></div>
+    </dialog>
+  </figure>;
 }
