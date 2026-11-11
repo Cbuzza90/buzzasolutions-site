@@ -1,4 +1,6 @@
 import { createSystemsScreenshotReview, systemsScreenshotDiagrams } from "./systemsScreenshotReview.js";
+import { improveChoiceOptions } from "./improvedChoiceOptions.js";
+import { systemsDistractors } from "./systemsDistractors.js";
 
 export const systemsModule2Path = "/study/systems/module-2";
 export const systemsModule2Sources = {
@@ -25,9 +27,9 @@ const titles = {
 function add(id, topic, prompt, options, why, pages, recall, reviewSlides = [], extra = {}) {
   const source = { deck: "components", pages, reviewSlides };
   const explanation = `${why} (Hydraulic Components (2024), PDF pages / slides ${pages.join(", ")}${reviewSlides.length ? `; AMEM 10004 Review Test 2, slides ${reviewSlides.join(", ")}` : ""}.)`;
-  const question = { id: `systems2-medium-${id}`, learningTarget: id, topic, prompt, options, correctIndex: 0, explanation, source, ...extra };
+  const question = improveChoiceOptions({ id: `systems2-medium-${id}`, learningTarget: id, topic, prompt, options, correctIndex: 0, explanation, source, ...extra }, systemsDistractors[id]);
   systemsModule2Medium.push(question);
-  if (reviewSlides.length) systemsModule2Easy.push({ ...question, id: `systems2-easy-${id}`, options: [...options] });
+  if (reviewSlides.length) systemsModule2Easy.push({ ...question, id: `systems2-easy-${id}`, options: [...question.options] });
   if (recall) systemsModule2Hard.push({ id: `systems2-hard-${id}`, learningTarget: id, topic, prompt: recall[0], answer: recall[1], acceptedAnswers: [recall[1], ...(recall[2] ?? [])], explanation, source });
   if (!sections.has(topic)) sections.set(topic, []);
   sections.get(topic).push([extra.term ?? options[0], explanation]);

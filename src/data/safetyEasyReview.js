@@ -1,11 +1,13 @@
 import { safetyModule2Choice, safetyModule2Path } from "./safetyModule2.js";
+import { improveChoiceOptions } from "./improvedChoiceOptions.js";
+import { safetyDistractors } from "./safetyDistractors.js";
 
 export const safetyEasyReviewQuestions=[];
 export const safetyEasyReviewNoteSections=[];
 const deck="SAFE 10094 Test 2 Review - Under 20MB.pptx";
 function add(id,topic,prompt,answer,distractors,why,slides,extra={}) {
   const explanation=`${why} (Test 2 Review Worksheet Prof Copy; ${deck}, slides ${slides.join(", ")}.)`;
-  safetyEasyReviewQuestions.push({id:`safety2-easy-${id}`,topic,prompt,options:[answer,...distractors],correctIndex:0,explanation,source:{deck:"review",slides},...extra});
+  safetyEasyReviewQuestions.push(improveChoiceOptions({id:`safety2-easy-${id}`,topic,prompt,options:[answer,...distractors],correctIndex:0,explanation,source:{deck:"review",slides},...extra},safetyDistractors[id]));
 }
 // Reuse verified concepts, but retain review wording, references and independent IDs.
 for(const [target,slide,prompt] of [
@@ -61,7 +63,7 @@ for(const [target,slide,prompt] of [
 ]) {
   const q=safetyModule2Choice.find(q=>q.learningTarget===target);
   const why=q.explanation.slice(0,q.explanation.lastIndexOf(" ("));
-  add(target,q.topic,`Review: ${prompt}`,q.options[q.correctIndex],q.options.filter((_,i)=>i!==q.correctIndex),why,[slide]);
+  add(target,q.topic,`Review: ${prompt}`,q.options[q.correctIndex],q.options.filter((_,i)=>i!==q.correctIndex),why,[slide],q.previousOptions ? {previousOptions:q.previousOptions} : {});
 }
 
 add("whmis-purpose","whmis","For what purpose was WHMIS developed?","Consistent hazardous-product information and worker education to prevent injury and illness",["Only to provide product prices","Only to record aircraft registration","To replace all worker training with container labels"],"The review links consistent hazard information with educating workers and preventing injuries and illnesses. Labels, sheets and education work together; the purpose is broader than simply naming a chemical.",[4,5]);

@@ -1,3 +1,6 @@
+import { improveChoiceOptions } from "./improvedChoiceOptions.js";
+import { systemsScreenshotDistractors } from "./systemsDistractors.js";
+
 // Transcribed from the user's Hold Questions screenshots (Systems Test 2, 1–27).
 // Closed matching menus and malformed choices are resolved against the supplied
 // Hydraulic Components lesson, rather than inventing hidden answer text.
@@ -28,9 +31,10 @@ export function createSystemsScreenshotReview(base) {
     const { word, aliases = [], recallPrompt, diagramKey, explanation, pages, variant, ...fields } = changes;
     const learningTarget = `hold-${number}-${target}${variant ? `-${variant}` : ""}`;
     const source = { ...original.source, ...(pages ? { pages } : {}), screenshotQuestions: [number] };
-    const q = { ...original, ...fields, id: `systems2-screenshot-choice-${learningTarget}`, learningTarget, source,
+    const oldOptions = fields.options ?? original.previousOptions ?? original.options;
+    const q = improveChoiceOptions({ ...original, ...fields, id: `systems2-screenshot-choice-${learningTarget}`, learningTarget, source, previousOptions: [...oldOptions],
       explanation: `${explanation ?? original.explanation} Screenshot review question ${number}; blank/duplicate choices and closed matching menus are adapted to the course source.`,
-      ...(diagramKey ? { diagram: systemsScreenshotDiagrams[diagramKey] } : {}) };
+      ...(diagramKey ? { diagram: systemsScreenshotDiagrams[diagramKey] } : {}) }, systemsScreenshotDistractors[number]);
     // Never inherit a title-labelled source diagram into an identification item.
     if (!diagramKey) delete q.diagram;
     choice.push(q);

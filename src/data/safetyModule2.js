@@ -1,3 +1,6 @@
+import { improveChoiceOptions } from "./improvedChoiceOptions.js";
+import { requireSafetyDistractors } from "./safetyDistractors.js";
+
 export const safetyModule2Path = "/study/safety/module-2";
 export const safetyModule2Sources = {
   whmis:{title:"WSIB WHMIS OSHA New",slides:42},
@@ -11,9 +14,12 @@ function topic(id,title,deck,rows) {
   const items=[];
   for(const [target,label,definition,slides,prompt,recallPrompt,word,aliases=[]] of rows) {
     const explanation=`${definition} (${safetyModule2Sources[deck].title}, slides ${slides.join(", ")}.)`;
-    const peers=rows.filter(row=>row[0]!==target).map(row=>row[1]);
     const source={deck,slides};
-    safetyModule2Choice.push({id:`safety2-${target}`,topic:id,learningTarget:target,prompt,options:[label,...peers.slice(0,3)],correctIndex:0,explanation,source});
+    // Legacy snapshot only: lets an already-saved attempt retain its choices.
+    // New attempts always use the required, question-specific alternatives.
+    const formerPeers=rows.filter(row=>row[0]!==target).slice(0,3).map(row=>row[1]);
+    const original={id:`safety2-${target}`,topic:id,learningTarget:target,prompt,options:[label,...formerPeers],correctIndex:0,explanation,source};
+    safetyModule2Choice.push(improveChoiceOptions(original,requireSafetyDistractors(target)));
     if(recallPrompt) safetyModule2Recall.push({id:`safety2-word-${target}`,topic:id,learningTarget:target,prompt:recallPrompt,answer:word,acceptedAnswers:[word,...aliases],explanation,source});
     items.push([label,explanation]);
   }

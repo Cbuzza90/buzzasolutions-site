@@ -1,5 +1,7 @@
 import { safetyEasyReviewQuestions } from "./safetyEasyReview.js";
 import { safetyModule2Path } from "./safetyModule2.js";
+import { improveChoiceOptions } from "./improvedChoiceOptions.js";
+import { safetyDistractors } from "./safetyDistractors.js";
 
 export const safetyTest2ReviewSources = {
   deck: "SAFE 10094 Test 2 Review (compressed), 76 slides",
@@ -24,12 +26,12 @@ export const safetyTest2ReviewQuestions = safetyEasyReviewQuestions
   }));
 
 function add(id, topic, prompt, answer, distractors, explanation, slides) {
-  safetyTest2ReviewQuestions.push({
+  safetyTest2ReviewQuestions.push(improveChoiceOptions({
     id: `safety2-review-${id}`, topic, prompt,
     options: [answer, ...distractors], correctIndex: 0,
     explanation: `${explanation} (${safetyTest2ReviewSources.key}; ${safetyTest2ReviewSources.deck}, slides ${slides.join(", ")}.)`,
     source: { deck: "test2-review", slides, worksheet: safetyTest2ReviewSources.key },
-  });
+  }, safetyDistractors[id]));
 }
 
 add("element-labels", "whmis", "Which principal element of WHMIS communicates product and hazard information on the container?", "Product labels", ["Entry permits", "Tow-bar inspection records", "Incident reports"], "The review lists product labels, SDSs and worker education as the three principal elements. Supplier and workplace labels put information on the container so the product and its precautions can be identified where it is used.", [4, 8, 10]);

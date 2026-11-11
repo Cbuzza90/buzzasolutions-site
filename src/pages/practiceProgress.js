@@ -16,18 +16,26 @@ export function bankSignature(questions) {
   return `${questions.length}:${hash >>> 0}`;
 }
 
+export function previousBankSignature(questions) {
+  return bankSignature(questions.map(q => q.previousOptions ? { ...q, options: q.previousOptions, correctIndex: q.previousOptions.indexOf(q.options[q.correctIndex]) } : q));
+}
+
+function compatibleSignature(questions, signature) {
+  return signature === bankSignature(questions) || (questions.some(q => q.previousOptions) && signature === previousBankSignature(questions));
+}
+
 export function newPracticeAttempt(questions, random = Math.random, questionCount = questions.length, sampleQuestions) {
   return { order: shufflePractice(sampleQuestions ? sampleQuestions(questions, questionCount, random) : questions, random).slice(0, questionCount), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
 }
 
 export function restorePracticeAttempt(questions, record, questionCount = questions.length) {
   try {
-    if (!record || record.version !== 1 || record.signature !== bankSignature(questions) || !Array.isArray(record.order) || record.order.length !== questionCount) return null;
+    if (!record || record.version !== 1 || !compatibleSignature(questions, record.signature) || !Array.isArray(record.order) || record.order.length !== questionCount) return null;
     const source = new Map(questions.map(q => [String(q.id), q]));
     if (new Set(record.order.map(q => q.id)).size !== questionCount) return null;
     const order = record.order.map(saved => {
       const q = source.get(saved.id);
-      if (!q || !Array.isArray(saved.options) || saved.options.length !== q.options.length || new Set(saved.options).size !== q.options.length || saved.options.some(option => !q.options.includes(option))) throw new Error("Invalid choices");
+      if (!q || !Array.isArray(saved.options) || saved.options.length !== q.options.length || new Set(saved.options).size !== q.options.length || ![q.options, q.previousOptions].filter(Boolean).some(allowed => saved.options.every(option => allowed.includes(option)))) throw new Error("Invalid choices");
       return { ...q, options: saved.options, correctIndex: saved.options.indexOf(q.options[q.correctIndex]), ...(q.optionImages ? { optionImages: saved.options.map(option => q.optionImages[q.options.indexOf(option)]) } : {}) };
     });
     const { position, answers, complete } = record;
@@ -55,7 +63,7 @@ export function savePracticeAttempt(questions, testId, attempt, storage = storag
 
 export function loadHighestScore(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
   const record = read(storage, key("best", testId));
-  return record?.signature === bankSignature(questions) && record.total === questionCount && Number.isInteger(record.score) && record.score >= 0 && record.score <= record.total ? record : null;
+  return record && compatibleSignature(questions, record.signature) && record.total === questionCount && Number.isInteger(record.score) && record.score >= 0 && record.score <= record.total ? record : null;
 }
 
 export function recordHighestScore(questions, testId, score, storage = storageForBrowser(), questionCount = questions.length) {

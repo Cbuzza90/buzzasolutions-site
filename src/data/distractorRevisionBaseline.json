@@ -1,0 +1,212 @@
+[
+  {
+    "path": "/study/safety/module-2/test-2-review",
+    "kind": "choice",
+    "count": 135,
+    "signature": "135:2022361217",
+    "semantic": "8e90994074ae93a840fcf7a009baccea9c27066c9ecaaf0dafcf404eea03e6bb"
+  },
+  {
+    "path": "/study/safety/module-2/practice-5",
+    "kind": "choice",
+    "count": 33,
+    "signature": "33:508597373",
+    "semantic": "a1cbb1ce780019fea6d2d027ed0d6a1f6abfbf2adbaa7522420985ecebd144e8"
+  },
+  {
+    "path": "/study/safety/module-2/practice-6",
+    "kind": "choice",
+    "count": 33,
+    "signature": "33:3058083901",
+    "semantic": "f1e4168c63c4754146bf46dce73cde1de7f84ed241e4b6a79d5a923027939f60"
+  },
+  {
+    "path": "/study/safety/module-2/practice-7",
+    "kind": "choice",
+    "count": 33,
+    "signature": "33:1774235382",
+    "semantic": "d3e42d7cb203b5a2882e8e17f6aaebf4df96f6b6912c864bab9626878f593395"
+  },
+  {
+    "path": "/study/safety/module-2/practice-8",
+    "kind": "choice",
+    "count": 33,
+    "signature": "33:333585408",
+    "semantic": "b1b70e69b7eda767731d9a2a6c0e277f952526b9f50bb6ddd924a8de2a648122"
+  },
+  {
+    "path": "/study/safety/module-2/practice-1",
+    "kind": "choice",
+    "count": 34,
+    "signature": "34:1633395897",
+    "semantic": "29d7d4f44b5942040fa4eba503809d678e0410b683cfb7204d09229c503e289d"
+  },
+  {
+    "path": "/study/safety/module-2/practice-2",
+    "kind": "choice",
+    "count": 34,
+    "signature": "34:315379094",
+    "semantic": "33c41027361215ffdcd67a74df70a0873f26aec7b69bd6c3d1bc4687dadf3654"
+  },
+  {
+    "path": "/study/safety/module-2/practice-3",
+    "kind": "choice",
+    "count": 34,
+    "signature": "34:4169382388",
+    "semantic": "6d345720888e8fd3646869019bc34b67c383405b916762fb3e50a264aaee9930"
+  },
+  {
+    "path": "/study/safety/module-2/practice-4",
+    "kind": "choice",
+    "count": 33,
+    "signature": "33:1068708424",
+    "semantic": "88d8cca69049d146927d7cd306777c5c86a3de366d1286c9cc604d353e601c26"
+  },
+  {
+    "path": "/study/safety/module-2/one-word-1",
+    "kind": "typed",
+    "count": 34,
+    "signature": "34:3541435050",
+    "semantic": "e1cec5fd91be162a65c3e7a7977320d3c0f14048b13cb53c610b7f5f49a7a799"
+  },
+  {
+    "path": "/study/safety/module-2/one-word-2",
+    "kind": "typed",
+    "count": 34,
+    "signature": "34:1751604231",
+    "semantic": "f44b29f163e139ff45db5d186ac4c5674b5f3cecf1e8131bbd7ca93ccffd68df"
+  },
+  {
+    "path": "/study/safety/module-2/one-word-3",
+    "kind": "typed",
+    "count": 34,
+    "signature": "34:1010887472",
+    "semantic": "feb625cb103dadf712465fa68ab20bc6ee395b1a33f1cffa8890c9b2a79f8dda"
+  },
+  {
+    "path": "/study/safety/module-2/one-word-4",
+    "kind": "typed",
+    "count": 33,
+    "signature": "33:2983016415",
+    "semantic": "85efcd25976a6a4fa20fbc58abd7979c978148874b21281de7aab4e339425b4d"
+  },
+  {
+    "path": "/study/systems/module-2/practice-1",
+    "kind": "choice",
+    "count": 28,
+    "signature": "28:4164483123",
+    "semantic": "0897a375157042051d47ee544439c3020f416a6044a740c0fa0dec2cdff7a77d"
+  },
+  {
+    "path": "/study/systems/module-2/practice-2",
+    "kind": "choice",
+    "count": 27,
+    "signature": "27:3192764109",
+    "semantic": "7d52ca8c57154a0e3aa0effb638f80bd01e3b3e3e62f45695183a840ec35d32b"
+  },
+  {
+    "path": "/study/systems/module-2/practice-3",
+    "kind": "choice",
+    "count": 27,
+    "signature": "27:1111658521",
+    "semantic": "0f6e2ff08cb8d4eb43526458f8ca617ed7c88b91956fce57fe19f43cd9d1dd90"
+  },
+  {
+    "path": "/study/systems/module-2/practice-4",
+    "kind": "choice",
+    "count": 35,
+    "signature": "35:2819081192",
+    "semantic": "7c072095da082caeb78358e171e690c5d821db585f7fe0ed854596887f7c3562"
+  },
+  {
+    "path": "/study/systems/module-2/practice-5",
+    "kind": "choice",
+    "count": 34,
+    "signature": "34:3476342380",
+    "semantic": "2b1a55b3eaabfbe70ae79aef1a54321376f1791c2da231b47b939b0291959944"
+  },
+  {
+    "path": "/study/systems/module-2/practice-6",
+    "kind": "choice",
+    "count": 34,
+    "signature": "34:3920872613",
+    "semantic": "7f91668e10f3df93c0558ee8bf31a877a0e6a499a5628b3c55f9095544111b9f"
+  },
+  {
+    "path": "/study/systems/module-2/practice-7",
+    "kind": "choice",
+    "count": 34,
+    "signature": "34:1019184452",
+    "semantic": "76c8de2e854df58a2498f5255f35c9a4a056f771b56b3547f2be9d4abb9d6045"
+  },
+  {
+    "path": "/study/systems/module-2/one-word-1",
+    "kind": "typed",
+    "count": 34,
+    "signature": "34:2108722153",
+    "semantic": "478c63890bb44acabf2e261fd18c5ec05b1385d6c00ecc98a9f4cc36b5748464"
+  },
+  {
+    "path": "/study/systems/module-2/one-word-2",
+    "kind": "typed",
+    "count": 34,
+    "signature": "34:3065835799",
+    "semantic": "f36cc5790ad7b9b23ce3c0801f9d28fd3f5d718d8f92aab7c6b08b0fd831fc44"
+  },
+  {
+    "path": "/study/systems/module-2/one-word-3",
+    "kind": "typed",
+    "count": 34,
+    "signature": "34:1659329218",
+    "semantic": "516ad9f9c4c2d510c861e0b0f96ae0542b450c013dfda78233f75ec9bede41bd"
+  },
+  {
+    "path": "/study/systems/module-2/one-word-4",
+    "kind": "typed",
+    "count": 33,
+    "signature": "33:1369839099",
+    "semantic": "dde340302d327e8e2e5096f932f7aa58960001c62d56643e9291fe13b7188ea2"
+  },
+  {
+    "path": "/study/systems/module-2/practice-8",
+    "kind": "choice",
+    "count": 23,
+    "signature": "23:3041120716",
+    "semantic": "c649a3ccc4d694b441119ccb635b8663470ae65d2283a9f6c6aded90afd4769a"
+  },
+  {
+    "path": "/study/systems/module-2/practice-9",
+    "kind": "choice",
+    "count": 22,
+    "signature": "22:1614999545",
+    "semantic": "44715a436ea0855ebdc804e91c714d51c26f130498448fcf4bd238c7275424a9"
+  },
+  {
+    "path": "/study/systems/module-2/practice-10",
+    "kind": "choice",
+    "count": 23,
+    "signature": "23:698910321",
+    "semantic": "42221bcefc35155079df1801af4a3e625d73a83da0533602985cd14dfd982749"
+  },
+  {
+    "path": "/study/systems/module-2/practice-11",
+    "kind": "choice",
+    "count": 22,
+    "signature": "22:3628981773",
+    "semantic": "a54ef416fc256999b52f397c0eaa067cc707cb1c5d7c68a7b6446619ed62309e"
+  },
+  {
+    "path": "/study/systems/module-2/one-word-5",
+    "kind": "typed",
+    "count": 23,
+    "signature": "23:3567087391",
+    "semantic": "2f43a1bff359b78f6a5e334add2885ddd778f0eab35822201c8c4ec0d0f87e25"
+  },
+  {
+    "path": "/study/systems/module-2/one-word-6",
+    "kind": "typed",
+    "count": 22,
+    "signature": "22:2925140806",
+    "semantic": "1688b5df7f9c153bb429952177e946b36767b3960b9dd0103a810af8258571e1"
+  }
+]

@@ -6,7 +6,7 @@ import { dashboardTests, savedTestSummary } from "./studyDashboard.js";
 import { findNoteSections, studyNotesByModule } from "./courseStudyNotes.js";
 import { shufflePractice } from "../pages/safetyTestLogic.js";
 import { gradeTypedAnswer, newTypedAttempt, saveTypedAttempt, recordTypedBest, loadTypedBest, typedSignature } from "../pages/typedPracticeLogic.js";
-import { newPracticeAttempt, savePracticeAttempt, recordHighestScore, loadHighestScore, bankSignature } from "../pages/practiceProgress.js";
+import { newPracticeAttempt, savePracticeAttempt, recordHighestScore, loadHighestScore, previousBankSignature } from "../pages/practiceProgress.js";
 import { studyPracticeNavigation } from "../pages/studyPracticeNavigation.js";
 
 test("Systems Test 2 has review-only Easy, broad Medium and single-word Hard banks with source references", () => {
@@ -61,9 +61,9 @@ test("all 27 screenshot questions and grouped concepts are covered with intact i
   }
 });
 
-test("the 11 original Systems 2 routes retain their bank signatures for saved attempts and best scores", () => {
+test("the 11 original Systems 2 routes retain compatible signatures for saved attempts and best scores", () => {
   const signatures = ["28:4164483123", "27:3192764109", "27:1111658521", "35:2819081192", "34:3476342380", "34:3920872613", "34:1019184452", "34:2108722153", "34:3065835799", "34:1659329218", "33:1369839099"];
-  assert.deepEqual(parts.slice(0, 11).map(p => p.kind === "typed" ? typedSignature(p.questions) : bankSignature(p.questions)), signatures);
+  assert.deepEqual(parts.slice(0, 11).map(p => p.kind === "typed" ? typedSignature(p.questions) : previousBankSignature(p.questions)), signatures);
 });
 
 test("every Systems 2 question, individual pairing and source conflict is searchable in the exact module", () => {

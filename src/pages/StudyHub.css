@@ -829,6 +829,10 @@
 
 /* Home update stamp, Steam spotlight and feedback below the courses. */
 .study-home-intro{margin-bottom:8px}
+.study-update-alert{margin:0 0 16px;padding:14px 16px;border:1px solid #3b82f6;border-left-width:4px;border-radius:12px;background:#eff6ff;color:#17335b;font-size:12px;line-height:1.6}
+.study-update-alert strong{font-weight:750}
+.study-update-alert p{margin:5px 0 0}
+.study-app[data-theme="dark"] .study-update-alert{background:#101e34;color:#dbeafe}
 .study-last-updated{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.6}
 .study-last-updated time{color:var(--ink);font-weight:600}
 .study-home-footer{display:flex;justify-content:center;margin-top:28px;padding:18px 0 4px;border-top:1px solid var(--line)}
