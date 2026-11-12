@@ -7,6 +7,7 @@ import { cotterPinQuestions, cotterPinProgressKey } from "./cotterPinPractice.js
 import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
+import { electricityModule2Parts } from "./electricityModule2.js";
 import { enginesReviewQuestions, enginesAllNotesQuestions } from "./enginesTest2.js";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
@@ -28,6 +29,7 @@ import { gradeResistor } from "./resistorBands.js";
 const choice = (slug, course, module, title, questions, suffix, storageId) => ({ slug, course, courseSlug: course.toLowerCase(), title, questions, kind: "choice", basePath: `/study/${course.toLowerCase()}/${module}`, path: `/study/${course.toLowerCase()}/${module}/${suffix}`, storageId: storageId ?? `/study/${course.toLowerCase()}/${module}/${suffix}` });
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
+  ...electricityModule2Parts,
   ...systemsModule2Parts,
   safetyTest2Review,
   ...safetyEasyReviewParts,...safetyModule2Parts,

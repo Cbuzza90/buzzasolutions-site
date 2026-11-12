@@ -6,6 +6,7 @@ import { techPubWorksheetQuestions, techPubMediumQuestions } from "./techPubWork
 import { cotterPinQuestions } from "./cotterPinPractice.js";
 import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
+import { electricityModule2Choice, electricityModule2Easy, electricityModule2Recall } from "./electricityModule2.js";
 import { enginesReviewQuestions, enginesLectureQuestions } from "./enginesTest2.js";
 import { aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions } from "./aerodynamicsModule2.js";
 import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
@@ -24,6 +25,7 @@ import { torquePracticeQuestions } from "./chartTorquePractice.js";
 // The references use the same verified answer banks as the practice tests.
 // New questions in these banks automatically become searchable study material.
 export const practiceBanksByModule = {
+  "/study/electricity/module-2": [electricityModule2Easy, electricityModule2Choice, electricityModule2Recall],
   "/study/systems/module-2": [systemsModule2Easy, systemsModule2Medium, systemsModule2Hard],
   "/study/safety/module-2": [safetyModule2Choice,safetyModule2Recall,safetyEasyReviewQuestions,safetyTest2ReviewQuestions],
   "/study/publications/module-2": [ataCodeQuestions, techPubWorksheetQuestions, techPubMediumQuestions],

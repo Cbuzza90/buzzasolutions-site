@@ -12,6 +12,7 @@ import CompletedTestStatus from "./CompletedTestStatus";
 import SafetyPractice, { SafetyTestList, HumanFactorsTestList, HumanFactorsPractice } from "./SafetyPractice";
 import ResistorBandPractice from "./ResistorBandPractice";
 import ElectricityPractice, { ElectricityEasyPractice, ElectricityTestList } from "./ElectricityPractice";
+import ElectricityModule2Practice, { ElectricityModule2TestList } from "./ElectricityModule2Practice";
 import StudyFeedback from "./StudyFeedback";
 import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
@@ -101,7 +102,7 @@ const courseModules = {
   publications: [{ slug: "module-2", title: "Module 2", description: "Test 2 worksheet, manuals, stations & ATA codes" }],
   engines: [{ slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" }],
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
-  electricity: [{ slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
+  electricity: [{ slug: "module-2", title: "Module 2", description: "Batteries · Electromagnetic induction · DC generators & controls" }, { slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
   safety: [
     { slug: "module-2", title: "Module 2", description: "WHMIS · Confined spaces · Flight line · Towing · Lockout/tagout" },
     { slug: "module-1", title: "Module 1", description: "Original mixed Safety practice" },
@@ -162,6 +163,9 @@ export default function StudyHub() {
         <Route path="/study/saved" element={<Navigate to="/" replace />} />
         <Route path="/study/about" element={<Navigate to="/" replace />} />
         <Route path="/study/electricity/module-1" element={<ElectricityTestList />} />
+        <Route path="/study/electricity/module-2" element={<ElectricityModule2TestList />} />
+        <Route path="/study/electricity/module-2/notes" element={<CourseStudyNotes basePath="/study/electricity/module-2" />} />
+        <Route path="/study/electricity/module-2/:testSlug" element={<ElectricityModule2Practice />} />
         <Route path="/study/electricity/module-1/practice-1" element={<ElectricityPractice />} />
         <Route path="/study/electricity/module-1/practice-2" element={<ElectricityEasyPractice />} />
         <Route path="/study/electricity/module-1/one-word-1" element={<ElectricityWordPractice />} />
