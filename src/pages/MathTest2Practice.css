@@ -1,0 +1,9 @@
+.study-math-breakdown{margin:28px 0;max-width:620px}
+.study-math-breakdown h2{font-size:20px}
+.study-math-breakdown p{font-size:13px;line-height:1.6;color:var(--muted)}
+.study-math-breakdown table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}
+.study-math-breakdown th,.study-math-breakdown td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+.study-math-breakdown thead,.study-math-breakdown tfoot{background:#2563eb;color:#fff}
+.study-math-breakdown tbody th{font-weight:500}
+.study-math-breakdown td,.study-math-breakdown thead th:last-child{width:100px;text-align:center}
+@media(max-width:480px){.study-math-breakdown th,.study-math-breakdown td{padding:9px 8px}.study-math-breakdown td,.study-math-breakdown thead th:last-child{width:84px}}

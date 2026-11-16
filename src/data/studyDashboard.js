@@ -1,4 +1,6 @@
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
+import { mathTest2 } from "./mathTest2.js";
+import { mathTest2Extended } from "./mathTest2Extended.js";
 import { safetyModule2Parts } from "./safetyModule2.js";
 import { safetyEasyReviewParts } from "./safetyEasyReview.js";
 import { safetyTest2Review } from "./safetyTest2Review.js";
@@ -30,6 +32,8 @@ const choice = (slug, course, module, title, questions, suffix, storageId) => ({
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
   ...electricityModule2Parts,
+  mathTest2,
+  mathTest2Extended,
   ...systemsModule2Parts,
   safetyTest2Review,
   ...safetyEasyReviewParts,...safetyModule2Parts,

@@ -23,6 +23,7 @@ import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from 
 import MeasuringToolsPractice from "./MeasuringToolsPractice";
 import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
+import MathTest2Practice, { MathTest2List } from "./MathTest2Practice";
 import SystemsMixedPractice from "./SystemsMixedPractice";
 import SystemsPractice, { SystemsTestList } from "./SystemsPractice";
 import SystemsModule2Practice, { SystemsModule2TestList } from "./SystemsModule2Practice";
@@ -37,7 +38,7 @@ const courses = [
   { slug: "safety", title: "Aviation Health and Safety", code: "SAFE-10094", category: "Foundations", icon: ShieldCheck, color: "green", hasTests: true, description: "Review the health and safety concepts covered in your aviation course." },
   { slug: "structures", title: "Basic Aircraft Structures 1", code: "AMEM-10003", category: "Aircraft", icon: Layers, color: "rose", hasTests: true, description: "Explore aircraft construction, structures, and the parts that hold it all together." },
   { slug: "systems", title: "Basic Aircraft Systems", code: "AMEM-10004", category: "Aircraft", icon: Plane, color: "sky", hasTests: true, description: "Connect the concepts behind the systems that keep an aircraft operating." },
-  { slug: "math", title: "Math (Aviation Technician)", code: "MATH-10079", category: "Tools & math", icon: Calculator, color: "amber", description: "Practice the mathematical skills used in your aviation technician studies." },
+  { slug: "math", title: "Math (Aviation Technician)", code: "MATH-10079", category: "Tools & math", icon: Calculator, color: "amber", hasTests: true, description: "Practice the mathematical skills used in your aviation technician studies." },
   { slug: "publications", title: "Technical Publications/Documents", code: "AMEM-10033", category: "Tools & math", icon: FileText, color: "violet", hasTests: true, description: "Find your way around the technical publications and documents used in class." },
 ];
 
@@ -98,6 +99,7 @@ function CourseList() {
 
 // All course sections share the same active-first ordering.
 const courseModules = {
+  math: [{ slug: "module-2", title: "Test 2", description: "30-question test & 60-question extended practice · Math, physics & engines" }],
   publications: [{ slug: "module-2", title: "Module 2", description: "Test 2 worksheet, manuals, stations & ATA codes" }],
   engines: [{ slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" }],
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
@@ -142,6 +144,9 @@ export default function StudyHub() {
       <Routes>
         <Route path="/" element={<CourseList />} />
         <Route path="/study/feedback" element={<StudyFeedback />} />
+        <Route path="/study/math/module-2" element={<MathTest2List />} />
+        <Route path="/study/math/module-2/practice-1" element={<MathTest2Practice />} />
+        <Route path="/study/math/module-2/practice-2" element={<MathTest2Practice extended />} />
         <Route path="/study/publications/module-2" element={<TechPubTestList />} />
         <Route path="/study/publications/module-2/ata-study-sheet" element={<AtaStudySheet />} />
         <Route path="/study/publications/module-2/ata-codes" element={<TechPubPractice />} />
