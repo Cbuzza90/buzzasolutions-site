@@ -28,6 +28,7 @@ export const upcomingTests = [
   { course: "Systems", courseSlug: "systems", date: "2026-11-13", title: "Systems Test", label: "Systems Test: Friday November 13th", tone: "notice" },
   { course: "Math", courseSlug: "math", moduleSlug: "module-2", date: "2026-11-19", title: "Math Test #2", label: "Math Test #2: Thursday November 19th", tone: "notice" },
   { course: "Electricity", courseSlug: "electricity", moduleSlug: "module-2", date: "2026-11-23", title: "Electricity Test", label: "Electricity Test: Monday November 23rd", tone: "notice" },
+  { course: "Structures", courseSlug: "structures", moduleSlug: "module-2", date: "2026-11-24", startTime: "12:30", title: "Structures Test", label: "Structures Test: Tuesday November 24th at 12:30 p.m.", tone: "notice" },
   { course: "Engines", courseSlug: "engines", date: "2026-11-30", title: "Engines Test #3", label: "Engines Test #3: Monday November 30th", tone: "notice" },
   { course: "Math", courseSlug: "math", date: "2026-12-14", endDate: "2026-12-18", title: "Math Test #3", label: "Math Test #3: December 14–18", tone: "notice" },
   { course: "Engines", courseSlug: "engines", date: "2027-01-18", title: "Engines Test #4", label: "Engines Test #4: Monday January 18th", tone: "notice" },
@@ -64,7 +65,8 @@ export function testClassSessions(test) {
   if (test.endDate) return [];
   if (test.date < classTimetable.from || test.date > classTimetable.through) return [];
   const day = new Date(`${test.date}T12:00:00Z`).getUTCDay();
-  return (classTimetable.courses[test.courseSlug] ?? []).filter(slot => slot.day === day);
+  const start = /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(test.startTime ?? "") ? test.startTime : null;
+  return (classTimetable.courses[test.courseSlug] ?? []).filter(slot => slot.day === day && (!start || (slot.start <= start && start < slot.end)));
 }
 
 function classTime(time) {
@@ -117,5 +119,6 @@ export function formatTestDate(date, short = false) {
 }
 
 export function formatScheduledTestDate(test, short = false) {
-  return test.endDate ? `${formatTestDate(test.date, short)} – ${formatTestDate(test.endDate, short)}` : formatTestDate(test.date, short);
+  const date = test.endDate ? `${formatTestDate(test.date, short)} – ${formatTestDate(test.endDate, short)}` : formatTestDate(test.date, short);
+  return /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(test.startTime ?? "") ? `${date} · ${classTime(test.startTime)}` : date;
 }
