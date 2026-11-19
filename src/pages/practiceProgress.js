@@ -38,7 +38,13 @@ function compatibleSignature(questions, signature) {
 }
 
 export function newPracticeAttempt(questions, random = Math.random, questionCount = questions.length, sampleQuestions) {
-  return { order: shufflePractice(sampleQuestions ? sampleQuestions(questions, questionCount, random) : questions, random).slice(0, questionCount), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
+  const pool = sampleQuestions ? sampleQuestions(questions, questionCount, random) : questions;
+  // Opt-in block practice retains method order and shuffles within each block.
+  // Ordinary tests keep their existing full question and choice shuffling.
+  const order = pool.length && pool.every(q => q.practiceGroup)
+    ? [...new Set(pool.map(q => q.practiceGroup))].flatMap(group => shufflePractice(pool.filter(q => q.practiceGroup === group), random))
+    : shufflePractice(pool, random);
+  return { order: order.slice(0, questionCount), position: 0, answers: {}, complete: false, completedRounds: 0, previousCorrect: 0 };
 }
 
 export function restorePracticeAttempt(questions, record, questionCount = questions.length) {

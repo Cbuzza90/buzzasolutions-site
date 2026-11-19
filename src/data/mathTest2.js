@@ -136,13 +136,14 @@ export const mathTest2 = {
 
 const fullImage = (name, width, height, alt) => ({ src: `/math/${name}`, alt, crop: { x: 0, y: 0, width, height, imageWidth: width } });
 export const mathTest2Diagrams = {
+  breakdown: fullImage("test-2-breakdown.webp", 604, 709, "Original supplied Test 2 breakdown image: rate and ratio 8, probability 2, PCR 4, geometry 5, physics 7, engine volume and ihp 4; total 30 questions."),
   formula: fullImage("test-2-formula-sheet.webp", 1275, 1651, "Original Math Test 2 formula sheet: geometry, physics, compression ratio and PLANK, with units and N = rpm/2."),
   arc: fullImage("arc-reference.webp", 1600, 900, "Geometry lecture page 8: an arc labelled s, radius r and angle theta; s = r theta for radians, with degree-to-radian conversion."),
   pcr: fullImage("compression-reference.webp", 1600, 900, "Percentage lecture page 16: labelled piston diagrams identify total volume at BDC, clearance volume at TDC and the swept displacement between them."),
 };
 
 export const mathTest2NoteSections = [
-  { id: "math2-guide", title: "Test 2 · Study guide & formula sheet", diagramKey: "formula", items: [
+  { id: "math2-guide", title: "Test 2 · Study guide & formula sheet", diagramKeys: ["formula", "breakdown"], items: [
     ["30-question scope", "Follow your newer breakdown: ratio/proportion 2, percent 4, averages 2, probability 2, PCR 4, geometry 5, physics 7, engine volume/PLANK 4. The older review PDF's final page totals 25; this practice uses the newer image's 30."],
     ["Calculation routine", "Identify what is asked, write the formula, convert units, substitute, solve, and then round. Use calculator π and g = 9.81 m/s² unless stated otherwise. Keep full precision until the final answer. A calculator and paper are useful; every practice item has a worked explanation under See notes."],
     ["Formula sheet labels", "The supplied sheet labels (Vc + Vd)/Vc as 'Piston displacement ratio'; it is the piston compression ratio, PCR. Swept displacement itself is a volume, Vd = π(bore/2)²L. In PLANK, L is feet, A is in², P is psi and N = rpm/2 for the four-stroke questions."],

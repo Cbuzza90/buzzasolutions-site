@@ -7,3 +7,11 @@
 .study-math-breakdown tbody th{font-weight:500}
 .study-math-breakdown td,.study-math-breakdown thead th:last-child{width:100px;text-align:center}
 @media(max-width:480px){.study-math-breakdown th,.study-math-breakdown td{padding:9px 8px}.study-math-breakdown td,.study-math-breakdown thead th:last-child{width:84px}}
+.study-math-blocks{margin:24px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.study-math-blocks summary{padding:16px;background:#2563eb;color:#fff;font-weight:700;cursor:pointer}
+.study-math-blocks p{padding:0 16px;line-height:1.6}
+.study-math-blocks ol{padding:0 16px 12px 42px}
+.study-math-blocks li{padding:9px 4px;border-bottom:1px solid var(--line);line-height:1.5}
+.study-math-blocks li span{display:block;color:var(--muted);font-size:.875rem}
+.study-practice-group{padding:12px 14px;border-left:4px solid #2563eb;background:var(--panel);line-height:1.6}
+.study-practice-group span{display:block;color:var(--muted);font-size:.875rem}

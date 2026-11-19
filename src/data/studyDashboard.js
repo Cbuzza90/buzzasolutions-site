@@ -1,6 +1,7 @@
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { mathTest2 } from "./mathTest2.js";
 import { mathTest2Extended } from "./mathTest2Extended.js";
+import { mathTest2Grouped } from "./mathTest2Grouped.js";
 import { safetyModule2Parts } from "./safetyModule2.js";
 import { safetyEasyReviewParts } from "./safetyEasyReview.js";
 import { safetyTest2Review } from "./safetyTest2Review.js";
@@ -34,6 +35,7 @@ export const dashboardTests = [
   ...electricityModule2Parts,
   mathTest2,
   mathTest2Extended,
+  mathTest2Grouped,
   ...systemsModule2Parts,
   safetyTest2Review,
   ...safetyEasyReviewParts,...safetyModule2Parts,

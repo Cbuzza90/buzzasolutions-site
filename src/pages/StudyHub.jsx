@@ -147,6 +147,7 @@ export default function StudyHub() {
         <Route path="/study/math/module-2" element={<MathTest2List />} />
         <Route path="/study/math/module-2/practice-1" element={<MathTest2Practice />} />
         <Route path="/study/math/module-2/practice-2" element={<MathTest2Practice extended />} />
+        <Route path="/study/math/module-2/practice-3" element={<MathTest2Practice grouped />} />
         <Route path="/study/publications/module-2" element={<TechPubTestList />} />
         <Route path="/study/publications/module-2/ata-study-sheet" element={<AtaStudySheet />} />
         <Route path="/study/publications/module-2/ata-codes" element={<TechPubPractice />} />
