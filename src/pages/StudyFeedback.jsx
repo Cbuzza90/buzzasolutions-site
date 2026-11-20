@@ -53,6 +53,10 @@ export default function StudyFeedback() {
   return <section className="study-detail study-feedback-page">
     <h1>Leave a complaint or suggestion</h1>
     <p className="study-detail-description">Want a new type of practice test? Is a test date missing? Found a mistake? Let me know.</p>
+    <figure className="study-feedback-reminder">
+      <figcaption>remember this shit is free</figcaption>
+      <img src="/feedback/grumpy-cat.jpg" alt="A grumpy orange cat looking unimpressed." width="1280" height="717" />
+    </figure>
     <form className="study-feedback-form" onSubmit={submit} aria-busy={sending}>
       <fieldset disabled={sending || sent}>
       <label htmlFor="feedback-type">What’s it about?</label>

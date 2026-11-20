@@ -4,6 +4,9 @@
 .study-feedback-link:focus-visible,.study-feedback-form :is(input,select,textarea):focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
 .study-feedback-page{max-width:680px;margin-inline:auto}
 .study-feedback-page h1{font-size:clamp(23px,4vw,30px);line-height:1.2}
+.study-feedback-reminder{max-width:480px;margin:24px auto;text-align:center}
+.study-feedback-reminder figcaption{margin-bottom:12px;font-size:clamp(20px,4vw,26px);font-weight:800;line-height:1.25}
+.study-feedback-reminder img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
 .study-feedback-form{display:flex;flex-direction:column;gap:8px;margin-top:16px}
 .study-feedback-form fieldset{display:flex;flex-direction:column;gap:8px;border:0;margin:0;padding:0;min-width:0}
 .study-feedback-form button:disabled{opacity:.65;cursor:wait}
