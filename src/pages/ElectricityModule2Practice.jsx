@@ -1,3 +1,4 @@
+import { electricityBoldPractice } from "../data/electricityBoldPractice.js";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import MultipleChoicePractice from "./MultipleChoicePractice";
@@ -11,6 +12,13 @@ export function ElectricityModule2TestList() {
     <p className="study-eyebrow">AIRCRAFT ELECTRICITY 1</p><h1>Module 2</h1>
     <p className="study-detail-description">Batteries · Electromagnetic induction · DC generators &amp; controls</p>
     <ModuleStudyOverview basePath={electricityModule2Path} />
+    <h2>Bold-text study notes</h2>
+    <Link className="study-option-link study-test-link" to={electricityBoldPractice.path}>
+      <span className="study-test-link-heading"><strong>{electricityBoldPractice.title}</strong><span className="study-format-badge">Multiple Choice</span></span>
+      <span className="study-test-link-description">{electricityBoldPractice.questions.length} questions · Only the material in your bold-text PDF · Shuffled order · Saves your place <ChevronRight size={19} /></span>
+      <PracticeRecordBadge questions={electricityBoldPractice.questions} testId={electricityBoldPractice.storageId} />
+    </Link>
+    <a className="study-option-link" href="/electricity/electrical-test-2-bold-study-notes.pdf" target="_blank" rel="noreferrer">Open the bold-text study PDF <ChevronRight size={19} /></a>
     {["easy", "medium", "hard"].map(difficulty => {
       const parts = electricityModule2Parts.filter(part => part.difficulty === difficulty);
       return <div key={difficulty}>
@@ -29,8 +37,8 @@ export function ElectricityModule2TestList() {
 
 export default function ElectricityModule2Practice() {
   const { testSlug } = useParams();
-  const part = electricityModule2Parts.find(part => part.path === `${electricityModule2Path}/${testSlug}`);
+  const part = [electricityBoldPractice, ...electricityModule2Parts].find(part => part.path === `${electricityModule2Path}/${testSlug}`);
   if (!part) return <Navigate to={electricityModule2Path} replace />;
   const Practice = part.kind === "typed" ? TypedAnswerPractice : MultipleChoicePractice;
-  return <Practice key={part.path} questions={part.questions} testNumber={part.number} course="Electricity" basePath={electricityModule2Path} progressKey={part.storageId} testTitle={`${part.title} · ${part.difficulty === "easy" ? "Easy" : part.difficulty === "medium" ? "Medium" : "Hard"} difficulty`} />;
+  return <Practice key={part.path} questions={part.questions} testNumber={part.number} course="Electricity" basePath={electricityModule2Path} progressKey={part.storageId} testTitle={part.difficulty ? `${part.title} · ${part.difficulty === "easy" ? "Easy" : part.difficulty === "medium" ? "Medium" : "Hard"} difficulty` : part.title} />;
 }

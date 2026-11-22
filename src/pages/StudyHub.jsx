@@ -18,6 +18,7 @@ import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresModule2Practice from "./StructuresModule2Practice";
+import StructuresHardwareQuiz from "./StructuresHardwareQuiz";
 import { AerodynamicsTestList, AerodynamicsPartPractice, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
 import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
 import MeasuringToolsPractice from "./MeasuringToolsPractice";
@@ -181,6 +182,9 @@ export default function StudyHub() {
         <Route path="/study/structures/module-2" element={<StructuresTestList />} />
         <Route path="/study/structures/module-1" element={<Navigate to="/study/structures/module-2" replace />} />
         <Route path="/study/structures/module-1/notes" element={<Navigate to="/study/structures/module-2/notes" replace />} />
+        <Route path="/study/structures/module-2/practice-3" element={<StructuresHardwareQuiz presentation={5} />} />
+        <Route path="/study/structures/module-2/practice-4" element={<StructuresHardwareQuiz presentation={6} />} />
+        <Route path="/study/structures/module-2/practice-5" element={<StructuresHardwareQuiz presentation={7} />} />
         <Route path="/study/structures/module-2/practice-2" element={<StructuresModule2Practice />} />
         <Route path="/study/structures/module-2/practice-1" element={<MeasuringToolsPractice />} />
         <Route path="/study/structures/module-2/cotter-pin-sizing" element={<CotterPinPractice />} />

@@ -1,0 +1,1040 @@
+[
+  {
+    "deck": "battery",
+    "slide": 4,
+    "speakerNote": false,
+    "bold": "Voltaic Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 5,
+    "speakerNote": false,
+    "bold": "Voltaic Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 6,
+    "speakerNote": false,
+    "bold": "Voltaic Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 7,
+    "speakerNote": false,
+    "bold": "Primary Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 8,
+    "speakerNote": false,
+    "bold": "Primary Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 9,
+    "speakerNote": false,
+    "bold": "Secondary Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 10,
+    "speakerNote": false,
+    "bold": "Dry Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 10,
+    "speakerNote": false,
+    "bold": "Carbon-Zinc"
+  },
+  {
+    "deck": "battery",
+    "slide": 10,
+    "speakerNote": false,
+    "bold": "“LeClanche cell”"
+  },
+  {
+    "deck": "battery",
+    "slide": 11,
+    "speakerNote": false,
+    "bold": "Wet Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 12,
+    "speakerNote": false,
+    "bold": "Wet Cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 13,
+    "speakerNote": false,
+    "bold": "Cell Types"
+  },
+  {
+    "deck": "battery",
+    "slide": 14,
+    "speakerNote": false,
+    "bold": "Alkaline"
+  },
+  {
+    "deck": "battery",
+    "slide": 15,
+    "speakerNote": false,
+    "bold": "Lead-acid"
+  },
+  {
+    "deck": "battery",
+    "slide": 16,
+    "speakerNote": false,
+    "bold": "Nickel-cadmium"
+  },
+  {
+    "deck": "battery",
+    "slide": 17,
+    "speakerNote": false,
+    "bold": "Gel Cell"
+  },
+  {
+    "deck": "battery",
+    "slide": 18,
+    "speakerNote": false,
+    "bold": "Capacity (ratings)"
+  },
+  {
+    "deck": "battery",
+    "slide": 18,
+    "speakerNote": false,
+    "bold": "Voltage"
+  },
+  {
+    "deck": "battery",
+    "slide": 19,
+    "speakerNote": false,
+    "bold": "Capacity (ratings)"
+  },
+  {
+    "deck": "battery",
+    "slide": 19,
+    "speakerNote": false,
+    "bold": "Ampere-hours"
+  },
+  {
+    "deck": "battery",
+    "slide": 19,
+    "speakerNote": false,
+    "bold": "The most common way to rate a battery"
+  },
+  {
+    "deck": "battery",
+    "slide": 20,
+    "speakerNote": false,
+    "bold": "Capacity (ratings)"
+  },
+  {
+    "deck": "battery",
+    "slide": 20,
+    "speakerNote": false,
+    "bold": "Ampere-hours"
+  },
+  {
+    "deck": "battery",
+    "slide": 21,
+    "speakerNote": false,
+    "bold": "Discharge Rate"
+  },
+  {
+    "deck": "battery",
+    "slide": 22,
+    "speakerNote": false,
+    "bold": "Open Circuit Voltage vs Closed Circuit Voltage"
+  },
+  {
+    "deck": "battery",
+    "slide": 23,
+    "speakerNote": false,
+    "bold": "Safety Moment!"
+  },
+  {
+    "deck": "battery",
+    "slide": 23,
+    "speakerNote": false,
+    "bold": "Baking soda lead-acid"
+  },
+  {
+    "deck": "battery",
+    "slide": 23,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 24,
+    "speakerNote": false,
+    "bold": "Theory-"
+  },
+  {
+    "deck": "battery",
+    "slide": 24,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries - How they work"
+  },
+  {
+    "deck": "battery",
+    "slide": 25,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries - How they work"
+  },
+  {
+    "deck": "battery",
+    "slide": 26,
+    "speakerNote": false,
+    "bold": "Theory cont…"
+  },
+  {
+    "deck": "battery",
+    "slide": 26,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries - How they work"
+  },
+  {
+    "deck": "battery",
+    "slide": 27,
+    "speakerNote": false,
+    "bold": "Theory cont…"
+  },
+  {
+    "deck": "battery",
+    "slide": 27,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 28,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 28,
+    "speakerNote": false,
+    "bold": "Construction- Plates"
+  },
+  {
+    "deck": "battery",
+    "slide": 29,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 29,
+    "speakerNote": false,
+    "bold": "Construction-Plates"
+  },
+  {
+    "deck": "battery",
+    "slide": 30,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 30,
+    "speakerNote": false,
+    "bold": "Construction- Separator"
+  },
+  {
+    "deck": "battery",
+    "slide": 31,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 31,
+    "speakerNote": false,
+    "bold": "Construction- Case"
+  },
+  {
+    "deck": "battery",
+    "slide": 32,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 32,
+    "speakerNote": false,
+    "bold": "Construction- Case"
+  },
+  {
+    "deck": "battery",
+    "slide": 33,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 33,
+    "speakerNote": false,
+    "bold": "Testing"
+  },
+  {
+    "deck": "battery",
+    "slide": 33,
+    "speakerNote": false,
+    "bold": "Make sure to check all cells for the correct specific gravity"
+  },
+  {
+    "deck": "battery",
+    "slide": 34,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 34,
+    "speakerNote": false,
+    "bold": "Testing"
+  },
+  {
+    "deck": "battery",
+    "slide": 35,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 35,
+    "speakerNote": false,
+    "bold": "Testing"
+  },
+  {
+    "deck": "battery",
+    "slide": 36,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 36,
+    "speakerNote": false,
+    "bold": "Testing vs Temperature"
+  },
+  {
+    "deck": "battery",
+    "slide": 36,
+    "speakerNote": false,
+    "bold": "80ºF"
+  },
+  {
+    "deck": "battery",
+    "slide": 37,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 37,
+    "speakerNote": false,
+    "bold": "Testing- Load Tester"
+  },
+  {
+    "deck": "battery",
+    "slide": 38,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 39,
+    "speakerNote": false,
+    "bold": "Charging – Preparation"
+  },
+  {
+    "deck": "battery",
+    "slide": 39,
+    "speakerNote": false,
+    "bold": "Sodium Bicarbonate"
+  },
+  {
+    "deck": "battery",
+    "slide": 39,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 40,
+    "speakerNote": false,
+    "bold": "Charging lead-acid batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 40,
+    "speakerNote": false,
+    "bold": "25.2v"
+  },
+  {
+    "deck": "battery",
+    "slide": 40,
+    "speakerNote": false,
+    "bold": "2.8v"
+  },
+  {
+    "deck": "battery",
+    "slide": 40,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 41,
+    "speakerNote": false,
+    "bold": "Constant-Current Charging"
+  },
+  {
+    "deck": "battery",
+    "slide": 41,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 42,
+    "speakerNote": false,
+    "bold": "Constant-Voltage Charging"
+  },
+  {
+    "deck": "battery",
+    "slide": 42,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 43,
+    "speakerNote": false,
+    "bold": "Charging Precautions (Jep 3-71)"
+  },
+  {
+    "deck": "battery",
+    "slide": 43,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 44,
+    "speakerNote": false,
+    "bold": "Charging Precautions (Jep 3-71)"
+  },
+  {
+    "deck": "battery",
+    "slide": 44,
+    "speakerNote": false,
+    "bold": "But when the battery is fully charged!"
+  },
+  {
+    "deck": "battery",
+    "slide": 44,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 45,
+    "speakerNote": false,
+    "bold": "Charging Precautions (Jep 3-71)"
+  },
+  {
+    "deck": "battery",
+    "slide": 45,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 46,
+    "speakerNote": false,
+    "bold": "Installation (Jep 3-72)"
+  },
+  {
+    "deck": "battery",
+    "slide": 46,
+    "speakerNote": false,
+    "bold": "Lead-Acid Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 47,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 48,
+    "speakerNote": false,
+    "bold": "Positive Plates"
+  },
+  {
+    "deck": "battery",
+    "slide": 48,
+    "speakerNote": false,
+    "bold": "Negative Plates"
+  },
+  {
+    "deck": "battery",
+    "slide": 48,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 49,
+    "speakerNote": false,
+    "bold": "Separators"
+  },
+  {
+    "deck": "battery",
+    "slide": 49,
+    "speakerNote": false,
+    "bold": "Cell Case"
+  },
+  {
+    "deck": "battery",
+    "slide": 49,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 50,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 51,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 51,
+    "speakerNote": false,
+    "bold": "Thermal Runaway"
+  },
+  {
+    "deck": "battery",
+    "slide": 52,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 52,
+    "speakerNote": false,
+    "bold": "Thermal Runaway"
+  },
+  {
+    "deck": "battery",
+    "slide": 53,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 53,
+    "speakerNote": false,
+    "bold": "Thermal Runaway"
+  },
+  {
+    "deck": "battery",
+    "slide": 54,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 54,
+    "speakerNote": false,
+    "bold": "Thermal Runaway"
+  },
+  {
+    "deck": "battery",
+    "slide": 54,
+    "speakerNote": false,
+    "bold": "before"
+  },
+  {
+    "deck": "battery",
+    "slide": 55,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 55,
+    "speakerNote": false,
+    "bold": "Vents"
+  },
+  {
+    "deck": "battery",
+    "slide": 55,
+    "speakerNote": false,
+    "bold": "emit gas"
+  },
+  {
+    "deck": "battery",
+    "slide": 55,
+    "speakerNote": false,
+    "bold": "overcharged"
+  },
+  {
+    "deck": "battery",
+    "slide": 56,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries ****"
+  },
+  {
+    "deck": "battery",
+    "slide": 56,
+    "speakerNote": false,
+    "bold": "Capacity of nickel-cadmium cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 56,
+    "speakerNote": false,
+    "bold": "1.2V/cell"
+  },
+  {
+    "deck": "battery",
+    "slide": 56,
+    "speakerNote": false,
+    "bold": "A 12 v battery would consist of 9 or 10 cells"
+  },
+  {
+    "deck": "battery",
+    "slide": 56,
+    "speakerNote": false,
+    "bold": "Only way to determine the actual condition of battery is to fully charge it and then discharge it at a specified rate to measure its amp-hour capacity"
+  },
+  {
+    "deck": "battery",
+    "slide": 56,
+    "speakerNote": false,
+    "bold": "charge"
+  },
+  {
+    "deck": "battery",
+    "slide": 57,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 57,
+    "speakerNote": false,
+    "bold": "Charging nickel-cadmium batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 57,
+    "speakerNote": false,
+    "bold": "Foaming of electrolyte"
+  },
+  {
+    "deck": "battery",
+    "slide": 58,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 58,
+    "speakerNote": false,
+    "bold": "Constant voltage charging"
+  },
+  {
+    "deck": "battery",
+    "slide": 59,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 59,
+    "speakerNote": false,
+    "bold": "Constant current charging"
+  },
+  {
+    "deck": "battery",
+    "slide": 59,
+    "speakerNote": false,
+    "bold": "steady current"
+  },
+  {
+    "deck": "battery",
+    "slide": 60,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 60,
+    "speakerNote": false,
+    "bold": "Foaming of electrolyte"
+  },
+  {
+    "deck": "battery",
+    "slide": 60,
+    "speakerNote": false,
+    "bold": "boric acid"
+  },
+  {
+    "deck": "battery",
+    "slide": 60,
+    "speakerNote": false,
+    "bold": "potassium carbonate This is caused by excessive gassing."
+  },
+  {
+    "deck": "battery",
+    "slide": 60,
+    "speakerNote": false,
+    "bold": "AFTERthey are charged"
+  },
+  {
+    "deck": "battery",
+    "slide": 61,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 61,
+    "speakerNote": false,
+    "bold": "Maintenance of ni-cad batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 62,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 62,
+    "speakerNote": false,
+    "bold": "Inspection"
+  },
+  {
+    "deck": "battery",
+    "slide": 62,
+    "speakerNote": false,
+    "bold": "CLEAN BEFORE INSPECTION"
+  },
+  {
+    "deck": "battery",
+    "slide": 63,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 63,
+    "speakerNote": false,
+    "bold": "Deep Cycling"
+  },
+  {
+    "deck": "battery",
+    "slide": 64,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 64,
+    "speakerNote": false,
+    "bold": "Electrical leak test"
+  },
+  {
+    "deck": "battery",
+    "slide": 65,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 65,
+    "speakerNote": false,
+    "bold": "Cell installation"
+  },
+  {
+    "deck": "battery",
+    "slide": 66,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 66,
+    "speakerNote": false,
+    "bold": "Main Connection"
+  },
+  {
+    "deck": "battery",
+    "slide": 67,
+    "speakerNote": false,
+    "bold": "Nickel-Cadmium Batteries"
+  },
+  {
+    "deck": "battery",
+    "slide": 67,
+    "speakerNote": false,
+    "bold": "Venting and Cooling"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "In this section we will learn:"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "What is magnetism and how does it work?"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "What are some magnetic devices that we use on the aircraft?  Why do we use them?"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "What is electromagnetic induction?  How can we use electromagnetic induction to create electricity?"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "What is electro-magnetic interference and what techniques are available to suppress it?"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "Reading Material:"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "FAA General section 12-8 to 12-16"
+  },
+  {
+    "deck": "induction",
+    "slide": 3,
+    "speakerNote": false,
+    "bold": "SWPM Manual"
+  },
+  {
+    "deck": "induction",
+    "slide": 6,
+    "speakerNote": false,
+    "bold": "Types of Magnets"
+  },
+  {
+    "deck": "induction",
+    "slide": 19,
+    "speakerNote": false,
+    "bold": "When electrical current passes through a conductor, it creates a magnetic field"
+  },
+  {
+    "deck": "induction",
+    "slide": 22,
+    "speakerNote": false,
+    "bold": "It allows a DC electrical device to reverse!!!!"
+  },
+  {
+    "deck": "induction",
+    "slide": 26,
+    "speakerNote": false,
+    "bold": "single"
+  },
+  {
+    "deck": "induction",
+    "slide": 30,
+    "speakerNote": false,
+    "bold": "AN ELECTROMAGNET"
+  },
+  {
+    "deck": "induction",
+    "slide": 31,
+    "speakerNote": false,
+    "bold": "Left Hand COILS"
+  },
+  {
+    "deck": "induction",
+    "slide": 39,
+    "speakerNote": false,
+    "bold": "core is fixed"
+  },
+  {
+    "deck": "induction",
+    "slide": 42,
+    "speakerNote": false,
+    "bold": "This voltage is called inductance."
+  },
+  {
+    "deck": "induction",
+    "slide": 44,
+    "speakerNote": false,
+    "bold": "Number of Turns"
+  },
+  {
+    "deck": "induction",
+    "slide": 45,
+    "speakerNote": false,
+    "bold": "Form Factor"
+  },
+  {
+    "deck": "induction",
+    "slide": 46,
+    "speakerNote": false,
+    "bold": "Permeability of the Core"
+  },
+  {
+    "deck": "induction",
+    "slide": 48,
+    "speakerNote": false,
+    "bold": "closer the inductors more lines of flux more voltage!"
+  },
+  {
+    "deck": "induction",
+    "slide": 46,
+    "speakerNote": true,
+    "bold": "concentration"
+  },
+  {
+    "deck": "generator",
+    "slide": 4,
+    "speakerNote": false,
+    "bold": "Explain Basic Generator Theory"
+  },
+  {
+    "deck": "generator",
+    "slide": 4,
+    "speakerNote": false,
+    "bold": "What is the Construction of a DC Generator?"
+  },
+  {
+    "deck": "generator",
+    "slide": 4,
+    "speakerNote": false,
+    "bold": "Explain Basic Generator Theory – Part 2 – DC"
+  },
+  {
+    "deck": "generator",
+    "slide": 4,
+    "speakerNote": false,
+    "bold": "How do we maintain DC Generators?"
+  },
+  {
+    "deck": "generator",
+    "slide": 4,
+    "speakerNote": false,
+    "bold": "Understand Voltage Regulation"
+  },
+  {
+    "deck": "generator",
+    "slide": 7,
+    "speakerNote": false,
+    "bold": "polarity"
+  },
+  {
+    "deck": "generator",
+    "slide": 13,
+    "speakerNote": false,
+    "bold": "alternating current."
+  },
+  {
+    "deck": "generator",
+    "slide": 21,
+    "speakerNote": false,
+    "bold": "voltage or current"
+  },
+  {
+    "deck": "generator",
+    "slide": 22,
+    "speakerNote": false,
+    "bold": "voltage or current"
+  },
+  {
+    "deck": "generator",
+    "slide": 29,
+    "speakerNote": false,
+    "bold": "slip rings and bushes, it is an AC generator"
+  },
+  {
+    "deck": "generator",
+    "slide": 30,
+    "speakerNote": false,
+    "bold": "split rings aka a commutator, it is a DC Generator"
+  },
+  {
+    "deck": "generator",
+    "slide": 37,
+    "speakerNote": false,
+    "bold": "are called windings"
+  },
+  {
+    "deck": "generator",
+    "slide": 40,
+    "speakerNote": false,
+    "bold": "parallel"
+  },
+  {
+    "deck": "generator",
+    "slide": 40,
+    "speakerNote": false,
+    "bold": "series"
+  },
+  {
+    "deck": "generator",
+    "slide": 42,
+    "speakerNote": false,
+    "bold": "wedge shaped copper separated by mica"
+  },
+  {
+    "deck": "generator",
+    "slide": 54,
+    "speakerNote": false,
+    "bold": "Field winding is connected in parallel with the load"
+  },
+  {
+    "deck": "generator",
+    "slide": 74,
+    "speakerNote": false,
+    "bold": "Voltage Regulation"
+  },
+  {
+    "deck": "generator",
+    "slide": 74,
+    "speakerNote": false,
+    "bold": "Current Limiter"
+  },
+  {
+    "deck": "generator",
+    "slide": 74,
+    "speakerNote": false,
+    "bold": "Reverse Current"
+  }
+]

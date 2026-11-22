@@ -1,3 +1,5 @@
+import { electricityBoldPractice } from "./electricityBoldPractice.js";
+import { structuresHardwareQuizParts } from "./structuresHardwareQuizzes.js";
 import { ataCodeQuestions, ataProgressKey } from "./ataCodePractice.js";
 import { mathTest2 } from "./mathTest2.js";
 import { mathTest2Extended } from "./mathTest2Extended.js";
@@ -32,6 +34,8 @@ import { gradeResistor } from "./resistorBands.js";
 const choice = (slug, course, module, title, questions, suffix, storageId) => ({ slug, course, courseSlug: course.toLowerCase(), title, questions, kind: "choice", basePath: `/study/${course.toLowerCase()}/${module}`, path: `/study/${course.toLowerCase()}/${module}/${suffix}`, storageId: storageId ?? `/study/${course.toLowerCase()}/${module}/${suffix}` });
 const typed = (slug, course, title, questions, number) => ({ ...choice(slug, course, "module-1", title, questions, `one-word-${number}`, `/study/${course.toLowerCase()}/module-1/practice-${number}`), kind: "typed" });
 export const dashboardTests = [
+  electricityBoldPractice,
+  ...structuresHardwareQuizParts,
   ...electricityModule2Parts,
   mathTest2,
   mathTest2Extended,
