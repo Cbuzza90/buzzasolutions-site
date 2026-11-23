@@ -78,10 +78,10 @@ export function StudyNotesGuide({ basePath, question, questionReferences }) {
     </dialog></>;
 }
 
-export default function CourseStudyNotes({ basePath: suppliedBasePath }) {
+export default function CourseStudyNotes({ basePath: suppliedBasePath, notesOverride, title = "Study notes" }) {
   const { pathname } = useLocation();
   const basePath = suppliedBasePath ?? pathname.replace(/\/notes\/?$/, "");
-  const notes = studyNotesByModule[basePath];
+  const notes = notesOverride ?? studyNotesByModule[basePath];
   if (!notes) return <section className="study-detail"><h1>Study notes not available yet</h1><p>This module needs its course review material before notes can be added.</p><Link className="study-primary" to="/">Courses</Link></section>;
-  return <section className="study-detail"><p className="study-eyebrow">{notes.course.toUpperCase()} · STUDY REFERENCE</p><h1>Study notes</h1><NotesContent notes={notes} /><div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> {notes.course} tests</Link></div></section>;
+  return <section className="study-detail"><p className="study-eyebrow">{notes.course.toUpperCase()} · STUDY REFERENCE</p><h1>{title}</h1><NotesContent notes={notes} /><div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> {notes.course} tests</Link></div></section>;
 }

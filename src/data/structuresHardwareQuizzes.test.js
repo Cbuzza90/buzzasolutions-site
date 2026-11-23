@@ -8,13 +8,12 @@ import { studyPracticeNavigation } from "../pages/studyPracticeNavigation.js";
 import { newPracticeAttempt, savePracticeAttempt, loadPracticeAttempt, recordHighestScore, loadHighestScore } from "../pages/practiceProgress.js";
 
 test("three hardware tests cover each readable quiz item and individually expand matching sets", () => {
-  assert.deepEqual(structuresHardwareQuizParts.map(part => part.questions.length), [37, 37, 47]);
+  assert.deepEqual(structuresHardwareQuizParts.map(part => part.questions.length), [36, 38, 40]);
   const ids = structuresHardwareQuizParts.flatMap(part => part.questions.map(q => q.id));
   assert.equal(new Set(ids).size, ids.length);
-  for (const [index, part] of structuresHardwareQuizParts.entries()) {
+  for (const part of structuresHardwareQuizParts) {
     const covered = new Set(part.questions.map(q => Number(q.source.question.split("-")[0])));
     for (let number = 1; number <= 30; number++) {
-      if ((index === 1 && number === 1) || (index === 2 && number === 25)) continue;
       assert.ok(covered.has(number), `${part.title}: source question ${number}`);
     }
     for (const q of part.questions) {
@@ -31,11 +30,17 @@ test("three hardware tests cover each readable quiz item and individually expand
   assert.ok(hardwareQuizSourceIssues.some(([label]) => label.includes("AN75-3")));
   assert.ok(hardwareQuizSourceIssues.some(([label]) => label.includes("AN392-6")));
   const question = (deck, number) => structuresHardwareQuizParts[deck].questions.find(q => q.source.question === number);
-  assert.equal(question(1, "11").options[0], "5/16 inch");
+  assert.equal(question(1, "26").options[0], "5/16 inch");
   assert.match(question(0, "3").prompt, /grip length/);
-  assert.equal(question(1, "3").options[0], "AN355 slotted engine nut");
-  assert.equal(question(2, "10").options[0], "AN505");
-  assert.equal(question(2, "29").options[0], "AN507");
+  assert.equal(question(0, "15-b").options[0], "Crest");
+  assert.equal(question(0, "15-c").options[0], "Root");
+  assert.equal(question(0, "1-cc").options[0], "Corrosion resistant");
+  assert.equal(question(1, "2").options[0], "5/16 inch");
+  assert.equal(question(2, "11").options[0], "3/16 inch");
+  assert.match(question(2, "11").explanation, /conflict|conflicts/);
+  assert.equal(question(1, "16").options[0], "AN355 slotted engine nut");
+  assert.equal(question(2, "18").options[0], "AN505");
+  assert.equal(question(2, "19").options[0], "AN507");
 });
 
 test("new hardware routes participate in notes, dashboard, reset navigation and independent saved attempts", () => {

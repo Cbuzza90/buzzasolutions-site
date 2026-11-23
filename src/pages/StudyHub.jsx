@@ -1,7 +1,7 @@
+import { structuresSizingGuide } from "../data/structuresSizingGuide.js";
 import TechPubPractice, { TechPubTestList, TechPubWorksheetPractice, TechPubMediumPractice } from "./TechPubPractice";
 import AtaStudySheet from "./AtaStudySheet";
 import SafetyModule2Practice, { SafetyModule2TestList } from "./SafetyModule2Practice";
-import CotterPinPractice from "./CotterPinPractice";
 import { studyPracticeNavigation } from "./studyPracticeNavigation.js";
 import { ElectricityWordPractice, SystemsWordPractice, SystemsAppliedWordPractice } from "./WordAnswerPractice";
 import { useEffect, useState } from "react";
@@ -17,12 +17,10 @@ import StudyFeedback from "./StudyFeedback";
 import StudyWelcome from "./StudyWelcome";
 import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
-import StructuresModule2Practice from "./StructuresModule2Practice";
 import StructuresHardwareQuiz from "./StructuresHardwareQuiz";
 import { AerodynamicsTestList, AerodynamicsPartPractice, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
 import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
-import MeasuringToolsPractice from "./MeasuringToolsPractice";
-import StructuresTorquePractice, { StructuresTestList } from "./StructuresTorquePractice";
+import { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
 import MathTest2Practice, { MathTest2List } from "./MathTest2Practice";
 import SystemsMixedPractice from "./SystemsMixedPractice";
@@ -179,16 +177,17 @@ export default function StudyHub() {
         <Route path="/study/safety/human-factors/practice-1" element={<HumanFactorsPractice />} />
         <Route path="/study/safety/module-1/practice-3" element={<SafetyPractice key="practice-3" testNumber={3} />} />
         <Route path="/study/safety/module-1/recall" element={<Navigate to="/study/safety/module-1/practice-3" replace />} />
+        <Route path="/study/structures/module-2/hardware-sizing-notes" element={<CourseStudyNotes basePath="/study/structures/module-2" notesOverride={structuresSizingGuide} title="Diameter & Length Guide" />} />
         <Route path="/study/structures/module-2" element={<StructuresTestList />} />
         <Route path="/study/structures/module-1" element={<Navigate to="/study/structures/module-2" replace />} />
         <Route path="/study/structures/module-1/notes" element={<Navigate to="/study/structures/module-2/notes" replace />} />
         <Route path="/study/structures/module-2/practice-3" element={<StructuresHardwareQuiz presentation={5} />} />
         <Route path="/study/structures/module-2/practice-4" element={<StructuresHardwareQuiz presentation={6} />} />
         <Route path="/study/structures/module-2/practice-5" element={<StructuresHardwareQuiz presentation={7} />} />
-        <Route path="/study/structures/module-2/practice-2" element={<StructuresModule2Practice />} />
-        <Route path="/study/structures/module-2/practice-1" element={<MeasuringToolsPractice />} />
-        <Route path="/study/structures/module-2/cotter-pin-sizing" element={<CotterPinPractice />} />
-        <Route path="/study/structures/module-2/torque-bolt-nut" element={<StructuresTorquePractice />} />
+        <Route path="/study/structures/module-2/practice-2" element={<Navigate to="/study/structures/module-2" replace />} />
+        <Route path="/study/structures/module-2/practice-1" element={<Navigate to="/study/structures/module-2" replace />} />
+        <Route path="/study/structures/module-2/cotter-pin-sizing" element={<Navigate to="/study/structures/module-2" replace />} />
+        <Route path="/study/structures/module-2/torque-bolt-nut" element={<Navigate to="/study/structures/module-2" replace />} />
         <Route path="/study/structures/module-1/torque-bolt-nut" element={<Navigate to="/study/structures/module-2/torque-bolt-nut" replace />} />
         <Route path="/study/structures/module-1/practice-1" element={<Navigate to="/study/systems/module-1/practice-2" replace />} />
         <Route path="/study/systems/module-1" element={<SystemsTestList />} />

@@ -20,11 +20,7 @@ test("Measuring Tools has independently saved source-mapped questions and origin
     assert.equal(diagram.crop.width, diagram.crop.imageWidth);
     assert.equal(diagram.crop.height, diagram.crop.imageHeight);
   }
-  const entry = dashboardTests.find(t => t.slug === "measuring-tools");
-  assert.equal(entry.questions, measuringToolsQuestions);
-  assert.equal(entry.basePath, "/study/structures/module-2");
-  assert.equal(entry.storageId, "/study/structures/module-2/practice-1:concepts");
-  assert.notEqual(entry.storageId, dashboardTests.find(t => t.slug === "torque").storageId);
+  assert.ok(!dashboardTests.some(t => t.slug === "measuring-tools" || t.slug === "torque"));
 });
 
 test("Measuring Tools notes explain every micrometer part, retain source qualifications and support nested diagrams", () => {

@@ -41,7 +41,7 @@ export const practiceBanksByModule = {
   "/study/safety/module-1": [safety1, safety2, safety3],
   "/study/electricity/module-1": [electricitySource, electricityEasyQuestions, electricityRecallQuestions],
   "/study/systems/module-1": [systemsHydraulicsQuestions, systemsMixedQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions],
-  "/study/structures/module-2": [torquePracticeQuestions, measuringToolsQuestions, structuresPostedQuestions, cotterPinQuestions, ...structuresHardwareQuizParts.map(part => part.questions)],
+  "/study/structures/module-2": [...structuresHardwareQuizParts.map(part => part.questions)],
 };
 
 function referenceText(question) {

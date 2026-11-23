@@ -8,7 +8,6 @@ import { safetyModule2Parts } from "./safetyModule2.js";
 import { safetyEasyReviewParts } from "./safetyEasyReview.js";
 import { safetyTest2Review } from "./safetyTest2Review.js";
 import { techPubWorksheetQuestions, techPubMediumQuestions, techPubMediumProgressKey } from "./techPubWorksheetPractice.js";
-import { cotterPinQuestions, cotterPinProgressKey } from "./cotterPinPractice.js";
 import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
@@ -22,10 +21,6 @@ import { systemsHydraulicsQuestions } from "./systemsHydraulics.js";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
 import { systemsModule2Parts } from "./systemsModule2.js";
 import { electricityRecallQuestions, systemsRecallQuestions, systemsAppliedRecallQuestions } from "./typedReviewQuestions.js";
-import { structuresPostedQuestions, structuresPostedProgressKey } from "./structuresPostedPractice.js";
-import { measuringToolsProgressKey } from "../pages/measuringToolsProgress.js";
-import { measuringToolsQuestions } from "./measuringToolsPractice.js";
-import { torquePracticeQuestions } from "./chartTorquePractice.js";
 import { readPracticeRecord, restorePracticeAttempt, loadHighestScore } from "../pages/practiceProgress.js";
 import { restoreTypedAttempt, loadTypedBest, gradeTypedAnswer } from "../pages/typedPracticeLogic.js";
 import { restoreResistorAttempt, loadResistorBest, resistorTestId } from "../pages/resistorPracticeLogic.js";
@@ -60,10 +55,6 @@ export const dashboardTests = [
   choice("systems-2", "Systems", "module-1", "Applied review · Multiple choice", systemsMixedQuestions, "practice-2"),
   typed("systems-word-1", "Systems", "Hydraulics · One-word recall", systemsRecallQuestions, 1),
   typed("systems-word-2", "Systems", "Applied review · One-word recall", systemsAppliedRecallQuestions, 2),
-  choice("structures-posted-review", "Structures", "module-2", "Posted Quiz Practice", structuresPostedQuestions, "practice-2", structuresPostedProgressKey),
-  choice("measuring-tools", "Structures", "module-2", "Measuring Tools", measuringToolsQuestions, "practice-1", measuringToolsProgressKey),
-  { ...choice("cotter-pin-sizing", "Structures", "module-2", "Cotter-Pin Diameter & Length", cotterPinQuestions, "cotter-pin-sizing", cotterPinProgressKey), count:20 },
-  { ...choice("torque", "Structures", "module-2", "Torque bolt/nut practice", torquePracticeQuestions, "torque-bolt-nut", "/study/structures/module-1/torque-bolt-nut:20:chart-pools"), count: 20 },
   { slug: "resistors", course: "Electricity", courseSlug: "electricity", title: "Resistor band calculations", kind: "resistor", basePath: "/study/electricity/module-1", path: resistorTestId, storageId: resistorTestId },
 ];
 export function savedTestSummary(test, storage) {

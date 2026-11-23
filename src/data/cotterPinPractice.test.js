@@ -44,11 +44,11 @@ test("each shuffled 20-question attempt has ten diameter and ten length question
   assert.equal(loadHighestScore(questions,cotterPinProgressKey,storage,20).score,18);
   assert.equal(loadHighestScore(questions,cotterPinProgressKey,storage,20).total,20);
 });
-test("cotter calculations and each question are searchable in Structures notes, with navigation/dashboard support",()=>{
+test("retired cotter test is absent from recommendations and active question references",()=>{
   const notes=studyNotesByModule["/study/structures/module-2"];
-  for(const q of questions) assert.ok(findNoteSections(notes.sections,q.prompt).flatMap(s=>s.items).some(([label,text])=>label===q.prompt && text.includes(q.explanation)),q.id);
+  assert.ok(!notes.sections.some(section=>section.questionReference && section.items.some(([label])=>label===questions[0].prompt)));
   for(const term of ["cotter-pin diameter","second size code","mixed number","length code -1","AN381"]) assert.ok(findNoteSections(notes.sections,term).some(s=>!s.questionReference),term);
   const entry=dashboardTests.find(t=>t.storageId===cotterPinProgressKey);
-  assert.equal(entry.path,cotterPinPath);assert.equal(entry.count,20);
+  assert.equal(entry,undefined);
   assert.deepEqual(studyPracticeNavigation(cotterPinPath),{onPractice:true,testsPath:"/study/structures/module-2"});
 });

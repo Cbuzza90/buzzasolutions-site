@@ -24,14 +24,8 @@ test("full Structures pool maps all five course decks and selects eight unique q
   for (const diagram of Object.values(structuresModule2Diagrams)) assert.ok(existsSync(new URL(`../../public${diagram.src}`, import.meta.url)));
 });
 
-test("every posted-quiz question is searchable in the exact module notes", () => {
+test("source-based module notes remain searchable after the old quizzes are retired", () => {
   const notes = studyNotesByModule[path];
-  for (const q of structuresPostedQuestions) {
-    const items = findNoteSections(notes.sections, q.prompt).flatMap(section => section.items);
-    const answers = items.filter(item => item[0] === q.prompt && item[1].includes(q.explanation));
-    assert.equal(answers.length, 1, q.id);
-    assert.ok(answers[0][1].includes(q.options[q.correctIndex]), q.id);
-  }
   for (const term of ["swage terminal", "tensiometer", "6–8", "AN310", "AN320", "AN364", "AN365", "AN935", "AN936", "AN385", "AN386", "Dzus", "Camloc", "Airloc", "single wrap straight", "double wrap spiral", "AS and AMS"]) {
     assert.ok(findNoteSections(notes.sections, term).some(section => !section.questionReference), term);
   }
@@ -50,13 +44,13 @@ test("all pasted safety-quiz facts have slide-backed answers and uncertain blank
   assert.ok(!structuresHardwareQuestions.some(q => /what.*temperature.*NAS679|proves.*properly torqued/i.test(q.prompt)));
 });
 
-test("posted quiz replaces the full review and keeps progress independent from its old scores", () => {
+test("retired posted-quiz records retain their scores without advertising the old test", () => {
   assert.equal(structuresPostedQuestions.length, 26);
   assert.equal(new Set(structuresPostedQuestions.map(q => q.id)).size, 26);
   assert.ok(structuresPostedQuestions.every(q => q.postedSource && !["bolts", "nuts", "screws-pins"].includes(q.category)));
   assert.ok(!dashboardTests.some(t => t.slug === "structures-full-review"));
-  const record = dashboardTests.find(t => t.slug === "structures-posted-review");
-  assert.equal(record.storageId, structuresPostedProgressKey);
+  assert.ok(!dashboardTests.some(t => t.slug === "structures-posted-review"));
+  const record = { storageId: structuresPostedProgressKey };
   const values = new Map();
   const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
   const oldKey = `${path}/practice-2:40`;

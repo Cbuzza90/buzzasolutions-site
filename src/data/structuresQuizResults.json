@@ -1,0 +1,2474 @@
+[
+  [
+    {
+      "id": "structures-quiz-v2-1-1-dd",
+      "prompt": "What do DD indicate in the course's AN bolt part numbers?",
+      "options": [
+        "Aluminum alloy",
+        "Corrosion-resistant steel",
+        "Drilled head",
+        "Undrilled threaded shank"
+      ],
+      "correctIndex": 0,
+      "explanation": "DD: The material letters identifying aluminum alloy in the AN bolt examples. (Hardware – Bolts and Threaded Fasteners, slides 35, 41.)",
+      "source": {
+        "quiz": 1,
+        "question": "1-dd",
+        "previousScreenshotQuestion": "1-dd",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-1-a",
+      "prompt": "What does the A suffix indicate in an AN bolt part number?",
+      "options": [
+        "No hole in the threaded shank",
+        "A drilled head",
+        "Aluminum alloy",
+        "Corrosion-resistant steel"
+      ],
+      "correctIndex": 0,
+      "explanation": "A: The suffix in the illustrated AN bolt designations indicating no cotter-pin hole in the threaded shank. (Hardware – Bolts and Threaded Fasteners, slides 36, 41, 43.)",
+      "source": {
+        "quiz": 1,
+        "question": "1-a",
+        "previousScreenshotQuestion": "1-a",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-1-h",
+      "prompt": "What does H indicate in an AN bolt part number?",
+      "options": [
+        "A drilled head",
+        "No hole in the head",
+        "A drilled threaded shank only",
+        "Aluminum alloy"
+      ],
+      "correctIndex": 0,
+      "explanation": "H: The letter in an AN bolt designation that indicates a drilled head. (Hardware – Bolts and Threaded Fasteners, slides 36, 41.)",
+      "source": {
+        "quiz": 1,
+        "question": "1-h",
+        "previousScreenshotQuestion": "1-h",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-1-cc",
+      "prompt": "In the supplied matching key, what does CC represent?",
+      "options": [
+        "Corrosion resistant",
+        "Aluminum alloy",
+        "Hole in the head",
+        "No hole in threads"
+      ],
+      "correctIndex": 0,
+      "explanation": "The supplied graded matching key gives CC = corrosion resistant. Later questions and the course AN designation examples use C. This question follows the matching-key wording; do not generalize CC into every AN part-number specification.",
+      "source": {
+        "quiz": 1,
+        "question": "1-cc",
+        "previousScreenshotQuestion": "23",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-2",
+      "prompt": "In the course's five-class fit chart, what is a Class 5 fit?",
+      "options": [
+        "Interference fit",
+        "Medium fit",
+        "Free fit",
+        "Loose fit"
+      ],
+      "correctIndex": 0,
+      "explanation": "Class 5: In the course's historical five-class model: a tight interference fit requiring a wrench for turning. (Hardware – Bolts and Threaded Fasteners, slide 23.)",
+      "source": {
+        "quiz": 1,
+        "question": "2",
+        "previousScreenshotQuestion": "2",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-3",
+      "prompt": "What is the grip length of NAS1106-15?",
+      "options": [
+        "15/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1106-15: grip length = 15/16 inch. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "3",
+        "previousScreenshotQuestion": "3",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-4",
+      "prompt": "What is the diameter of AN5-6A?",
+      "options": [
+        "5/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN5-6A: diameter = 5/16 inch. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "4",
+        "previousScreenshotQuestion": "4",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-5",
+      "prompt": "What is the diameter of NAS1103-5?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1103-5: diameter = 3/16 inch. The NAS1103 family is the 3/16-inch example in both the bolt quiz and the marked nut-quiz review. The dash number is not diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "5",
+        "previousScreenshotQuestion": "5",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-6",
+      "prompt": "What does MS stand for in aircraft hardware?",
+      "options": [
+        "Military Standard",
+        "Material Specification",
+        "Metric Screw",
+        "Maintenance Schedule"
+      ],
+      "correctIndex": 0,
+      "explanation": "MS means Military Standard in the course hardware list. (Hardware – Bolts and Threaded Fasteners, slide 6.)",
+      "source": {
+        "quiz": 1,
+        "question": "6",
+        "previousScreenshotQuestion": "6",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-7",
+      "prompt": "What is the bottom of the groove between the flanks of a bolt thread?",
+      "options": [
+        "Root",
+        "Crest",
+        "Major diameter",
+        "Pitch"
+      ],
+      "correctIndex": 0,
+      "explanation": "Root: The bottom of the groove between adjacent thread flanks. (Hardware – Bolts and Threaded Fasteners, slide 26.)",
+      "source": {
+        "quiz": 1,
+        "question": "7",
+        "previousScreenshotQuestion": "7",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-8",
+      "prompt": "What is the diameter and grip of NAS1103-06?",
+      "options": [
+        "3/16 inch diameter; 3/8 inch grip",
+        "3/32 inch diameter; 3/16 inch grip",
+        "3/8 inch diameter; 3/16 inch grip",
+        "3/16 inch diameter; 3/32 inch grip"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1103-06: diameter and grip = 3/16 inch diameter; 3/8 inch grip. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "8",
+        "previousScreenshotQuestion": "8",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-9",
+      "prompt": "What type of bolt has a triangle marking on its head?",
+      "options": [
+        "Close-tolerance bolt",
+        "Low-strength bolt",
+        "Aluminum-alloy bolt",
+        "Standard AN steel bolt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Triangle: The course head marking for a close-tolerance bolt. (Hardware – Bolts and Threaded Fasteners, slides 34, 35.)",
+      "source": {
+        "quiz": 1,
+        "question": "9",
+        "previousScreenshotQuestion": "9",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-10",
+      "prompt": "What is the distance between corresponding points on two adjacent threads?",
+      "options": [
+        "Pitch",
+        "Major diameter",
+        "Crest",
+        "Root"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pitch: The distance between corresponding points on adjacent threads. (Hardware – Bolts and Threaded Fasteners, slide 24.)",
+      "source": {
+        "quiz": 1,
+        "question": "10",
+        "previousScreenshotQuestion": "10",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-11",
+      "prompt": "What is the diameter and length of AN4H-3?",
+      "options": [
+        "1/4 inch diameter; 3/8 inch length",
+        "1/2 inch diameter; 3/16 inch length",
+        "3/16 inch diameter; 1/2 inch length",
+        "1/8 inch diameter; 3/32 inch length"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN4H-3: diameter and length = 1/4 inch diameter; 3/8 inch length. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. H describes the head drilling. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "11",
+        "previousScreenshotQuestion": "11",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-12",
+      "prompt": "Which term matches this description?\nThe suffix in the illustrated AN bolt designations indicating no cotter-pin hole in the threaded shank.",
+      "options": [
+        "A",
+        "C",
+        "DD",
+        "H"
+      ],
+      "correctIndex": 0,
+      "explanation": "A: The suffix in the illustrated AN bolt designations indicating no cotter-pin hole in the threaded shank. (Hardware – Bolts and Threaded Fasteners, slides 36, 41, 43.)",
+      "source": {
+        "quiz": 1,
+        "question": "12",
+        "previousScreenshotQuestion": "12",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-13",
+      "prompt": "What is the diameter and grip of NAS1404-7?",
+      "options": [
+        "1/4 inch diameter; 7/16 inch grip",
+        "1/8 inch diameter; 7/32 inch grip",
+        "7/16 inch diameter; 1/4 inch grip",
+        "3/8 inch diameter; 7/8 inch grip"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1404-7: diameter and grip = 1/4 inch diameter; 7/16 inch grip. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "13",
+        "previousScreenshotQuestion": "13",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-14",
+      "prompt": "What is the diameter and length of AN8-21A?",
+      "options": [
+        "1/2 inch diameter; 2 1/8 inches length",
+        "1/4 inch diameter; 2 1/16 inches length",
+        "3/16 inch diameter; 2 1/2 inches length",
+        "1/4 inch diameter; 2 1/32 inches length"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN8-21A: diameter and length = 1/2 inch diameter; 2 1/8 inches length. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "14",
+        "previousScreenshotQuestion": "14",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-15-a",
+      "prompt": "In the supplied thread diagram, what does A identify?",
+      "options": [
+        "Thread angle",
+        "Root",
+        "Crest",
+        "Minor diameter"
+      ],
+      "correctIndex": 0,
+      "explanation": "The two lines span the angle between the thread flanks, rather than measuring a diameter or spacing.",
+      "source": {
+        "quiz": 1,
+        "question": "15-a",
+        "previousScreenshotQuestion": "15-a",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/thread-labels.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 741,
+          "height": 397,
+          "imageWidth": 741,
+          "imageHeight": 397
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-15-e",
+      "prompt": "In the supplied thread diagram, what does E identify?",
+      "options": [
+        "Major diameter",
+        "Thread angle",
+        "Root",
+        "Crest"
+      ],
+      "correctIndex": 0,
+      "explanation": "E spans the crest-to-crest diameter, the larger external thread diameter.",
+      "source": {
+        "quiz": 1,
+        "question": "15-e",
+        "previousScreenshotQuestion": "15-e",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/thread-labels.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 741,
+          "height": 397,
+          "imageWidth": 741,
+          "imageHeight": 397
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-15-c",
+      "prompt": "In the supplied thread diagram, what does C identify?",
+      "options": [
+        "Root",
+        "Thread angle",
+        "Major diameter",
+        "Crest"
+      ],
+      "correctIndex": 0,
+      "explanation": "C points to the bottom of the groove between thread flanks. The newly supplied graded key and the original diagram agree: B = crest; C = root. This corrects the earlier practice mapping.",
+      "source": {
+        "quiz": 1,
+        "question": "15-c",
+        "previousScreenshotQuestion": "15-c",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/thread-labels.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 741,
+          "height": 397,
+          "imageWidth": 741,
+          "imageHeight": 397
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-15-b",
+      "prompt": "In the supplied thread diagram, what does B identify?",
+      "options": [
+        "Crest",
+        "Thread angle",
+        "Major diameter",
+        "Root"
+      ],
+      "correctIndex": 0,
+      "explanation": "B points to the raised outer tip of the external thread. The newly supplied graded key and the original diagram agree: B = crest; C = root. This corrects the earlier practice mapping.",
+      "source": {
+        "quiz": 1,
+        "question": "15-b",
+        "previousScreenshotQuestion": "15-b",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/thread-labels.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 741,
+          "height": 397,
+          "imageWidth": 741,
+          "imageHeight": 397
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-16",
+      "prompt": "What tool installs or removes an internal-wrenching bolt?",
+      "options": [
+        "Allen key / hex wrench",
+        "Clevis pin",
+        "Cotter pin",
+        "Lock clip"
+      ],
+      "correctIndex": 0,
+      "explanation": "The internal-wrenching bolt uses a hex wrench or Allen key. (Hardware – Bolts and Threaded Fasteners, slides 57, 58.)",
+      "source": {
+        "quiz": 1,
+        "question": "16",
+        "previousScreenshotQuestion": "16",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-17",
+      "prompt": "Which term matches this description?\nThe material letters identifying aluminum alloy in the AN bolt examples.",
+      "options": [
+        "DD",
+        "H",
+        "A",
+        "C"
+      ],
+      "correctIndex": 0,
+      "explanation": "DD: The material letters identifying aluminum alloy in the AN bolt examples. (Hardware – Bolts and Threaded Fasteners, slides 35, 41.)",
+      "source": {
+        "quiz": 1,
+        "question": "17",
+        "previousScreenshotQuestion": "17",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-18",
+      "prompt": "Which head marking identifies an aluminum-alloy AN bolt in the course?",
+      "options": [
+        "Double dash",
+        "Single dash",
+        "Triangle",
+        "Cross"
+      ],
+      "correctIndex": 0,
+      "explanation": "Double dash: The course head marking for an aluminum-alloy bolt. (Hardware – Bolts and Threaded Fasteners, slides 34, 35.)",
+      "source": {
+        "quiz": 1,
+        "question": "18",
+        "previousScreenshotQuestion": "18",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-19",
+      "prompt": "What is the length of AN6-10A?",
+      "options": [
+        "1 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN6-10A: length = 1 inch. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "19",
+        "previousScreenshotQuestion": "19",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-20",
+      "prompt": "What is the diameter of AN3-5?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN3-5: diameter = 3/16 inch. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "20",
+        "previousScreenshotQuestion": "20",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-21",
+      "prompt": "What does AN stand for in the supplied hardware standards list?",
+      "options": [
+        "Army Navy",
+        "Aircraft Number",
+        "Aerospace National",
+        "Approved Nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "The supplied main slide list expands AN as Army Navy. Historical naming variants appear in older notes; the quiz specifies this course list. (Hardware – Bolts and Threaded Fasteners, slide 6.)",
+      "source": {
+        "quiz": 1,
+        "question": "21",
+        "previousScreenshotQuestion": "21",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-22",
+      "prompt": "Which term matches this description?\nThe letter in an AN bolt designation that indicates a drilled head.",
+      "options": [
+        "H",
+        "A",
+        "C",
+        "DD"
+      ],
+      "correctIndex": 0,
+      "explanation": "H: The letter in an AN bolt designation that indicates a drilled head. (Hardware – Bolts and Threaded Fasteners, slides 36, 41.)",
+      "source": {
+        "quiz": 1,
+        "question": "22",
+        "previousScreenshotQuestion": "22",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-23",
+      "prompt": "What does C indicate in the AN bolt examples?",
+      "options": [
+        "Corrosion-resistant steel",
+        "Aluminum alloy",
+        "Drilled threads",
+        "Drilled head"
+      ],
+      "correctIndex": 0,
+      "explanation": "C: The material letter identifying corrosion-resistant steel in the AN bolt examples. (Hardware – Bolts and Threaded Fasteners, slides 35, 41.)",
+      "source": {
+        "quiz": 1,
+        "question": "23",
+        "previousScreenshotQuestion": "23",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-24",
+      "prompt": "What increments are used for the remaining fractional inch in the course AN bolt length examples?",
+      "options": [
+        "1/8 inch",
+        "1/32 inch",
+        "1/16 inch",
+        "1/4 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length.",
+      "source": {
+        "quiz": 1,
+        "question": "24",
+        "previousScreenshotQuestion": "24",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-25",
+      "prompt": "What does grip length refer to on a bolt?",
+      "options": [
+        "Length of the unthreaded portion",
+        "Overall length including the head",
+        "Length of the threaded portion",
+        "Shank diameter"
+      ],
+      "correctIndex": 0,
+      "explanation": "Grip length: The length of the unthreaded portion of a bolt. (Hardware – Bolts and Threaded Fasteners, slide 40.)",
+      "source": {
+        "quiz": 1,
+        "question": "25",
+        "previousScreenshotQuestion": "25",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-26",
+      "prompt": "What is the diameter and length of AN6-21?",
+      "options": [
+        "3/8 inch diameter; 2 1/8 inches length",
+        "1/8 inch diameter; 2 1/32 inches length",
+        "3/16 inch diameter; 2 1/8 inches length",
+        "1/2 inch diameter; 21/32 inch length"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN6-21: diameter and length = 3/8 inch diameter; 2 1/8 inches length. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 1,
+        "question": "26",
+        "previousScreenshotQuestion": "26",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-27",
+      "prompt": "What increments identify AN bolt shank diameter in the course?",
+      "options": [
+        "1/16 inch",
+        "1/4 inch",
+        "1/32 inch",
+        "1/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter.",
+      "source": {
+        "quiz": 1,
+        "question": "27",
+        "previousScreenshotQuestion": "27",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-28",
+      "prompt": "Which course-listed aircraft publication identifies the specified hardware part number?",
+      "options": [
+        "Illustrated Parts Catalog (IPC)",
+        "Naval Aircraft Factory standards list",
+        "A generic wrench-size chart",
+        "A retail fastener catalogue"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use applicable maintenance data and the illustrated parts catalog for the correct hardware. (Hardware – Bolts and Threaded Fasteners, slide 60.)",
+      "source": {
+        "quiz": 1,
+        "question": "28",
+        "previousScreenshotQuestion": "28",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-29",
+      "prompt": "What drilling does the course's AN6-12 example have?",
+      "options": [
+        "A cotter-pin hole in the threaded shank",
+        "An A suffix indicating no shank hole",
+        "An H code indicating head drilling",
+        "Both an A suffix and an H code"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN6-12 has no A suffix, so the course identifies a drilled threaded shank. H would identify a drilled head; A would indicate no cotter-pin hole in the threaded shank.",
+      "source": {
+        "quiz": 1,
+        "question": "29",
+        "previousScreenshotQuestion": "29",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-1-30",
+      "prompt": "Identify the unthreaded hardware shown in the bolt-quiz review.",
+      "options": [
+        "Clevis pin",
+        "Cotter pin",
+        "AN hex-head bolt",
+        "Internal-wrenching bolt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Clevis pin: A headed pin with a transverse cotter-pin hole, used where a secured pivot connection is required. (Hardware – Screws, Pins, Turn Lock Fasteners, slides 20, 22.)",
+      "source": {
+        "quiz": 1,
+        "question": "30",
+        "previousScreenshotQuestion": "30",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Bolts & Threaded Hardware"
+      },
+      "diagram": {
+        "src": "/structures/module-2/clevis-pin.jpg",
+        "alt": "Headed unthreaded pin with a transverse retaining hole and dimension arrows",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 253,
+          "height": 112,
+          "imageWidth": 253,
+          "imageHeight": 112
+        }
+      }
+    }
+  ],
+  [
+    {
+      "id": "structures-quiz-v2-2-1",
+      "prompt": "What is the length of AN3-20?",
+      "options": [
+        "2 inches",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN3-20: length = 2 inches. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "1",
+        "previousScreenshotQuestion": "19",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-2",
+      "prompt": "According to the supplied quiz key, what diameter is listed for AN 75-3?",
+      "options": [
+        "5/16 inch",
+        "5/32 inch",
+        "3/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "The graded quiz key explicitly lists 5/16 inch for the printed AN 75-3 example. The designation is unclear and does not establish a general AN75 decoding rule. Treat this as a reported quiz-key value pending a corrected part number, not as an instruction to substitute AN5-3.",
+      "source": {
+        "quiz": 2,
+        "question": "2",
+        "previousScreenshotQuestion": "11",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-3",
+      "prompt": "What is the diameter and length of AN4-7A?",
+      "options": [
+        "1/4 inch diameter; 7/8 inch length",
+        "7/16 inch diameter; 1/2 inch length",
+        "1/2 inch diameter; 7/32 inch length",
+        "7/32 inch diameter; 1/4 inch length"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN4-7A: diameter and length = 1/4 inch diameter; 7/8 inch length. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "3",
+        "previousScreenshotQuestion": "23",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-4",
+      "prompt": "What is the nominal fastener diameter of AN960PD-616 plain washer?",
+      "options": [
+        "3/8 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960PD-616 plain washer: nominal fastener diameter = 3/8 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "4",
+        "previousScreenshotQuestion": "6",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-5",
+      "prompt": "Identify the nut in the supplied quiz illustration.",
+      "options": [
+        "AN320 shear castle nut",
+        "AN310 castle nut",
+        "AN315 plain nut",
+        "AN316 check nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN320 shear castle nut: A thinner castellated nut requiring a cotter pin and intended for shear loads only. (Hardware – Nuts and Washers, slides 6, 9.)",
+      "source": {
+        "quiz": 2,
+        "question": "5",
+        "previousScreenshotQuestion": "27",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/shear-castle.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 154,
+          "height": 347,
+          "imageWidth": 154,
+          "imageHeight": 347
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-6",
+      "prompt": "Which listed nut requires a cotter pin for safetying?",
+      "options": [
+        "AN355",
+        "AN315",
+        "NAS679",
+        "AN316"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN355 slotted engine nut: An engine nut with cotter-pin slots, described for engine rather than airframe use. (Hardware – Nuts and Washers, slides 6, 15.)",
+      "source": {
+        "quiz": 2,
+        "question": "6",
+        "previousScreenshotQuestion": "8",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-7",
+      "prompt": "For the course's non-chamfered bolt example, how many threads project beyond a properly engaged self-locking nut?",
+      "options": [
+        "1–3",
+        "2–7",
+        "0",
+        "3–5"
+      ],
+      "correctIndex": 0,
+      "explanation": "The course gives one to three projecting threads for the illustrated non-chamfered bolt and complete chamfer projection for chamfered bolts. Apply the specified installation requirements. (Hardware – Nuts and Washers, slide 18.)",
+      "source": {
+        "quiz": 2,
+        "question": "7",
+        "previousScreenshotQuestion": "24",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-8",
+      "prompt": "Identify the nut plate in this supplied photograph.",
+      "options": [
+        "Floating nut plate",
+        "Fixed nut plate",
+        "Tinnerman nut",
+        "Fixed corner nut plate"
+      ],
+      "correctIndex": 0,
+      "explanation": "The nut is retained in a cage that permits limited movement for alignment with the screw. That movement distinguishes this floating assembly from the rigid fixed nut plate in the other photograph.",
+      "source": {
+        "quiz": 2,
+        "question": "8",
+        "previousScreenshotQuestion": "21",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/floating-nutplate.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 343,
+          "height": 256,
+          "imageWidth": 343,
+          "imageHeight": 256
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-9",
+      "prompt": "Identify the nut plate in the supplied photograph.",
+      "options": [
+        "Fixed nut plate",
+        "Floating nut plate",
+        "Tinnerman anchor nut",
+        "Fixed corner nut plate"
+      ],
+      "correctIndex": 0,
+      "explanation": "The threaded nut is fixed to the two-lug mounting plate. Unlike the floating example, there is no separate movable nut in a retaining cage. The plate provides fastening access where the back of a joint is restricted.",
+      "source": {
+        "quiz": 2,
+        "question": "9",
+        "previousScreenshotQuestion": "9",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/fixed-nutplate.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 352,
+          "height": 221,
+          "imageWidth": 352,
+          "imageHeight": 221
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-10",
+      "prompt": "Identify the nut in the supplied quiz illustration.",
+      "options": [
+        "AN365 fibre self-locking nut",
+        "AN310 castle nut",
+        "AN320 shear castle nut",
+        "AN315 plain nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN365 fibre self-locking nut: A low-temperature nylon-insert nut described for tension or shear loads, with a course limit below 250°F. (Hardware – Nuts and Washers, slides 16, 21.)",
+      "source": {
+        "quiz": 2,
+        "question": "10",
+        "previousScreenshotQuestion": "2",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/fibre-nut.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 267,
+          "height": 203,
+          "imageWidth": 267,
+          "imageHeight": 203
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-11",
+      "prompt": "Identify the nut in the supplied quiz illustration.",
+      "options": [
+        "AN310 castle nut",
+        "AN320 shear castle nut",
+        "AN315 plain nut",
+        "AN316 check nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN310 castle nut: A castellated nut requiring a cotter pin, used for either tensile or shear loads in the course. (Hardware – Nuts and Washers, slides 6, 8.)",
+      "source": {
+        "quiz": 2,
+        "question": "11",
+        "previousScreenshotQuestion": "29",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/castle-nut.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 266,
+          "height": 368,
+          "imageWidth": 266,
+          "imageHeight": 368
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-12",
+      "prompt": "Which bolt type uses the illustrated MS20002 washer to clear its under-head radius?",
+      "options": [
+        "Internal-wrenching bolts",
+        "Clevis pins",
+        "General AN aluminum bolts without this requirement",
+        "Any close-tolerance bolt solely because of its tolerance"
+      ],
+      "correctIndex": 0,
+      "explanation": "MS20002 countersunk washer: The high-strength washer whose recessed face accommodates an internal-wrenching bolt's under-head radius. (Hardware – Nuts and Washers, slides 31, 38.)",
+      "source": {
+        "quiz": 2,
+        "question": "12",
+        "previousScreenshotQuestion": "14",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/special-washer.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 325,
+          "height": 280,
+          "imageWidth": 325,
+          "imageHeight": 280
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-13-fibre",
+      "prompt": "Which designation matches the fibre self-locking nut?",
+      "options": [
+        "AN365",
+        "AN310",
+        "AN320",
+        "AN315"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN365 fibre self-locking nut: A low-temperature nylon-insert nut described for tension or shear loads, with a course limit below 250°F. (Hardware – Nuts and Washers, slides 16, 21.)",
+      "source": {
+        "quiz": 2,
+        "question": "13-fibre",
+        "previousScreenshotQuestion": "10-fibre",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-13-shear",
+      "prompt": "Which designation matches the shear castle nut?",
+      "options": [
+        "AN320",
+        "AN310",
+        "AN315",
+        "AN316"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN320 shear castle nut: A thinner castellated nut requiring a cotter pin and intended for shear loads only. (Hardware – Nuts and Washers, slides 6, 9.)",
+      "source": {
+        "quiz": 2,
+        "question": "13-shear",
+        "previousScreenshotQuestion": "10-shear",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-13-castle",
+      "prompt": "Which designation matches the castle nut?",
+      "options": [
+        "AN310",
+        "AN320",
+        "AN315",
+        "AN316"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN310 castle nut: A castellated nut requiring a cotter pin, used for either tensile or shear loads in the course. (Hardware – Nuts and Washers, slides 6, 8.)",
+      "source": {
+        "quiz": 2,
+        "question": "13-castle",
+        "previousScreenshotQuestion": "10-castle",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-13-plain",
+      "prompt": "Which designation matches the plain nut?",
+      "options": [
+        "AN315",
+        "AN310",
+        "AN320",
+        "AN316"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN315 plain nut: A nut without castellations, available in left- or right-hand threads, requiring a suitable separate locking method. (Hardware – Nuts and Washers, slides 6, 11.)",
+      "source": {
+        "quiz": 2,
+        "question": "13-plain",
+        "previousScreenshotQuestion": "10-plain",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-13-wing",
+      "prompt": "Which designation matches the wing nut?",
+      "options": [
+        "AN350",
+        "AN310",
+        "AN320",
+        "AN315"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN350 wing nut: A hand-installed nut for quick removal in nonstructural applications, secured with lockwire as taught in the course. (Hardware – Nuts and Washers, slides 6, 13.)",
+      "source": {
+        "quiz": 2,
+        "question": "13-wing",
+        "previousScreenshotQuestion": "10-wing",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-13-metal",
+      "prompt": "Which designation matches the metal self-locking nut?",
+      "options": [
+        "NAS679",
+        "AN310",
+        "AN320",
+        "AN315"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS679 metal self-locking nut: The low-profile all-metal self-locking nut family identified by NAS679 in the course. (Hardware – Nuts and Washers, slides 16, 25.)",
+      "source": {
+        "quiz": 2,
+        "question": "13-metal",
+        "previousScreenshotQuestion": "10-metal",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-14",
+      "prompt": "What is the nominal fastener diameter of AN970-5 penny washer?",
+      "options": [
+        "5/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN970-5 penny washer: nominal fastener diameter = 5/16 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "14",
+        "previousScreenshotQuestion": "4",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-15",
+      "prompt": "What is the nominal fastener diameter of AN960PD-10 plain washer?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960PD-10 plain washer: nominal fastener diameter = 3/16 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "15",
+        "previousScreenshotQuestion": "7",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-16",
+      "prompt": "Identify the nut in the supplied quiz illustration.",
+      "options": [
+        "AN355 slotted engine nut",
+        "AN310 castle nut",
+        "AN320 shear castle nut",
+        "AN315 plain nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN355 slotted engine nut: An engine nut with cotter-pin slots, described for engine rather than airframe use. (Hardware – Nuts and Washers, slides 6, 15.)",
+      "source": {
+        "quiz": 2,
+        "question": "16",
+        "previousScreenshotQuestion": "3",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/engine-nut.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 364,
+          "height": 205,
+          "imageWidth": 364,
+          "imageHeight": 205
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-17",
+      "prompt": "Identify the washers in the supplied quiz photograph.",
+      "options": [
+        "AN960 plain washer",
+        "AN935 split lock washer",
+        "AN936 shake-proof washer",
+        "AN970 penny washer"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960 plain washer: The standard plain-washer family providing a bearing surface in the course. (Hardware – Nuts and Washers, slides 31, 32.)",
+      "source": {
+        "quiz": 2,
+        "question": "17",
+        "previousScreenshotQuestion": "5",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/plain-washers.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 309,
+          "height": 161,
+          "imageWidth": 309,
+          "imageHeight": 161
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-18",
+      "prompt": "How is matching bolt diameter indicated on AN310 and AN320 nuts in the course?",
+      "options": [
+        "In sixteenths of an inch",
+        "In quarters of an inch",
+        "In eighths of an inch",
+        "In thirty-seconds of an inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN310/AN320 size suffixes identify matching bolt diameter in sixteenths. This is a nominal fastener size, not wrench size across the nut flats.",
+      "source": {
+        "quiz": 2,
+        "question": "18",
+        "previousScreenshotQuestion": "12",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-19",
+      "prompt": "Which listed part number identifies a self-locking nut?",
+      "options": [
+        "AN365",
+        "AN315",
+        "AN310",
+        "AN350"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN365 fibre self-locking nut: A low-temperature nylon-insert nut described for tension or shear loads, with a course limit below 250°F. (Hardware – Nuts and Washers, slides 16, 21.)",
+      "source": {
+        "quiz": 2,
+        "question": "19",
+        "previousScreenshotQuestion": "13",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-20",
+      "prompt": "How is the threaded shank of AN6-11 identified in the course?",
+      "options": [
+        "Drilled, because the A suffix is absent",
+        "Undrilled, because every AN bolt has an A suffix",
+        "Drilled only in the head, as shown by an H code",
+        "Undrilled, because 11 identifies the material"
+      ],
+      "correctIndex": 0,
+      "explanation": "The A suffix indicates an undrilled threaded shank. AN6-11 has no A suffix, so the course identifies a cotter-pin hole in the threaded shank. The size digits do not indicate material.",
+      "source": {
+        "quiz": 2,
+        "question": "20",
+        "previousScreenshotQuestion": "17",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-21-an310-6",
+      "prompt": "What is the nominal bolt diameter of AN310-6?",
+      "options": [
+        "3/8 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN310-6: nominal bolt diameter = 3/8 inch. AN310/AN320 size suffixes identify matching bolt diameter in sixteenths. This is a nominal fastener size, not wrench size across the nut flats. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "21-an310-6",
+        "previousScreenshotQuestion": "26-an310-6",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-21-an320-4",
+      "prompt": "What is the nominal bolt diameter of AN320-4?",
+      "options": [
+        "1/4 inch",
+        "3/16 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN320-4: nominal bolt diameter = 1/4 inch. AN310/AN320 size suffixes identify matching bolt diameter in sixteenths. This is a nominal fastener size, not wrench size across the nut flats. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "21-an320-4",
+        "previousScreenshotQuestion": "26-an320-4",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-21-an320-8",
+      "prompt": "What is the nominal bolt diameter of AN320-8?",
+      "options": [
+        "1/2 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN320-8: nominal bolt diameter = 1/2 inch. AN310/AN320 size suffixes identify matching bolt diameter in sixteenths. This is a nominal fastener size, not wrench size across the nut flats. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "21-an320-8",
+        "previousScreenshotQuestion": "26-an320-8",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-21-an310-5",
+      "prompt": "What is the nominal bolt diameter of AN310-5?",
+      "options": [
+        "5/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN310-5: nominal bolt diameter = 5/16 inch. AN310/AN320 size suffixes identify matching bolt diameter in sixteenths. This is a nominal fastener size, not wrench size across the nut flats. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "21-an310-5",
+        "previousScreenshotQuestion": "26-an310-5",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-22",
+      "prompt": "What is the grip length of NAS1105-7?",
+      "options": [
+        "7/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1105-7: grip length = 7/16 inch. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "22",
+        "previousScreenshotQuestion": "25",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-23",
+      "prompt": "What is the diameter and grip of NAS1104-5?",
+      "options": [
+        "1/4 inch diameter; 5/16 inch grip",
+        "1/8 inch diameter; 5/32 inch grip",
+        "1/2 inch diameter; 5/8 inch grip",
+        "11/32 inch diameter; 1/4 inch grip"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1104-5: diameter and grip = 1/4 inch diameter; 5/16 inch grip. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "23",
+        "previousScreenshotQuestion": "16",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-24",
+      "prompt": "What is the length of AN5-30A?",
+      "options": [
+        "3 inches",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN5-30A: length = 3 inches. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "24",
+        "previousScreenshotQuestion": "15",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-25",
+      "prompt": "Identify the nut in the supplied quiz illustration.",
+      "options": [
+        "AN316 check nut",
+        "AN310 castle nut",
+        "AN320 shear castle nut",
+        "AN315 plain nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN316 check / jam nut: A thin nut used to lock a plain nut by tightening against it. (Hardware – Nuts and Washers, slides 6, 12.)",
+      "source": {
+        "quiz": 2,
+        "question": "25",
+        "previousScreenshotQuestion": "20",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/check-nut.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 170,
+          "height": 316,
+          "imageWidth": 170,
+          "imageHeight": 316
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-26",
+      "prompt": "What is the diameter of AN5-6A?",
+      "options": [
+        "5/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN5-6A: diameter = 5/16 inch. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. Source correction: nut-quiz question 11 prints 5/15 inch, while bolt-quiz question 4 gives 5/16 inch for this same part. The 5/15 entry is a typo. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "26",
+        "previousScreenshotQuestion": "11",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-27",
+      "prompt": "Identify the nut in the supplied quiz illustration.",
+      "options": [
+        "AN350 wing nut",
+        "AN310 castle nut",
+        "AN320 shear castle nut",
+        "AN315 plain nut"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN350 wing nut: A hand-installed nut for quick removal in nonstructural applications, secured with lockwire as taught in the course. (Hardware – Nuts and Washers, slides 6, 13.)",
+      "source": {
+        "quiz": 2,
+        "question": "27",
+        "previousScreenshotQuestion": "22",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/wing-nut.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 408,
+          "height": 165,
+          "imageWidth": 408,
+          "imageHeight": 165
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-28",
+      "prompt": "What is the diameter of NAS1103-5?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1103-5: diameter = 3/16 inch. The marked answer review explicitly gives the NAS1103 example as 3/16 inch. The dash field identifies grip, not diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 2,
+        "question": "28",
+        "previousScreenshotQuestion": "30",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-29",
+      "prompt": "Identify the spring nut in the supplied quiz illustration.",
+      "options": [
+        "Tinnerman anchor-type nut",
+        "Fixed nut plate",
+        "Tinnerman U-type nut",
+        "Floating nut plate"
+      ],
+      "correctIndex": 0,
+      "explanation": "The spring-sheet anchor nut has mounting holes at its ends and formed spring tabs at the screw opening. The course identifies it as a Tinnerman anchor type, rather than a solid threaded nut plate.",
+      "source": {
+        "quiz": 2,
+        "question": "29",
+        "previousScreenshotQuestion": "18",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/tinnerman-anchor.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 452,
+          "height": 263,
+          "imageWidth": 452,
+          "imageHeight": 263
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-2-30",
+      "prompt": "What does H indicate in the course example NAS6204-5H?",
+      "options": [
+        "Drilled head",
+        "Drilled threaded shank",
+        "Material type",
+        "No hole in the head"
+      ],
+      "correctIndex": 0,
+      "explanation": "The supplied answer review identifies the H in NAS6204-5H as a drilled head. This concerns the head, not the shank diameter or material; use the designation rules for the particular NAS family.",
+      "source": {
+        "quiz": 2,
+        "question": "30",
+        "previousScreenshotQuestion": "28",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Nuts & Washers"
+      }
+    }
+  ],
+  [
+    {
+      "id": "structures-quiz-v2-3-1",
+      "prompt": "What is the length of AN5-27?",
+      "options": [
+        "2 7/8 inches",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN5-27: length = 2 7/8 inches. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "1",
+        "previousScreenshotQuestion": "22",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-2",
+      "prompt": "What is the diameter of NAS6205-3H?",
+      "options": [
+        "5/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS6205-3H: diameter = 5/16 inch. The marked answer review identifies this family/size as 5/16 inch. H identifies head drilling, not diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "2",
+        "previousScreenshotQuestion": "7",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-3",
+      "prompt": "Identify the pliers in the supplied quiz photograph.",
+      "options": [
+        "Camloc pliers",
+        "Lineman pliers",
+        "Duckbill pliers",
+        "Cleco pliers"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Camloc slide names Camloc pliers for installation. (Hardware – Screws, Pins, Turn Lock Fasteners, slide 30.)",
+      "source": {
+        "quiz": 3,
+        "question": "3",
+        "previousScreenshotQuestion": "20",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/camloc-pliers.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 324,
+          "height": 167,
+          "imageWidth": 324,
+          "imageHeight": 167
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-4",
+      "prompt": "What is the diameter of AN6-7A?",
+      "options": [
+        "3/8 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN6-7A: diameter = 3/8 inch. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "4",
+        "previousScreenshotQuestion": "1",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-5",
+      "prompt": "Identify the turn-lock stud and spring shown in the supplied quiz illustration.",
+      "options": [
+        "Dzus fastener",
+        "Camloc fastener",
+        "Airloc fastener",
+        "Rivet"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dzus: The quick-release fastener whose panel-mounted stud grips an airframe-mounted spring, with a grommet retaining the stud in the panel. (Hardware – Screws, Pins, Turn Lock Fasteners, slides 26, 27.)",
+      "source": {
+        "quiz": 3,
+        "question": "5",
+        "previousScreenshotQuestion": "26",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/dzus.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 215,
+          "height": 236,
+          "imageWidth": 215,
+          "imageHeight": 236
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-6",
+      "prompt": "Identify the pin in the supplied quiz illustration.",
+      "options": [
+        "Roll pin",
+        "Cotter pin",
+        "Clevis pin",
+        "Taper pin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Roll pin: A spring-steel cylinder with a gap that compresses for a spring-tension press fit, used as a pivot, guide or lock. (Hardware – Screws, Pins, Turn Lock Fasteners, slides 20, 21.)",
+      "source": {
+        "quiz": 3,
+        "question": "6",
+        "previousScreenshotQuestion": "6",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/roll-pin.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 162,
+          "imageWidth": 255,
+          "imageHeight": 162
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-7",
+      "prompt": "Identify the exploded turn-lock fastener shown in the supplied quiz illustration.",
+      "options": [
+        "Camloc fastener",
+        "Dzus fastener",
+        "Airloc fastener",
+        "Rivet"
+      ],
+      "correctIndex": 0,
+      "explanation": "Camloc: The quick-release fastener described with a stud assembly, grommet and receptacle; the cam action and spring force provide locking. (Hardware – Screws, Pins, Turn Lock Fasteners, slides 26, 29.)",
+      "source": {
+        "quiz": 3,
+        "question": "7",
+        "previousScreenshotQuestion": "12",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/camloc.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 164,
+          "height": 240,
+          "imageWidth": 164,
+          "imageHeight": 240
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-8-a",
+      "prompt": "Which point does the course's type A self-tapping screw have?",
+      "options": [
+        "Sharp point",
+        "Blunt point",
+        "No point and no threads",
+        "Separate cross pin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Type A has a sharp point. (Hardware – Screws, Pins, Turn Lock Fasteners, slide 18.)",
+      "source": {
+        "quiz": 3,
+        "question": "8-a",
+        "previousScreenshotQuestion": "17-a",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-8-b",
+      "prompt": "Which point does the course's type B self-tapping screw have?",
+      "options": [
+        "Blunt point",
+        "Sharp point",
+        "No threads",
+        "Cotter-pin eye"
+      ],
+      "correctIndex": 0,
+      "explanation": "Type B has a blunt point and comparatively finer threads. (Hardware – Screws, Pins, Turn Lock Fasteners, slide 18.)",
+      "source": {
+        "quiz": 3,
+        "question": "8-b",
+        "previousScreenshotQuestion": "17-b",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-9",
+      "prompt": "Identify the screw head shown in the supplied quiz illustration.",
+      "options": [
+        "Fillister head",
+        "Round head",
+        "Truss head",
+        "Flat head"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fillister-head screw: The course's slotted, raised-head machine-screw example, with a head drilled for lockwire. (Hardware – Screws, Pins, Turn Lock Fasteners, slide 9.)",
+      "source": {
+        "quiz": 3,
+        "question": "9",
+        "previousScreenshotQuestion": "9",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/fillister-head.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 295,
+          "height": 91,
+          "imageWidth": 295,
+          "imageHeight": 91
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-10",
+      "prompt": "What is the grip length of NAS1404-6?",
+      "options": [
+        "3/8 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1404-6: grip length = 3/8 inch. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "10",
+        "previousScreenshotQuestion": "11",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-11",
+      "prompt": "According to the supplied quiz key, what length is listed for the item called a “cotter pin: AN392-6”?",
+      "options": [
+        "3/16 inch",
+        "1/2 inch",
+        "1 inch",
+        "3/4 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "The supplied graded key reports 3/16 inch. Its description conflicts with the course deck, which identifies AN392 as a clevis-pin family, and the printed designation does not clearly establish the intended length field. This is a flagged key-recall question, not a verified cotter-pin decoding example. Do not apply the AN380 length rule to it.",
+      "source": {
+        "quiz": 3,
+        "question": "11",
+        "previousScreenshotQuestion": "11",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-12",
+      "prompt": "Identify the headed pin with the transverse retaining hole.",
+      "options": [
+        "Clevis pin",
+        "Roll pin",
+        "Cotter pin",
+        "Taper pin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Clevis pin: A headed pin with a transverse cotter-pin hole, used where a secured pivot connection is required. (Hardware – Screws, Pins, Turn Lock Fasteners, slides 20, 22.)",
+      "source": {
+        "quiz": 3,
+        "question": "12",
+        "previousScreenshotQuestion": "21",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/clevis-pin.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 418,
+          "height": 145,
+          "imageWidth": 418,
+          "imageHeight": 145
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-13",
+      "prompt": "What is the nominal fastener diameter of AN960PD10?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960PD10: nominal fastener diameter = 3/16 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "13",
+        "previousScreenshotQuestion": "2",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-14",
+      "prompt": "Which listed part is an oversize penny washer?",
+      "options": [
+        "AN970-5",
+        "AN960-10",
+        "AN320-5",
+        "NAS679-3"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN970 penny washer: The plain-washer family with an enlarged outside diameter. (Hardware – Nuts and Washers, slides 31, 32, 34.)",
+      "source": {
+        "quiz": 3,
+        "question": "14",
+        "previousScreenshotQuestion": "30",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-15",
+      "prompt": "What material does the supplied review identify for washer AN960PD416?",
+      "options": [
+        "Aluminum",
+        "Brass",
+        "Magnesium",
+        "Steel"
+      ],
+      "correctIndex": 0,
+      "explanation": "The review identifies AN960PD416 as aluminum. PD is used for aluminum in these specific course washer examples; do not transfer an unrelated bolt or nut family's suffix rules to this washer.",
+      "source": {
+        "quiz": 3,
+        "question": "15",
+        "previousScreenshotQuestion": "18",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-16-c",
+      "prompt": "In the supplied AN bolt matching set, what does C indicate?",
+      "options": [
+        "Corrosion-resistant steel",
+        "Hole in the head",
+        "Aluminum alloy",
+        "No hole in the threaded shank"
+      ],
+      "correctIndex": 0,
+      "explanation": "C: The material letter identifying corrosion-resistant steel in the AN bolt examples. (Hardware – Bolts and Threaded Fasteners, slides 35, 41.)",
+      "source": {
+        "quiz": 3,
+        "question": "16-c",
+        "previousScreenshotQuestion": "24-c",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-16-h",
+      "prompt": "In the supplied AN bolt matching set, what does H indicate?",
+      "options": [
+        "Hole in the head",
+        "Corrosion-resistant steel",
+        "Aluminum alloy",
+        "No hole in the threaded shank"
+      ],
+      "correctIndex": 0,
+      "explanation": "H: The letter in an AN bolt designation that indicates a drilled head. (Hardware – Bolts and Threaded Fasteners, slides 36, 41.)",
+      "source": {
+        "quiz": 3,
+        "question": "16-h",
+        "previousScreenshotQuestion": "24-h",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-16-dd",
+      "prompt": "In the supplied AN bolt matching set, what does DD indicate?",
+      "options": [
+        "Aluminum alloy",
+        "Corrosion-resistant steel",
+        "Hole in the head",
+        "No hole in the threaded shank"
+      ],
+      "correctIndex": 0,
+      "explanation": "DD: The material letters identifying aluminum alloy in the AN bolt examples. (Hardware – Bolts and Threaded Fasteners, slides 35, 41.)",
+      "source": {
+        "quiz": 3,
+        "question": "16-dd",
+        "previousScreenshotQuestion": "24-dd",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-16-a",
+      "prompt": "In the supplied AN bolt matching set, what does A indicate?",
+      "options": [
+        "No hole in the threaded shank",
+        "Corrosion-resistant steel",
+        "Hole in the head",
+        "Aluminum alloy"
+      ],
+      "correctIndex": 0,
+      "explanation": "A: The suffix in the illustrated AN bolt designations indicating no cotter-pin hole in the threaded shank. (Hardware – Bolts and Threaded Fasteners, slides 36, 41, 43.)",
+      "source": {
+        "quiz": 3,
+        "question": "16-a",
+        "previousScreenshotQuestion": "24-a",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-17",
+      "prompt": "What is the diameter and length of AN5H-3A?",
+      "options": [
+        "5/16 inch diameter; 3/8 inch length",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN5H-3A: diameter and length = 5/16 inch diameter; 3/8 inch length. In these AN bolt examples, the number following AN identifies shank diameter in sixteenths of an inch; the dash field describes length, not diameter. The AN length examples separate whole inches from remaining eighths. Length is measured from under the hex head to the shank end; it is distinct from unthreaded grip length. H identifies head drilling; A identifies an undrilled threaded shank. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "17",
+        "previousScreenshotQuestion": "19",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-18",
+      "prompt": "In the supplied review, which designation matches the illustrated 82° countersunk screw?",
+      "options": [
+        "AN505",
+        "AN503",
+        "AN507",
+        "AN515"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Presentation 7 answer review explicitly pairs this 82° illustration with AN505. Contrast its pictured angle with the separate 100° AN507 illustration. Earlier slide-angle wording conflicts are retained in the source notes; this question is specific to this reviewed illustration.",
+      "source": {
+        "quiz": 3,
+        "question": "18",
+        "previousScreenshotQuestion": "10",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/flat-82.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 226,
+          "height": 277,
+          "imageWidth": 226,
+          "imageHeight": 277
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-19",
+      "prompt": "In the supplied review, which designation matches the illustrated 100° countersunk screw?",
+      "options": [
+        "AN507",
+        "AN505",
+        "AN515",
+        "AN503"
+      ],
+      "correctIndex": 0,
+      "explanation": "The supplied Presentation 7 review identifies this 100° flat-head illustration as AN507. The other pictured countersunk screw is 82° and is identified as AN505; select using the reviewed illustration rather than the inconsistent angle wording in older slides.",
+      "source": {
+        "quiz": 3,
+        "question": "19",
+        "previousScreenshotQuestion": "29",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/flat-100.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 188,
+          "height": 196,
+          "imageWidth": 188,
+          "imageHeight": 196
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-20",
+      "prompt": "What does grip length refer to on a bolt?",
+      "options": [
+        "Length of the unthreaded portion",
+        "Length measured from under the head to the end",
+        "Major diameter",
+        "Length of the threaded portion"
+      ],
+      "correctIndex": 0,
+      "explanation": "Grip length: The length of the unthreaded portion of a bolt. (Hardware – Bolts and Threaded Fasteners, slide 40.)",
+      "source": {
+        "quiz": 3,
+        "question": "20",
+        "previousScreenshotQuestion": "28",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-21",
+      "prompt": "What is the diameter and grip of NAS1104-5?",
+      "options": [
+        "1/4 inch diameter; 5/16 inch grip",
+        "1/8 inch diameter; 5/32 inch grip",
+        "1/2 inch diameter; 5/8 inch grip",
+        "5/16 inch diameter; 1/4 inch grip"
+      ],
+      "correctIndex": 0,
+      "explanation": "NAS1104-5: diameter and grip = 1/4 inch diameter; 5/16 inch grip. The course NAS examples specify grip in sixteenths, not AN-style total length in whole inches and eighths. Grip is the unthreaded part; the screenshot's generic word ‘length’ is qualified here. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "21",
+        "previousScreenshotQuestion": "27",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-22",
+      "prompt": "Which three turn-lock fastener families are listed in the supplied quiz?",
+      "options": [
+        "Dzus, Camloc and Airloc",
+        "Fillister, washer-head and flat-head",
+        "Fillister, round-head and truss-head",
+        "Flat, Phillips and Robertson"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dzus, Camloc and Airloc are turn-lock fastener families. Screw head shapes and screwdriver drive types are separate classifications.",
+      "source": {
+        "quiz": 3,
+        "question": "22",
+        "previousScreenshotQuestion": "3",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-23",
+      "prompt": "Which three structural screw head styles are listed in the course quiz?",
+      "options": [
+        "Fillister, washer-head and flat-head",
+        "Washer-head, truss-head and Camloc",
+        "Fillister, round-head and truss-head",
+        "Dzus, Camloc and Airloc"
+      ],
+      "correctIndex": 0,
+      "explanation": "The structural group contains fillister, washer-head and flat-head styles. Structural screws have a grip and bolt-like tolerances; the larger head alone does not establish the structural classification.",
+      "source": {
+        "quiz": 3,
+        "question": "23",
+        "previousScreenshotQuestion": "5",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-24",
+      "prompt": "Which statement describes the uses of roll, clevis, cotter and taper pins in the course?",
+      "options": [
+        "They secure, lock or provide a pivot point, depending on type",
+        "They are all torque-measuring instruments",
+        "They are interchangeable with every threaded bolt",
+        "They all adjust control-cable tension"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pins serve different retaining, locking and pivot roles. A roll pin uses spring tension, a clevis pin forms a retained pivot, a cotter pin locks or retains, and a taper pin fits a tapered joint; they are not interchangeable simply because all are pins.",
+      "source": {
+        "quiz": 3,
+        "question": "24",
+        "previousScreenshotQuestion": "8",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-25-an380-5-2",
+      "prompt": "What is the diameter of AN380-5-2?",
+      "options": [
+        "5/32 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN380-5-2: diameter = 5/32 inch. For this AN380 family the first dash field specifies diameter in thirty-seconds; the second field specifies length. These four explicit sizes come from the supplied matching answer review. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "25-an380-5-2",
+        "previousScreenshotQuestion": "23-an380-5-2",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-25-an380-6-5",
+      "prompt": "What is the diameter of AN380-6-5?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN380-6-5: diameter = 3/16 inch. For this AN380 family the first dash field specifies diameter in thirty-seconds; the second field specifies length. These four explicit sizes come from the supplied matching answer review. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "25-an380-6-5",
+        "previousScreenshotQuestion": "23-an380-6-5",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-25-an380-4-2",
+      "prompt": "What is the diameter of AN380-4-2?",
+      "options": [
+        "1/8 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN380-4-2: diameter = 1/8 inch. For this AN380 family the first dash field specifies diameter in thirty-seconds; the second field specifies length. These four explicit sizes come from the supplied matching answer review. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "25-an380-4-2",
+        "previousScreenshotQuestion": "23-an380-4-2",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-25-an380-3-4",
+      "prompt": "What is the diameter of AN380-3-4?",
+      "options": [
+        "3/32 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN380-3-4: diameter = 3/32 inch. For this AN380 family the first dash field specifies diameter in thirty-seconds; the second field specifies length. These four explicit sizes come from the supplied matching answer review. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "25-an380-3-4",
+        "previousScreenshotQuestion": "23-an380-3-4",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-26",
+      "prompt": "What are the three general classifications of aircraft screws in the course?",
+      "options": [
+        "Machine, structural and self-tapping",
+        "Structural, fuel-tank and airframe",
+        "Wood, rivet and machine",
+        "Bolts, screws and rivets"
+      ],
+      "correctIndex": 0,
+      "explanation": "Machine, structural and self-tapping classify screws by their construction and application. Machine screws are generally fully threaded; structural screws have bolt-like strength and a grip; self-tapping screws form or cut their mating threads in suitable material.",
+      "source": {
+        "quiz": 3,
+        "question": "26",
+        "previousScreenshotQuestion": "13",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-27",
+      "prompt": "What is the nominal bolt diameter of AN310-8?",
+      "options": [
+        "1/2 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN310-8: nominal bolt diameter = 1/2 inch. AN310/AN320 size suffixes identify matching bolt diameter in sixteenths. This is a nominal fastener size, not wrench size across the nut flats. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "27",
+        "previousScreenshotQuestion": "15",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-28-an960616l",
+      "prompt": "What is the nominal fastener diameter of AN960616L?",
+      "options": [
+        "3/8 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960616L: nominal fastener diameter = 3/8 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. L denotes the light-thickness version, not a different nominal diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "28-an960616l",
+        "previousScreenshotQuestion": "16-an960616l",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-28-an960pd516",
+      "prompt": "What is the nominal fastener diameter of AN960PD516?",
+      "options": [
+        "5/16 inch",
+        "3/16 inch",
+        "1/4 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960PD516: nominal fastener diameter = 5/16 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. L denotes the light-thickness version, not a different nominal diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "28-an960pd516",
+        "previousScreenshotQuestion": "16-an960pd516",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-28-an960pd10",
+      "prompt": "What is the nominal fastener diameter of AN960PD10?",
+      "options": [
+        "3/16 inch",
+        "1/4 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960PD10: nominal fastener diameter = 3/16 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. L denotes the light-thickness version, not a different nominal diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "28-an960pd10",
+        "previousScreenshotQuestion": "16-an960pd10",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-28-an960416l",
+      "prompt": "What is the nominal fastener diameter of AN960416L?",
+      "options": [
+        "1/4 inch",
+        "3/16 inch",
+        "5/16 inch",
+        "3/8 inch"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN960416L: nominal fastener diameter = 1/4 inch. This is the nominal matching fastener size in the supplied washer reference, not the washer's outside diameter. Washer size codes must be read for their own family. L denotes the light-thickness version, not a different nominal diameter. Read the appropriate family fields and use the sizing guide for the method.",
+      "source": {
+        "quiz": 3,
+        "question": "28-an960416l",
+        "previousScreenshotQuestion": "16-an960416l",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-29",
+      "prompt": "Identify the structural screw shown in the supplied illustration.",
+      "options": [
+        "Washer-head structural screw",
+        "Truss-head machine screw",
+        "Flat-head structural screw",
+        "Fillister-head structural screw"
+      ],
+      "correctIndex": 0,
+      "explanation": "AN525 washer-head structural screw: A structural screw with a washer formed as part of its head to increase the bearing area. (Hardware – Screws, Pins, Turn Lock Fasteners, slide 17.)",
+      "source": {
+        "quiz": 3,
+        "question": "29",
+        "previousScreenshotQuestion": "4",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      },
+      "diagram": {
+        "src": "/structures/posted-hardware/washer-head.webp",
+        "alt": "Supplied course quiz illustration; use the visible shape and labels to identify the hardware.",
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 153,
+          "height": 270,
+          "imageWidth": 153,
+          "imageHeight": 270
+        }
+      }
+    },
+    {
+      "id": "structures-quiz-v2-3-30",
+      "prompt": "What historical expansion of SAE is used by this course?",
+      "options": [
+        "Society of Automotive Engineers",
+        "Standard Aviation Equipment",
+        "Standard of Aviation Excellence",
+        "Society of Aviation Engineers"
+      ],
+      "correctIndex": 0,
+      "explanation": "The course uses the historical expansion Society of Automotive Engineers for SAE. (Hardware – Bolts and Threaded Fasteners, slides 7, 9.)",
+      "source": {
+        "quiz": 3,
+        "question": "30",
+        "previousScreenshotQuestion": "14",
+        "basis": "Supplied graded quiz results",
+        "quizTitle": "Screws, Pins & Turn-Lock Fasteners"
+      }
+    }
+  ]
+]
