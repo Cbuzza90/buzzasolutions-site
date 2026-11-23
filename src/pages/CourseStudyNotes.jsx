@@ -52,11 +52,11 @@ function NotesContent({ notes, question, questionReferences }) {
   </div>;
 }
 
-export function StudyNotesGuide({ basePath, question, questionReferences }) {
+export function StudyNotesGuide({ basePath, question, questionReferences, notesOverride }) {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef(null);
   const titleId = useId();
-  const notes = studyNotesByModule[basePath];
+  const notes = notesOverride ?? studyNotesByModule[basePath];
   useEffect(() => {
     if (!open) return;
     const dialog = dialogRef.current;

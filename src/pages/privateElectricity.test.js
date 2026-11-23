@@ -1,0 +1,37 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { build } from "esbuild";
+import { mkdir } from "node:fs/promises";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+import process from "node:process";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { MemoryRouter } from "react-router-dom";
+import { newPracticeAttempt, savePracticeAttempt, recordHighestScore } from "./practiceProgress.js";
+
+test("private route starts locked and the shared engine accepts isolated notes and score storage", async () => {
+  const folder = resolve("tmp/private-ui-tests");
+  await mkdir(folder, { recursive: true });
+  const output = resolve(folder, "private-ui.mjs");
+  await build({ stdin: { contents: 'export { default as Private } from "./src/pages/PrivateElectricityTest.jsx"; export { default as Choice } from "./src/pages/MultipleChoicePractice.jsx";', resolveDir: process.cwd(), loader: "js" }, outfile: output, bundle: true, platform: "node", format: "esm", packages: "external", jsx: "automatic", loader: { ".css": "empty" }, logLevel: "silent" });
+  const ui = await import(pathToFileURL(output).href);
+  const path = "/study/electricity/module-2/private-test";
+  const render = (component, props) => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [path] }, createElement(component, props)));
+  const locked = render(ui.Private, {});
+  assert.match(locked, /Private Test/);
+  assert.match(locked, /type="password"/);
+  assert.ok(!locked.includes("study-answer-options"));
+  assert.ok(!locked.includes("Open study notes"));
+  const questions = [{ id: "private-fixture", prompt: "Private fixture prompt", options: ["Fixture correct", "Fixture two", "Fixture three", "Fixture four"], correctIndex: 0, explanation: "Private fixture explanation." }];
+  const records = new Map(), storage = { getItem: key => records.get(key) ?? null, setItem: (key, value) => records.set(key, value) };
+  const attempt = newPracticeAttempt(questions);
+  attempt.answers[attempt.order[0].id] = attempt.order[0].correctIndex;
+  attempt.complete = true;
+  savePracticeAttempt(questions, path, attempt, storage);
+  recordHighestScore(questions, path, 1, storage);
+  const html = render(ui.Choice, { questions, progressKey: path, storage, basePath: "/study/electricity/module-2", course: "Electricity", testTitle: "Private Test", studyNotes: { course: "Private Fixture", intro: "Fixture", basis: "Fixture", sections: [{ id: "fixture", title: "Fixture", items: [["Private fixture", "Fixture explanation"]] }] } });
+  assert.match(html, /Nice work finishing/);
+  assert.match(html, /Highest score/);
+  assert.match(html, /Open Private Fixture study notes/);
+});

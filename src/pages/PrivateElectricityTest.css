@@ -1,0 +1,10 @@
+.private-electricity-test{max-width:700px;margin-inline:auto}
+.private-test-password{display:grid;gap:12px;max-width:400px;margin-top:24px}
+.private-test-password label{font-weight:700}
+.private-test-password input{box-sizing:border-box;width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;font-size:16px;background:var(--surface,#fff);color:var(--ink)}
+.private-test-password input:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
+.study-app[data-theme=dark] .private-test-password input{background:#121212;color:var(--ink)}
+.private-test-password [role=alert]{color:var(--ink);margin:0}
+.private-test-password button{justify-self:start}
+.private-test-lock{display:flex;justify-content:flex-end;margin:12px 0}
+.private-test-password button:disabled,.private-test-lock button:disabled{opacity:.65;cursor:wait}

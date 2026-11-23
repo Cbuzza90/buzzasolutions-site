@@ -12,6 +12,10 @@ export function ElectricityModule2TestList() {
     <p className="study-eyebrow">AIRCRAFT ELECTRICITY 1</p><h1>Module 2</h1>
     <p className="study-detail-description">Batteries · Electromagnetic induction · DC generators &amp; controls</p>
     <ModuleStudyOverview basePath={electricityModule2Path} />
+    <Link className="study-option-link study-test-link" to={`${electricityModule2Path}/private-test`}>
+      <span className="study-test-link-heading"><strong>Private Test</strong><span className="study-format-badge">Password required</span></span>
+      <span className="study-test-link-description">Enter the password to open <ChevronRight size={19} /></span>
+    </Link>
     <h2>Bold-text study notes</h2>
     <Link className="study-option-link study-test-link" to={electricityBoldPractice.path}>
       <span className="study-test-link-heading"><strong>{electricityBoldPractice.title}</strong><span className="study-format-badge">Multiple Choice</span></span>
