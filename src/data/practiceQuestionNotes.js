@@ -55,10 +55,10 @@ function referenceText(question) {
   return `Answer: ${answer}${/[.!?]$/.test(answer) ? "" : "."} ${explanation}`;
 }
 
-export function practiceQuestionNotes(basePath, banks = practiceBanksByModule[basePath] ?? []) {
+export function practiceQuestionNotes(basePath) {
   let choiceNumber = 0, typedNumber = 0;
   const seenAerodynamicsReferences = new Set();
-  return banks.map((questions, index) => {
+  return (practiceBanksByModule[basePath] ?? []).map((questions, index) => {
     const title = questions === electricityBoldQuestions ? "Bold-Text Review" : structuresHardwareQuizParts.find(part => part.questions === questions)?.title ?? (questions === mathTest2Questions ? "Math Test 2 · 30-question practice" : questions === mathTest2ExtendedQuestions ? "Math Test 2 · Extended practice" : questions === mathTest2GroupedQuestions ? "Math Test 2 · Five of each type" : questions === systemsModule2Easy ? "Systems Test 2 · Easy Review" : questions === systemsModule2Medium ? "Systems Hydraulic Components · Medium" : questions === systemsModule2Hard ? "Systems Component Recall · Hard" : questions === safetyTest2ReviewQuestions ? "Safety Test 2 Review" : questions === techPubWorksheetQuestions ? "Test 2 Worksheet Practice" : questions[0]?.answer ? `One-Word Test #${++typedNumber}` : `Practice Test #${++choiceNumber}`);
     return {
       id: `practice-reference-${index + 1}`,

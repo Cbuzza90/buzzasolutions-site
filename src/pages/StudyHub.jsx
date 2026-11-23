@@ -1,4 +1,3 @@
-import PrivateElectricityTest from "./PrivateElectricityTest";
 import TechPubPractice, { TechPubTestList, TechPubWorksheetPractice, TechPubMediumPractice } from "./TechPubPractice";
 import AtaStudySheet from "./AtaStudySheet";
 import SafetyModule2Practice, { SafetyModule2TestList } from "./SafetyModule2Practice";
@@ -164,7 +163,6 @@ export default function StudyHub() {
         <Route path="/study/electricity/module-1" element={<ElectricityTestList />} />
         <Route path="/study/electricity/module-2" element={<ElectricityModule2TestList />} />
         <Route path="/study/electricity/module-2/notes" element={<CourseStudyNotes basePath="/study/electricity/module-2" />} />
-        <Route path="/study/electricity/module-2/private-test" element={<PrivateElectricityTest />} />
         <Route path="/study/electricity/module-2/:testSlug" element={<ElectricityModule2Practice />} />
         <Route path="/study/electricity/module-1/practice-1" element={<ElectricityPractice />} />
         <Route path="/study/electricity/module-1/practice-2" element={<ElectricityEasyPractice />} />

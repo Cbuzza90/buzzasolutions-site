@@ -18,18 +18,18 @@ function focusQuestion(ref) {
   target?.focus();
 }
 
-export default function MultipleChoicePractice({ questions, testNumber, course, basePath, testTitle = `Practice Test #${testNumber}`, reference, endless = false, questionCount = questions.length, progressKey, sampleQuestions, compactTorqueLayout = false, storage, studyNotes }) {
+export default function MultipleChoicePractice({ questions, testNumber, course, basePath, testTitle = `Practice Test #${testNumber}`, reference, endless = false, questionCount = questions.length, progressKey, sampleQuestions, compactTorqueLayout = false }) {
   const { pathname } = useLocation();
   const testId = progressKey ?? (endless ? `${pathname}:endless` : questionCount !== questions.length ? `${pathname}:${questionCount}` : pathname);
-  const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId, storage, questionCount, sampleQuestions));
-  const [best, setBest] = useState(() => loadHighestScore(questions, testId, storage, questionCount));
+  const [attempt, setAttempt] = useState(() => loadPracticeAttempt(questions, testId, undefined, questionCount, sampleQuestions));
+  const [best, setBest] = useState(() => loadHighestScore(questions, testId, undefined, questionCount));
   const [storageError, setStorageError] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const { order, position, answers, complete } = attempt;
   const commitAttempt = useCallback(next => {
     setAttempt(next);
-    setStorageError(!savePracticeAttempt(questions, testId, next, storage));
-  }, [questions, testId, storage]);
+    setStorageError(!savePracticeAttempt(questions, testId, next));
+  }, [questions, testId]);
   const headingRef = useRef(null);
   const feedbackRef = useRef(null);
   const question = order[position];
@@ -56,7 +56,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
     if (!answered) return;
     feedbackRef.current?.close();
     if (position === order.length - 1) {
-      const result = recordHighestScore(questions, testId, score, storage, questionCount);
+      const result = recordHighestScore(questions, testId, score, undefined, questionCount);
       setBest(result.best);
       setJustCompleted(!endless);
       commitAttempt(endless ? nextEndlessRound(questions, attempt) : { ...attempt, complete: true });
@@ -69,10 +69,10 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
     setJustCompleted(false);
     feedbackRef.current?.close();
     commitAttempt(newPracticeAttempt(questions, Math.random, questionCount, sampleQuestions));
-    setBest(loadHighestScore(questions, testId, storage, questionCount));
+    setBest(loadHighestScore(questions, testId, undefined, questionCount));
     window.scrollTo({ top: 0, behavior: "instant" });
     requestAnimationFrame(() => focusQuestion(headingRef));
-  }, [commitAttempt, questions, testId, questionCount, sampleQuestions, storage]);
+  }, [commitAttempt, questions, testId, questionCount, sampleQuestions]);
   useEffect(() => {
     const reset = event => { if (event.detail?.testId === pathname) restart(); };
     window.addEventListener(RESET_PRACTICE_EVENT, reset);
@@ -82,7 +82,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
 
   if (complete) {
     const missed = order.filter(item => answers[item.id] !== item.correctIndex);
-    return <section className="study-detail study-test"><p className="study-eyebrow">{course.toUpperCase()} · {testTitle.toUpperCase()} · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1>{savedStatus}<div className="study-result"><strong>{score}<span> / {order.length}</span></strong><p>{Math.round(score / order.length * 100)}% correct</p><p>{missed.length === 0 ? "You answered every question correctly." : `${missed.length} question${missed.length === 1 ? "" : "s"} to review below.`}</p></div><PeerTutoringSupport justCompleted={justCompleted} score={score} total={order.length} course={course} /><StudyNotesGuide notesOverride={studyNotes} basePath={basePath} />{missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(item => <article key={item.id}><h3>{item.prompt}</h3><p className="study-missed-answer">Your answer: {letters[answers[item.id]]}. {item.options[answers[item.id]]}</p><p><strong>Correct: {letters[item.correctIndex]}. {item.options[item.correctIndex]}</strong></p><p>{item.explanation}</p></article>)}</section>}<div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div></section>;
+    return <section className="study-detail study-test"><p className="study-eyebrow">{course.toUpperCase()} · {testTitle.toUpperCase()} · COMPLETE</p><h1 ref={headingRef} tabIndex={-1}>Nice work finishing!</h1>{savedStatus}<div className="study-result"><strong>{score}<span> / {order.length}</span></strong><p>{Math.round(score / order.length * 100)}% correct</p><p>{missed.length === 0 ? "You answered every question correctly." : `${missed.length} question${missed.length === 1 ? "" : "s"} to review below.`}</p></div><PeerTutoringSupport justCompleted={justCompleted} score={score} total={order.length} course={course} /><StudyNotesGuide basePath={basePath} />{missed.length > 0 && <section className="study-missed"><h2>Review your mistakes</h2>{missed.map(item => <article key={item.id}><h3>{item.prompt}</h3><p className="study-missed-answer">Your answer: {letters[answers[item.id]]}. {item.options[answers[item.id]]}</p><p><strong>Correct: {letters[item.correctIndex]}. {item.options[item.correctIndex]}</strong></p><p>{item.explanation}</p></article>)}</section>}<div className="study-flow-actions"><Link to={basePath}><ArrowLeft size={18} /> Tests</Link><button className="study-primary" onClick={restart}><RotateCcw size={18} /> Try again</button></div></section>;
   }
 
   const compactToolbar = compactTorqueLayout && <span className="study-torque-count">{position + 1}/{order.length} &middot; {score} correct</span>;
@@ -90,7 +90,7 @@ export default function MultipleChoicePractice({ questions, testNumber, course, 
     const state = answered ? index === question.correctIndex ? "correct" : index === selected ? "wrong" : "" : "";
     return <button type="button" key={index} className={`study-answer ${state}`} disabled={answered} aria-pressed={selected === index} onClick={() => chooseAnswer(index)}><span className="study-answer-letter">{letters[index]}</span>{question.optionImages?.[index] && <img className="study-answer-image" src={question.optionImages[index]} alt="" />}<span>{option}</span>{state === "correct" && <CheckCircle2 size={20} aria-label="Correct answer" />}{state === "wrong" && <XCircle size={20} aria-label="Incorrect answer" />}</button>;
   })}</div>
-    {compactTorqueLayout ? <div className="study-torque-notes-footer"><StudyNotesGuide notesOverride={studyNotes} basePath={basePath} question={question} /></div> : <StudyNotesGuide notesOverride={studyNotes} basePath={basePath} question={question} />}
+    {compactTorqueLayout ? <div className="study-torque-notes-footer"><StudyNotesGuide basePath={basePath} question={question} /></div> : <StudyNotesGuide basePath={basePath} question={question} />}
     <dialog ref={feedbackRef} className="study-answer-dialog" aria-labelledby="study-answer-feedback-title" onCancel={event => event.preventDefault()}>
       {answered && <>
         <div className="study-answer-dialog-content">
