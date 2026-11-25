@@ -30,6 +30,9 @@ export const upcomingTests = [
   { course: "Electricity", courseSlug: "electricity", moduleSlug: "module-2", date: "2026-11-23", title: "Electricity Test", label: "Electricity Test: Monday November 23rd", tone: "notice" },
   { course: "Structures", courseSlug: "structures", moduleSlug: "module-2", date: "2026-11-24", startTime: "12:30", title: "Structures Test", label: "Structures Test: Tuesday November 24th at 12:30 p.m.", tone: "notice" },
   { course: "Engines", courseSlug: "engines", date: "2026-11-30", title: "Engines Test #3", label: "Engines Test #3: Monday November 30th", tone: "notice" },
+  { course: "Technical Publications", courseSlug: "publications", date: "2026-12-04", title: "Technical Publications Test", label: "Technical Publications Test: Friday December 4th", tone: "notice" },
+  { course: "Aerodynamics", courseSlug: "aerodynamics", date: "2026-12-04", title: "Aerodynamics Test", label: "Aerodynamics Test: Friday December 4th", tone: "notice" },
+  { course: "Safety", courseSlug: "safety", moduleSlug: "human-factors", date: "2026-12-12", title: "Health & Safety: Human Factors Quiz", label: "Health & Safety Human Factors Quiz: Saturday December 12th", tone: "notice" },
   { course: "Math", courseSlug: "math", date: "2026-12-14", endDate: "2026-12-18", title: "Math Test #3", label: "Math Test #3: December 14–18", tone: "notice" },
   { course: "Engines", courseSlug: "engines", date: "2027-01-18", title: "Engines Test #4", label: "Engines Test #4: Monday January 18th", tone: "notice" },
 ];
