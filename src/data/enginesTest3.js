@@ -1,6 +1,11 @@
+import { buildEnginesTest3EasyQuestions, enginesTest3QuizDiagrams, enginesTest3QuizNoteSections } from "./enginesTest3Quiz.js";
+
 export const enginesTest3Path = "/study/engines/module-3";
+export const enginesTest3EasyTitle = "Easy Quiz Review";
+export const enginesTest3MediumTitle = "Notes & Review Practice";
 
 export const enginesTest3Diagrams = {
+  ...enginesTest3QuizDiagrams,
   timing: {
     src: "/engines/test3-valve-timing.png",
     alt: "Example four-stroke timing chart showing ignition, valve events and shaded overlap around exhaust TDC.",
@@ -139,7 +144,7 @@ const topics = [
   },
 ];
 
-export const enginesTest3Questions = topics.flatMap(({ entries, source }) =>
+const reviewQuestions = topics.flatMap(({ entries, source }) =>
   entries.map(([id, learningTarget, prompt, options, explanation]) => ({
     id,
     learningTarget,
@@ -151,6 +156,12 @@ export const enginesTest3Questions = topics.flatMap(({ entries, source }) =>
   }))
 );
 
+export const enginesTest3EasyQuestions = buildEnginesTest3EasyQuestions(enginesTest3Diagrams);
+export const enginesTest3Questions = [
+  ...reviewQuestions,
+  ...enginesTest3EasyQuestions.map(question => ({ ...question, appendedToBank: true })),
+];
+
 export const enginesTest3NoteSections = [
   ...topics.map(({ id, title, entries, source, diagramKey, notes = [] }) => ({
     id,
@@ -158,6 +169,7 @@ export const enginesTest3NoteSections = [
     diagramKey,
     items: [...entries.map(([, label, , , explanation]) => [label, explanation]), ...notes, ["Course reference", source]],
   })),
+  ...enginesTest3QuizNoteSections,
   {
     id: "engine-test3-source-checks",
     title: "Source checks",
@@ -167,6 +179,9 @@ export const enginesTest3NoteSections = [
       ["Ignition and valve angles", "Review p. 46 gives an approximate advance while Questions p. 19 gives a wider range. Timing angles shown are examples. Use the specific engine maintenance manual for approved settings."],
       ["Horsepower relationships", "Review p. 96 is ambiguous about actual horsepower. Review pp. 100 and 104 identify brake horsepower as output and indicated minus brake horsepower as friction horsepower."],
       ["Manifold pressure and density", "Condensed p. 74 describes manifold pressure as air weight. MAP measures absolute pressure. The hot-day example on p. 75 is about reduced density as air warms at a given pressure."],
+      ["Hidden quiz choices", "The screenshots cover quiz items 10–25. The matching dropdown choices and key are hidden. The practice questions use the matching definitions, valve timing events, and component counts supported by the review slides."],
+      ["Quiz item 22", "At valve overlap TDC, the exhaust stroke is ending and the intake stroke is beginning. The practice question asks for the transition because both strokes border the same TDC."],
+      ["Quiz items 23–24", "Item 23 uses an undefined P in W=P×D. The practice question uses force × distance, as shown in the lecture. Item 24 compares RPM at a fixed torque because power depends on both torque and speed."],
     ],
   },
 ];

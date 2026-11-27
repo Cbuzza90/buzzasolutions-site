@@ -149,6 +149,7 @@ export default function StudyHub() {
         <Route path="/study/publications/module-2/practice-2" element={<TechPubMediumPractice />} />
         <Route path="/study/engines/module-3" element={<EnginesTest3List />} />
         <Route path="/study/engines/module-3/practice-1" element={<EnginesTest3Practice />} />
+        <Route path="/study/engines/module-3/practice-2" element={<EnginesTest3Practice easy />} />
         <Route path="/study/engines/module-2" element={<EnginesTestList />} />
         <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
         <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />

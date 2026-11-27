@@ -73,6 +73,32 @@ test("question-bank changes invalidate stale grading but source reordering does 
   assert.equal(restorePracticeAttempt(changed, savedRecord(storage)), null);
 });
 
+test("explicit additions preserve a resumed attempt, completed results and the previous best percentage", () => {
+  const storage = memoryStorage();
+  const addition = { ...questions[0], id: "new", prompt: "Added question", appendedToBank: true };
+  const expanded = [...questions, addition];
+  const attempt = newPracticeAttempt(questions, () => 0);
+  attempt.answers[attempt.order[0].id] = attempt.order[0].correctIndex;
+  attempt.position = 1;
+  savePracticeAttempt(questions, testId, attempt, storage);
+  const resumed = loadPracticeAttempt(expanded, testId, storage);
+  assert.deepEqual(resumed.order.slice(0, questions.length), attempt.order);
+  assert.equal(resumed.order.at(-1).id, addition.id);
+  assert.equal(resumed.position, 1);
+  assert.deepEqual(resumed.answers, attempt.answers);
+  savePracticeAttempt(expanded, testId, resumed, storage);
+  assert.deepEqual(loadPracticeAttempt(expanded, testId, storage), resumed);
+
+  attempt.position = questions.length - 1;
+  attempt.answers = Object.fromEntries(attempt.order.map(q => [q.id, q.correctIndex]));
+  attempt.complete = true;
+  savePracticeAttempt(questions, testId, attempt, storage);
+  recordHighestScore(questions, testId, 3, storage);
+  assert.deepEqual(loadPracticeAttempt(expanded, testId, storage), attempt);
+  assert.equal(recordHighestScore(expanded, testId, 3, storage).best.total, 3);
+  assert.equal(recordHighestScore(expanded, testId, 4, storage).best.total, 4);
+});
+
 test("malformed or inconsistent saves safely restart instead of skipping questions", () => {
   const storage = memoryStorage();
   savePracticeAttempt(questions, testId, newPracticeAttempt(questions), storage);

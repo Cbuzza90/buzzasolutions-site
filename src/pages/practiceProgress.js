@@ -37,6 +37,13 @@ function compatibleSignature(questions, signature) {
   return signature === bankSignature(questions) || (questions.some(q => q.previousOptions) && signature === previousBankSignature(questions));
 }
 
+// Only explicitly marked additions can extend a saved full-bank attempt.
+function previousBankBeforeAppend(questions, questionCount) {
+  if (questionCount !== questions.length || !questions.some(question => question.appendedToBank)) return null;
+  const previous = questions.filter(question => !question.appendedToBank);
+  return previous.length ? previous : null;
+}
+
 export function newPracticeAttempt(questions, random = Math.random, questionCount = questions.length, sampleQuestions) {
   const pool = sampleQuestions ? sampleQuestions(questions, questionCount, random) : questions;
   // Opt-in block practice retains method order and shuffles within each block.
@@ -48,6 +55,18 @@ export function newPracticeAttempt(questions, random = Math.random, questionCoun
 }
 
 export function restorePracticeAttempt(questions, record, questionCount = questions.length) {
+  const current = restoreExactAttempt(questions, record, questionCount);
+  if (current || !record) return current;
+  const previousBank = previousBankBeforeAppend(questions, questionCount);
+  if (!previousBank) return null;
+  const previous = restoreExactAttempt(previousBank, record, previousBank.length);
+  if (!previous || previous.complete) return previous;
+
+  const additions = shufflePractice(questions.filter(question => question.appendedToBank));
+  return { ...previous, order: [...previous.order, ...additions] };
+}
+
+function restoreExactAttempt(questions, record, questionCount) {
   try {
     if (!record || record.version !== 1 || !compatibleSignature(questions, record.signature) || !Array.isArray(record.order) || record.order.length !== questionCount) return null;
     const source = new Map(questions.map(q => [String(q.id), q]));
@@ -82,13 +101,19 @@ export function savePracticeAttempt(questions, testId, attempt, storage = storag
 
 export function loadHighestScore(questions, testId, storage = storageForBrowser(), questionCount = questions.length) {
   const record = read(storage, key("best", testId));
-  return record && compatibleSignature(questions, record.signature) && record.total === questionCount && Number.isInteger(record.score) && record.score >= 0 && record.score <= record.total ? record : null;
+  if (!record || !Number.isInteger(record.score) || record.score < 0 || record.score > record.total) return null;
+  if (record.total === questionCount && compatibleSignature(questions, record.signature)) return record;
+  const previousBank = previousBankBeforeAppend(questions, questionCount);
+  return previousBank && record.total === previousBank.length && compatibleSignature(previousBank, record.signature) ? record : null;
 }
 
 export function recordHighestScore(questions, testId, score, storage = storageForBrowser(), questionCount = questions.length) {
   const previous = loadHighestScore(questions, testId, storage, questionCount);
   if (!Number.isInteger(score) || score < 0 || score > questionCount) return { best: previous, saved: false };
-  if (previous && previous.score >= score) return { best: previous, saved: true };
+  if (previous) {
+    const improvement = score * previous.total - previous.score * questionCount;
+    if (improvement < 0 || (improvement === 0 && previous.total === questionCount)) return { best: previous, saved: true };
+  }
   const best = { signature: bankSignature(questions), score, total: questionCount };
   return { best, saved: write(storage, key("best", testId), best) };
 }

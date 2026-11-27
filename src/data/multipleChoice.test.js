@@ -3,17 +3,17 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { systemsMixedQuestions } from "./systemsMixedTest.js";
 import { torqueQuestions } from "./torqueTest.js";
-import { enginesTest3Questions } from "./enginesTest3.js";
+import { enginesTest3EasyQuestions, enginesTest3Questions } from "./enginesTest3.js";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
 import { structuresPostedQuestions } from "./structuresPostedPractice.js";
 import { measuringToolsQuestions } from "./measuringToolsPractice.js";
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import { shufflePractice, scoreAnswers } from "../pages/safetyTestLogic.js";
 const banks = ["safety-module1-test1.json", "safety-module1-test2.json", "safety-module1-recall.json", "systems-hydraulics-test1.json", "electricity-module1-test1.json"].map(name => JSON.parse(readFileSync(new URL(name, import.meta.url), "utf8")));
-banks.push(enginesTest3Questions, systemsMixedQuestions, torqueQuestions, electricityEasyQuestions, humanFactorsQuestions, measuringToolsQuestions, structuresPostedQuestions);
+banks.push(enginesTest3EasyQuestions, enginesTest3Questions, systemsMixedQuestions, torqueQuestions, electricityEasyQuestions, humanFactorsQuestions, measuringToolsQuestions, structuresPostedQuestions);
 
 test("every playable bank uses four unique choices and a valid answer key", () => {
-  assert.deepEqual(banks.map(bank => bank.length), [24, 24, 24, 40, 64, 71, 83, 50, 40, 32, 54, 26]);
+  assert.deepEqual(banks.map(bank => bank.length), [24, 24, 24, 40, 64, 37, 108, 83, 50, 40, 32, 54, 26]);
   for (const bank of banks) for (const q of bank) {
     assert.ok(q.prompt && q.explanation, String(q.id));
     assert.equal(q.options.length, 4, String(q.id));
@@ -41,4 +41,14 @@ test("choice shuffling preserves the correct answer, diagrams, and source data",
     answers[shuffled[0].id] = (shuffled[0].correctIndex + 1) % 4;
     assert.equal(scoreAnswers(shuffled, answers), bank.length - 1);
   }
+});
+
+test("Engines Test 3 includes every supplied quiz item in both difficulty levels", () => {
+  const quizItems = new Set(enginesTest3EasyQuestions.map(q => Number(q.id.split("-")[1])));
+  assert.deepEqual([...quizItems], Array.from({ length: 16 }, (_, index) => index + 10));
+  assert.equal(new Set(enginesTest3Questions.map(q => q.id)).size, enginesTest3Questions.length);
+  assert.deepEqual(
+    enginesTest3Questions.filter(q => q.appendedToBank),
+    enginesTest3EasyQuestions.map(q => ({ ...q, appendedToBank: true })),
+  );
 });
