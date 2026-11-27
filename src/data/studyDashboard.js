@@ -12,6 +12,7 @@ import { aerodynamicsTestParts } from "./aerodynamicsTestParts.js";
 import electricity from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import { electricityModule2Parts } from "./electricityModule2.js";
+import { enginesTest3Questions } from "./enginesTest3.js";
 import { enginesReviewQuestions, enginesAllNotesQuestions } from "./enginesTest2.js";
 import { humanFactorsQuestions } from "./humanFactorsPractice.js";
 import safety1 from "./safety-module1-test1.json" with { type: "json" };
@@ -41,6 +42,7 @@ export const dashboardTests = [
   { ...choice("publications-worksheet", "Publications", "module-2", "Test 2 Worksheet Practice", techPubWorksheetQuestions, "practice-1"), course:"Technical Publications" },
   { ...choice("publications-medium", "Publications", "module-2", "Project & Worksheet Practice · Medium", techPubMediumQuestions, "practice-2", techPubMediumProgressKey), course:"Technical Publications" },
   { ...choice("ata-codes", "Publications", "module-2", "ATA Review Chapters", ataCodeQuestions, "ata-codes", ataProgressKey), course:"Technical Publications" },
+  choice("engines-test-3", "Engines", "module-3", "Notes & Review Practice", enginesTest3Questions, "practice-1"),
   choice("engines-review", "Engines", "module-2", "Review Questions", enginesReviewQuestions, "practice-1"),
   choice("engines-notes", "Engines", "module-2", "Notes & Review Practice", enginesAllNotesQuestions, "practice-2"),
   ...aerodynamicsTestParts,

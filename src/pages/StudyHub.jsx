@@ -19,7 +19,7 @@ import { CourseActivity } from "./StudentDashboard";
 import { loadDashboard } from "../data/studyDashboard.js";
 import StructuresHardwareQuiz from "./StructuresHardwareQuiz";
 import { AerodynamicsTestList, AerodynamicsPartPractice, AerodynamicsReviewPractice, AerodynamicsChoicePractice, AerodynamicsWordPractice } from "./AerodynamicsPractice";
-import { EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
+import { EnginesTest3List, EnginesTest3Practice, EnginesTestList, EnginesReviewPractice, EnginesAllNotesPractice } from "./EnginesPractice";
 import { StructuresTestList } from "./StructuresTorquePractice";
 import CourseStudyNotes from "./CourseStudyNotes";
 import MathTest2Practice, { MathTest2List } from "./MathTest2Practice";
@@ -92,7 +92,10 @@ function CourseList() {
 const courseModules = {
   math: [{ slug: "module-2", title: "Test 2", description: "30-question test & 60-question extended practice · Math, physics & engines" }],
   publications: [{ slug: "module-2", title: "Module 2", description: "Test 2 worksheet, manuals, stations & ATA codes" }],
-  engines: [{ slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" }],
+  engines: [
+    { slug: "module-3", title: "Test 3", description: "Operating cycles, ignition, induction & engine performance" },
+    { slug: "module-2", title: "Test 2", description: "Reciprocating-engine oil & lubrication" },
+  ],
   aerodynamics: [{ slug: "module-2", title: "Module 2", description: "Controls, stability, high-speed flight & aircraft structure" }],
   electricity: [{ slug: "module-2", title: "Module 2", description: "Batteries · Electromagnetic induction · DC generators & controls" }, { slug: "module-1", title: "Module 1", description: "Electrical fundamentals · Circuits & meters" }],
   safety: [
@@ -144,6 +147,8 @@ export default function StudyHub() {
         <Route path="/study/publications/module-2/ata-codes" element={<TechPubPractice />} />
         <Route path="/study/publications/module-2/practice-1" element={<TechPubWorksheetPractice />} />
         <Route path="/study/publications/module-2/practice-2" element={<TechPubMediumPractice />} />
+        <Route path="/study/engines/module-3" element={<EnginesTest3List />} />
+        <Route path="/study/engines/module-3/practice-1" element={<EnginesTest3Practice />} />
         <Route path="/study/engines/module-2" element={<EnginesTestList />} />
         <Route path="/study/engines/module-2/practice-1" element={<EnginesReviewPractice />} />
         <Route path="/study/engines/module-2/practice-2" element={<EnginesAllNotesPractice />} />

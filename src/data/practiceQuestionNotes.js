@@ -12,6 +12,7 @@ import { cotterPinQuestions } from "./cotterPinPractice.js";
 import electricitySource from "./electricity-module1-test1.json" with { type: "json" };
 import { electricityEasyQuestions } from "./electricityEasyReview.js";
 import { electricityModule2Choice, electricityModule2Easy, electricityModule2Recall } from "./electricityModule2.js";
+import { enginesTest3Questions, enginesTest3Path } from "./enginesTest3.js";
 import { enginesReviewQuestions, enginesLectureQuestions } from "./enginesTest2.js";
 import { aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions } from "./aerodynamicsModule2.js";
 import { aerodynamicsReviewQuestions } from "./aerodynamicsReviewPractice.js";
@@ -35,6 +36,7 @@ export const practiceBanksByModule = {
   "/study/systems/module-2": [systemsModule2Easy, systemsModule2Medium, systemsModule2Hard],
   "/study/safety/module-2": [safetyModule2Choice,safetyModule2Recall,safetyEasyReviewQuestions,safetyTest2ReviewQuestions],
   "/study/publications/module-2": [ataCodeQuestions, techPubWorksheetQuestions, techPubMediumQuestions],
+  [enginesTest3Path]: [enginesTest3Questions],
   "/study/engines/module-2": [enginesReviewQuestions, enginesLectureQuestions],
   "/study/aerodynamics/module-2": [aerodynamicsReviewQuestions, aerodynamicsChoiceQuestions, aerodynamicsRecallQuestions],
   "/study/safety/human-factors": [humanFactorsQuestions],
